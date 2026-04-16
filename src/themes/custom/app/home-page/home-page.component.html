@@ -1,0 +1,87 @@
+<section class="uist-hero">
+  <div class="container">
+    <div class="uist-hero__content">
+      <img src="assets/custom/images/uist-mobile-logo.png" alt="UIST St. Paul the Apostle" class="uist-hero__logo"/>
+      <h1>UIST Digital Repository</h1>
+      <p>Discover, preserve, and share scholarly work from the University of Information Science and Technology "St. Paul the Apostle".</p>
+      <ds-search-form [inPlaceSearch]="false"
+        [searchPlaceholder]="'home.search-form.placeholder' | translate">
+      </ds-search-form>
+    </div>
+  </div>
+</section>
+
+<section class="uist-intro">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-5">
+        <div class="uist-intro__panel">
+          <span class="uist-kicker">Academic repository</span>
+          <h2>Knowledge from Ohrid, open to the world</h2>
+          <p>
+            The repository brings together student work, faculty publications, research projects,
+            institutional materials, and digital collections connected to UIST's technology-focused mission.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="uist-feature">
+              <span class="fas fa-graduation-cap" aria-hidden="true"></span>
+              <h3>Theses</h3>
+              <p>Bachelor, master, and doctoral work from UIST academic programmes.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="uist-feature">
+              <span class="fas fa-microscope" aria-hidden="true"></span>
+              <h3>Research</h3>
+              <p>Publications, project outputs, reports, datasets, and technical results.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="uist-feature">
+              <span class="fas fa-building-columns" aria-hidden="true"></span>
+              <h3>Collections</h3>
+              <p>Browse repository communities by faculty, programme, project, or collection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+@if (homeHeaderMetadataValue$ | async; as homeHeaderMetadataValue) {
+  <div class="container home-header">
+    <ds-markdown-viewer [value]="homeHeaderMetadataValue"></ds-markdown-viewer>
+  </div>
+}
+
+<ds-home-coar></ds-home-coar>
+<ds-home-news></ds-home-news>
+
+@if (showDiscoverFilters) {
+  <ds-configuration-search-page
+    [sideBarWidth]="3"
+    [showViewModes]="false"
+    [searchEnabled]="false"
+    [inPlaceSearch]="false"
+    [showScopeSelector]="false">
+    <ng-container searchContentTop *ngTemplateOutlet="homeContent"></ng-container>
+  </ds-configuration-search-page>
+}
+@if (!showDiscoverFilters) {
+  <div class="container home-sections">
+    <ng-container *ngTemplateOutlet="homeContent"></ng-container>
+  </div>
+}
+<ds-suggestions-popup></ds-suggestions-popup>
+
+<ng-template #homeContent>
+  <ds-top-level-community-list></ds-top-level-community-list>
+  @if (recentSubmissionspageSize>0) {
+    <ds-recent-item-list></ds-recent-item-list>
+  }
+</ng-template>

@@ -1,0 +1,37 @@
+input[type="text"] {
+  background-color: #fff !important;
+  border-color: var(--uist-sky);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(8, 34, 58, 0.08);
+  margin-top: calc(-0.3 * var(--bs-font-size-base));
+  right: 0;
+
+  &.collapsed {
+    opacity: 0;
+  }
+
+  &:focus {
+    border-color: var(--uist-blue);
+    box-shadow: 0 0 0 0.2rem rgba(29, 102, 169, 0.18);
+  }
+}
+
+.submit-icon {
+  border: 0 !important;
+  color: var(--ds-header-icon-color);
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+
+  &:hover,
+  &:focus {
+    color: var(--ds-header-icon-color-hover);
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md)) {
+  .query:focus {
+    max-width: 250px !important;
+    width: 40vw !important;
+  }
+}
