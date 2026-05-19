@@ -1,19 +1,11 @@
 :host {
   header {
     background: var(--ds-header-bg);
-    border-top: 5px solid var(--uist-navy);
     box-shadow: 0 8px 24px rgba(8, 34, 58, 0.08);
-
-    &::after {
-      background: linear-gradient(90deg, var(--uist-blue), var(--uist-sky));
-      content: "";
-      display: block;
-      height: 3px;
-    }
   }
 
   .header-shell {
-    min-height: var(--ds-header-height);
+    min-height: 60px;
   }
 
   .navbar-brand {
@@ -23,7 +15,7 @@
   }
 
   .navbar-brand img {
-    max-height: var(--ds-header-logo-height);
+    max-height: 38px;
     max-width: min(443px, 52vw);
     object-fit: contain;
   }
@@ -55,6 +47,14 @@
     .navbar-brand img {
       content: url("/assets/custom/images/uist-mobile-logo.png");
       max-width: min(300px, 62vw);
+    }
+  }
+
+  div[role="toolbar"] ::ng-deep {
+    button.dropdown-toggle,
+    a.loginLink,
+    a.logoutLink {
+      font-size: 1.15rem !important;
     }
   }
 }

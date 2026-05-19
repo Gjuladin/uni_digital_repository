@@ -10,7 +10,7 @@ themes:
     - tagName: link
       attributes:
         rel: icon
-        href: assets/custom/images/uist-mobile-logo.png
+        href: assets/images/uist-favicon.png
         type: image/png
 
 addToAnyPlugin:

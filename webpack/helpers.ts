@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, statSync, Stats } from 'fs';
 import { join, resolve } from 'path';
-import { createHash } from 'node:crypto';
+
+const md5 = require('md5');
 
 export const projectRoot = (relativePath) => {
   return resolve(__dirname, '..', relativePath);
@@ -20,7 +21,7 @@ export const globalCSSImports = () => {
  */
 export function calculateFileHash(filePath: string): string {
   const fileContent: Buffer = readFileSync(filePath);
-  return createHash('md5').update(fileContent).digest('hex');
+  return md5(fileContent);
 }
 
 /**
