@@ -38,8 +38,7 @@ export const info = {
 } as DSpaceESLintRuleInfo;
 
 export const rule = ESLintUtils.RuleCreator.withoutDocs({
-  meta: info.meta,
-  defaultOptions: info.defaultOptions,
+  ...info,
   create(context: TSESLint.RuleContext<Message, unknown[]>) {
     const parserServices = getSourceCode(context).parserServices as TemplateParserServices;
 

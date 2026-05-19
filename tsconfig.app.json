@@ -21,4 +21,7 @@
     "src/**/testing/*",
     "src/**/mocks/*"
   ],
+  "angularCompilerOptions": {
+    "entryModule": "./src/modules/app/browser-app.module#BrowserAppModule"
+  }
 }

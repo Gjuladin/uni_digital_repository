@@ -12,4 +12,7 @@
     "src/main.server.ts",
     "server.ts"
   ],
+  "angularCompilerOptions": {
+    "entryModule": "./src/modules/app/server-app.module#ServerAppModule"
+  }
 }

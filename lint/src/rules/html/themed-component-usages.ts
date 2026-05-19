@@ -53,8 +53,7 @@ The only exception to this rule are unit tests, where we may want to use the bas
 } as DSpaceESLintRuleInfo;
 
 export const rule = ESLintUtils.RuleCreator.withoutDocs({
-  meta: info.meta,
-  defaultOptions: info.defaultOptions,
+  ...info,
   create(context: RuleContext<Message, unknown[]>): RuleListener {
     if (getFilename(context).includes('.spec.ts')) {
       // skip inline templates in unit tests

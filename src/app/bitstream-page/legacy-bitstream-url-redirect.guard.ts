@@ -6,14 +6,13 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { BitstreamDataService } from '@dspace/core/data/bitstream-data.service';
-import { RemoteData } from '@dspace/core/data/remote-data';
-import { PAGE_NOT_FOUND_PATH } from '@dspace/core/router/core-routing-paths';
-import { getBitstreamDownloadRoute } from '@dspace/core/router/utils/dso-route.utils';
-import { HardRedirectService } from '@dspace/core/services/hard-redirect.service';
-import { Bitstream } from '@dspace/core/shared/bitstream.model';
-import { getFirstCompletedRemoteData } from '@dspace/core/shared/operators';
-import { hasNoValue } from '@dspace/shared/utils/empty.util';
+import { PAGE_NOT_FOUND_PATH } from '../app-routing-paths';
+import { BitstreamDataService } from '../core/data/bitstream-data.service';
+import { RemoteData } from '../core/data/remote-data';
+import { HardRedirectService } from '../core/services/hard-redirect.service';
+import { Bitstream } from '../core/shared/bitstream.model';
+import { getFirstCompletedRemoteData } from '../core/shared/operators';
+import { hasNoValue } from '../shared/empty.util';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -39,19 +38,23 @@ export const legacyBitstreamURLRedirectGuard: CanActivateFn = (
   if (hasNoValue(sequenceId)) {
     sequenceId = route.queryParams.sequenceId;
   }
-  return bitstreamDataService.findByItemHandle(
-    `${prefix}/${suffix}`,
-    sequenceId,
-    filename,
-  ).pipe(
-    getFirstCompletedRemoteData(),
-    map((rd: RemoteData<Bitstream>) => {
-      if (rd.hasSucceeded && !rd.hasNoContent) {
-        serverHardRedirectService.redirect(new URL(getBitstreamDownloadRoute(rd.payload), serverHardRedirectService.getBaseUrl()).href, 301);
-        return false;
-      } else {
-        return router.createUrlTree([PAGE_NOT_FOUND_PATH]);
-      }
-    }),
-  );
+  return bitstreamDataService
+    .findByItemHandle(`${prefix}/${suffix}`, sequenceId, filename)
+    .pipe(
+      getFirstCompletedRemoteData(),
+      map((rd: RemoteData<Bitstream>) => {
+        if (rd.hasSucceeded && !rd.hasNoContent) {
+          serverHardRedirectService.redirect(
+            new URL(
+              `/bitstreams/${rd.payload.uuid}/download`,
+              serverHardRedirectService.getBaseUrl(),
+            ).href,
+            301,
+          );
+          return false;
+        } else {
+          return router.createUrlTree([PAGE_NOT_FOUND_PATH]);
+        }
+      }),
+    );
 };

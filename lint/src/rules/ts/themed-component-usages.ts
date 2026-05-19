@@ -68,8 +68,7 @@ There are a few exceptions where the base class can still be used:
 } as DSpaceESLintRuleInfo;
 
 export const rule = ESLintUtils.RuleCreator.withoutDocs({
-  meta: info.meta,
-  defaultOptions: info.defaultOptions,
+  ...info,
   create(context: RuleContext<Message, unknown[]>) {
     const filename = getFilename(context);
 

@@ -1,5 +1,7 @@
 {
-  "menu.section.browse_global": "Browse UIST Repository",
+  // DSpace default: "All of DSpace"
+  "menu.section.browse_global": "Browse DSpace",
 
-  "repository.title.prefix": "UIST Digital Repository :: ",
+  // DSpace default: "DSpace Angular :: "
+  "repository.title.prefix": "DSpace :: ",
 }

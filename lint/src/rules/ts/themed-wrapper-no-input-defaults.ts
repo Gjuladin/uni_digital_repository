@@ -31,8 +31,7 @@ export const info: DSpaceESLintRuleInfo = {
 };
 
 export const rule = ESLintUtils.RuleCreator.withoutDocs({
-  meta: info.meta,
-  defaultOptions: info.defaultOptions,
+  ...info,
   create(context: RuleContext<any, any>, options: any) {
     return {
       'ClassBody > PropertyDefinition > Decorator > CallExpression[callee.name=\'Input\']': (node: TSESTree.CallExpression) => {

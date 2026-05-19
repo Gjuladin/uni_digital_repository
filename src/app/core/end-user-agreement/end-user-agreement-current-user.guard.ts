@@ -1,11 +1,10 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
-import { APP_CONFIG } from '@dspace/config/app-config.interface';
+import { environment } from '../../../environments/environment';
 import { of } from 'rxjs';
 
 import { endUserAgreementGuard } from './end-user-agreement.guard';
 import { EndUserAgreementService } from './end-user-agreement.service';
-
 
 /**
  * Guard for preventing unauthorized access to certain pages
@@ -13,13 +12,11 @@ import { EndUserAgreementService } from './end-user-agreement.service';
 
  */
 export const endUserAgreementCurrentUserGuard: CanActivateFn =
-  endUserAgreementGuard(
-    () => {
-      const endUserAgreementService = inject(EndUserAgreementService);
-      if (!inject(APP_CONFIG).info.enableEndUserAgreement) {
-        return of(true);
-      }
+  endUserAgreementGuard(() => {
+    const endUserAgreementService = inject(EndUserAgreementService);
+    if (!environment.info.enableEndUserAgreement) {
+      return of(true);
+    }
 
-      return endUserAgreementService.hasCurrentUserAcceptedAgreement(true);
-    },
-  );
+    return endUserAgreementService.hasCurrentUserAcceptedAgreement(true);
+  });

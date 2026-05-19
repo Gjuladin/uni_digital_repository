@@ -77,8 +77,7 @@ export const info: DSpaceESLintRuleInfo<[UniqueDecoratorsOptions], [UniqueDecora
 };
 
 export const rule = ESLintUtils.RuleCreator.withoutDocs({
-  meta: info.meta,
-  defaultOptions: info.defaultOptions,
+  ...info,
   create(context: TSESLint.RuleContext<Message, unknown[]>, options: any) {
 
     return {

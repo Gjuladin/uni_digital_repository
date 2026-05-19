@@ -40,18 +40,7 @@
       "jasmine"
     ],
     "useDefineForClassFields": false,
-    "useUnknownInCatchVariables": true,
-    "paths": {
-      "@dspace/core/*": ["src/app/core/*"],
-      "@dspace/config/*": ["src/config/*"],
-      "@dspace/shared/utils/*": ["src/app/utils/*"],
-      "@ng-dynamic-forms/core": [
-        "node_modules/@4science_ng-dynamic-forms/core"
-      ],
-      "@ng-dynamic-forms/ui-ng-bootstrap": [
-        "node_modules/@4science_ng-dynamic-forms/ui-ng-bootstrap"
-      ]
-    }
+    "useUnknownInCatchVariables": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
@@ -66,5 +55,5 @@
   },
   "exclude": [
     "cypress.config.ts"
-  ],
+  ]
 }

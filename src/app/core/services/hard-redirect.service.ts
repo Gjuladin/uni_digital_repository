@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export abstract class HardRedirectService {
-
   /**
    * Perform a hard redirect to a given location.
    *
@@ -16,7 +15,11 @@ export abstract class HardRedirectService {
    * @param shouldSetCorsHeader
    *    optional to prevent CORS error on redirect
    */
-  abstract redirect(url: string, statusCode?: number, shouldSetCorsHeader?: boolean);
+  abstract redirect(
+    url: string,
+    statusCode?: number,
+    shouldSetCorsHeader?: boolean,
+  );
 
   /**
    * Get the current route, with query params included

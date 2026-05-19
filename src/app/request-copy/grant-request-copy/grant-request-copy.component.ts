@@ -1,41 +1,28 @@
 import { AsyncPipe } from '@angular/common';
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  ActivatedRoute,
-  Router,
-} from '@angular/router';
-import { AuthService } from '@dspace/core/auth/auth.service';
-import { ItemRequestDataService } from '@dspace/core/data/item-request-data.service';
-import { RemoteData } from '@dspace/core/data/remote-data';
-import { NotificationsService } from '@dspace/core/notification-system/notifications.service';
-import { getItemModuleRoute } from '@dspace/core/router/core-routing-paths';
-import { HardRedirectService } from '@dspace/core/services/hard-redirect.service';
-import { redirectOn4xx } from '@dspace/core/shared/authorized.operators';
-import { ItemRequest } from '@dspace/core/shared/item-request.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
+
+import { AuthService } from '../../core/auth/auth.service';
+import { ItemRequestDataService } from '../../core/data/item-request-data.service';
+import { RemoteData } from '../../core/data/remote-data';
+import { HardRedirectService } from '../../core/services/hard-redirect.service';
+import { redirectOn4xx } from '../../core/shared/authorized.operators';
+import { ItemRequest } from '../../core/shared/item-request.model';
 import {
   getFirstCompletedRemoteData,
   getFirstSucceededRemoteDataPayload,
-} from '@dspace/core/shared/operators';
-import { RequestCopyEmail } from '@dspace/core/shared/request-copy-email.model';
-import { URLCombiner } from '@dspace/core/url-combiner/url-combiner';
-import { hasValue } from '@dspace/shared/utils/empty.util';
-import {
-  TranslatePipe,
-  TranslateService,
-} from '@ngx-translate/core';
-import { Observable } from 'rxjs';
-import {
-  map,
-  switchMap,
-  tap,
-} from 'rxjs/operators';
-
+} from '../../core/shared/operators';
+import { URLCombiner } from '../../core/url-combiner/url-combiner';
+import { getItemModuleRoute } from '../../item-page/item-page-routing-paths';
+import { hasValue } from '../../shared/empty.util';
 import { ThemedLoadingComponent } from '../../shared/loading/themed-loading.component';
+import { NotificationsService } from '../../shared/notifications/notifications.service';
 import { VarDirective } from '../../shared/utils/var.directive';
+import { RequestCopyEmail } from '../email-request-copy/request-copy-email.model';
 import { ThemedEmailRequestCopyComponent } from '../email-request-copy/themed-email-request-copy.component';
 
 @Component({
@@ -95,9 +82,9 @@ export class GrantRequestCopyComponent implements OnInit {
   /**
    * Preview link to be sent to a request applicant
    */
-  previewLinkOptions:  {
-    routerLink: string,
-    queryParams: any,
+  previewLinkOptions: {
+    routerLink: string;
+    queryParams: any;
   };
   previewLink: string;
 
@@ -111,9 +98,7 @@ export class GrantRequestCopyComponent implements OnInit {
     private itemRequestService: ItemRequestDataService,
     private notificationsService: NotificationsService,
     private hardRedirectService: HardRedirectService,
-  ) {
-
-  }
+  ) {}
 
   /**
    * Initialize the component - get the item request from route data an duse it to populate the form
@@ -129,23 +114,32 @@ export class GrantRequestCopyComponent implements OnInit {
         if (rd.hasSucceeded && hasValue(rd.payload.accessToken)) {
           this.sendAsAttachment = false;
           this.previewLinkOptions = {
-            routerLink: new URLCombiner(getItemModuleRoute(), rd.payload.itemId).toString(),
+            routerLink: new URLCombiner(
+              getItemModuleRoute(),
+              rd.payload.itemId,
+            ).toString(),
             queryParams: {
               accessToken: rd.payload.accessToken,
             },
           };
-          this.previewLink = this.hardRedirectService.getBaseUrl()
-            + this.previewLinkOptions.routerLink + '?accessToken=' + rd.payload.accessToken;
+          this.previewLink =
+            this.hardRedirectService.getBaseUrl() +
+            this.previewLinkOptions.routerLink +
+            '?accessToken=' +
+            rd.payload.accessToken;
         }
       }),
       redirectOn4xx(this.router, this.authService),
     );
 
     // Get configured access periods
-    this.validAccessPeriods$ = this.itemRequestService.getConfiguredAccessPeriods();
+    this.validAccessPeriods$ =
+      this.itemRequestService.getConfiguredAccessPeriods();
 
     // Get the subject line of the email
-    this.subject$ = this.translateService.get('grant-request-copy.email.subject');
+    this.subject$ = this.translateService.get(
+      'grant-request-copy.email.subject',
+    );
   }
 
   /**
@@ -153,22 +147,35 @@ export class GrantRequestCopyComponent implements OnInit {
    * @param email Subject and contents of the message to send back to the user requesting the item
    */
   grant(email: RequestCopyEmail) {
-    this.itemRequestRD$.pipe(
-      getFirstSucceededRemoteDataPayload(),
-      switchMap((itemRequest: ItemRequest) => this.itemRequestService.grant(itemRequest.token, email, this.suggestOpenAccess, this.accessPeriod)),
-      getFirstCompletedRemoteData(),
-    ).subscribe((rd) => {
-      if (rd.hasSucceeded) {
-        this.notificationsService.success(this.translateService.get('grant-request-copy.success'));
-        this.router.navigateByUrl('/');
-      } else {
-        this.notificationsService.error(this.translateService.get('grant-request-copy.error'), rd.errorMessage);
-      }
-    });
+    this.itemRequestRD$
+      .pipe(
+        getFirstSucceededRemoteDataPayload(),
+        switchMap((itemRequest: ItemRequest) =>
+          this.itemRequestService.grant(
+            itemRequest.token,
+            email,
+            this.suggestOpenAccess,
+            this.accessPeriod,
+          ),
+        ),
+        getFirstCompletedRemoteData(),
+      )
+      .subscribe((rd) => {
+        if (rd.hasSucceeded) {
+          this.notificationsService.success(
+            this.translateService.get('grant-request-copy.success'),
+          );
+          this.router.navigateByUrl('/');
+        } else {
+          this.notificationsService.error(
+            this.translateService.get('grant-request-copy.error'),
+            rd.errorMessage,
+          );
+        }
+      });
   }
 
   selectAccessPeriod(accessPeriod: string) {
     this.accessPeriod = accessPeriod;
   }
-
 }

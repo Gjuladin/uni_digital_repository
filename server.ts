@@ -14,8 +14,9 @@
  * from your application's main.server.ts file, as seen below with the
  * import for `ngExpressEngine`.
  */
-import 'reflect-metadata';
+
 import 'zone.js/node';
+import 'reflect-metadata';
 
 /* eslint-disable import/no-namespace */
 import * as morgan from 'morgan';
@@ -38,25 +39,24 @@ import { enableProdMode } from '@angular/core';
 
 import { environment } from './src/environments/environment';
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { hasValue } from '@dspace/shared/utils/empty.util';
+import { hasValue } from './src/app/shared/empty.util';
 import { UIServerConfig } from './src/config/ui-server-config.interface';
 import bootstrap from './src/main.server';
 import { buildAppConfig } from './src/config/config.server';
 import {
   APP_CONFIG,
   AppConfig,
-  toClientConfig,
 } from './src/config/app-config.interface';
 import { extendEnvironmentWithAppConfig } from './src/config/config.util';
 import { logStartupMessage } from './startup-message';
-import { TOKENITEM } from '@dspace/core/auth/models/auth-token-info.model';
+import { TOKENITEM } from './src/app/core/auth/models/auth-token-info.model';
 import { CommonEngine } from '@angular/ssr/node';
 import { APP_BASE_HREF } from '@angular/common';
 import {
   REQUEST,
   RESPONSE,
 } from './src/express.tokens';
-import { SsrExcludePatterns } from './src/config/ssr-config.interface';
+import { SsrExcludePatterns } from "./src/config/ssr-config.interface";
 
 /*
  * Set path for the browser application's dist folder
@@ -145,7 +145,7 @@ export function app() {
   server.get('/robots.txt', (req, res) => {
     res.setHeader('content-type', 'text/plain');
     res.render('assets/robots.txt.ejs', {
-      'origin': environment.ui.baseUrl,
+      'origin': req.protocol + '://' + req.headers.host,
     });
   });
 
@@ -177,14 +177,10 @@ export function app() {
    * When it is present, the rateLimiter will be enabled. When it is undefined, the rateLimiter will be disabled.
    */
   if (hasValue((environment.ui as UIServerConfig).rateLimiter)) {
-    const { rateLimit } = require('express-rate-limit')
-    const limiter = rateLimit({
+    const RateLimit = require('express-rate-limit');
+    const limiter = new RateLimit({
       windowMs: (environment.ui as UIServerConfig).rateLimiter.windowMs,
-      limit: (environment.ui as UIServerConfig).rateLimiter.limit,
-      standardHeaders: true,
-      legacyHeaders: false,
-      // don't log ERR_ERL_PERMISSIVE_TRUST_PROXY if we are trusting proxies
-      validate: {trustProxy: !environment.ui.useProxies},
+      max: (environment.ui as UIServerConfig).rateLimiter.max,
     });
     server.use(limiter);
   }
@@ -245,11 +241,7 @@ function ngApp(req, res, next) {
  */
 function serverSideRender(req, res, next, sendToUser: boolean = true) {
   const { protocol, originalUrl, baseUrl, headers } = req;
-  // "allowedHosts" specifies which hosts are allowed to be rendered via SSR.
-  // By default, this is set to the host of the UI's baseUrl.
-  const commonEngine = new CommonEngine({ enablePerformanceProfiler: environment.ssr.enablePerformanceProfiler,
-                                          allowedHosts: [ new URL(environment.ui.baseUrl).hostname ],
-                                        });
+  const commonEngine = new CommonEngine({ enablePerformanceProfiler: environment.ssr.enablePerformanceProfiler });
   // Render the page via SSR (server side rendering)
   commonEngine
     .render({
@@ -270,7 +262,7 @@ function serverSideRender(req, res, next, sendToUser: boolean = true) {
         },
         {
           provide: APP_CONFIG,
-          useValue: toClientConfig(environment as AppConfig),
+          useValue: environment,
         },
       ],
     })

@@ -88,8 +88,7 @@ export const info: DSpaceESLintRuleInfo<[AliasImportOptions], [AliasImportDocOpt
 };
 
 export const rule = ESLintUtils.RuleCreator.withoutDocs({
-  meta: info.meta,
-  defaultOptions: info.defaultOptions,
+  ...info,
   create(context: TSESLint.RuleContext<Message, unknown[]>, options: any) {
     return (options[0] as AliasImportOptions).aliases.reduce((selectors: any, option: AliasImportOption) => {
       selectors[`ImportDeclaration[source.value = "${option.package}"] > ImportSpecifier[imported.name = "${option.imported}"][local.name != "${option.local}"]`] = (node: TSESTree.ImportSpecifier) => handleUnaliasedImport(context, option, node);
