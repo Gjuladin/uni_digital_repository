@@ -190,7 +190,7 @@ export abstract class InitService {
     );
 
     // Load the fallback language from the config file
-    // translate.setFallbackLang(environment.fallbackLanguage);
+    this.translate.setFallbackLang(environment.fallbackLanguage);
 
     this.localeService.setCurrentLanguageCode();
   }

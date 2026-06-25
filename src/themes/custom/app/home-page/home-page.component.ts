@@ -76,12 +76,8 @@ export class HomePageComponent extends BaseComponent implements OnInit {
   searchFields = [
     { id: 'title', label: 'Title', solr: 'title' },
     { id: 'author', label: 'Author', solr: 'author' },
-    { id: 'mentor', label: 'Mentor', solr: 'advisor' },
-    { id: 'keywords', label: 'Keywords', solr: 'subject' },
     { id: 'abstract', label: 'Abstract', solr: 'abstract' },
     { id: 'year', label: 'Year', solr: 'dateIssued' },
-    { id: 'document type', label: 'Document Type', solr: 'dc.type' },
-    { id: 'research field', label: 'Research Field', solr: 'department' },
   ];
 
   constructor(

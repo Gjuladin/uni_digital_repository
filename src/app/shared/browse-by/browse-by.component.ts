@@ -173,7 +173,12 @@ export class BrowseByComponent implements OnInit, OnChanges, OnDestroy {
    */
   back = () => {
     const page = +this.previousPage$.value > 1 ? +this.previousPage$.value : 1;
-    this.paginationService.updateRoute(this.paginationConfig.id, { page: page }, { [this.paginationConfig.id + '.return']: null, value: null, startsWith: null });
+    this.paginationService.updateRoute(this.paginationConfig.id, { page: page }, {
+      [this.paginationConfig.id + '.return']: null,
+      value: null,
+      startsWith: null,
+      contains: null,
+    });
   };
 
   /**
@@ -192,10 +197,11 @@ export class BrowseByComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit(): void {
     const startsWith$ = this.routeService.getQueryParameterValue('startsWith');
+    const contains$ = this.routeService.getQueryParameterValue('contains');
     const value$ = this.routeService.getQueryParameterValue('value');
 
-    this.shouldDisplayResetButton$ = observableCombineLatest([startsWith$, value$]).pipe(
-      map(([startsWith, value]) => hasValue(startsWith) || hasValue(value)),
+    this.shouldDisplayResetButton$ = observableCombineLatest([startsWith$, contains$, value$]).pipe(
+      map(([startsWith, contains, value]) => hasValue(startsWith) || hasValue(contains) || hasValue(value)),
     );
   }
 

@@ -60,16 +60,19 @@ export class BrowseByTitleComponent extends BrowseByMetadataComponent implements
       this.route.queryParams,
     ]).pipe(
       map(([params, queryParams]: [Params, Params]) => Object.assign({}, params, queryParams)),
-      distinctUntilChanged((prev: Params, curr: Params) => prev.id === curr.id && prev.startsWith === curr.startsWith),
+      distinctUntilChanged((prev: Params, curr: Params) =>
+        prev.id === curr.id &&
+        prev.startsWith === curr.startsWith &&
+        prev.contains === curr.contains),
     );
     this.subs.push(
       observableCombineLatest([
         routeParams$,
-        this.scope$,
-        this.currentPagination$,
-        this.currentSort$,
+      this.scope$,
+      this.currentPagination$,
+      this.currentSort$,
       ]).subscribe(([params, scope, currentPage, currentSort]: [Params, string, PaginationComponentOptions, SortOptions]) => {
-        this.startsWith = +params.startsWith || params.startsWith;
+        this.startsWith = +params.contains || params.contains || +params.startsWith || params.startsWith;
         this.browseId = params.id || this.defaultBrowseId;
         this.updatePageWithItems(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId, this.fetchThumbnails), undefined, undefined);
       }));

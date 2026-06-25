@@ -44,4 +44,15 @@ export class StartsWithTextComponent extends StartsWithAbstractComponent {
     super.setStartsWithParam(resetPage);
   }
 
+  protected getQueryParamName(): string {
+    return 'contains';
+  }
+
+  protected getQueryParams(): Record<string, string | null | undefined> {
+    return {
+      contains: this.startsWith,
+      startsWith: null,
+    };
+  }
+
 }

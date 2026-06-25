@@ -4,6 +4,9 @@ rest:
   port: 8080
   nameSpace: /server
 
+info:
+  enableCOARNotifySupport: false
+
 themes:
   - name: custom
     headTags:

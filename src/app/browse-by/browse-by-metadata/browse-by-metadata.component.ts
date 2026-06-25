@@ -223,7 +223,12 @@ export class BrowseByMetadataComponent implements OnInit, OnChanges, OnDestroy {
       this.route.queryParams,
     ]).pipe(
       map(([params, queryParams]: [Params, Params]) => Object.assign({}, params, queryParams)),
-      distinctUntilChanged((prev: Params, curr: Params) => prev.id === curr.id && prev.authority === curr.authority && prev.value === curr.value && prev.startsWith === curr.startsWith),
+      distinctUntilChanged((prev: Params, curr: Params) =>
+        prev.id === curr.id &&
+        prev.authority === curr.authority &&
+        prev.value === curr.value &&
+        prev.startsWith === curr.startsWith &&
+        prev.contains === curr.contains),
     );
     this.subs.push(
       observableCombineLatest([
@@ -241,11 +246,14 @@ export class BrowseByMetadataComponent implements OnInit, OnChanges, OnDestroy {
           this.value = '';
         }
 
-        if (params.startsWith === undefined || params.startsWith === '') {
+        if ((params.contains === undefined || params.contains === '') &&
+          (params.startsWith === undefined || params.startsWith === '')) {
           this.startsWith = undefined;
         }
 
-        if (typeof params.startsWith === 'string') {
+        if (typeof params.contains === 'string') {
+          this.startsWith = params.contains.trim();
+        } else if (typeof params.startsWith === 'string') {
           this.startsWith = params.startsWith.trim();
         } else {
           this.startsWith = '';
@@ -360,7 +368,7 @@ export function getBrowseSearchOptions(defaultBrowseId: string,
     fetchThumbnails = false;
   }
   return new BrowseEntrySearchOptions(defaultBrowseId, paginationConfig, sortConfig, null,
-    null, fetchThumbnails);
+    null, null, fetchThumbnails);
 }
 
 /**
@@ -383,6 +391,7 @@ export function browseParamsToOptions(params: any,
     paginationConfig,
     sortConfig,
     params.startsWith,
+    params.contains,
     scope,
     fetchThumbnail,
   );

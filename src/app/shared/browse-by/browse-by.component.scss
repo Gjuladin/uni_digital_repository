@@ -1,4 +1,13 @@
 :host {
+  h1 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .reset {
+    max-width: 100%;
+  }
+
   .dropdown-toggle::after {
     display: none;
   }

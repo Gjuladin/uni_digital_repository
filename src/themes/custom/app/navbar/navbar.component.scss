@@ -46,7 +46,7 @@
       display: block;
       font-size: 1.15rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      letter-spacing: 0;
       padding: 0.8rem 1.1rem;
 
       &:hover,
@@ -54,6 +54,45 @@
         background: rgba(107, 182, 223, 0.18);
         color: #fff;
         text-decoration: none;
+      }
+    }
+
+    .ds-menu-toggler-wrapper {
+      align-items: center;
+      color: rgba(255, 255, 255, 0.92);
+      display: flex;
+      font-size: 1.15rem;
+      font-weight: 600;
+      gap: 0.35rem;
+      letter-spacing: 0;
+      padding: 0.8rem 1.1rem;
+
+      &:hover,
+      &:focus,
+      &[aria-expanded="true"] {
+        background: rgba(107, 182, 223, 0.18);
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .ds-menu-item {
+        background: transparent;
+        color: inherit;
+        display: inline;
+        font: inherit;
+        padding: 0;
+        width: auto;
+
+        &:hover,
+        &:focus {
+          background: transparent;
+          color: inherit;
+        }
+      }
+
+      .toggle-menu-icon {
+        color: currentColor;
+        margin-left: 0.1rem;
       }
     }
 
@@ -66,11 +105,31 @@
       .ds-menu-item {
         color: var(--uist-ink);
         font-size: 1.05rem;
+        padding: 0.65rem 0.85rem;
 
         &:hover,
         &:focus {
           background: var(--uist-ice);
           color: var(--uist-blue);
+        }
+      }
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, md)-0.02) {
+      .dropdown-menu {
+        background: transparent;
+        border-top-color: rgba(107, 182, 223, 0.42);
+        box-shadow: none;
+        padding: 0 0 0.35rem 1rem !important;
+
+        .ds-menu-item {
+          color: rgba(255, 255, 255, 0.9);
+
+          &:hover,
+          &:focus {
+            background: rgba(107, 182, 223, 0.16);
+            color: #fff;
+          }
         }
       }
     }
