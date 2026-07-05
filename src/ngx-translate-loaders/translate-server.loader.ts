@@ -1,4 +1,7 @@
-import { readFileSync } from 'node:fs';
+import {
+  existsSync,
+  readFileSync,
+} from 'node:fs';
 
 import { TransferState } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
@@ -32,8 +35,12 @@ export class TranslateServerLoader implements TranslateLoader {
    */
   public getTranslation(lang: string): Observable<any> {
     const translationHash: string = (process.env.languageHashes as any)[lang + '.json5'];
+    const hashedFile = `${this.prefix}${lang}.${translationHash}${this.suffix}`;
+    const fallbackFile = `${this.prefix}${lang}${this.suffix}`;
+    const translationFile = existsSync(hashedFile) ? hashedFile : fallbackFile;
+
     // Retrieve the file for the given language, and parse it
-    const messages = JSON.parse(readFileSync(`${this.prefix}${lang}.${translationHash}${this.suffix}`, 'utf8'));
+    const messages = JSON.parse(readFileSync(translationFile, 'utf8'));
     // Store the parsed messages in the transfer state so they'll be available immediately when the
     // app loads on the client
     this.storeInTransferState(lang, messages);
