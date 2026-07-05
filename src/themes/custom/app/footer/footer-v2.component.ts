@@ -10,8 +10,8 @@ import { FooterComponent as BaseComponent } from '../../../../app/footer/footer.
 
 @Component({
   selector: 'ds-themed-footer',
-  styleUrls: ['./footer.component.scss'],
-  templateUrl: './footer.component.html',
+  styleUrls: ['./footer-v2.component.scss'],
+  templateUrl: './footer-v2.component.html',
   imports: [
     AsyncPipe,
     DatePipe,

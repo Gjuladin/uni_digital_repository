@@ -1075,7 +1075,7 @@
 
   "pagination.page-number-bar": "Control bar for page navigation, relative to element with ID: ",
 
-  "browse.startsWith": ", starting with {{ startsWith }}",
+  "browse.startsWith": ", matching {{ startsWith }}",
 
   "browse.startsWith.choose_start": "(Choose start)",
 
@@ -1119,7 +1119,7 @@
 
   "browse.startsWith.type_date.label": "Or type in a date (year-month) and click on the Browse button",
 
-  "browse.startsWith.type_text": "Filter results by typing the first few letters",
+  "browse.startsWith.type_text": "Filter results by keyword",
 
   "browse.startsWith.input": "Filter",
 
@@ -1978,6 +1978,14 @@
   "footer.link.feedback": "Send Feedback",
 
   "footer.link.coar-notify-support": "COAR Notify",
+
+  "footer.uist.title": "UIST Digital Repository",
+
+  "footer.uist.description": "Research, theses, publications, project outputs, and institutional collections from UIST.",
+
+  "footer.uist.visit-site": "Visit uist.edu.mk",
+
+  "footer.uist.institution": "University of Information Science and Technology \"St. Paul the Apostle\"",
 
   "forgot-email.form.header": "Forgot Password",
 

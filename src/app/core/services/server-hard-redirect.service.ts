@@ -96,4 +96,11 @@ export class ServerHardRedirectService extends HardRedirectService {
   getCurrentOrigin(): string {
     return this.req.protocol + '://' + this.req.headers.host;
   }
+
+  /**
+   * Get the base public URL of the application.
+   */
+  getBaseUrl(): string {
+    return this.appConfig.ui.baseUrl;
+  }
 }

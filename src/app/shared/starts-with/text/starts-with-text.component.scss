@@ -7,3 +7,23 @@
 .form-group {
   margin-bottom: 0;
 }
+
+.input-group {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.form-control {
+  min-width: min(20rem, 100%);
+  flex: 1 1 16rem;
+}
+
+.btn {
+  flex: 0 0 auto;
+}
+
+.text-muted {
+  display: block;
+  max-width: 36rem;
+  overflow-wrap: anywhere;
+}

@@ -4,21 +4,24 @@
       <div class="footer-hero">
         <div class="brand-lockup">
           <div class="brand-mark">
-            <img src="assets/images/uist-logo-full-white.png" alt="UIST St. Paul the Apostle" />
+            <img
+              src="assets/images/uist-logo-full-white.png"
+              [attr.alt]="'repository.image.logo' | translate:{default: 'Repository logo'}"
+            />
           </div>
           <div class="brand-copy">
-            <p class="eyebrow mb-2">UIST Digital Repository</p>
+            <p class="eyebrow mb-2">{{ 'footer.uist.title' | translate:{default: 'UIST Digital Repository'} }}</p>
             <p class="description mb-0">
-              Research, theses, publications, project outputs, and institutional collections from UIST.
+              {{ 'footer.uist.description' | translate:{default: 'Research, theses, publications, project outputs, and institutional collections from UIST.'} }}
             </p>
           </div>
         </div>
-        <a href="https://uist.edu.mk/" class="uist-footer-link" rel="noopener">Visit uist.edu.mk</a>
+        <a href="https://uist.edu.mk/" class="uist-footer-link" rel="noopener">{{ 'footer.uist.visit-site' | translate:{default: 'Visit uist.edu.mk'} }}</a>
       </div>
 
       <div class="footer-meta">
         <p class="footer-copy mb-0">
-          University of Information Science and Technology "St. Paul the Apostle"
+          {{ 'footer.uist.institution' | translate:{default: 'University of Information Science and Technology "St. Paul the Apostle"'} }}
           {{ 'footer.copyright' | translate:{year: dateObj | date:'y'} }}
         </p>
 

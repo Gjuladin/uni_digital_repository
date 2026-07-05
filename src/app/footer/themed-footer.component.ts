@@ -16,7 +16,7 @@ export class ThemedFooterComponent extends ThemedComponent<FooterComponent> {
   }
 
   protected importThemedComponent(themeName: string): Promise<any> {
-    return import(`../../themes/${themeName}/app/footer/footer.component`);
+    return import(`../../themes/${themeName}/app/footer/footer-v2.component`);
   }
 
   protected importUnthemedComponent(): Promise<any> {

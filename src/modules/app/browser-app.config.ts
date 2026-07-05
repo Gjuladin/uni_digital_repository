@@ -67,13 +67,19 @@ import { MissingTranslationHelper } from '../../app/shared/translate/missing-tra
 import { GoogleAnalyticsService } from '../../app/statistics/google-analytics.service';
 import { SubmissionService } from '../../app/submission/submission.service';
 import { REQUEST } from '../../express.tokens';
+import { environment } from '../../environments/environment';
 import { TranslateBrowserLoader } from '../../ngx-translate-loaders/translate-browser.loader';
 import { BrowserInitService } from './browser-init.service';
 
 export const REQ_KEY = makeStateKey<string>('req');
 
 export function createTranslateLoader(transferState: TransferState, http: HttpClient) {
-  return new TranslateBrowserLoader(transferState, http, 'assets/i18n/', '.json');
+  return new TranslateBrowserLoader(
+    transferState,
+    http,
+    'assets/i18n/',
+    environment.production ? '.json' : '.json5',
+  );
 }
 
 export function getRequest(transferState: TransferState): any {

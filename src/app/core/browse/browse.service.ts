@@ -115,6 +115,9 @@ export class BrowseService {
         if (isNotEmpty(options.startsWith)) {
           args.push(`startsWith=${options.startsWith}`);
         }
+        if (isNotEmpty(options.contains)) {
+          args.push(`contains=${encodeURIComponent(options.contains)}`);
+        }
         if (isNotEmpty(args)) {
           href = new URLCombiner(href, `?${args.join('&')}`).toString();
         }
@@ -156,6 +159,9 @@ export class BrowseService {
         }
         if (isNotEmpty(options.startsWith)) {
           args.push(`startsWith=${options.startsWith}`);
+        }
+        if (isNotEmpty(options.contains)) {
+          args.push(`contains=${encodeURIComponent(options.contains)}`);
         }
         if (isNotEmpty(filterValue)) {
           args.push(`filterValue=${encodeURIComponent(filterValue)}`);

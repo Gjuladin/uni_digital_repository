@@ -7,6 +7,7 @@ import { SortOptions } from '../cache/models/sort-options.model';
  * - pagination:          Optional pagination options to use
  * - sort:                Optional sorting options to use
  * - startsWith           An optional value to use to filter the browse results
+ * - contains             An optional value to use to perform a contains search on the browse results
  * - scope:               An optional scope to limit the results within a specific collection or community
  * - fetchThumbnail       An optional boolean to request thumbnail for items
  */
@@ -15,6 +16,7 @@ export class BrowseEntrySearchOptions {
               public pagination?: PaginationComponentOptions,
               public sort?: SortOptions,
               public startsWith?: string,
+              public contains?: string,
               public scope?: string,
               public fetchThumbnail?: boolean) {
   }

@@ -45,8 +45,9 @@
 
   @media screen and (max-width: map-get($grid-breakpoints, md)-0.02) {
     .navbar-brand img {
-      content: url("/assets/custom/images/uist-mobile-logo.png");
-      max-width: min(300px, 62vw);
+      content: url("/assets/images/uist-logo-mini-color.png");
+      max-height: 42px;
+      max-width: 72px;
     }
   }
 

@@ -27,6 +27,7 @@
             "allowedCommonJsDependencies": [
               "cerialize",
               "core-js",
+              "json5",
               "lodash",
               "jwt-decode",
               "uuid",

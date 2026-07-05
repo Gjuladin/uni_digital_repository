@@ -1,5 +1,5 @@
 /* eslint-disable dspace-angular-ts/themed-component-usages */
-import { FooterComponent } from './app/footer/footer.component';
+import { FooterComponent } from './app/footer/footer-v2.component';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';

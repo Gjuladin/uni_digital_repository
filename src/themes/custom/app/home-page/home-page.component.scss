@@ -5,7 +5,7 @@
 .uist-hero {
   background:
     linear-gradient(105deg, rgba(8, 34, 58, 0.96) 0%, rgba(10, 61, 104, 0.78) 100%),
-    url("/assets/custom/images/uist-cover.jpg") center / cover;
+    url("/assets/images/uist-cover.jpg") center / cover;
   color: #fff;
   margin-top: calc(var(--ds-content-spacing) * -1);
   min-height: clamp(200px, 28vh, 320px);
