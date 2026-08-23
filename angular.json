@@ -50,9 +50,9 @@
                 "bundleName": "base-theme"
               },
               {
-                "input": "src/themes/custom/styles/theme.scss",
+                "input": "src/themes/uist/styles/theme.scss",
                 "inject": false,
-                "bundleName": "custom-theme"
+                "bundleName": "uist-theme"
               },
               {
                 "input": "src/themes/dspace/styles/theme.scss",

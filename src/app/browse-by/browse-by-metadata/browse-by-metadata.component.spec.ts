@@ -19,7 +19,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { APP_CONFIG } from '@dspace/config/app-config.interface';
 import { BrowseService } from '@dspace/core/browse/browse.service';
 import { BrowseEntrySearchOptions } from '@dspace/core/browse/browse-entry-search-options.model';
-import { SortDirection } from '@dspace/core/cache/models/sort-options.model';
+import {
+  SortDirection,
+  SortOptions,
+} from '@dspace/core/cache/models/sort-options.model';
 import { DSpaceObjectDataService } from '@dspace/core/data/dspace-object-data.service';
 import {
   buildPaginatedList,
@@ -33,6 +36,7 @@ import { BrowseEntry } from '@dspace/core/shared/browse-entry.model';
 import { Community } from '@dspace/core/shared/community.model';
 import { Item } from '@dspace/core/shared/item.model';
 import { PageInfo } from '@dspace/core/shared/page-info.model';
+import { ValueListBrowseDefinition } from '@dspace/core/shared/value-list-browse-definition.model';
 import { ActivatedRouteStub } from '@dspace/core/testing/active-router.stub';
 import { PaginationServiceStub } from '@dspace/core/testing/pagination-service.stub';
 import { routeServiceStub } from '@dspace/core/testing/route-service.stub';
@@ -57,6 +61,7 @@ import { VarDirective } from '../../shared/utils/var.directive';
 import {
   BrowseByMetadataComponent,
   browseParamsToOptions,
+  getBrowseFilterValue,
   getBrowseSearchOptions,
 } from './browse-by-metadata.component';
 
@@ -124,7 +129,9 @@ describe('BrowseByMetadataComponent', () => {
     findById: () => createSuccessfulRemoteDataObject$(mockCommunity),
   };
 
-  const activatedRouteStub = Object.assign(new ActivatedRouteStub({ id: 'author' }), {
+  const activatedRouteStub = Object.assign(new ActivatedRouteStub({ id: 'author' }, {
+    browseDefinition: Object.assign(new ValueListBrowseDefinition(), { id: 'author', supportsContains: false }),
+  }), {
     params: of({ id: 'author' }),
   });
 
@@ -213,6 +220,8 @@ describe('BrowseByMetadataComponent', () => {
     beforeEach(() => {
       const paramsScope = {
         scope: 'fake-scope',
+        startsWith: 'S',
+        contains: 'mith',
       };
       const paginationOptions = Object.assign(new PaginationComponentOptions(), {
         currentPage: 5,
@@ -223,18 +232,60 @@ describe('BrowseByMetadataComponent', () => {
         field: 'fake-field',
       };
 
-      result = browseParamsToOptions(paramsScope, 'fake-scope', paginationOptions, sortOptions, 'author', comp.fetchThumbnails);
+      result = browseParamsToOptions(paramsScope, 'fake-scope', paginationOptions, sortOptions, 'title',
+        comp.fetchThumbnails, true);
+    });
+
+    it('should use contains for Author and not for Subject or custom metadata browses', () => {
+      const paramsScope = {
+        startsWith: 'S',
+        contains: 'mith',
+      };
+      const paginationOptions = Object.assign(new PaginationComponentOptions(), {
+        currentPage: 1,
+        pageSize: comp.appConfig.browseBy.pageSize,
+      });
+      const sortOptions = new SortOptions('subject', SortDirection.ASC);
+
+      const authorOptions = browseParamsToOptions({ ...paramsScope }, undefined, paginationOptions, sortOptions, 'author',
+        undefined, true);
+      expect(authorOptions.startsWith).toBeUndefined();
+      expect(authorOptions.contains).toEqual('mith');
+
+      ['subject', 'advisor'].forEach((browseId) => {
+        const options = browseParamsToOptions({ ...paramsScope }, undefined, paginationOptions, sortOptions, browseId,
+          undefined, false);
+        expect(options.startsWith).toEqual('S');
+        expect(options.contains).toBeUndefined();
+      });
     });
 
     it('should return BrowseEntrySearchOptions with the correct properties', () => {
 
-      expect(result.metadataDefinition).toEqual('author');
+      expect(result.metadataDefinition).toEqual('title');
       expect(result.pagination.currentPage).toEqual(5);
       expect(result.pagination.pageSize).toEqual(10);
       expect(result.sort.direction).toEqual(SortDirection.ASC);
       expect(result.sort.field).toEqual('fake-field');
+      expect(result.startsWith).toBeUndefined();
+      expect(result.contains).toEqual('mith');
+      expect(result.contains).toEqual('mith');
       expect(result.scope).toEqual('fake-scope');
       expect(result.fetchThumbnail).toBeTrue();
+    });
+  });
+
+  describe('when resolving text browse route parameters', () => {
+    it('should prefer contains for supported Title browse when both parameters are supplied', () => {
+      expect(getBrowseFilterValue({ startsWith: 'S', contains: 'mith' }, true)).toEqual('mith');
+    });
+
+    it('should retain startsWith for unsupported Subject browse even when a manual URL supplies contains', () => {
+      expect(getBrowseFilterValue({ startsWith: 'S', contains: 'mith' }, false)).toEqual('S');
+    });
+
+    it('should retain legacy startsWith when contains is absent', () => {
+      expect(getBrowseFilterValue({ startsWith: 'S' })).toEqual('S');
     });
   });
 

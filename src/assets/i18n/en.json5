@@ -1147,6 +1147,12 @@
 
   "browse.startsWith": ", starting with {{ startsWith }}",
 
+  "browse.contains": ", containing {{ contains }}",
+
+  "browse.search-form.placeholder": "Search this browse index",
+
+  "uist.nav.communities-and-collections.all": "View all communities & collections",
+
   "browse.startsWith.choose_start": "(Choose start)",
 
   "browse.startsWith.choose_year": "(Choose year)",
@@ -2093,6 +2099,14 @@
 
   "footer.link.coar-notify-support": "COAR Notify",
 
+  "footer.uist.title": "UIST Digital Repository",
+
+  "footer.uist.description": "Research, theses, publications, project outputs, and institutional collections from UIST.",
+
+  "footer.uist.visit-site": "Visit uist.edu.mk",
+
+  "footer.uist.institution": "University of Information Science and Technology \"St. Paul the Apostle\"",
+
   "forgot-email.form.header": "Forgot Password",
 
   "forgot-email.form.info": "Enter the email address associated with the account.",
@@ -2369,7 +2383,7 @@
 
   "home.title": "Home",
 
-  "home.top-level-communities.head": "Communities in DSpace",
+  "home.top-level-communities.head": "Communities in UIST",
 
   "home.top-level-communities.help": "Select a community to browse its collections.",
 
@@ -3636,7 +3650,7 @@
 
   "login.form.forgot-password": "Have you forgotten your password?",
 
-  "login.form.header": "Please log in to DSpace",
+  "login.form.header": "Please log in to UIST",
 
   "login.form.new-user": "New user? Click here to register.",
 
@@ -3656,7 +3670,7 @@
 
   "login.breadcrumbs": "Login",
 
-  "logout.form.header": "Log out from DSpace",
+  "logout.form.header": "Log out from UIST",
 
   "logout.form.submit": "Log out",
 
@@ -3698,7 +3712,7 @@
 
   "menu.section.browse_community_by_title": "By Title",
 
-  "menu.section.browse_global": "All of DSpace",
+  "menu.section.browse_global": "All of UIST",
 
   "menu.section.browse_global_by_author": "By Author",
 
@@ -3850,7 +3864,7 @@
 
   "metadata.security.level.title": "Metatada security level {{level}}",
 
-  "mydspace.breadcrumbs": "MyDSpace",
+  "mydspace.breadcrumbs": "MyUIST",
 
   "mydspace.description": "",
 
@@ -3904,7 +3918,7 @@
 
   "mydspace.results.no-uri": "No URI",
 
-  "mydspace.search-form.placeholder": "Search in MyDSpace...",
+  "mydspace.search-form.placeholder": "Search in MyUIST...",
 
   "mydspace.show.workflow": "Workflow tasks",
 
@@ -3914,7 +3928,7 @@
 
   "mydspace.show.supervisedWorkspace": "Supervised items",
 
-  "mydspace.status": "My DSpace status:",
+  "mydspace.status": "My UIST status:",
 
   "mydspace.status.mydspaceArchived": "Archived",
 
@@ -3926,7 +3940,7 @@
 
   "mydspace.status.mydspaceWorkspace": "Workspace",
 
-  "mydspace.title": "MyDSpace",
+  "mydspace.title": "MyUIST",
 
   "mydspace.upload.upload-failed": "Error creating new workspace. Please verify the content uploaded before retry.",
 
@@ -3946,7 +3960,7 @@
 
   "notification.suggestion.please": "Please",
 
-  "nav.browse.header": "All of DSpace",
+  "nav.browse.header": "All of UIST",
 
   "nav.community-browse.header": "By Community",
 
@@ -3962,7 +3976,7 @@
 
   "nav.main.description": "Main navigation bar",
 
-  "nav.mydspace": "MyDSpace",
+  "nav.mydspace": "MyUIST",
 
   "nav.profile": "Profile",
 
@@ -4688,9 +4702,9 @@
 
   "repository.image.logo": "Repository logo",
 
-  "repository.title": "DSpace Repository",
+  "repository.title": "UIST Repository",
 
-  "repository.title.prefix": "DSpace Repository :: ",
+  "repository.title.prefix": "UIST Repository :: ",
 
   "resource-policies.add.button": "Add",
 
@@ -5154,7 +5168,7 @@
 
   "search.form.search_dspace": "All repository",
 
-  "search.form.scope.all": "All of DSpace",
+  "search.form.scope.all": "All of UIST",
 
   "search.results.head": "Search Results",
 
@@ -6252,7 +6266,7 @@
 
   "thumbnail.person.placeholder": "No Profile Picture Available",
 
-  "title": "DSpace",
+  "title": "UIST",
 
   "vocabulary-treeview.header": "Hierarchical tree view",
 

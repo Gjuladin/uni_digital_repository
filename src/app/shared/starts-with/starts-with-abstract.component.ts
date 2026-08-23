@@ -58,8 +58,9 @@ export abstract class StartsWithAbstractComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subs.push(
       this.route.queryParams.subscribe((params) => {
-        if (hasValue(params.startsWith)) {
-          this.setStartsWith(params.startsWith);
+        const routeValue = this.getRouteValue(params);
+        if (hasValue(routeValue)) {
+          this.setStartsWith(routeValue);
         }
       }),
     );
@@ -83,6 +84,22 @@ export abstract class StartsWithAbstractComponent implements OnInit, OnDestroy {
     this.startsWith = startsWith;
   }
 
+  protected getQueryParamName(): string {
+    return 'startsWith';
+  }
+
+  /**
+   * Resolve the value used by the control from the current route.
+   * Subclasses may implement compatibility precedence for multiple filters.
+   */
+  protected getRouteValue(params: Record<string, string | undefined>): string | undefined {
+    return params[this.getQueryParamName()];
+  }
+
+  protected getQueryParams(): Record<string, string | null | undefined> {
+    return { [this.getQueryParamName()]: this.startsWith };
+  }
+
   /**
    * Add/Change the url query parameter startsWith using the local variable
    */
@@ -90,11 +107,12 @@ export abstract class StartsWithAbstractComponent implements OnInit, OnDestroy {
     if (this.startsWith === '-1') {
       this.startsWith = undefined;
     }
+    const queryParams = this.getQueryParams();
     if (resetPage) {
-      this.paginationService.updateRoute(this.paginationId, { page: 1 }, { startsWith: this.startsWith }, undefined, { queryParamsHandling: '' });
+      this.paginationService.updateRoute(this.paginationId, { page: 1 }, queryParams, undefined, { queryParamsHandling: '' });
     } else {
       void this.router.navigate([], {
-        queryParams: Object.assign({ startsWith: this.startsWith }),
+        queryParams,
       });
     }
   }

@@ -172,6 +172,7 @@ describe('LocaleService', () => {
     let testScheduler: TestScheduler;
 
     beforeEach(() => {
+      spyOnProperty(navigator, 'languages', 'get').and.returnValue(['en-US', 'en']);
       spyOn(translateService, 'getLangs').and.returnValue(langList);
       testScheduler = new TestScheduler((actual, expected) => {
         // use jasmine to test equality

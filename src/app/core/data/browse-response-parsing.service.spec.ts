@@ -40,6 +40,7 @@ describe('BrowseResponseParsingService', () => {
     const mockFlatBrowse = {
       id: 'title',
       browseType: 'flatBrowse',
+      supportsContains: true,
       type: 'browse',
     };
 
@@ -59,6 +60,7 @@ describe('BrowseResponseParsingService', () => {
       let deserialized = service.deserialize(mockFlatBrowse);
       expect(deserialized.type).toBe(FLAT_BROWSE_DEFINITION);
       expect(deserialized.id).toBe(mockFlatBrowse.id);
+      expect(deserialized.supportsContains).toBeTrue();
     });
 
     it('should deserialize valueList browses correctly', () => {

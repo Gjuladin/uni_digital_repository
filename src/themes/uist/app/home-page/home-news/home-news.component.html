@@ -1,0 +1,17 @@
+<section class="home-news-content py-4 px-2 py-sm-5 px-sm-0 mb-4">
+  @if (homeNewsMetadataValue$ | async; as homeNewsMetadataValue) {
+    <div class="container">
+      <ds-markdown-viewer [value]="homeNewsMetadataValue"></ds-markdown-viewer>
+    </div>
+  } @else {
+    <div class="container">
+      <p class="eyebrow">Open scholarship at UIST</p>
+      <h2>Research made discoverable and reusable</h2>
+      <p class="lead mb-0">
+        The UIST Digital Repository preserves publications, theses, conference papers,
+        project outputs, and other scholarly work from the University of Information
+        Science and Technology “St. Paul the Apostle”.
+      </p>
+    </div>
+  }
+</section>

@@ -5,7 +5,7 @@
         <ds-browse-by class="col-12 w-100"
                          title="{{'browse.title' | translate:{
                            field: 'browse.metadata.' + browseId | translate,
-                           startsWith: (startsWith)? ('browse.startsWith' | translate: { startsWith: '&quot;' + startsWith + '&quot;' }) : '',
+                           startsWith: (startsWith)? ((supportsContains ? 'browse.contains' : 'browse.startsWith') | translate: { startsWith: '&quot;' + startsWith + '&quot;', contains: '&quot;' + startsWith + '&quot;' }) : '',
                            value: (value)? '&quot;' + value + '&quot;': ''
                          } }}"
           [displayTitle]="displayTitle"
@@ -14,6 +14,7 @@
           [sortConfig]="(currentSort$ |async)"
           [type]="startsWithType"
           [startsWithOptions]="startsWithOptions"
+          [supportsContains]="supportsContains"
           (prev)="goPrev()"
           (next)="goNext()">
         </ds-browse-by>

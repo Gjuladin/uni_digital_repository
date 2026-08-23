@@ -84,6 +84,7 @@ describe('HeadTagService', () => {
     });
     title = jasmine.createSpyObj({
       setTitle: {},
+      getTitle: 'UIST Digital Repository',
     });
     dsoNameService = jasmine.createSpyObj({
       getName: ItemMock.firstMetadataValue('dc.title'),
@@ -106,6 +107,9 @@ describe('HeadTagService', () => {
     spyOn(store, 'dispatch');
 
     appConfig = {
+      ui: {
+        baseUrl: 'https://repository.uist.edu.mk',
+      },
       item: {
         bitstream: {
           pageSize: 5,
@@ -125,7 +129,13 @@ describe('HeadTagService', () => {
       hardRedirectService,
       appConfig,
       authorizationService,
+      document,
     );
+  });
+
+  afterEach(() => {
+    document.querySelectorAll("link[rel='canonical'], script[data-uist-seo-jsonld]")
+      .forEach((element: Element) => element.remove());
   });
 
   describe(`robots tag`, () => {
@@ -168,7 +178,7 @@ describe('HeadTagService', () => {
       },
     });
     tick();
-    expect(title.setTitle).toHaveBeenCalledWith('Test PowerPoint Document');
+    expect(title.setTitle).toHaveBeenCalledWith('Test PowerPoint Document | UIST Digital Repository');
     expect(meta.addTag).toHaveBeenCalledWith({
       name: 'citation_title',
       content: 'Test PowerPoint Document',
@@ -232,7 +242,7 @@ describe('HeadTagService', () => {
     });
     tick();
     expect(title.setTitle).toHaveBeenCalledTimes(2);
-    expect((title.setTitle as jasmine.Spy).calls.argsFor(0)).toEqual(['Test PowerPoint Document']);
+    expect((title.setTitle as jasmine.Spy).calls.argsFor(0)).toEqual(['Test PowerPoint Document | UIST Digital Repository']);
     expect((title.setTitle as jasmine.Spy).calls.argsFor(1)).toEqual(['DSpace :: Translated Route Title']);
   }));
 
@@ -256,6 +266,95 @@ describe('HeadTagService', () => {
       name: 'description',
       content: 'This is a dummy item component for testing!',
     });
+  }));
+
+  it('should use the explicitly configured production HTTPS URL without query parameters', fakeAsync(() => {
+    (router as any).url = '/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357?mode=full#details';
+    (headTagService as any).processRouteChange({
+      data: {
+        value: {
+          dso: createSuccessfulRemoteDataObject(ItemMock),
+        },
+      },
+    });
+    tick();
+
+    const canonicals = document.querySelectorAll("link[rel='canonical']");
+    expect(canonicals.length).toBe(1);
+    expect(canonicals.item(0).getAttribute('href')).toBe(
+      'https://repository.uist.edu.mk/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357',
+    );
+  }));
+
+  it('should use an explicitly configured staging HTTPS URL', fakeAsync(() => {
+    (appConfig.ui as any).baseUrl = 'https://staging.repository.uist.edu.mk';
+    (router as any).url = '/home?draft=true#preview';
+    (headTagService as any).processRouteChange({ data: { value: {} } });
+    tick();
+
+    expect(document.querySelector("link[rel='canonical']")?.getAttribute('href'))
+      .toBe('https://staging.repository.uist.edu.mk/home');
+    expect(meta.addTag).toHaveBeenCalledWith({
+      property: 'og:url',
+      content: 'https://staging.repository.uist.edu.mk/home',
+    });
+  }));
+
+  ['http://localhost:4000', undefined, 'not a URL'].forEach((invalidPublicUrl) => {
+    it(`should omit canonical and JSON-LD for an invalid public URL: ${invalidPublicUrl}`, fakeAsync(() => {
+      (appConfig.ui as any).baseUrl = invalidPublicUrl;
+      (appConfig.rest as any) = {
+        baseUrl: 'https://browser-rest.example.org/server',
+        ssrBaseUrl: 'http://internal-rest:8080/server',
+      };
+      (router as any).url = '/home';
+      (headTagService as any).processRouteChange({ data: { value: {} } });
+      tick();
+
+      expect(document.querySelector("link[rel='canonical']")).toBeNull();
+      expect(document.querySelector('script[data-uist-seo-jsonld]')).toBeNull();
+      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({
+        property: 'og:url',
+      }));
+      expect(document.head.innerHTML).not.toContain('internal-rest:8080');
+    }));
+  });
+
+  it('should not substitute a production hostname for localhost configuration', fakeAsync(() => {
+    (appConfig.ui as any).baseUrl = 'http://localhost:4000';
+    (router as any).url = '/home';
+    (headTagService as any).processRouteChange({ data: { value: {} } });
+    tick();
+
+    expect(document.querySelector("link[rel='canonical']")).toBeNull();
+    expect(document.querySelector('script[data-uist-seo-jsonld]')).toBeNull();
+  }));
+
+  it('should add singleton OpenGraph, Twitter, and JSON-LD item metadata', fakeAsync(() => {
+    (headTagService as any).processRouteChange({
+      data: {
+        value: {
+          dso: createSuccessfulRemoteDataObject(ItemMock),
+        },
+      },
+    });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      property: 'og:type',
+      content: 'article',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'twitter:card',
+      content: 'summary',
+    });
+
+    const scripts = document.querySelectorAll('script[data-uist-seo-jsonld]');
+    expect(scripts.length).toBe(1);
+    const jsonLd = JSON.parse(scripts.item(0).textContent);
+    expect(jsonLd['@graph'].map((entry: any) => entry['@type']))
+      .toEqual(['CollegeOrUniversity', 'WebSite', 'ScholarlyArticle']);
+    expect(JSON.stringify(jsonLd)).not.toContain('localhost');
   }));
 
   describe(`listenForRouteChange`, () => {

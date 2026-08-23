@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+} from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -24,6 +27,12 @@ import { StartsWithAbstractComponent } from '../starts-with-abstract.component';
 export class StartsWithTextComponent extends StartsWithAbstractComponent {
 
   /**
+   * Set by the browse page from its logical browse-definition capability.
+   * Unsupported text browses keep DSpace's ordinary startsWith behavior.
+   */
+  @Input() supportsContains = false;
+
+  /**
    * Get startsWith as text;
    */
   getStartsWith() {
@@ -42,6 +51,31 @@ export class StartsWithTextComponent extends StartsWithAbstractComponent {
       this.startsWith = '0';
     }
     super.setStartsWithParam(resetPage);
+  }
+
+  protected getQueryParamName(): string {
+    return this.supportsContains ? 'contains' : super.getQueryParamName();
+  }
+
+  protected getRouteValue(params: Record<string, string | undefined>): string | undefined {
+    if (!this.supportsContains) {
+      return super.getRouteValue(params);
+    }
+
+    // A manually supplied contains parameter wins for supported browses. If it
+    // is blank, preserve the normal startsWith URL rather than clearing it.
+    return hasValue(params.contains) ? params.contains : params.startsWith;
+  }
+
+  protected getQueryParams(): Record<string, string | null | undefined> {
+    if (!this.supportsContains) {
+      return super.getQueryParams();
+    }
+
+    return {
+      contains: this.startsWith,
+      startsWith: null,
+    };
   }
 
 }

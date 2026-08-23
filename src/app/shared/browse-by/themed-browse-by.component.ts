@@ -41,6 +41,8 @@ export class ThemedBrowseByComponent extends ThemedComponent<BrowseByComponent> 
 
   @Input() startsWithOptions: (string | number)[];
 
+  @Input() supportsContains: boolean;
+
   @Input() showPaginator: boolean;
 
   @Input() hideGear: boolean;
@@ -61,6 +63,7 @@ export class ThemedBrowseByComponent extends ThemedComponent<BrowseByComponent> 
     'sortConfig',
     'type',
     'startsWithOptions',
+    'supportsContains',
     'showPaginator',
     'hideGear',
     'prev',

@@ -17,12 +17,14 @@ import {
 import { RouterTestingModule } from '@angular/router/testing';
 import { APP_CONFIG } from '@dspace/config/app-config.interface';
 import { BrowseService } from '@dspace/core/browse/browse.service';
+import { BrowseEntrySearchOptions } from '@dspace/core/browse/browse-entry-search-options.model';
 import { SortDirection } from '@dspace/core/cache/models/sort-options.model';
 import { DSpaceObjectDataService } from '@dspace/core/data/dspace-object-data.service';
 import { ItemDataService } from '@dspace/core/data/item-data.service';
 import { PaginationService } from '@dspace/core/pagination/pagination.service';
 import { BrowseEntry } from '@dspace/core/shared/browse-entry.model';
 import { Community } from '@dspace/core/shared/community.model';
+import { FlatBrowseDefinition } from '@dspace/core/shared/flat-browse-definition.model';
 import { Item } from '@dspace/core/shared/item.model';
 import { ActivatedRouteStub } from '@dspace/core/testing/active-router.stub';
 import { PaginationServiceStub } from '@dspace/core/testing/pagination-service.stub';
@@ -75,7 +77,7 @@ describe('BrowseByTitleComponent', () => {
   ];
 
   const mockBrowseService = {
-    getBrowseItemsFor: () => toRemoteData(mockItems),
+    getBrowseItemsFor: (_value?: string, _authority?: string, _options?: BrowseEntrySearchOptions) => toRemoteData(mockItems),
     getBrowseEntriesFor: () => toRemoteData([]),
     getConfiguredSortDirection: () => of(SortDirection.ASC),
   };
@@ -84,7 +86,9 @@ describe('BrowseByTitleComponent', () => {
     findById: () => createSuccessfulRemoteDataObject$(mockCommunity),
   };
 
-  const activatedRouteStub = Object.assign(new ActivatedRouteStub({ id: 'title' }), {
+  const activatedRouteStub = Object.assign(new ActivatedRouteStub({ id: 'title' }, {
+    browseDefinition: Object.assign(new FlatBrowseDefinition(), { id: 'title', supportsContains: true }),
+  }), {
     params: of({ id: 'title' }),
     queryParams: of({}),
     data: of({ metadata: 'title' }),
@@ -121,6 +125,7 @@ describe('BrowseByTitleComponent', () => {
   }));
 
   beforeEach(() => {
+    activatedRouteStub.queryParams = of({});
     fixture = TestBed.createComponent(BrowseByTitleComponent);
     comp = fixture.componentInstance;
     fixture.detectChanges();
@@ -132,6 +137,24 @@ describe('BrowseByTitleComponent', () => {
     comp.items$.subscribe((result) => {
       expect(result.payload.page).toEqual(mockItems);
     });
+  });
+
+  it('should prefer contains for the title control and omit legacy startsWith from the request', () => {
+    const getBrowseItemsFor = spyOn(mockBrowseService, 'getBrowseItemsFor').and.callThrough();
+    activatedRouteStub.queryParams = of({ startsWith: 'R', contains: 'Runner' });
+
+    comp.ngOnInit();
+
+    expect(comp.startsWith).toEqual('Runner');
+    expect(comp.supportsContains).toBeTrue();
+    expect(getBrowseItemsFor).toHaveBeenCalledWith(
+      undefined,
+      undefined,
+      jasmine.objectContaining<BrowseEntrySearchOptions>({
+        startsWith: undefined,
+        contains: 'Runner',
+      }),
+    );
   });
 
   describe('when rendered in SSR', () => {

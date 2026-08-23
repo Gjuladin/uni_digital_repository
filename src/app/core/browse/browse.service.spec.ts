@@ -199,6 +199,21 @@ describe('BrowseService', () => {
 
     });
 
+    it('should preserve a manually supplied startsWith and encode the contains value for entries', () => {
+      const contains = 'mith & Sons';
+      const expected = (browseDefinitions[1] as ValueListBrowseDefinition)._links.entries.href +
+        '?startsWith=S&contains=' + encodeURIComponent(contains);
+
+      scheduler.schedule(() => service.getBrowseEntriesFor(
+        new BrowseEntrySearchOptions(browseDefinitions[1].id, undefined, undefined, 'S', contains),
+      ).subscribe());
+      scheduler.flush();
+
+      expect(getFirstUsedArgumentOfSpyMethod(hrefOnlyDataService.findListByHref)).toBeObservable(cold('(a|)', {
+        a: expected,
+      }));
+    });
+
     describe('when findList is called with a valid browse definition id', () => {
       it('should call hrefOnlyDataService.findListByHref with the expected href', () => {
         const expected = browseDefinitions[1]._links.items.href + '?filterValue=' + encodeURIComponent(mockAuthorName);
@@ -225,6 +240,42 @@ describe('BrowseService', () => {
           a: expected,
         }));
       });
+    });
+
+    it('should encode the contains value while generating item browse URLs', () => {
+      const contains = 'Runner & Smith';
+      const expected = browseDefinitions[1]._links.items.href +
+        '?contains=' + encodeURIComponent(contains) +
+        '&filterValue=' + encodeURIComponent(mockAuthorName);
+
+      scheduler.schedule(() => service.getBrowseItemsFor(
+        mockAuthorName,
+        undefined,
+        new BrowseEntrySearchOptions(browseDefinitions[1].id, undefined, undefined, undefined, contains),
+      ).subscribe());
+      scheduler.flush();
+
+      expect(getFirstUsedArgumentOfSpyMethod(hrefOnlyDataService.findListByHref)).toBeObservable(cold('(a|)', {
+        a: expected,
+      }));
+    });
+  });
+
+  describe('browse pagination navigation', () => {
+    it('should follow the server-provided next entries URL without dropping contains', () => {
+      const next = 'https://rest.api/discover/browses/author/entries?contains=mith&page=1';
+
+      service.getNextBrowseEntries({ payload: { next } } as any);
+
+      expect(hrefOnlyDataService.findListByHref).toHaveBeenCalledWith(next);
+    });
+
+    it('should follow the server-provided previous items URL without dropping contains', () => {
+      const prev = 'https://rest.api/discover/browses/title/items?contains=Runner&page=0';
+
+      service.getPrevBrowseItems({ payload: { prev } } as any);
+
+      expect(hrefOnlyDataService.findListByHref).toHaveBeenCalledWith(prev);
     });
   });
 

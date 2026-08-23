@@ -1,0 +1,62 @@
+<footer class="site-footer">
+  <div class="bottom-footer">
+    <div class="container footer-shell">
+      <div class="footer-hero">
+        <div class="brand-lockup">
+          <div class="brand-mark">
+            <img
+              src="assets/images/uist-logo-full-white.png"
+              [attr.alt]="'repository.image.logo' | translate:{default: 'Repository logo'}"
+            />
+          </div>
+          <div class="brand-copy">
+            <p class="eyebrow mb-2">{{ 'footer.uist.title' | translate:{default: 'UIST Digital Repository'} }}</p>
+            <p class="description mb-0">
+              {{ 'footer.uist.description' | translate:{default: 'Research, theses, publications, project outputs, and institutional collections from UIST.'} }}
+            </p>
+          </div>
+        </div>
+        <a href="https://uist.edu.mk/" class="uist-footer-link" rel="noopener">{{ 'footer.uist.visit-site' | translate:{default: 'Visit uist.edu.mk'} }}</a>
+      </div>
+
+      <div class="footer-meta">
+        <p class="footer-copy mb-0">
+          {{ 'footer.uist.institution' | translate:{default: 'University of Information Science and Technology "St. Paul the Apostle"'} }}
+          {{ 'footer.copyright' | translate:{year: dateObj | date:'y'} }}
+        </p>
+
+        <ul class="footer-info list-unstyled mb-0">
+          @if (showCookieSettings) {
+            <li>
+              <button class="btn btn-link footer-action" type="button" (click)="openCookieSettings()" role="button" tabindex="0">
+                {{ 'footer.link.cookies' | translate}}
+              </button>
+            </li>
+          }
+          <li>
+            <a class="btn footer-action"
+               routerLink="info/accessibility" role="link" tabindex="0">{{ 'footer.link.accessibility' | translate }}</a>
+          </li>
+          @if (showPrivacyPolicy) {
+            <li>
+              <a class="btn footer-action"
+                 routerLink="info/privacy" role="link" tabindex="0">{{ 'footer.link.privacy-policy' | translate}}</a>
+            </li>
+          }
+          @if (showEndUserAgreement) {
+            <li>
+              <a class="btn footer-action"
+                 routerLink="info/end-user-agreement" role="link" tabindex="0">{{ 'footer.link.end-user-agreement' | translate}}</a>
+            </li>
+          }
+          @if (showSendFeedback$ | async) {
+            <li>
+              <a class="btn footer-action"
+                 routerLink="info/feedback" role="link" tabindex="0">{{ 'footer.link.feedback' | translate}}</a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

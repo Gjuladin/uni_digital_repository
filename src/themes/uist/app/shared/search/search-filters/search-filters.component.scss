@@ -1,0 +1,142 @@
+// This stylesheet deliberately uses no Angular selector scoping. The base
+// search-filter styles are loaded lazily, after the UIST theme stylesheet.
+// Keeping these rules with the themed component gives them the final cascade.
+.facet-filter {
+  --ds-slider-color: var(--uist-blue);
+  --ds-slider-handle-color: var(--uist-navy);
+  --ds-slider-handle-width: 20px;
+
+  background: #fff;
+  border: 1px solid rgba(10, 61, 104, 0.22) !important;
+  border-radius: 0.625rem;
+  box-shadow: 0 1px 2px rgba(8, 34, 58, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus-within {
+    border-color: rgba(10, 61, 104, 0.48) !important;
+    box-shadow: 0 0 0 0.2rem rgba(10, 61, 104, 0.1);
+  }
+
+  .filter-name {
+    color: var(--uist-ink);
+    font-weight: 800;
+  }
+
+  .form-control {
+    background-color: #fff;
+    border-color: rgba(10, 61, 104, 0.22);
+    box-shadow: none;
+
+    &:focus {
+      border-color: var(--uist-blue);
+      box-shadow: 0 0 0 0.2rem rgba(10, 61, 104, 0.12);
+    }
+  }
+
+  .filter-checkbox {
+    accent-color: var(--uist-navy);
+  }
+
+  .noUi-target {
+    background: #d8e4ee;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 2px rgba(8, 34, 58, 0.12);
+    height: 8px;
+    margin: 0 10px;
+    padding: 0;
+  }
+
+  .noUi-connect {
+    background: var(--uist-blue);
+    box-shadow: none;
+  }
+
+  .noUi-horizontal .noUi-handle {
+    background: #fff;
+    border: 2px solid var(--uist-navy);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(8, 34, 58, 0.22);
+    height: 20px;
+    top: -6px;
+    width: 20px;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 0.2rem rgba(10, 61, 104, 0.22);
+    }
+  }
+}
+
+// Search sidebar controls
+@media (min-width: 768px) {
+  #search-sidebar-content {
+    margin-left: calc(-1 * var(--bs-gutter-x) / 2);
+    width: calc(100% + var(--bs-gutter-x) / 2);
+  }
+}
+
+ds-search-settings {
+  display: block;
+
+  > h3 {
+    color: var(--uist-ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .setting-option {
+    background: #fff;
+    border: 1px solid rgba(10, 61, 104, 0.22) !important;
+    border-radius: 0.625rem;
+    box-shadow: 0 1px 2px rgba(8, 34, 58, 0.04);
+    margin-bottom: 0.75rem !important;
+    padding: 0.875rem !important;
+
+    h4 {
+      color: var(--uist-ink);
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin: 0 0 0.55rem;
+    }
+
+    .form-select {
+      background-color: #fff;
+      border-color: rgba(10, 61, 104, 0.22);
+
+      &:focus {
+        border-color: var(--uist-blue);
+        box-shadow: 0 0 0 0.2rem rgba(10, 61, 104, 0.12);
+      }
+    }
+  }
+}
+
+ds-view-mode-switch .btn-group,
+ds-rss .btn-secondary {
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px rgba(8, 34, 58, 0.1);
+}
+
+ds-view-mode-switch .btn-secondary,
+ds-rss .btn-secondary {
+  background-color: var(--uist-navy);
+  border-color: var(--uist-navy);
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: var(--uist-blue);
+    border-color: var(--uist-blue);
+    color: #fff;
+  }
+}
+
+ds-view-mode-switch .btn-secondary.active,
+ds-view-mode-switch .btn-secondary[aria-current='true'] {
+  background-color: var(--uist-blue);
+  border-color: var(--uist-blue);
+}

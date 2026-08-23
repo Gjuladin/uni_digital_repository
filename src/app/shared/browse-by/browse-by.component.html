@@ -2,7 +2,7 @@
   @if (displayTitle) {
     <h1>{{title | translate}}</h1>
   }
-  <ds-starts-with-loader [paginationId]="paginationConfig?.id" [startsWithOptions]="startsWithOptions" [type]="type">
+  <ds-starts-with-loader [paginationId]="paginationConfig?.id" [startsWithOptions]="startsWithOptions" [type]="type" [supportsContains]="supportsContains">
   </ds-starts-with-loader>
   @if (objects?.hasSucceeded && !objects?.isLoading && objects?.payload?.page.length > 0) {
     <div @fadeIn>
@@ -40,4 +40,3 @@
     </div>
   }
 </ng-container>
-

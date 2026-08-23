@@ -6,6 +6,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import { supportsBrowseContains } from '@dspace/core/browse/browse-definition-capabilities';
 import {
   SortDirection,
   SortOptions,
@@ -26,6 +27,7 @@ import { ThemedLoadingComponent } from '../../shared/loading/themed-loading.comp
 import {
   BrowseByMetadataComponent,
   browseParamsToOptions,
+  getBrowseFilterValue,
 } from '../browse-by-metadata/browse-by-metadata.component';
 
 @Component({
@@ -50,6 +52,7 @@ export class BrowseByTitleComponent extends BrowseByMetadataComponent implements
       return;
     }
     this.browseId = this.route.snapshot.params.id;
+    this.supportsContains = supportsBrowseContains(this.route.snapshot.data.browseDefinition);
     this.subs.push(
       this.browseService.getConfiguredSortDirection(this.browseId, SortDirection.ASC).pipe(
         map((sortDir) => new SortOptions(this.browseId, sortDir)),
@@ -62,8 +65,10 @@ export class BrowseByTitleComponent extends BrowseByMetadataComponent implements
             })),
           );
         })).subscribe(({ params, scope, currentPage, currentSort }) => {
-        this.startsWith = +params.startsWith || params.startsWith;
-        this.updatePageWithItems(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId, this.fetchThumbnails), undefined, undefined);
+        const filterValue = getBrowseFilterValue(params, this.supportsContains);
+        this.startsWith = filterValue;
+        this.updatePageWithItems(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId,
+          this.fetchThumbnails, this.supportsContains), undefined, undefined);
         this.updateStartsWithTextOptions();
       }));
   }

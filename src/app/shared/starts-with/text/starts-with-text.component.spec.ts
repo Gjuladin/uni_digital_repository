@@ -59,11 +59,12 @@ describe('StartsWithTextComponent', () => {
     expect(comp.formData.value.startsWith).toBeDefined();
   });
 
-  describe('when filling in the input form', () => {
+  describe('when filling the Title substring control', () => {
     let form;
     const expectedValue = 'A';
 
     beforeEach(() => {
+      comp.supportsContains = true;
       form = fixture.debugElement.query(By.css('form'));
       comp.formData.value.startsWith = expectedValue;
       form.triggerEventHandler('ngSubmit', null);
@@ -74,9 +75,33 @@ describe('StartsWithTextComponent', () => {
       expect(comp.startsWith).toEqual(expectedValue);
     });
 
-    it('should add a startsWith query parameter and clear all others', () => {
-      expect(paginationService.updateRoute).toHaveBeenCalledWith('page-id', { page: 1 }, { startsWith: expectedValue }, undefined, { queryParamsHandling: '' });
+    it('should add a contains query parameter and clear startsWith', () => {
+      expect(paginationService.updateRoute).toHaveBeenCalledWith('page-id', { page: 1 }, {
+        contains: expectedValue,
+        startsWith: null,
+      }, undefined, { queryParamsHandling: '' });
     });
+  });
+
+  it('should restore contains in preference to startsWith for a supported manual URL', () => {
+    comp.supportsContains = true;
+    route.testParams = { startsWith: 'S', contains: 'mith' };
+
+    expect(comp.startsWith).toEqual('mith');
+  });
+
+  it('should retain startsWith when the parent marks a browse as unsupported', () => {
+    const expectedValue = 'S';
+    const form = fixture.debugElement.query(By.css('form'));
+    comp.formData.value.startsWith = expectedValue;
+    form.triggerEventHandler('ngSubmit', null);
+
+    expect(paginationService.updateRoute).toHaveBeenCalledWith('page-id', { page: 1 }, {
+      startsWith: expectedValue,
+    }, undefined, { queryParamsHandling: '' });
+
+    route.testParams = { startsWith: 'S', contains: 'mith' };
+    expect(comp.startsWith).toEqual('S');
   });
 
 });

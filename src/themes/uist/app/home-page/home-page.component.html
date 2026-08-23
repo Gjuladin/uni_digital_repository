@@ -1,0 +1,89 @@
+<section class="uist-hero">
+  <div class="container">
+    <div class="uist-hero__content">
+      <h1>UIST Digital Repository</h1>
+      <p>Discover, preserve, and share scholarly work from the University of Information Science and Technology "St. Paul the Apostle".</p>
+      <form (ngSubmit)="onSearchBySubmit()" class="uist-field-search" role="search" aria-label="Search the repository">
+        <div class="uist-field-search__bar">
+          <label for="fieldSelect" class="visually-hidden">Search field</label>
+          <select
+            id="fieldSelect"
+            [(ngModel)]="selectedSearchField"
+            name="searchField"
+            class="uist-field-search__select">
+            <option value="">Any field</option>
+            @for (field of searchFields; track field.id) {
+              <option [value]="field.id">{{ field.label }}</option>
+            }
+          </select>
+          <label for="fieldSearchInput" class="visually-hidden">Search term</label>
+          <input
+            id="fieldSearchInput"
+            type="search"
+            [(ngModel)]="searchByValue"
+            name="searchByValue"
+            class="uist-field-search__input"
+            [placeholder]="selectedSearchField ? 'Search by ' + getSelectedFieldLabel() + '...' : 'Search publications, theses, authors...'">
+          <button type="submit" class="uist-field-search__btn" [dsBtnDisabled]="!searchByValue.trim()">
+            Search <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Categories Section -->
+<section class="uist-categories">
+  <div class="container">
+    <div class="uist-section-header">
+      <span class="uist-section-tag">Collections</span>
+      <h2>Browse by Category</h2>
+      <p class="uist-section-sub">Explore curated collections of academic research and scholarly publications</p>
+    </div>
+    <div class="row g-3 justify-content-center">
+      @if (categoryCollections$ | async; as categoryCollections) {
+        @for (collection of categoryCollections; track collection.uuid) {
+          <div class="col-6 col-sm-4 col-md-3">
+            <a [routerLink]="['/collections', collection.uuid]" class="uist-feature-link">
+              <div class="uist-feature">
+                <div class="uist-feature__icon">
+                  <span [class]="collection.iconClass" aria-hidden="true"></span>
+                </div>
+                <h3>{{ collection.name }}</h3>
+              </div>
+            </a>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>
+
+
+<ds-home-coar></ds-home-coar>
+<ds-home-news></ds-home-news>
+
+@if (showDiscoverFilters) {
+  <ds-configuration-search-page
+    [sideBarWidth]="3"
+    [showViewModes]="false"
+    [searchEnabled]="false"
+    [inPlaceSearch]="false"
+    [showScopeSelector]="false">
+    <ng-container searchContentTop *ngTemplateOutlet="homeContent"></ng-container>
+  </ds-configuration-search-page>
+}
+@if (!showDiscoverFilters) {
+  <div class="container home-sections">
+    <ng-container *ngTemplateOutlet="homeContent"></ng-container>
+  </div>
+}
+<ds-suggestions-popup></ds-suggestions-popup>
+
+<ng-template #homeContent>
+  <ds-top-level-community-list class="pt-5 d-block"></ds-top-level-community-list>
+  @if (recentSubmissionspageSize>0) {
+    <ds-recent-item-list></ds-recent-item-list>
+  }
+</ng-template>

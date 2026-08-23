@@ -111,6 +111,11 @@ export class BrowseByComponent implements OnInit, OnChanges, OnDestroy {
   @Input() startsWithOptions: (string | number)[] = [];
 
   /**
+   * Whether the active browse definition supports substring matching.
+   */
+  @Input() supportsContains = false;
+
+  /**
    * Whether or not the pagination should be rendered as simple previous and next buttons instead of the normal pagination
    */
   @Input() showPaginator = true;

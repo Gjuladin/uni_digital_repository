@@ -1,0 +1,62 @@
+@if (isCommunitiesAndCollections) {
+  <div class="ds-menu-item-wrapper text-md-center"
+       [id]="'navbar-section-' + section.id"
+       data-test="uist-communities-and-collections-menu">
+    <button type="button"
+       role="menuitem"
+       (keyup.enter)="toggleSection($event)"
+       (keyup.space)="toggleSection($event)"
+       (click)="toggleSection($event)"
+       aria-haspopup="menu"
+       [attr.aria-expanded]="(active$ | async).valueOf()"
+       [attr.aria-controls]="'navbar-section-' + section.id + '-dropdown'"
+       class="d-flex flex-row flex-nowrap align-items-center gapx-1 border-0 w-100 ds-menu-toggler-wrapper">
+      <span class="flex-fill">
+        {{ communitiesAndCollectionsLabel | translate }}
+      </span>
+      <i class="fas fa-caret-down fa-xs toggle-menu-icon" aria-hidden="true"></i>
+    </button>
+    @if ((active$ | async).valueOf()) {
+      <div [id]="'navbar-section-' + section.id + '-dropdown'"
+           role="menu"
+           class="dropdown-menu show nav-dropdown-menu uist-community-tree m-0 shadow-none border-top-0">
+        @for (communitySection of (subSections$ | async); track communitySection.id) {
+          @if (isViewAll(communitySection)) {
+            <a role="menuitem"
+               class="ds-menu-item uist-view-all-link"
+               [routerLink]="sectionLink(communitySection)"
+               (click)="deactivateSection($event, false)">
+              {{ sectionText(communitySection) | translate }}
+            </a>
+          } @else {
+            <div class="uist-community-group" role="group"
+                 [attr.aria-label]="sectionText(communitySection)">
+              <a role="menuitem"
+                 class="ds-menu-item uist-community-link"
+                 [routerLink]="sectionLink(communitySection)"
+                 (click)="deactivateSection($event, false)">
+                <i class="fas fa-university fa-fw me-1" aria-hidden="true"></i>
+                {{ sectionText(communitySection) }}
+              </a>
+              @for (collectionSection of (getChildSections(communitySection.id) | async); track collectionSection.id) {
+                <a role="menuitem"
+                   class="ds-menu-item uist-collection-link"
+                   [routerLink]="sectionLink(collectionSection)"
+                   (click)="deactivateSection($event, false)">
+                  <i class="fas fa-folder fa-fw me-1" aria-hidden="true"></i>
+                  {{ sectionText(collectionSection) }}
+                </a>
+              }
+            </div>
+          }
+        }
+      </div>
+    }
+  </div>
+} @else {
+  <div class="ds-menu-item-wrapper text-md-center"
+       [id]="'navbar-section-' + section.id">
+    <ng-container
+      *ngComponentOutlet="(sectionMap$ | async).get(section.id).component; injector: (sectionMap$ | async).get(section.id).injector;"></ng-container>
+  </div>
+}

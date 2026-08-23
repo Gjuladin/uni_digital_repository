@@ -24,11 +24,14 @@ export class StartsWithLoaderComponent extends AbstractComponentLoaderComponent<
 
   @Input() type: StartsWithType;
 
+  @Input() supportsContains = false;
+
   protected inputNames: (keyof this & string)[] = [
     ...this.inputNames,
     'paginationId',
     'startsWithOptions',
     'type',
+    'supportsContains',
   ];
 
   public getComponent(): GenericConstructor<StartsWithAbstractComponent> {

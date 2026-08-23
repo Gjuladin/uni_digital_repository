@@ -21,6 +21,10 @@ export abstract class BrowseDefinition extends CacheableObject {
   @autoserialize
   order: SortDirection;
 
+  /** Whether the REST browse definition accepts the `contains` parameter. */
+  @autoserialize
+  supportsContains: boolean;
+
   /**
    * Get the render type of the BrowseDefinition model
    */

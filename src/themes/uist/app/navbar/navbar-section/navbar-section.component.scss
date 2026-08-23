@@ -1,0 +1,6 @@
+:host {
+  .nav-dropdown-menu {
+    max-height: min(70vh, 32rem);
+    overflow-y: auto;
+  }
+}

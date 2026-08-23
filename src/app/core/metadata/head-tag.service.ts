@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   Inject,
   Injectable,
@@ -94,6 +95,21 @@ const tagsInUseSelector =
 })
 export class HeadTagService {
 
+  private readonly REPOSITORY_NAME = 'UIST Digital Repository';
+  private readonly UIST_NAME = 'University of Information Science and Technology "St. Paul the Apostle"';
+  private readonly UIST_URL = 'https://uist.edu.mk/';
+  private readonly UIST_DESCRIPTION =
+    'Open access scholarly works, publications, theses, conference papers, and research outputs from UIST "St. Paul the Apostle" in Ohrid.';
+  private readonly SINGLETON_META_TAGS = [
+    'author',
+    'description',
+    'robots',
+    'title',
+    'twitter:card',
+    'twitter:description',
+    'twitter:title',
+  ];
+
   private currentObject: BehaviorSubject<DSpaceObject> = new BehaviorSubject<DSpaceObject>(undefined);
 
   /**
@@ -123,6 +139,7 @@ export class HeadTagService {
     protected hardRedirectService: HardRedirectService,
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
     protected authorizationService: AuthorizationDataService,
+    @Inject(DOCUMENT) protected document: Document,
   ) {
   }
 
@@ -143,23 +160,31 @@ export class HeadTagService {
 
   protected processRouteChange(routeInfo: any): void {
     this.clearMetaTags();
+    this.currentObject.next(undefined);
 
     if (hasValue(routeInfo.data.value.dso) && hasValue(routeInfo.data.value.dso.payload)) {
       this.currentObject.next(routeInfo.data.value.dso.payload);
       this.setDSOMetaTags();
+    } else {
+      this.setDefaultMetaTags();
     }
 
     if (routeInfo.data.value.title) {
       const titlePrefix = this.translate.get('repository.title.prefix');
       const title = this.translate.get(routeInfo.data.value.title, routeInfo.data.value);
       combineLatest([titlePrefix, title]).pipe(take(1)).subscribe(([translatedTitlePrefix, translatedTitle]: [string, string]) => {
-        this.addMetaTag('title', translatedTitlePrefix + translatedTitle);
-        this.title.setTitle(translatedTitlePrefix + translatedTitle);
+        const value = translatedTitlePrefix + translatedTitle;
+        this.addMetaTag('title', value);
+        this.addPropertyMetaTag('og:title', value);
+        this.addMetaTag('twitter:title', value);
+        this.title.setTitle(value);
       });
     }
     if (routeInfo.data.value.description) {
       this.translate.get(routeInfo.data.value.description).pipe(take(1)).subscribe((translatedDescription: string) => {
         this.addMetaTag('description', translatedDescription);
+        this.addPropertyMetaTag('og:description', translatedDescription);
+        this.addMetaTag('twitter:description', translatedDescription);
       });
     }
   }
@@ -177,6 +202,10 @@ export class HeadTagService {
 
     this.setTitleTag();
     this.setDescriptionTag();
+    this.setCanonicalTag();
+    this.setOpenGraphTags();
+    this.setTwitterCardTags();
+    this.setJsonLdTags();
 
     this.setCitationTitleTag();
     this.setCitationAuthorTags();
@@ -212,6 +241,28 @@ export class HeadTagService {
 
   }
 
+  protected setDefaultMetaTags(): void {
+    const title = `${this.REPOSITORY_NAME} | ${this.UIST_NAME}`;
+
+    this.title.setTitle(title);
+    this.addMetaTag('title', title);
+    this.addMetaTag('description', this.UIST_DESCRIPTION);
+    this.addMetaTag('author', this.UIST_NAME);
+    this.setCanonicalTag();
+    this.addPropertyMetaTag('og:site_name', this.REPOSITORY_NAME);
+    this.addPropertyMetaTag('og:type', 'website');
+    this.addPropertyMetaTag('og:title', title);
+    this.addPropertyMetaTag('og:description', this.UIST_DESCRIPTION);
+    const canonicalUrl = this.getCanonicalUrl();
+    if (canonicalUrl) {
+      this.addPropertyMetaTag('og:url', canonicalUrl);
+    }
+    this.addMetaTag('twitter:card', 'summary');
+    this.addMetaTag('twitter:title', title);
+    this.addMetaTag('twitter:description', this.UIST_DESCRIPTION);
+    this.setJsonLdTags();
+  }
+
   /**
    * Add <meta name="robots" content="noindex">  to the <head> if non-discoverable item
    */
@@ -226,17 +277,81 @@ export class HeadTagService {
    */
   protected setTitleTag(): void {
     const value = this.dsoNameService.getName(this.currentObject.getValue());
-    this.addMetaTag('title', value);
-    this.title.setTitle(value);
+    const title = `${this.stripHtml(value)} | ${this.REPOSITORY_NAME}`;
+    this.addMetaTag('title', title);
+    this.title.setTitle(title);
   }
 
   /**
    * Add <meta name="description" ... >  to the <head>
    */
   protected setDescriptionTag(): void {
-    // TODO: truncate abstract
-    const value = this.getMetaTagValue('dc.description.abstract');
+    const value = this.truncateDescription(this.getFirstMetaTagValue([
+      'dc.description.abstract',
+      'dc.description',
+      'dc.title',
+    ]));
     this.addMetaTag('description', value);
+  }
+
+  protected setCanonicalTag(): void {
+    const canonicalUrl = this.getCanonicalUrl();
+    this.removeHeadElements("link[rel='canonical']");
+    if (canonicalUrl) {
+      this.addLinkTag('canonical', canonicalUrl);
+    }
+  }
+
+  protected setOpenGraphTags(): void {
+    const title = this.stripHtml(this.dsoNameService.getName(this.currentObject.getValue()));
+    const description = this.truncateDescription(this.getFirstMetaTagValue([
+      'dc.description.abstract',
+      'dc.description',
+      'dc.title',
+    ]));
+
+    this.addPropertyMetaTag('og:site_name', this.REPOSITORY_NAME);
+    this.addPropertyMetaTag('og:type', this.currentObject.value instanceof Item ? 'article' : 'website');
+    this.addPropertyMetaTag('og:title', title);
+    this.addPropertyMetaTag('og:description', description);
+    const canonicalUrl = this.getCanonicalUrl();
+    if (canonicalUrl) {
+      this.addPropertyMetaTag('og:url', canonicalUrl);
+    }
+
+    const publicationDate = this.getPublicationDate();
+    if (this.currentObject.value instanceof Item && hasValue(publicationDate)) {
+      this.addPropertyMetaTag('article:published_time', publicationDate);
+    }
+  }
+
+  protected setTwitterCardTags(): void {
+    const title = this.stripHtml(this.dsoNameService.getName(this.currentObject.getValue()));
+    const description = this.truncateDescription(this.getFirstMetaTagValue([
+      'dc.description.abstract',
+      'dc.description',
+      'dc.title',
+    ]));
+
+    this.addMetaTag('twitter:card', 'summary');
+    this.addMetaTag('twitter:title', title);
+    this.addMetaTag('twitter:description', description);
+  }
+
+  protected setJsonLdTags(): void {
+    this.removeHeadElements('script[data-uist-seo-jsonld]');
+    if (!this.getPublicBaseUrl()) {
+      return;
+    }
+
+    this.addJsonLdTag({
+      '@context': 'https://schema.org',
+      '@graph': [
+        this.getOrganizationJsonLd(),
+        this.getWebSiteJsonLd(),
+        this.currentObject.value instanceof Item ? this.getItemJsonLd() : this.getWebPageJsonLd(),
+      ],
+    });
   }
 
   /**
@@ -259,7 +374,7 @@ export class HeadTagService {
    * Add <meta name="citation_publication_date" ... >  to the <head>
    */
   protected setCitationPublicationDateTag(): void {
-    const value = this.getFirstMetaTagValue(['dc.date.copyright', 'dc.date.issued', 'dc.date.available', 'dc.date.accessioned']);
+    const value = this.getPublicationDate();
     this.addMetaTag('citation_publication_date', value);
   }
 
@@ -518,12 +633,206 @@ export class HeadTagService {
     return this.currentObject.value.allMetadataValues(keys);
   }
 
+  protected getCanonicalUrl(): string | undefined {
+    const publicBaseUrl = this.getPublicBaseUrl();
+    if (!publicBaseUrl) {
+      return undefined;
+    }
+    const route = this.router.url.split('?')[0].split('#')[0];
+    return new URLCombiner(publicBaseUrl, route).toString();
+  }
+
+  /**
+   * URLs exposed in canonical/OpenGraph/JSON-LD must come from an explicitly
+   * configured, public HTTPS UI origin. Local, malformed, and absent values
+   * intentionally produce no URL-bearing SEO tags rather than impersonating a
+   * production site.
+   */
+  protected getPublicBaseUrl(): string | undefined {
+    const configuredUrl = this.appConfig.ui?.baseUrl;
+    if (hasValue(configuredUrl) && this.isPublicHttpsUrl(configuredUrl)) {
+      return new URL(configuredUrl).toString();
+    }
+    return undefined;
+  }
+
+  protected isPublicHttpsUrl(url: string): boolean {
+    try {
+      const parsed = new URL(url);
+      return parsed.protocol === 'https:' &&
+        !['localhost', '127.0.0.1', '::1'].includes(parsed.hostname);
+    } catch {
+      return false;
+    }
+  }
+
+  protected getPublicationDate(): string {
+    return this.getFirstMetaTagValue([
+      'dc.date.copyright',
+      'dc.date.issued',
+      'dc.date.available',
+      'dc.date.accessioned',
+    ]);
+  }
+
+  protected getOrganizationJsonLd(): Record<string, unknown> {
+    return {
+      '@type': 'CollegeOrUniversity',
+      '@id': `${this.UIST_URL}#organization`,
+      name: this.UIST_NAME,
+      alternateName: 'UIST',
+      url: this.UIST_URL,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Partizanska bb',
+        addressLocality: 'Ohrid',
+        postalCode: '6000',
+        addressCountry: 'MK',
+      },
+    };
+  }
+
+  protected getWebSiteJsonLd(): Record<string, unknown> {
+    const baseUrl = this.getPublicBaseUrl() as string;
+    return {
+      '@type': 'WebSite',
+      '@id': `${baseUrl}#website`,
+      name: this.REPOSITORY_NAME,
+      url: baseUrl,
+      publisher: {
+        '@id': `${this.UIST_URL}#organization`,
+      },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${baseUrl.replace(/\/$/, '')}/search?query={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
+    };
+  }
+
+  protected getWebPageJsonLd(): Record<string, unknown> {
+    const canonicalUrl = this.getCanonicalUrl() as string;
+    const publicBaseUrl = this.getPublicBaseUrl() as string;
+    return {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+      name: this.title.getTitle(),
+      description: this.UIST_DESCRIPTION,
+      url: canonicalUrl,
+      isPartOf: {
+        '@id': `${publicBaseUrl}#website`,
+      },
+    };
+  }
+
+  protected getItemJsonLd(): Record<string, unknown> {
+    const canonicalUrl = this.getCanonicalUrl() as string;
+    const publicBaseUrl = this.getPublicBaseUrl() as string;
+    const title = this.stripHtml(
+      this.getFirstMetaTagValue(['dc.title']) || this.dsoNameService.getName(this.currentObject.getValue()),
+    );
+    const description = this.truncateDescription(this.getFirstMetaTagValue([
+      'dc.description.abstract',
+      'dc.description',
+    ]));
+    const creators = this.getMetaTagValues([
+      'dc.author',
+      'dc.contributor.author',
+      'dc.creator',
+    ]).map((name: string) => ({
+      '@type': 'Person',
+      name: this.stripHtml(name),
+    }));
+
+    return this.removeEmptyJsonLdValues({
+      '@type': 'ScholarlyArticle',
+      '@id': canonicalUrl,
+      headline: title,
+      name: title,
+      description,
+      url: canonicalUrl,
+      author: creators,
+      datePublished: this.getPublicationDate(),
+      keywords: this.getMetaTagValues(['dc.subject']).map((value: string) => this.stripHtml(value)),
+      inLanguage: this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']),
+      publisher: {
+        '@id': `${this.UIST_URL}#organization`,
+      },
+      doi: this.getMetaTagValue('dc.identifier.doi'),
+      isbn: this.getMetaTagValue('dc.identifier.isbn'),
+      issn: this.getMetaTagValue('dc.identifier.issn'),
+      isPartOf: {
+        '@id': `${publicBaseUrl}#website`,
+      },
+    });
+  }
+
+  protected removeEmptyJsonLdValues(value: Record<string, unknown>): Record<string, unknown> {
+    Object.keys(value).forEach((key: string) => {
+      const property = value[key];
+      if (hasNoValue(property) || property === '' || (Array.isArray(property) && property.length === 0)) {
+        delete value[key];
+      }
+    });
+    return value;
+  }
+
+  protected truncateDescription(value: string): string {
+    const strippedValue = this.stripHtml(value || this.UIST_DESCRIPTION).replace(/\s+/g, ' ').trim();
+    return strippedValue.length <= 160 ? strippedValue : `${strippedValue.slice(0, 157).trim()}...`;
+  }
+
+  protected stripHtml(value: string): string {
+    return (value || '').replace(/<[^>]+>/g, '').trim();
+  }
+
   protected addMetaTag(name: string, content: string): void {
     if (content) {
+      if (this.SINGLETON_META_TAGS.includes(name)) {
+        this.meta.removeTag(`name='${name}'`);
+      }
       const tag = { name, content } as MetaDefinition;
       this.meta.addTag(tag);
       this.storeTag(name);
     }
+  }
+
+  protected addPropertyMetaTag(property: string, content: string): void {
+    if (content) {
+      this.meta.removeTag(`property='${property}'`);
+      this.meta.addTag({ property, content } as MetaDefinition);
+      this.storeTag(`property='${property}'`);
+    }
+  }
+
+  protected addLinkTag(rel: string, href: string): void {
+    if (hasNoValue(this.document) || hasNoValue(href)) {
+      return;
+    }
+    this.removeHeadElements(`link[rel='${rel}']`);
+    const link = this.document.createElement('link');
+    link.setAttribute('rel', rel);
+    link.setAttribute('href', href);
+    this.document.head.appendChild(link);
+  }
+
+  protected addJsonLdTag(data: Record<string, unknown>): void {
+    if (hasNoValue(this.document)) {
+      return;
+    }
+    this.removeHeadElements('script[data-uist-seo-jsonld]');
+    const script = this.document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.setAttribute('data-uist-seo-jsonld', 'true');
+    script.textContent = JSON.stringify(data);
+    this.document.head.appendChild(script);
+  }
+
+  protected removeHeadElements(selector: string): void {
+    if (hasNoValue(this.document)) {
+      return;
+    }
+    this.document.querySelectorAll(selector).forEach((element: Element) => element.remove());
   }
 
   protected addMetaTags(name: string, content: string[]): void {
@@ -542,7 +851,7 @@ export class HeadTagService {
       take(1),
     ).subscribe((tagsInUse: string[]) => {
       for (const name of tagsInUse) {
-        this.meta.removeTag('name=\'' + name + '\'');
+        this.meta.removeTag(name.includes('=') ? name : `name='${name}'`);
       }
       this.store.dispatch(new ClearMetaTagAction());
     });

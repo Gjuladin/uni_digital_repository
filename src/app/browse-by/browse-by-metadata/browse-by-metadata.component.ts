@@ -14,6 +14,7 @@ import {
 } from '@angular/core';
 import {
   ActivatedRoute,
+  Params,
   Router,
 } from '@angular/router';
 import {
@@ -23,6 +24,7 @@ import {
 import { DSONameService } from '@dspace/core/breadcrumbs/dso-name.service';
 import { BrowseService } from '@dspace/core/browse/browse.service';
 import { BrowseByDataType } from '@dspace/core/browse/browse-by-data-type';
+import { supportsBrowseContains } from '@dspace/core/browse/browse-definition-capabilities';
 import { BrowseEntrySearchOptions } from '@dspace/core/browse/browse-entry-search-options.model';
 import {
   SortDirection,
@@ -171,6 +173,9 @@ export class BrowseByMetadataComponent implements OnInit, OnChanges, OnDestroy {
    */
   startsWith: string;
 
+  /** Whether this logical browse definition supports substring matching. */
+  supportsContains = false;
+
   /**
    * Determines whether to request embedded thumbnail.
    */
@@ -210,6 +215,7 @@ export class BrowseByMetadataComponent implements OnInit, OnChanges, OnDestroy {
       return;
     }
     this.browseId = this.route.snapshot.params.id;
+    this.supportsContains = supportsBrowseContains(this.route.snapshot.data.browseDefinition);
     this.subs.push(
       this.browseService.getConfiguredSortDirection(this.browseId, SortDirection.ASC).pipe(
         map((sortDir) => new SortOptions(this.browseId, sortDir)),
@@ -229,20 +235,14 @@ export class BrowseByMetadataComponent implements OnInit, OnChanges, OnDestroy {
           this.value = '';
         }
 
-        if (params.startsWith === undefined || params.startsWith === '') {
-          this.startsWith = undefined;
-        }
-
-        if (typeof params.startsWith === 'string') {
-          this.startsWith = params.startsWith.trim();
-        } else {
-          this.startsWith = '';
-        }
+        this.startsWith = getBrowseFilterValue(params, this.supportsContains);
 
         if (isNotEmpty(this.value)) {
-          this.updatePageWithItems(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId, this.fetchThumbnails), this.value, this.authority);
+          this.updatePageWithItems(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId,
+            this.fetchThumbnails, this.supportsContains), this.value, this.authority);
         } else {
-          this.updatePage(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId, false));
+          this.updatePage(browseParamsToOptions(params, scope, currentPage, currentSort, this.browseId, false,
+            this.supportsContains));
         }
         this.updateStartsWithTextOptions();
       }));
@@ -347,7 +347,7 @@ export function getBrowseSearchOptions(defaultBrowseId: string,
     fetchThumbnails = false;
   }
   return new BrowseEntrySearchOptions(defaultBrowseId, paginationConfig, sortConfig, null,
-    null, fetchThumbnails);
+    null, null, fetchThumbnails);
 }
 
 /**
@@ -358,19 +358,37 @@ export function getBrowseSearchOptions(defaultBrowseId: string,
  * @param sortConfig        Sorting configuration
  * @param metadata          Optional metadata definition to fetch browse entries/items for
  * @param fetchThumbnail   Optional parameter for requesting thumbnail images
+ * @param supportsContains Whether the REST browse definition accepts `contains`
  */
 export function browseParamsToOptions(params: any,
   scope: string,
   paginationConfig: PaginationComponentOptions,
   sortConfig: SortOptions,
   metadata?: string,
-  fetchThumbnail?: boolean): BrowseEntrySearchOptions {
+  fetchThumbnail?: boolean,
+  supportsContains = false): BrowseEntrySearchOptions {
   return new BrowseEntrySearchOptions(
     metadata,
     paginationConfig,
     sortConfig,
-    params.startsWith,
+    supportsContains ? undefined : params.startsWith,
+    supportsContains ? params.contains : undefined,
     scope,
     fetchThumbnail,
   );
+}
+
+/**
+ * Resolve the browse text filter from route parameters.
+ *
+ * Browse definitions with an explicit substring capability use `contains`.
+ * Other definitions retain DSpace's `startsWith` behavior, even for manual
+ * URLs.
+ */
+export function getBrowseFilterValue(params: Params, supportsContains = false): string {
+  const filterValue = supportsContains && typeof params.contains === 'string' && params.contains !== ''
+    ? params.contains
+    : params.startsWith;
+
+  return typeof filterValue === 'string' ? filterValue.trim() : '';
 }
