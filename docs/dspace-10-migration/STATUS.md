@@ -4,38 +4,55 @@ Last updated: 2026-08-23
 
 ## Overall state
 
-- Status: `IN PROGRESS - ISOLATED LOCAL RUNTIME PROOF COMPLETE; STAGING/PRODUCTION BLOCKED`
-- Current phase: `Phase 2/3 source implementation and local smoke proof complete; staging acceptance pending`
+- Status: `SOURCE PROMOTED TO MAIN - LOCAL DSPACE 10 RUNTIME VERIFIED; STAGING/PRODUCTION DATA MIGRATION BLOCKED`
+- Current phase: `Frontend/backend main branches now contain DSpace 10 source; isolated staging and data migration remain pending`
 - Implementation started: Yes (P2/P3 implementation plus isolated local runtime smoke proof)
 - Production changes made: No
-- Repository files changed for migration: Documentation only in current `main`;
-  target worktrees contain unstaged implementation diffs
+- Repository files changed for migration: DSpace 10 frontend and backend source,
+  UIST customizations, tests, configuration, and this documentation are committed
+  on the two local `main` branches
 - Local official guide imported: `OFFICIAL_UPGRADE_GUIDE.md`
 
-## Current repository revisions
+## Promoted source revisions
 
-| Component | Path | Branch | Commit | Declared version |
+| Component | Path | Branch | Source promotion commit | Declared version |
 | --- | --- | --- | --- | --- |
-| Frontend | `/Users/samil/uni_digital_repository` | `main` | `7f6cb862c939373919d7a02a06812a327209d5b9` | `9.2.0`, but source is a 9.2/10 hybrid |
-| Backend | `/Users/samil/uni_digital_repository_backend` | `main` | `252bfffa77` | `9.2` |
+| Frontend | `/Users/samil/uni_digital_repository` | `main` | `7fdf67e8b92252d20c978b5839d09733327de516` | `10.0.0` |
+| Backend | `/Users/samil/uni_digital_repository_backend` | `main` | `5f5cbc6a478ca374332a2f72d1ecdc13d16fbc34` | `10.0` |
 
-The recorded `main` source revisions still match exactly and remain untouched.
-The target worktrees remain at the exact official baseline HEADs shown below,
-with unstaged implementation diffs. No unrelated source changes
-were introduced in either current `main` worktree.
+On 2026-08-23, the committed DSpace 10 target trees were promoted to both
+local `main` branches. History-preserving two-parent merge commits retain the
+old 9.2 histories without allowing obsolete 9.2 files to alter the verified
+DSpace 10 trees. The frontend status-document commit follows its source
+promotion commit. Nothing was pushed to either remote.
 
-P1 preservation and target refs are now established without changing either
-current `main` worktree:
+The pre-upgrade tips and target worktrees remain available:
 
 | Component | Read-only backup ref | Target worktree | Target branch | Exact target HEAD |
 | --- | --- | --- | --- | --- |
-| Frontend | `backup/pre-dspace-10-ui` -> `7f6cb862c939373919d7a02a06812a327209d5b9` | `/Users/samil/uni_digital_repository_v10` | `codex/dspace-10-uist` | `7f59f6cf99f0d1fb4b2abe46e9f24a5e1ee01a49` |
-| Backend | `backup/pre-dspace-10-backend` -> `252bfffa77de93e7a4280e43e55478c3d2ab4b1f` | `/Users/samil/uni_digital_repository_backend_v10` | `codex/dspace-10-port` | `465195f7593cf812fe16efaa1685a9a58823243c` |
+| Frontend | `backup/pre-dspace-10-ui` -> `7f6cb862c939373919d7a02a06812a327209d5b9` | `/Users/samil/uni_digital_repository_v10` | `codex/dspace-10-uist` | `7fdf67e8b92252d20c978b5839d09733327de516` |
+| Backend | `backup/pre-dspace-10-backend` -> `252bfffa77de93e7a4280e43e55478c3d2ab4b1f` | `/Users/samil/uni_digital_repository_backend_v10` | `codex/dspace-10-port` | `5f5cbc6a478ca374332a2f72d1ecdc13d16fbc34` |
 
-Both target worktrees remain based directly on the verified peeled
-`dspace-10.0` tag commits. They now contain unstaged P2/P3 implementation
-changes; their HEAD commits are unchanged and no source changes were made in
-the current `main` repositories.
+Both promoted histories remain based on the verified peeled `dspace-10.0`
+tag commits. The frontend promotion contains the migration reference pack;
+outside that directory its source tree matches the verified frontend target.
+The backend promotion tree exactly matches the verified backend target.
+
+## 2026-08-23 source promotion verification
+
+- Frontend `main` was fast-forwarded to `7fdf67e8b92252d20c978b5839d09733327de516`.
+  A clean `npm ci` installed the DSpace 10 lockfile dependencies, and the
+  development browser bundle compiled successfully from the actual main path.
+- Backend `main` was fast-forwarded to `5f5cbc6a478ca374332a2f72d1ecdc13d16fbc34`.
+  Its tree ID is `d924bd907b76fd40d802f11779aedb5cf78a6b6a`,
+  identical to the previously verified 15-module/backend REST test source.
+- The live REST root reported `DSpace 10.0`. Browser smoke checks from the
+  promoted frontend main verified the UIST home page, desktop hover hierarchy,
+  mobile click hierarchy, and Author `contains` URL/results.
+- Both repositories were clean immediately after promotion and tree checks;
+  the only subsequent tracked change is this documentation status update.
+- This is a source-code promotion, not approval or execution of the production
+  database, assetstore, Solr, configuration, or deployment cutover.
 
 ## 2026-08-23 UIST behavior correction and isolated local runtime proof
 
@@ -363,8 +380,8 @@ operational/data work stays blocked:
 | Workstream | State | Next task |
 | --- | --- | --- |
 | Planning/reference pack | COMPLETE | Keep documents current during implementation |
-| Frontend code migration | CORRECTED SOURCE VERIFIED | Visual/Cypress acceptance against isolated backend staging |
-| Backend code migration | LOCAL ISOLATED RUNTIME SMOKE PROVED; STAGING ACCEPTANCE OPEN | Repeat reindex and validate the complete D-011 matrix in isolated staging |
+| Frontend code migration | PROMOTED TO LOCAL MAIN; SOURCE VERIFIED | Visual/Cypress acceptance against isolated backend staging |
+| Backend code migration | PROMOTED TO LOCAL MAIN; LOCAL RUNTIME SMOKE PROVED; STAGING ACCEPTANCE OPEN | Repeat reindex and validate the complete D-011 matrix in isolated staging |
 | Staging/runtime preparation | NOT STARTED | O0: production topology and capacity inventory |
 | Backup/restore drill | NOT STARTED | Requires inventory and isolated staging storage |
 | Full staging rehearsal | NOT STARTED | Requires tested backend and frontend artifacts |
@@ -372,14 +389,15 @@ operational/data work stays blocked:
 
 ## Known blockers and hazards
 
-- The frontend is an inconsistent 9.2/10 hybrid and must not be upgraded with
-  an in-place merge or rebase.
+- The pre-upgrade frontend was an inconsistent 9.2/10 hybrid. It remains
+  recoverable through `backup/pre-dspace-10-ui`; local `main` now contains the
+  selectively ported DSpace 10 tree.
 - Title and Author `contains` are bounded and explicitly configured. Author is
   public-enabled only in the local `dspace10test` proof; fresh Compose defaults
   keep both Author flags false. Staging initialization, authorization/
   correctness checks, and production-scale performance acceptance remain open.
-- The current `main` backend uses Java 17; DSpace 10 target work is explicitly
-  using installed Java 21.
+- DSpace 10 backend builds and runtime operations must use Java 21. Do not
+  reuse the pre-upgrade Java 17 toolchain.
 - The existing Compose entrypoint automatically invokes plain
   `database migrate`, which is not the controlled 9.2 to 10.0 procedure.
 - Current Compose files use fixed container names and development credentials;

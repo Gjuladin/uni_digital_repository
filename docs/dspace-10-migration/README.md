@@ -9,7 +9,9 @@ The documents cover both repositories:
 - Frontend: `/Users/samil/uni_digital_repository`
 - Backend: `/Users/samil/uni_digital_repository_backend`
 
-Planning was completed on 2026-08-18. Implementation has not started.
+Planning was completed on 2026-08-18. The DSpace 10 source implementation was
+promoted to both local `main` branches on 2026-08-23. Isolated staging, data
+migration, and production cutover remain gated; see `STATUS.md`.
 
 ## How to use this pack
 
