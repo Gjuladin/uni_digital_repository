@@ -31,7 +31,7 @@
         }
         @if ((!context.notRepeatable) && isInlineGroupForm && enableInlineGroupCopy) {
           <div class="clearfix w-100">
-            <div class="btn-group" role="group" aria-label="copy button">
+            <div class="btn-group" role="group" [attr.aria-label]="'ui.copy-button' | translate">
               <button type="button" role="button" class="ds-form-add-more btn btn-link"
                       title="{{'form.copy' | translate}}"
                       attr.aria-label="{{'form.copy' | translate}}"

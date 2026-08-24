@@ -1,0 +1,127 @@
+.user-management-form {
+  .card-header {
+    background: var(--bs-tertiary-bg);
+  }
+
+  .role-search {
+    max-width: 22rem;
+  }
+
+  .role-category + .role-category {
+    border-top: 1px solid var(--bs-border-color);
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .admin-warning {
+    background: rgba(var(--bs-warning-rgb), .12);
+    border: 1px solid rgba(var(--bs-warning-rgb), .35);
+  }
+
+  .permission-matrix {
+    min-width: 48rem;
+
+    th:not(:first-child),
+    td:not(:first-child) {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .scope-parent-row,
+    .scope-group-row {
+      background: rgba(var(--bs-primary-rgb), .07);
+    }
+
+    .scope-parent-row > :first-child,
+    .scope-group-row > :first-child {
+      border-left: .25rem solid var(--bs-primary);
+    }
+
+    .scope-group-row td {
+      background: rgba(var(--bs-primary-rgb), .035);
+    }
+  }
+
+  .scope-result-row {
+    background: var(--bs-body-bg);
+    margin-inline-start: calc(var(--scope-depth, 0) * 2rem);
+    position: relative;
+  }
+
+  .scope-result-row.scope-parent {
+    background: rgba(var(--bs-primary-rgb), .07);
+    border-left: .25rem solid var(--bs-primary) !important;
+  }
+
+  .scope-tree-label {
+    align-items: flex-start;
+    display: flex;
+    gap: .65rem;
+    min-width: 0;
+    padding-inline-start: calc(var(--scope-depth, 0) * 2rem);
+    position: relative;
+
+    > .fas {
+      color: var(--bs-primary);
+      flex: 0 0 auto;
+      margin-top: .2rem;
+      width: 1rem;
+    }
+  }
+
+  .scope-child .scope-tree-label::before,
+  .scope-child-row .scope-tree-label::before {
+    content: none;
+  }
+
+  .scope-child,
+  .scope-child-row {
+    background: rgba(var(--bs-primary-rgb), .025);
+  }
+
+  .scope-result-row .scope-tree-label {
+    padding-inline-start: 0;
+  }
+
+  .scope-mode {
+    color: var(--bs-primary-text-emphasis);
+    font-weight: 600;
+  }
+
+  .scope-tree-cell {
+    --scope-depth: inherit;
+  }
+
+  .read-only-memberships,
+  .read-only-permissions {
+    border-left: .25rem solid var(--bs-secondary);
+    background: var(--bs-tertiary-bg);
+    padding: .75rem;
+  }
+
+  .bulk-table .form-control {
+    min-width: 9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .user-management-form {
+    .scope-result-row {
+      margin-inline-start: calc(var(--scope-depth, 0) * 1rem);
+    }
+
+    .scope-child-row .scope-tree-label {
+      padding-inline-start: calc(var(--scope-depth, 0) * 1rem);
+    }
+
+    .bulk-table {
+      overflow: visible;
+
+      table, tbody, tr, td { display: block; width: 100%; }
+      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+      tr { border: 1px solid var(--bs-border-color); border-radius: .375rem; margin-bottom: .75rem; padding: .5rem; }
+      td { border: 0; padding: .25rem; }
+      .form-control { min-width: 0; }
+    }
+  }
+}

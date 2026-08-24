@@ -53,6 +53,14 @@ export class EPerson extends DSpaceObject {
   @autoserialize
   public email: string;
 
+  /** Administrator-assigned local login name. */
+  @autoserialize
+  public username: string;
+
+  /** True when a local password must be changed before normal repository access. */
+  @autoserialize
+  public passwordChangeRequired: boolean;
+
   /**
    * A boolean representing if this EPerson require certificate
    */

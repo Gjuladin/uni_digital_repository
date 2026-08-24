@@ -212,6 +212,7 @@ describe('AuthEffects', () => {
 
       authEffects.authenticatedSuccess$.subscribe(() => {
         expect(authServiceStub.storeToken).toHaveBeenCalledWith(token);
+        expect((authEffects as any).authorizationsService.invalidateAuthorizationsRequestCache).toHaveBeenCalled();
       });
 
       expect(authEffects.authenticatedSuccess$).toBeObservable(expected);
@@ -309,6 +310,20 @@ describe('AuthEffects', () => {
         const expected = cold('--b-', { b: new RetrieveAuthenticatedEpersonSuccessAction(EPersonMock.id) });
 
         expect(authEffects.retrieveAuthenticatedEperson$).toBeObservable(expected);
+      });
+    });
+
+    it('should refresh the current EPerson instead of reusing a previous session cache entry', (done) => {
+      const retrieveAuthenticatedUserByHref = spyOn(
+        (authEffects as any).authService,
+        'retrieveAuthenticatedUserByHref',
+      ).and.callThrough();
+      actions = of(new RetrieveAuthenticatedEpersonAction(EPersonMock._links.self.href));
+
+      authEffects.retrieveAuthenticatedEperson$.subscribe(() => {
+        expect(retrieveAuthenticatedUserByHref)
+          .toHaveBeenCalledWith(EPersonMock._links.self.href, false, false);
+        done();
       });
     });
 

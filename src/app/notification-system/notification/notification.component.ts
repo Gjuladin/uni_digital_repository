@@ -21,6 +21,7 @@ import { NotificationAnimationsStatus } from '@dspace/config/notifications-confi
 import { INotification } from '@dspace/core/notification-system/models/notification.model';
 import { NotificationsService } from '@dspace/core/notification-system/notifications.service';
 import { isNotEmpty } from '@dspace/shared/utils/empty.util';
+import { TranslatePipe } from '@ngx-translate/core';
 import {
   Observable,
   of,
@@ -95,6 +96,7 @@ import {
     NgClass,
     NgStyle,
     NgTemplateOutlet,
+    TranslatePipe,
   ],
 })
 

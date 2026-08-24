@@ -15,7 +15,10 @@ import {
   NgbModal,
   NgbModalRef,
 } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import {
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { mergeMap } from 'rxjs/operators';
 
 import { CollectionListEntry } from '../../../shared/collection-dropdown/collection-dropdown.component';
@@ -65,6 +68,7 @@ export class SubmissionImportExternalPreviewComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router,
     private notificationService: NotificationsService,
+    private translateService: TranslateService,
   ) { }
 
   /**
@@ -111,7 +115,10 @@ export class SubmissionImportExternalPreviewComponent implements OnInit {
         }
       }
       if (!isValid) {
-        this.notificationService.error('submission.import-external.preview.error.import.title', 'submission.import-external.preview.error.import.body');
+        this.notificationService.error(
+          this.translateService.get('submission.import-external.preview.error.import.title'),
+          this.translateService.get('submission.import-external.preview.error.import.body'),
+        );
       }
       this.modalRef.close();
     });

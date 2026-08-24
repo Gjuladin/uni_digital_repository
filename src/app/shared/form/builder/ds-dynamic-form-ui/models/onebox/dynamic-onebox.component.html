@@ -82,7 +82,7 @@
              (input)="onInput($event)"
              (selectItem)="onSelectItem($event)">
       @if (searchFailed) {
-        <div class="invalid-feedback">Sorry, suggestions could not be loaded.</div>
+        <div class="invalid-feedback">{{ 'ui.suggestions-load-error' | translate }}</div>
       }
     </div>
   </div>

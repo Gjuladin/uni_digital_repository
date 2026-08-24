@@ -106,4 +106,17 @@ describe('ProfilePageSecurityFormComponent', () => {
       }));
     });
   });
+
+  it('toggles each password field visibility without changing its value', () => {
+    component.formGroup.patchValue({ password: 'kept-secret' });
+
+    component.togglePasswordVisibility('password');
+
+    expect(component.isPasswordVisible('password')).toBeTrue();
+    expect((component.formModel.find((field) => field.id === 'password') as any).inputType).toBe('text');
+    expect(component.formGroup.get('password').value).toBe('kept-secret');
+
+    component.togglePasswordVisibility('password');
+    expect(component.isPasswordVisible('password')).toBeFalse();
+  });
 });

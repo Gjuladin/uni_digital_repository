@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">{{'notify-message-modal.title' | translate}}</h4>
-  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button type="button" class="btn-close" [attr.aria-label]="'ui.close' | translate" (click)="activeModal.dismiss('Cross click')">
   </button>
 </div>
 <div class="modal-body p-4">

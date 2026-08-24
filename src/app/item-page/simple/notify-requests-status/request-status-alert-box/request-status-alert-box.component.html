@@ -4,7 +4,7 @@
     <img
       class="source-logo"
       src="assets/images/qa-coar-notify-logo.png"
-      alt="notify logo"
+      [attr.alt]="'ui.notify-logo' | translate"
       />
     <ds-truncatable [id]="status">
       <ds-truncatable-part [id]="status" [minLines]="1">

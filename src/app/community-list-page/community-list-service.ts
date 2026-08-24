@@ -95,7 +95,7 @@ export const showMoreFlatNode = (
   parent: FlatNode,
 ): FlatNode => ({
   isExpandable$: of(false),
-  name: 'Show More Flatnode',
+  name: 'communityList.showMore',
   id: id,
   level: level,
   isExpanded: false,

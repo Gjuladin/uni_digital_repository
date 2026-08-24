@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import uniqueId from 'lodash/uniqueId';
-import { of } from 'rxjs';
+import {
+  Observable,
+  of,
+} from 'rxjs';
 import { first } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
@@ -23,6 +26,10 @@ export class NotificationsService {
 
   constructor(private store: Store<Notification>,
               private translate: TranslateService) {
+  }
+
+  getTranslation(key: string, interpolateParams?: object): Observable<string> {
+    return this.translate.get(key, interpolateParams);
   }
 
   private add(notification: Notification) {

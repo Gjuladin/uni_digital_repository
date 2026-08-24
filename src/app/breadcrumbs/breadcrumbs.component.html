@@ -1,6 +1,6 @@
 <ng-container *ngVar="(breadcrumbs$ | async) as breadcrumbs">
   @if ((showBreadcrumbs$ | async)) {
-    <nav aria-label="breadcrumb" class="nav-breadcrumb">
+    <nav [attr.aria-label]="'ui.breadcrumb' | translate" class="nav-breadcrumb">
       <ol class="container breadcrumb my-0">
         <ng-container
         *ngTemplateOutlet="breadcrumbs?.length > 0 ? breadcrumb : activeBreadcrumb; context: {text: 'home.breadcrumbs', url: '/home'}"></ng-container>
@@ -19,4 +19,3 @@
     <li class="breadcrumb-item active" aria-current="page"><div class="breadcrumb-item-limiter"><div class="text-truncate">{{text | translate}}</div></div></li>
   </ng-template>
 </ng-container>
-

@@ -25,12 +25,14 @@ import {
   combineLatest,
   map,
   Observable,
+  of,
 } from 'rxjs';
 import {
   filter,
   find,
   switchMap,
   take,
+  tap,
 } from 'rxjs/operators';
 
 import { MenuService } from './menu.service';
@@ -98,36 +100,39 @@ export class MenuProviderService {
    * Initialise the persistent menu sections
    */
   public initPersistentMenus(isServerRendering) {
-    combineLatest([
-      ...this.providers
-        .map((provider) => {
-          return provider;
-        })
-        .filter(provider => !(isServerRendering && provider.renderBrowserOnly))
-        .filter(provider => provider.shouldPersistOnRouteChange)
-        .map(provider => provider.getSections()
-          .pipe(
-            map((sections) => {
-              return { provider: provider, sections: sections };
-            }),
-          ),
-        )])
-      .pipe(
-        switchMap((providerWithSections: { provider: AbstractMenuProvider, sections: PartialMenuSection[] }[]) => {
-          const waitForMenus = providerWithSections.map((providerWithSection: {
-            provider: AbstractMenuProvider,
-            sections: PartialMenuSection[]
-          }, sectionIndex) => {
-            providerWithSection.sections.forEach((section, index) => {
-              this.addSection(providerWithSection.provider, section, index);
-            });
-            return this.waitForMenu$(providerWithSection.provider.menuID);
-          });
-          return [waitForMenus];
-        }),
-        map(done => done.every(Boolean)),
-        take(1),
-      ).subscribe();
+    this.refreshPersistentMenus(isServerRendering).subscribe();
+  }
+
+  /**
+   * Re-evaluate persistent menu sections and complete only after their current
+   * visibility has been written to the menu store. This is used when an
+   * authenticated user's permissions change without a full page reload.
+   */
+  public refreshPersistentMenus(isServerRendering): Observable<boolean> {
+    const persistentProviders = this.providers
+      .filter(provider => !(isServerRendering && provider.renderBrowserOnly))
+      .filter(provider => provider.shouldPersistOnRouteChange);
+
+    if (persistentProviders.length === 0) {
+      return of(true);
+    }
+
+    return combineLatest(persistentProviders.map(provider => provider.getSections().pipe(
+      map((sections) => ({ provider, sections })),
+    ))).pipe(
+      take(1),
+      tap((providerWithSections: { provider: AbstractMenuProvider, sections: PartialMenuSection[] }[]) => {
+        providerWithSections.forEach(({ provider, sections }) => {
+          sections.forEach((section, index) => this.addSection(provider, section, index));
+        });
+      }),
+      switchMap((providerWithSections) => {
+        const menuReady = providerWithSections.map(({ provider }) => this.waitForMenu$(provider.menuID));
+        return menuReady.length > 0 ? combineLatest(menuReady) : of([]);
+      }),
+      map((done) => done.every(Boolean)),
+      take(1),
+    );
   }
 
   /**

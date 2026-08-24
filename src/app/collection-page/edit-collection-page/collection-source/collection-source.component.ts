@@ -131,7 +131,7 @@ export class CollectionSourceComponent extends AbstractTrackableComponent implem
       required: null,
     },
     errorMessages: {
-      required: 'You must provide a set id of the target collection.',
+      required: this.ERROR_KEY_PREFIX + 'oaiSource.required',
     },
   });
 

@@ -70,7 +70,7 @@
     <div class="flex-grow-1 me-3">
       <div class="mb-3 input-group me-3">
         <input type="text" name="query" id="query" formControlName="query"
-          class="form-control" aria-label="Search input">
+                      class="form-control" [attr.aria-label]="'ui.search-input' | translate">
         <span class="input-group-append">
           <button type="submit" class="search-button btn btn-primary">
             <i class="fas fa-search"></i> {{ messagePrefix + '.search.button' | translate }}

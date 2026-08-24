@@ -139,6 +139,8 @@ export class AuthEffects {
   public authenticatedSuccess$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(AuthActionTypes.AUTHENTICATED_SUCCESS),
     tap((action: AuthenticatedSuccessAction) => this.authService.storeToken(action.payload.authToken)),
+    // Authorization results are user-specific. Do not reuse anonymous or previous-user cache entries after identity changes.
+    tap(() => this.authorizationsService.invalidateAuthorizationsRequestCache()),
     switchMap((action: AuthenticatedSuccessAction) => this.authService.getRedirectUrl().pipe(
       take(1),
       map((redirectUrl: string) => [action, redirectUrl]),
@@ -172,9 +174,9 @@ export class AuthEffects {
       const impersonatedUserID = this.authService.getImpersonateID();
       let user$: Observable<EPerson>;
       if (hasValue(impersonatedUserID)) {
-        user$ = this.authService.retrieveAuthenticatedUserById(impersonatedUserID);
+        user$ = this.authService.retrieveAuthenticatedUserById(impersonatedUserID, false, false);
       } else {
-        user$ = this.authService.retrieveAuthenticatedUserByHref(action.payload);
+        user$ = this.authService.retrieveAuthenticatedUserByHref(action.payload, false, false);
       }
       return user$.pipe(
         map((user: EPerson) => new RetrieveAuthenticatedEpersonSuccessAction(user.id)),
@@ -234,6 +236,7 @@ export class AuthEffects {
   public refreshTokenSuccess$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(AuthActionTypes.REFRESH_TOKEN_SUCCESS),
     tap((action: RefreshTokenSuccessAction) => this.authService.replaceToken(action.payload)),
+    tap(() => this.authorizationsService.invalidateAuthorizationsRequestCache()),
   ), { dispatch: false });
 
   /**
@@ -279,6 +282,7 @@ export class AuthEffects {
     .pipe(ofType(AuthActionTypes.LOG_OUT_SUCCESS),
       tap(() => this.authService.removeToken()),
       tap(() => this.authService.clearRedirectUrl()),
+      tap(() => this.authorizationsService.invalidateAuthorizationsRequestCache()),
       tap(() => this.authService.refreshAfterLogout()),
     ), { dispatch: false });
 

@@ -16,7 +16,7 @@
     <h4 class="modal-title">{{'submission.workflow.tasks.claimed.reject.reason.title' | translate}}</h4>
     <button type="button"
       class="btn-close"
-      aria-label="Close"
+      [attr.aria-label]="'ui.close' | translate"
       (click)="d('Cross click')">
     </button>
   </div>

@@ -8,8 +8,7 @@
           <img
             class="source-logo"
             src="assets/images/qa-{{ source.id }}-logo.png"
-            onerror="this.src='assets/images/dspace-logo.svg'"
-            alt="{{ source.id }} logo"
+            [attr.alt]="'quality-assurance.source-logo' | translate:{source: source.id}"
             />
         </div>
         <div class="w-100 d-flex justify-content-between">

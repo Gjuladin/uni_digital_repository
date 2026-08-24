@@ -3,14 +3,14 @@
     @if (this.canWithdraw) {
       <div class="modal-header">
         {{ 'item.qa.withdrawn.modal.header' | translate }}
-        <button type="button" class="btn-close" (click)="onModalClose()" aria-label="Close">
+        <button type="button" class="btn-close" (click)="onModalClose()" [attr.aria-label]="'ui.close' | translate">
         </button>
       </div>
     } @else {
       @if (!this.canWithdraw) {
         <div class="modal-header">
           {{'item.qa.reinstate.modal.header' | translate}}
-          <button type="button" class="btn-close" (click)="onModalClose()" aria-label="Close">
+          <button type="button" class="btn-close" (click)="onModalClose()" [attr.aria-label]="'ui.close' | translate">
           </button>
         </div>
       }
@@ -53,5 +53,4 @@
     </div>
   </div>
 }
-
 

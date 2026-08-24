@@ -1,5 +1,5 @@
 @if (isLoading) {
-  <ds-loading message="Loading..."></ds-loading>
+  <ds-loading message="{{ 'loading.default' | translate }}"></ds-loading>
 }
 @if (!isLoading && formModel) {
   <ds-form #formRef="formComponent"

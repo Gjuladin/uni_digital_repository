@@ -6,6 +6,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { LocaleService } from '@dspace/core/locale/locale.service';
 import { Site } from '@dspace/core/shared/site.model';
+import { TranslatePipe } from '@ngx-translate/core';
 import {
   combineLatest,
   map,
@@ -21,6 +22,7 @@ import { MarkdownViewerComponent } from 'src/app/shared/markdown-viewer/markdown
   imports: [
     AsyncPipe,
     MarkdownViewerComponent,
+    TranslatePipe,
   ],
 })
 

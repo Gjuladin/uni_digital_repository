@@ -13,6 +13,8 @@
 
   "500.page-internal-server-error": "Service unavailable",
 
+  "core.notification.server-error": "Server Error",
+
   "500.help": "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.",
 
   "500.link.home-page": "Take me to the home page",
@@ -106,6 +108,8 @@
   "admin.registries.bitstream-formats.edit.shortDescription.hint": "A unique name for this format, (e.g. Microsoft Word XP or Microsoft Word 2000)",
 
   "admin.registries.bitstream-formats.edit.shortDescription.label": "Name",
+
+  "admin.registries.bitstream-formats.edit.shortDescription.required": "Please enter a name for this bitstream format",
 
   "admin.registries.bitstream-formats.edit.success.content": "The bitstream format was successfully edited.",
 
@@ -265,7 +269,7 @@
 
   "admin.access-control.epeople.breadcrumbs": "EPeople",
 
-  "admin.access-control.epeople.title": "EPeople",
+  "admin.access-control.epeople.title": "User management",
 
   "admin.access-control.epeople.edit.breadcrumbs": "New EPerson",
 
@@ -978,6 +982,8 @@
   "bitstream.edit.form.fileName.hint": "Change the filename for the bitstream. Note that this will change the display bitstream URL, but old links will still resolve as long as the sequence ID does not change.",
 
   "bitstream.edit.form.fileName.label": "Filename",
+
+  "bitstream.edit.form.fileName.required": "You must provide a file name for the bitstream",
 
   "bitstream.edit.form.newFormat.label": "Describe new format",
 
@@ -2107,6 +2113,242 @@
 
   "footer.uist.institution": "University of Information Science and Technology \"St. Paul the Apostle\"",
 
+  "ui.accepted": "accepted",
+
+  "ui.breadcrumb": "Breadcrumb",
+
+  "ui.browse-community-collection": "Browse Community or Collection",
+
+  "ui.cancel": "Cancel",
+
+  "ui.close": "Close",
+
+  "ui.close-button": "Close button",
+
+  "ui.confirm": "Confirm",
+
+  "ui.copy-button": "Copy button",
+
+  "ui.creation-mode": "Creation mode",
+
+  "ui.date-placeholder": "yyyy-mm-dd",
+
+  "ui.depositing": "Depositing...",
+
+  "ui.email-placeholder": "profile.email@example.com",
+
+  "ui.extend-session": "Extend session",
+
+  "ui.log-out": "Log out",
+
+  "ui.mirador-viewer": "Mirador Viewer",
+
+  "ui.new-name-variant": "New name variant",
+
+  "ui.not-available": "n/a",
+
+  "ui.notify-logo": "Notify logo",
+
+  "ui.orcid-logo": "ORCID logo",
+
+  "ui.saving": "Saving...",
+
+  "ui.search-input": "Search input",
+
+  "ui.search-scope": "Search scope",
+
+  "ui.select-deselect-all": "Select / Deselect All",
+
+  "ui.select-metadata": "Select metadata",
+
+  "ui.selected-collection": "selected collection:",
+
+  "ui.suggestions-load-error": "Sorry, suggestions could not be loaded.",
+
+  "feed.repository": "UIST Repository",
+
+  "feed.sitewide-atom": "Sitewide Atom feed",
+
+  "feed.sitewide-rss": "Sitewide RSS feed",
+
+  "mirador.unavailable": "Sorry, the Mirador viewer is not currently available in development mode.",
+
+  "legal.end-user-agreement.last-updated": "Last updated May 4, 2023",
+
+  "legal.end-user-agreement.heading.terms": "Agreement to terms",
+
+  "legal.end-user-agreement.terms.introduction": "These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (\"you\") and {{ repository }} (\"Company\", \"we\", \"us\", or \"our\"), concerning your access to and use of this website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the \"Site\"). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use and any future amendments thereof.",
+
+  "legal.end-user-agreement.terms.supplemental": "Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the \"Last updated\" date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.",
+
+  "legal.end-user-agreement.terms.jurisdiction": "The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent such laws are applicable.",
+
+  "legal.end-user-agreement.heading.intellectual-property": "Intellectual property rights",
+
+  "legal.end-user-agreement.intellectual-property.introduction": "Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the \"Content\") and the trademarks, service marks, and logos contained therein (the \"Marks\") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of {{ country }}, international copyright laws, and international conventions. The Content and the Marks are provided on the Site \"AS IS\" for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content",
+
+  "legal.end-user-agreement.intellectual-property.footnote": "[a]",
+
+  "legal.end-user-agreement.intellectual-property.continuation": "or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.",
+
+  "legal.end-user-agreement.intellectual-property.license": "Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.",
+
+  "legal.end-user-agreement.heading.user-representations": "User representations",
+
+  "legal.end-user-agreement.user-representations.first": "By using the Site, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Use; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.",
+
+  "legal.end-user-agreement.user-representations.second": "If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof).",
+
+  "legal.end-user-agreement.heading.registration": "User registration",
+
+  "legal.end-user-agreement.registration.content": "You may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.",
+
+  "legal.end-user-agreement.heading.prohibited": "Prohibited activities",
+
+  "legal.end-user-agreement.prohibited.introduction": "You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.",
+
+  "legal.end-user-agreement.prohibited.prompt": "As a user of the Site, you agree not to:",
+
+  "legal.end-user-agreement.prohibited.1": "Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.",
+  "legal.end-user-agreement.prohibited.2": "Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.",
+  "legal.end-user-agreement.prohibited.3": "Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.",
+  "legal.end-user-agreement.prohibited.4": "Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.",
+  "legal.end-user-agreement.prohibited.5": "Use any information obtained from the Site in order to harass, abuse, or harm another person.",
+  "legal.end-user-agreement.prohibited.6": "Make improper use of our support services or submit false reports of abuse or misconduct.",
+  "legal.end-user-agreement.prohibited.7": "Use the Site in a manner inconsistent with any applicable laws or regulations.",
+  "legal.end-user-agreement.prohibited.8": "Engage in unauthorized framing of or linking to the Site.",
+  "legal.end-user-agreement.prohibited.9": "Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party's uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.",
+  "legal.end-user-agreement.prohibited.10": "Delete the copyright or other proprietary rights notice from any Content.",
+  "legal.end-user-agreement.prohibited.11": "Attempt to impersonate another user or person or use the username and password of another user.",
+  "legal.end-user-agreement.prohibited.12": "Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (\"gifs\"), 1x1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as \"spyware\" or \"passive collection mechanisms\" or \"pcms\").",
+  "legal.end-user-agreement.prohibited.13": "Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.",
+  "legal.end-user-agreement.prohibited.14": "Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.",
+  "legal.end-user-agreement.prohibited.15": "Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion thereof.",
+  "legal.end-user-agreement.prohibited.16": "Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email or other forms of electronic communication, or creating user accounts by automated means or under false pretenses.",
+  "legal.end-user-agreement.prohibited.17": "Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.",
+
+  "legal.end-user-agreement.heading.contributions": "User generated contributions",
+
+  "legal.end-user-agreement.contributions.introduction": "The Site may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, \"Contributions\"). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:",
+
+  "legal.end-user-agreement.contributions.1": "The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.",
+  "legal.end-user-agreement.contributions.2": "You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.",
+  "legal.end-user-agreement.contributions.3": "You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.",
+  "legal.end-user-agreement.contributions.4": "Your Contributions are not false, inaccurate, or misleading.",
+  "legal.end-user-agreement.contributions.5": "Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.",
+  "legal.end-user-agreement.contributions.6": "Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).",
+  "legal.end-user-agreement.contributions.7": "Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.",
+  "legal.end-user-agreement.contributions.8": "Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person, do not create and are not used to promote violence against a specific person or class of people.",
+  "legal.end-user-agreement.contributions.9": "Your Contributions do not violate any applicable law, regulation, or rule.",
+  "legal.end-user-agreement.contributions.10": "Your Contributions do not violate the privacy or publicity rights of any third party.",
+  "legal.end-user-agreement.contributions.11": "Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.",
+  "legal.end-user-agreement.contributions.12": "Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, colour, religion, creed or physical handicap.",
+  "legal.end-user-agreement.contributions.13": "Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.",
+
+  "legal.end-user-agreement.contributions.conclusion": "Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.",
+
+  "legal.end-user-agreement.heading.management": "Site management",
+
+  "legal.end-user-agreement.management.content": "We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.",
+
+  "legal.end-user-agreement.heading.privacy": "Privacy policy",
+
+  "legal.end-user-agreement.privacy.prefix": "We care about data privacy and security. Please review our",
+  "legal.end-user-agreement.privacy.link": "Privacy Policy",
+  "legal.end-user-agreement.privacy.suffix": ". By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use.",
+  "legal.end-user-agreement.privacy.hosting": "Please be advised the Site is hosted in {{ country }}. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in {{ country }}, then through your continued use of the Site, you are transferring your data to {{ country }}, and you agree to have your data transferred to and processed in {{ country }}.",
+
+  "legal.end-user-agreement.heading.termination": "Term and termination",
+  "legal.end-user-agreement.termination.first": "These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, TO DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.",
+  "legal.end-user-agreement.termination.second": "If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.",
+
+  "legal.end-user-agreement.heading.modifications": "Modifications and interruptions",
+  "legal.end-user-agreement.modifications.first": "We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, change, suspension, or discontinuance of the Site.",
+  "legal.end-user-agreement.modifications.second": "We cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.",
+
+  "legal.end-user-agreement.heading.corrections": "Corrections",
+  "legal.end-user-agreement.corrections.content": "There may be information on the Site that contains typographical errors, inaccuracies, or omissions. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.",
+
+  "legal.end-user-agreement.heading.disclaimer": "Disclaimer",
+  "legal.end-user-agreement.disclaimer.content": "THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE'S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.",
+
+  "legal.end-user-agreement.heading.liability": "Limitations of liability",
+  "legal.end-user-agreement.liability.content": "IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.",
+
+  "legal.end-user-agreement.heading.indemnification": "Indemnification",
+  "legal.end-user-agreement.indemnification.content": "You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys' fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your representations and warranties set forth in these Terms of Use; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding that is subject to this indemnification upon becoming aware of it.",
+
+  "legal.end-user-agreement.heading.user-data": "User Data",
+  "legal.end-user-agreement.user-data.content": "We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.",
+
+  "legal.end-user-agreement.heading.miscellaneous": "Miscellaneous",
+  "legal.end-user-agreement.miscellaneous.content": "These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.",
+
+  "legal.end-user-agreement.dspace.prefix": "The DSpace software used to run this site is open source. Options for reuse and reproduction of the DSpace software is governed by its open source license:",
+  "legal.end-user-agreement.dspace.license-url": "https://github.com/DSpace/DSpace/blob/main/LICENSE",
+  "legal.privacy.last-updated": "Last updated May 4, 2023",
+  "legal.privacy.introduction.first": "{{ repository }} (\"Company\" or \"We\") respects your privacy and is committed to protecting it through our compliance with this policy.",
+  "legal.privacy.disclosure.agreement.prefix": "To enforce or apply our",
+  "legal.privacy.disclosure.agreement.link": "End User Agreement",
+  "legal.privacy.disclosure.agreement.suffix": "and other agreements, including for billing and collection purposes.",
+  "legal.privacy.heading.introduction": "Introduction",
+  "legal.privacy.heading.children-under-the-age-of-13": "Children under the age of 13",
+  "legal.privacy.heading.information-we-collect-about-you-and-how-we-collect-it": "Information we collect about you and how we collect it",
+  "legal.privacy.heading.information-you-provide-to-us": "Information you provide to us",
+  "legal.privacy.heading.information-we-collect-through-automatic-data-collection-technologies": "Information we collect through automatic data collection technologies",
+  "legal.privacy.heading.how-we-use-your-information": "How we use your information",
+  "legal.privacy.heading.disclosure-of-your-information": "Disclosure of your information",
+  "legal.privacy.heading.changes-to-our-privacy-policy": "Changes to our privacy policy",
+  "legal.privacy.paragraph.1": "{{ 'legal.privacy.introduction.first' | translate: { repository: ('repository.title' | translate) } }}",
+  "legal.privacy.paragraph.2": "This policy describes the types of information we may collect from you or that you may provide when you visit this website (our \"Website\") and our practices for collecting, using, maintaining, protecting, and disclosing that information.",
+  "legal.privacy.paragraph.3": "This policy applies to information we collect:",
+  "legal.privacy.paragraph.4": "It does not apply to information collected by:",
+  "legal.privacy.paragraph.5": "Please read this policy carefully to understand our policies and practices regarding your information and how we will treat it. If you do not agree with our policies and practices, your choice is not to use our Website. By accessing or using this Website, you agree to this privacy policy. This policy may change from time to time. Your continued use of this Website after we make changes is deemed to be acceptance of those changes, so please check the policy periodically for updates.",
+  "legal.privacy.paragraph.6": "Our Website is not intended for children under 13 years of age. No one under age 13 may provide any personal information to or on the Website. We do not knowingly collect personal information from children under 13. If you are under 13, do not use or provide any information on this Website or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or username you may use. If we learn we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information.",
+  "legal.privacy.paragraph.7": "We collect several types of information from and about users of our Website, including information:",
+  "legal.privacy.paragraph.8": "We collect this information:",
+  "legal.privacy.paragraph.9": "The information we collect on or through our Website may include:",
+  "legal.privacy.paragraph.10": "As you navigate through and interact with our Website, we may use automatic data collection technologies to collect certain information about your equipment, browsing actions, and patterns, including:",
+  "legal.privacy.paragraph.11": "The information we collect automatically is statistical data and does not include personal information, but we may maintain it or associate it with personal information we collect in other ways or receive from third parties. It helps us to improve our Website and to deliver a better and more personalized service, including by enabling us to:",
+  "legal.privacy.paragraph.12": "The technologies we use for this automatic data collection may include:",
+  "legal.privacy.paragraph.13": "We use information that we collect about you or that you provide to us, including any personal information:",
+  "legal.privacy.paragraph.14": "We may disclose aggregated information about our users, and information that does not identify any individual, without restriction.",
+  "legal.privacy.paragraph.15": "We may disclose personal information that we collect or you provide as described in this privacy policy:",
+  "legal.privacy.paragraph.16": "We may also disclose your personal information:",
+  "legal.privacy.paragraph.17": "It is our policy to post any changes we make to our privacy policy on this page. The date the privacy policy was last revised is identified at the top of the page. You are responsible for periodically visiting our Website and this privacy policy to check for any changes.",
+  "legal.privacy.list.1": "On this Website.",
+  "legal.privacy.list.2": "In email, text, and other electronic messages between you and this Website.",
+  "legal.privacy.list.3": "us offline or through any other means, including on any other website operated by Company or any third party; or",
+  "legal.privacy.list.4": "any third party, including through any application or content (including advertising) that may link to or be accessible from or on the Website.",
+  "legal.privacy.list.5": "by which you may be personally identified, such as name, email address, telephone number, or any other identifier by which you may be contacted online or offline (\"personal information\"); and/or",
+  "legal.privacy.list.6": "about your internet connection, the equipment you use to access our Website and usage details.",
+  "legal.privacy.list.7": "directly from you when you provide it to us.",
+  "legal.privacy.list.8": "automatically as you navigate through the site. Information collected automatically may include usage details, IP addresses, and information collected through cookies, web beacons, and other tracking technologies; and/or",
+  "legal.privacy.list.9": "from third parties, for example, our business partners.",
+  "legal.privacy.list.10": "Information that you provide by filling in forms on our Website. We may also ask you for information when you report a problem with our Website.",
+  "legal.privacy.list.11": "Records and copies of your correspondence (including email addresses), if you contact us.",
+  "legal.privacy.list.12": "Your responses to surveys that we might ask you to complete for research purpose.",
+  "legal.privacy.list.13": "Details of your visits to our Website, including traffic data, location data, logs, and other communication data and the resources that you access and use on the Website.",
+  "legal.privacy.list.14": "Information about your computer and internet connection, including your IP address, operating system, and browser type.",
+  "legal.privacy.list.15": "Estimate our audience size and usage patterns.",
+  "legal.privacy.list.16": "Store information about your preferences, allowing us to customize our Website according to your individual interests.",
+  "legal.privacy.list.17": "Speed up your searches.",
+  "legal.privacy.list.18": "Recognize you when you return to our Website.",
+  "legal.privacy.list.19": "Cookies (or browser cookies). A cookie is a small file placed on the hard drive of your computer. You may refuse to accept browser cookies by activating the appropriate setting on your browser. However, if you select this setting you may be unable to access certain parts of our Website. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you direct your browser to our Website.",
+  "legal.privacy.list.20": "To present our Website and its contents to you.",
+  "legal.privacy.list.21": "To provide you with information, products, or services that you request from us.",
+  "legal.privacy.list.22": "To fulfill any other purpose for which you provide it.",
+  "legal.privacy.list.23": "To carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection.",
+  "legal.privacy.list.24": "To notify you about changes to our Website or any products or services we offer or provide through it.",
+  "legal.privacy.list.25": "In any other way we may describe when you provide the information.",
+  "legal.privacy.list.26": "For any other purpose with your consent.",
+  "legal.privacy.list.27": "To contractors, service providers, and other third parties we use to support our business and who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them.",
+  "legal.privacy.list.28": "To a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Company's assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by Company about our Website users is among the assets transferred.",
+  "legal.privacy.list.29": "To fulfill the purpose for which you provide it.",
+  "legal.privacy.list.30": "For any other purpose disclosed by us when you provide the information.",
+  "legal.privacy.list.31": "With your consent.",
+  "legal.privacy.list.32": "To comply with any court order, law, or legal process, including to respond to any government or regulatory request.",
+  "legal.privacy.list.33": "If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others.",
   "forgot-email.form.header": "Forgot Password",
 
   "forgot-email.form.info": "Enter the email address associated with the account.",
@@ -2382,6 +2624,82 @@
   "home.search-form.placeholder": "Search the repository ...",
 
   "home.title": "Home",
+
+  "home.uist.title": "UIST Digital Repository",
+
+  "home.uist.description": "Discover, preserve, and share scholarly work from the University of Information Science and Technology \"St. Paul the Apostle\".",
+
+  "home.uist.search.aria-label": "Search the repository",
+
+  "home.uist.search.field.label": "Search field",
+
+  "home.uist.search.field.any": "Any field",
+
+  "home.uist.search.field.title": "Title",
+
+  "home.uist.search.field.author": "Author",
+
+  "home.uist.search.field.abstract": "Abstract",
+
+  "home.uist.search.field.year": "Year",
+
+  "home.uist.search.term.label": "Search term",
+
+  "home.uist.search.placeholder": "Search publications, theses, authors...",
+
+  "home.uist.search.placeholder.by": "Search by {{ field }}...",
+
+  "home.uist.search.submit": "Search",
+
+  "home.uist.collections.label": "Collections",
+
+  "home.uist.collections.heading": "Browse by Category",
+
+  "home.uist.collections.description": "Explore curated collections of academic research and scholarly publications",
+
+  "home.uist.news.eyebrow": "Open scholarship at UIST",
+
+  "home.uist.news.title": "Research made discoverable and reusable",
+
+  "home.uist.news.description": "The UIST Digital Repository preserves publications, theses, conference papers, project outputs, and other scholarly work from the University of Information Science and Technology \"St. Paul the Apostle\".",
+
+  "home.default.title": "DSpace 9",
+
+  "home.default.description": "DSpace is the world leading open source repository platform that enables organisations to:",
+
+  "home.default.ingest": "easily ingest documents, audio, video, datasets and their corresponding Dublin Core metadata",
+
+  "home.default.discover": "open up this content to local and global audiences, thanks to the OAI-PMH interface and Google Scholar optimizations",
+
+  "home.default.identifiers": "issue permanent urls and trustworthy identifiers, including optional integrations with handle.net and DataCite DOI",
+
+  "home.default.community": "Join an international community of",
+
+  "home.default.community.link": "leading institutions using DSpace",
+
+  "home.default.test-accounts": "The test user accounts below have their password set to the name of this software in lowercase.",
+
+  "home.default.demo-admin": "Demo Site Administrator = dspacedemo+admin&#64;gmail.com",
+
+  "home.default.demo-community-admin": "Demo Community Administrator = dspacedemo+commadmin&#64;gmail.com",
+
+  "home.default.demo-collection-admin": "Demo Collection Administrator = dspacedemo+colladmin&#64;gmail.com",
+
+  "home.default.demo-submitter": "Demo Submitter = dspacedemo+submit&#64;gmail.com",
+
+  "home.default.photo-credit": "Photo by",
+
+  "footer.default.content": "Footer Content",
+
+  "footer.default.link-one": "Lorem ipsum",
+
+  "footer.default.link-two": "Ut facilisis",
+
+  "footer.default.link-three": "Aenean sit",
+
+  "footer.default.link-four": "Suspendisse potenti",
+
+  "footer.default.description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam voluptatem veniam, est atque cumque eum delectus sint!",
 
   "home.top-level-communities.head": "Communities in UIST",
 
@@ -3412,6 +3730,8 @@
 
   "correction-type.manage-relation.action.notification.withdrawn": "Withdraw request sent.",
 
+  "correction-type.manage-relation.action.notification.error": "An error occurred while sending the request.",
+
   "item.version.create.modal.submitted.text": "The new version is being created. This may take some time if the item has a lot of relationships.",
 
   "item.version.create.notification.success": "New version has been created with version number {{version}}",
@@ -3692,7 +4012,7 @@
 
   "menu.section.access_control_groups": "Groups",
 
-  "menu.section.access_control_people": "People",
+  "menu.section.access_control_people": "User management",
 
   "menu.section.audit": "Audit Logs",
 
@@ -4106,6 +4426,8 @@
 
   "quality-assurance.event.accept.description": "No DSpace project selected. A new project will be created based on the suggestion data.",
 
+  "quality-assurance.source-logo": "{{ source }} logo",
+
   "quality-assurance.event.action.cancel": "Cancel",
 
   "quality-assurance.event.action.saved": "Your decision has been saved successfully.",
@@ -4410,7 +4732,10 @@
 
   "profile.security.form.error.matching-passwords": "The passwords do not match.",
 
+  "profile.security.form.error.empty-password": "The password cannot be empty.",
+
   "profile.security.form.info": "Optionally, you can enter a new password in the box below, and confirm it by typing it again into the second box.",
+  "profile.security.form.password-visibility": "Password visibility controls",
 
   "profile.security.form.label.password": "Password",
 
@@ -4702,9 +5027,25 @@
 
   "repository.image.logo": "Repository logo",
 
+  "repository.alternate-name": "UIST",
+
+  "repository.address.country": "MK",
+
+  "repository.address.locality": "Ohrid",
+
+  "repository.address.postal-code": "6000",
+
+  "repository.address.street": "Partizanska bb",
+
+  "repository.description": "Open access scholarly works, publications, theses, conference papers, and research outputs from UIST \"St. Paul the Apostle\" in Ohrid.",
+
+  "repository.institution": "University of Information Science and Technology \"St. Paul the Apostle\"",
+
   "repository.title": "UIST Repository",
 
   "repository.title.prefix": "UIST Repository :: ",
+
+  "repository.website": "https://uist.edu.mk/",
 
   "resource-policies.add.button": "Add",
 
@@ -7018,6 +7359,10 @@
 
   "ldn-enable-service.notification.success.content": "The service status has been updated",
 
+  "ldn-enable-service.notification.error.title": "Failed to update status",
+
+  "ldn-enable-service.notification.error.content": "The service status could not be updated",
+
   "ldn-service-delete.notification.success.title": "Successful Deletion",
 
   "ldn-service-delete.notification.success.content": "The service has been deleted",
@@ -7903,4 +8248,110 @@
   "bitstream.related.isReplacedBy": "Is replaced by",
 
   "bitstream.related.deleted": "deleted",
+
+  "login.form.username-or-email": "Username or email",
+  "login.self-service-unavailable.title": "Account self-service unavailable",
+  "login.self-service-unavailable.content": "Registration and email password recovery are currently disabled. Contact a repository administrator for account help.",
+  "admin.user-management.title": "User management",
+  "admin.user-management.create": "Create users",
+  "admin.user-management.create-title": "Create users",
+  "admin.user-management.edit-title": "Edit user",
+  "admin.user-management.search": "Search username, name, or email",
+  "admin.user-management.search-button": "Search",
+  "admin.user-management.username": "Username",
+  "admin.user-management.name": "Name",
+  "admin.user-management.first-name": "First name",
+  "admin.user-management.last-name": "Last name",
+  "admin.user-management.email": "Email",
+  "admin.user-management.email-optional": "Email (optional)",
+  "admin.user-management.status": "Status",
+  "admin.user-management.enabled": "Enabled",
+  "admin.user-management.disabled": "Disabled",
+  "admin.user-management.edit": "Edit",
+  "admin.user-management.delete": "Delete",
+  "admin.user-management.cancel": "Cancel",
+  "admin.user-management.delete-confirmation-title": "Delete user \"{{ dsoName }}\"",
+  "admin.user-management.delete-confirmation-info": "Are you sure you want to permanently delete user \"{{ dsoName }}\"? This action cannot be undone.",
+  "admin.user-management.no-users": "No users found.",
+  "admin.user-management.users": "users",
+  "admin.user-management.row": "Row",
+  "admin.user-management.back": "Back to users",
+  "admin.user-management.single": "Single user",
+  "admin.user-management.bulk": "Bulk users",
+  "admin.user-management.bulk-help": "Paste CSV or tab-separated rows: username, first name, last name, optional email.",
+  "admin.user-management.add-row": "Add row",
+  "admin.user-management.password": "Password",
+  "admin.user-management.confirm-password": "Confirm password",
+  "admin.user-management.require-password-change": "Require password change on next login",
+  "admin.user-management.roles": "Roles and groups",
+  "admin.user-management.repository-administrator": "Repository administrator",
+  "admin.user-management.confirm-repository-administrator": "I confirm that this user should have full repository administrator access.",
+  "admin.user-management.inherited-roles": "Inherited roles",
+  "admin.user-management.save": "Save changes",
+  "admin.user-management.reset-password": "Reset password",
+  "admin.user-management.error.load": "Could not load users.",
+  "admin.user-management.error.delete": "Could not delete the user.",
+  "admin.user-management.error.roles": "Could not load roles.",
+  "admin.user-management.error.save": "Could not save the user.",
+  "admin.user-management.error.validation": "Complete all required fields and ensure passwords match.",
+  "admin.user-management.error.confirm-administrator": "Confirm repository administrator access before saving.",
+  "admin.user-management.create-subtitle": "Set identity, account access, and repository permissions in one place.",
+  "admin.user-management.edit-subtitle": "Update this account’s direct access and password settings.",
+  "admin.user-management.identity": "Identity",
+  "admin.user-management.access-settings": "Account access",
+  "admin.user-management.actions": "Actions",
+  "admin.user-management.remove-row": "Remove user row",
+  "admin.user-management.username-help": "Use 3–64 letters, numbers, periods, underscores, or hyphens.",
+  "admin.user-management.shared-settings-help": "These settings apply to every user in this batch.",
+  "admin.user-management.password-help": "Choose an initial password for this account.",
+  "admin.user-management.show-password": "Show password",
+  "admin.user-management.hide-password": "Hide password",
+  "admin.user-management.require-password-change-help": "When enabled, the temporary password can only be used to choose a new password.",
+  "admin.user-management.password-change-pending": "This account must change its password at the next password login.",
+  "admin.user-management.password-change-not-pending": "This account is not currently required to change its password.",
+  "admin.user-management.content-manager": "Content manager",
+  "admin.user-management.content-manager-help": "Allows management access to repository content without granting full repository administration.",
+  "admin.user-management.repository-administrator-help": "Full repository access. Grant only to trusted administrators.",
+  "admin.user-management.search-roles": "Filter roles and groups",
+  "admin.user-management.no-roles": "No roles match this filter.",
+  "admin.user-management.read-only-memberships": "Inherited and unmanaged memberships (read only)",
+  "admin.user-management.scoped-permissions": "Scoped permissions",
+  "admin.user-management.scoped-permissions-help": "A community by itself includes all of its collections. Selecting collections limits that community to only those collections. Full control includes every action.",
+  "admin.user-management.includes-all-collections": "Includes all collections",
+  "admin.user-management.selected-collections-only": "Selected collections only",
+  "admin.user-management.apply-to-selected-collections": "Apply to all selected collections",
+  "admin.user-management.search-items": "Search communities, collections, or items",
+  "admin.user-management.scope-type": "Scope type",
+  "admin.user-management.scope-all": "All scopes",
+  "admin.user-management.scope-community": "Communities",
+  "admin.user-management.scope-collection": "Collections",
+  "admin.user-management.scope-item": "Items",
+  "admin.user-management.add": "Add",
+  "admin.user-management.remove": "Remove",
+  "admin.user-management.permission-scope": "Scope",
+  "admin.user-management.full-control": "Full control",
+  "admin.user-management.permission.READ": "Read",
+  "admin.user-management.permission.ADD": "Create",
+  "admin.user-management.permission.WRITE": "Edit",
+  "admin.user-management.permission.DELETE": "Delete",
+  "admin.user-management.no-scoped-permissions": "No direct scoped permissions have been assigned.",
+  "admin.user-management.read-only-permissions": "Inherited and unmanaged permissions (read only)",
+  "admin.user-management.inherited": "Inherited",
+  "admin.user-management.unmanaged": "Unmanaged",
+  "admin.user-management.reset-password-help": "Set a new password. Existing sessions will be signed out.",
+  "admin.user-management.error.scopes": "Could not load permission scopes.",
+  "admin.user-management.validation-summary": "Review the following problems:",
+  "password-change.title": "Change your password",
+  "password-change.instructions": "Your administrator requires you to choose a new password before continuing.",
+  "password-change.current": "Current password",
+  "password-change.new": "New password",
+  "password-change.confirm": "Confirm new password",
+  "password-change.submit": "Change password",
+  "password-change.continue": "Continue",
+  "password-change.show-password": "Show password",
+  "password-change.hide-password": "Hide password",
+  "password-change.error.validation": "Complete all fields and make sure the new passwords match.",
+  "password-change.error.save": "Your password could not be changed.",
+  "password-change.error.refresh": "Your password was changed, but your account could not be refreshed. Select Continue to try again; do not re-enter or resubmit your password.",
+  "password-change.error.still-required": "Your password change has not yet been confirmed. Please try again.",
 }

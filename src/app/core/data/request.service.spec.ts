@@ -762,4 +762,14 @@ describe('RequestService', () => {
       });
     });
   });
+
+  describe('setAllStale', () => {
+    it('should mark every indexed request stale using an empty href substring', () => {
+      const result$ = of(true);
+      spyOn(service, 'setStaleByHrefSubstring').and.returnValue(result$);
+
+      expect(service.setAllStale()).toBe(result$);
+      expect(service.setStaleByHrefSubstring).toHaveBeenCalledWith('');
+    });
+  });
 });

@@ -1,5 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { MarkdownViewerComponent } from 'src/app/shared/markdown-viewer/markdown-viewer.component';
 
 import { HomeNewsComponent as BaseComponent } from '../../../../../app/home-page/home-news/home-news.component';
@@ -11,6 +12,7 @@ import { HomeNewsComponent as BaseComponent } from '../../../../../app/home-page
   imports: [
     AsyncPipe,
     MarkdownViewerComponent,
+    TranslatePipe,
   ],
 })
 

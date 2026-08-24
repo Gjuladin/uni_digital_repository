@@ -3,7 +3,7 @@
   <p>{{'admin.batch-import.page.help' | translate}}</p>
   @if (dso) {
     <p>
-      selected collection: <b>{{getDspaceObjectName()}}</b>&nbsp;
+      {{ 'ui.selected-collection' | translate }} <b>{{getDspaceObjectName()}}</b>&nbsp;
       <a href="javascript:void(0)" (click)="removeDspaceObject()">{{'admin.batch-import.page.remove' | translate}}</a>
     </p>
   }

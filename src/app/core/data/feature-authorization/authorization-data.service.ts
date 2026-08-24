@@ -10,6 +10,7 @@ import {
 } from 'rxjs';
 import {
   catchError,
+  filter,
   map,
   switchMap,
 } from 'rxjs/operators';
@@ -115,6 +116,11 @@ export class AuthorizationDataService extends BaseDataService<Authorization> imp
       switchMap((url) => {
         if (hasNoValue(url)) {
           return this.siteService.find().pipe(
+            // A temporary authentication gate can make the Site request fail.
+            // Do not dereference that empty response while first-login setup
+            // is still in progress; the request cache is refreshed once the
+            // gate is lifted.
+            filter((site) => hasValue(site?.self)),
             map((site) => site.self),
           );
         } else {

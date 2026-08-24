@@ -18,7 +18,7 @@
               <div>{{ message.queueLastStartTime | date:"yyyy/MM/d hh:mm:ss" }}</div>
             }
             @if (!message.queueLastStartTime) {
-              <div>n/a</div>
+              <div>{{ 'ui.not-available' | translate }}</div>
             }
           </td>
           <td>
@@ -30,7 +30,7 @@
               </ds-truncatable-part>
             </ds-truncatable>
             @if (!message.relatedItem) {
-              <div>n/a</div>
+              <div>{{ 'ui.not-available' | translate }}</div>
             }
           </td>
           <td>
@@ -38,7 +38,7 @@
               <div>{{ message.ldnService }}</div>
             }
             @if (!message.ldnService) {
-              <div>n/a</div>
+              <div>{{ 'ui.not-available' | translate }}</div>
             }
           </td>
           <td>

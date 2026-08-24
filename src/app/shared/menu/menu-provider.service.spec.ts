@@ -156,6 +156,15 @@ describe('MenuProviderService', () => {
       });
 
     });
+
+    it('should expose completion when refreshing persistent menus', (done) => {
+      menuProviderService.refreshPersistentMenus(false).subscribe((refreshed) => {
+        expect(refreshed).toBeTrue();
+        expect(menuService.addSection).toHaveBeenCalledWith(persistentProvider1.menuID, expectedSection1);
+        expect(menuService.addSection).toHaveBeenCalledWith(persistentProvider7WithBrowserOnlyRendering.menuID, expectedSection7);
+        done();
+      });
+    });
   });
 
   describe('resolveRouteMenus with no matching path specific providers', () => {
@@ -289,4 +298,3 @@ describe('MenuProviderService', () => {
     });
   });
 });
-

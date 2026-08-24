@@ -105,7 +105,7 @@
           <h4>{{'process.detail.delete.header' | translate }}</h4>
         </div>
         <button type="button" class="btn-close"
-          (click)="closeModal()" aria-label="Close">
+          (click)="closeModal()" [attr.aria-label]="'ui.close' | translate">
           <span aria-hidden="true">×</span>
         </button>
       </div>
@@ -122,4 +122,3 @@
   }
 
 </ng-template>
-

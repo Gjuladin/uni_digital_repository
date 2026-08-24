@@ -2,7 +2,7 @@
   <form [formGroup]="subscriptionForm" (ngSubmit)="submit()" data-test="subscription-form">
     <div class="modal-header">
       <h4 class="modal-title">{{'subscriptions.modal.title' | translate}}</h4>
-      <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close()">
+      <button type="button" class="btn-close" [attr.aria-label]="'ui.close' | translate" (click)="activeModal.close()">
       </button>
     </div>
     <div class="modal-body">

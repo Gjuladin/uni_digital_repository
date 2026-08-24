@@ -78,10 +78,10 @@ export class HomePageComponent extends BaseComponent implements OnInit {
   ];
 
   searchFields = [
-    { id: 'title', label: 'Title', solr: 'title' },
-    { id: 'author', label: 'Author', solr: 'author' },
-    { id: 'abstract', label: 'Abstract', solr: 'abstract' },
-    { id: 'year', label: 'Year', solr: 'dateIssued' },
+    { id: 'title', labelKey: 'home.uist.search.field.title', solr: 'title' },
+    { id: 'author', labelKey: 'home.uist.search.field.author', solr: 'author' },
+    { id: 'abstract', labelKey: 'home.uist.search.field.abstract', solr: 'abstract' },
+    { id: 'year', labelKey: 'home.uist.search.field.year', solr: 'dateIssued' },
   ];
 
   constructor(
@@ -107,7 +107,7 @@ export class HomePageComponent extends BaseComponent implements OnInit {
   }
 
   getSelectedFieldLabel(): string {
-    return this.searchFields.find(f => f.id === this.selectedSearchField)?.label || '';
+    return this.searchFields.find(f => f.id === this.selectedSearchField)?.labelKey || '';
   }
 
   onSearchBySubmit(): void {

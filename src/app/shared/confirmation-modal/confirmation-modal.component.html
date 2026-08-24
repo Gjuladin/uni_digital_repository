@@ -1,16 +1,16 @@
 <div>
   <div class="modal-header">{{ headerLabel | translate:{ dsoName: name } }}
-    <button type="button" class="btn-close" (click)="close()" aria-label="Close">
+    <button type="button" class="btn-close" (click)="close()" [attr.aria-label]="'ui.close' | translate">
     </button>
   </div>
   <div class="modal-body">
     <p>{{ infoLabel | translate:{ dsoName: name } }}</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="cancel btn btn-outline-secondary" (click)="cancelPressed()" aria-label="Cancel">
+    <button type="button" class="cancel btn btn-outline-secondary" (click)="cancelPressed()" [attr.aria-label]="'ui.cancel' | translate">
       <i class="fas fa-times"></i> {{ cancelLabel | translate:{ dsoName: name } }}
     </button>
-    <button type="button" class="confirm btn btn-{{brandColor}}" (click)="confirmPressed()" aria-label="Confirm" ngbAutofocus>
+    <button type="button" class="confirm btn btn-{{brandColor}}" (click)="confirmPressed()" [attr.aria-label]="'ui.confirm' | translate" ngbAutofocus>
       @if (confirmIcon) {
         <i class="{{confirmIcon}}"></i>
         } {{ confirmLabel | translate:{ dsoName: name } }}

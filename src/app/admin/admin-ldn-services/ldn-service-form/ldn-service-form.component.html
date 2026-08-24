@@ -317,7 +317,7 @@
       @if (isNewService) {
         <h4>{{'service.overview.create.modal' | translate }}</h4>
       }
-      <button (click)="closeModal()" aria-label="Close" class="btn-close" type="button">
+      <button (click)="closeModal()" [attr.aria-label]="'ui.close' | translate" class="btn-close" type="button">
       </button>
     </div>
 
@@ -358,5 +358,4 @@
       }
     </div>
   </ng-template>
-
 

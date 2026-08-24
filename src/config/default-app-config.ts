@@ -307,40 +307,6 @@ export class DefaultAppConfig implements AppConfig {
   // When set to active, users will be able to switch to the use of this language in the user interface.
   languages: LangConfig[] = [
     { code: 'en', label: 'English', active: true },
-    { code: 'ar', label: 'العربية', active: true },
-    { code: 'bn', label: 'বাংলা', active: true },
-    { code: 'ca', label: 'Català', active: true },
-    { code: 'cs', label: 'Čeština', active: true },
-    { code: 'de', label: 'Deutsch', active: true },
-    { code: 'el', label: 'Ελληνικά', active: true },
-    { code: 'es', label: 'Español', active: true },
-    { code: 'fa', label: 'فارسی', active: true },
-    { code: 'fi', label: 'Suomi', active: true },
-    { code: 'fr', label: 'Français', active: true },
-    { code: 'gd', label: 'Gàidhlig', active: true },
-    { code: 'gu', label: 'ગુજરાતી', active: true },
-    { code: 'hi', label: 'हिंदी', active: true },
-    { code: 'hu', label: 'Magyar', active: true },
-    { code: 'it', label: 'Italiano', active: true },
-    { code: 'kk', label: 'Қазақ', active: true },
-    { code: 'lv', label: 'Latviešu', active: true },
-    { code: 'ml', label: 'മലയാളം', active: true },
-    { code: 'mr', label: 'मराठी', active: true },
-    { code: 'nl', label: 'Nederlands', active: true },
-    { code: 'od', label: 'ଓଡିଆ', active: true },
-    { code: 'pl', label: 'Polski', active: true },
-    { code: 'pt-PT', label: 'Português', active: true },
-    { code: 'pt-BR', label: 'Português do Brasil', active: true },
-    { code: 'ru', label: 'Русский', active: true },
-    { code: 'sr-lat', label: 'Srpski (lat)', active: true },
-    { code: 'sr-cyr', label: 'Српски', active: true },
-    { code: 'sv', label: 'Svenska', active: true },
-    { code: 'te', label: 'తెలుగు', active: true },
-    { code: 'ta', label: 'தமிழ்', active: true },
-    { code: 'tr', label: 'Türkçe', active: true },
-    { code: 'uk', label: 'Yкраї́нська', active: true },
-    { code: 'vi', label: 'Tiếng Việt', active: true },
-    { code: 'zh-TW', label: '繁体中文', active: true },
   ];
 
   // Browse-By Pages
@@ -523,37 +489,20 @@ export class DefaultAppConfig implements AppConfig {
       // Example use case: set the favicon based on the active theme.
       headTags: [
         {
-          // Insert <link rel="icon" href="assets/dspace/images/favicons/favicon.ico" sizes="any"/> into the <head> of the page.
+          // Insert the repository favicon into the <head> of the page.
           tagName: 'link',
           attributes: {
             'rel': 'icon',
-            'href': 'assets/dspace/images/favicons/favicon.ico',
+            'href': 'assets/images/favicon.ico',
             'sizes': 'any',
           },
         },
         {
-          // Insert <link rel="icon" href="assets/dspace/images/favicons/favicon.svg" type="image/svg+xml"/> into the <head> of the page.
-          tagName: 'link',
-          attributes: {
-            'rel': 'icon',
-            'href': 'assets/dspace/images/favicons/favicon.svg',
-            'type': 'image/svg+xml',
-          },
-        },
-        {
-          // Insert <link rel="apple-touch-icon" href="assets/dspace/images/favicons/apple-touch-icon.png"/> into the <head> of the page.
+          // Insert the repository Apple touch icon into the <head> of the page.
           tagName: 'link',
           attributes: {
             'rel': 'apple-touch-icon',
-            'href': 'assets/dspace/images/favicons/apple-touch-icon.png',
-          },
-        },
-        {
-          // Insert <link rel="manifest" href="assets/dspace/images/favicons/manifest.webmanifest"/> into the <head> of the page.
-          tagName: 'link',
-          attributes: {
-            'rel': 'manifest',
-            'href': 'assets/dspace/images/favicons/manifest.webmanifest',
+            'href': 'assets/images/apple-touch-icon.png',
           },
         },
       ],

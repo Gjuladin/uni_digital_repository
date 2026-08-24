@@ -11,31 +11,23 @@
       @else {
         <div class="d-flex flex-wrap">
           <div>
-            <h1 class="display-2">DSpace Sandbox</h1>
-            <p><i class="fas fa-circle-info"></i> This site is running unreleased code which will eventually become DSpace 10. For more information, see the <a href="https://wiki.lyrasis.org/display/DSPACE/DSpace+Release+10.0+Status" role="link" tabindex="0">DSpace 10 Release Status</a>.</p>
-            <p class="lead">DSpace is the world leading open source repository platform that enables
-              organisations to:</p>
+            <h1 class="display-2">{{ 'home.default.title' | translate }}</h1>
+            <p><i class="fas fa-circle-info"></i> {{ 'home.default.description' | translate }}</p>
+            <p class="lead">{{ 'home.default.description' | translate }}</p>
           </div>
           <div>
             <ul>
-              <li>easily ingest documents, audio, video, datasets and their corresponding Dublin Core
-                metadata
-              </li>
-              <li>open up this content to local and global audiences, thanks to the OAI-PMH interface and
-                Google Scholar optimizations
-              </li>
-              <li>issue permanent urls and trustworthy identifiers, including optional integrations with
-                handle.net and DataCite DOI
-              </li>
+              <li>{{ 'home.default.ingest' | translate }}</li>
+              <li>{{ 'home.default.discover' | translate }}</li>
+              <li>{{ 'home.default.identifiers' | translate }}</li>
             </ul>
-            <p>Join an international community of <a href="https://wiki.lyrasis.org/display/DSPACE/DSpace+Positioning" target="_blank" role="link" tabindex="0">leading institutions using DSpace</a>.</p>
-            <p>The test user accounts below have their password set to the name of this
-              software in lowercase.</p>
+            <p>{{ 'home.default.community' | translate }} <a href="https://wiki.lyrasis.org/display/DSPACE/DSpace+Positioning" target="_blank" role="link" tabindex="0">{{ 'home.default.community.link' | translate }}</a>.</p>
+            <p>{{ 'home.default.test-accounts' | translate }}</p>
             <ul>
-              <li>Demo Site Administrator = dspacedemo+admin&#64;gmail.com</li>
-              <li>Demo Community Administrator = dspacedemo+commadmin&#64;gmail.com</li>
-              <li>Demo Collection Administrator = dspacedemo+colladmin&#64;gmail.com</li>
-              <li>Demo Submitter = dspacedemo+submit&#64;gmail.com</li>
+              <li>{{ 'home.default.demo-admin' | translate }}</li>
+              <li>{{ 'home.default.demo-community-admin' | translate }}</li>
+              <li>{{ 'home.default.demo-collection-admin' | translate }}</li>
+              <li>{{ 'home.default.demo-submitter' | translate }}</li>
             </ul>
           </div>
         </div>
@@ -47,5 +39,5 @@
     <source type="image/jpg" srcset="assets/dspace/images/banner.jpg 2000w, assets/dspace/images/banner-half.jpg 1200w, assets/dspace/images/banner-tall.jpg 768w">
     <img alt="" [src]="'assets/dspace/images/banner.jpg'"/><!-- without the []="''" Firefox downloads both the fallback and the resolved image -->
   </picture>
-  <small class="credits">Photo by <a href="https://www.pexels.com/@inspiredimages">&#64;inspiredimages</a></small>
+  <small class="credits">{{ 'home.default.photo-credit' | translate }} <a href="https://www.pexels.com/@inspiredimages">&#64;inspiredimages</a></small>
 </div>

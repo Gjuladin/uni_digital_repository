@@ -92,6 +92,19 @@ describe('AuthorizationDataService', () => {
       });
     });
 
+    describe('when the Site request is temporarily unavailable', () => {
+      it('should complete without trying to dereference or search a missing Site', (done) => {
+        (siteService.find as jasmine.Spy).and.returnValue(of(null));
+
+        service.searchByObject().subscribe({
+          complete: () => {
+            expect(service.searchBy).not.toHaveBeenCalled();
+            done();
+          },
+        });
+      });
+    });
+
     describe('when no arguments except for a feature are provided', () => {
       beforeEach(() => {
         service.searchByObject(FeatureID.LoginOnBehalfOf).subscribe();

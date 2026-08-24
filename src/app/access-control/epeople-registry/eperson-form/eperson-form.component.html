@@ -1,112 +1,97 @@
-<div class="container">
-  <div class="group-form row">
-    <div class="col-12">
-
-      @if (activeEPerson$ | async) {
-        <h1 class="border-bottom pb-2">{{messagePrefix + '.edit' | translate}}</h1>
-      } @else {
-        <h1 class="border-bottom pb-2">{{messagePrefix + '.create' | translate}}</h1>
-      }
-
-
-
-      <ds-form [formId]="formId"
-        [formModel]="formModel"
-        [formGroup]="formGroup"
-        [formLayout]="formLayout"
-        [displayCancel]="false"
-        [submitLabel]="submitLabel"
-        (submitForm)="onSubmit()">
-        <div before class="btn-group">
-          <button (click)="onCancel()" type="button" class="btn btn-outline-secondary">
-            <i class="fas fa-arrow-left"></i> {{messagePrefix + '.return' | translate}}
-          </button>
-        </div>
-        @if (displayResetPassword) {
-          <div between class="btn-group">
-            <button class="btn btn-primary" [dsBtnDisabled]="(canReset$ | async) !== true" type="button" (click)="resetPassword()">
-              <i class="fa fa-key"></i> {{'admin.access-control.epeople.actions.reset' | translate}}
-            </button>
-          </div>
-        }
-        @if (canImpersonate$ | async) {
-          <div between class="btn-group">
-            @if (!isImpersonated) {
-              <button class="btn btn-primary" type="button" (click)="impersonate()">
-                <i class="fa fa-user-secret"></i> {{'admin.access-control.epeople.actions.impersonate' | translate}}
-              </button>
-            }
-            @if (isImpersonated) {
-              <button class="btn btn-primary" type="button" (click)="stopImpersonating()">
-                <i class="fa fa-user-secret"></i> {{'admin.access-control.epeople.actions.stop-impersonating' | translate}}
-              </button>
-            }
-          </div>
-        }
-        @if (canDelete$ | async) {
-          <button after class="btn btn-danger delete-button" type="button" (click)="delete()">
-            <i class="fas fa-trash"></i> {{'admin.access-control.epeople.actions.delete' | translate}}
-          </button>
-        }
-      </ds-form>
-
-      @if (!formGroup) {
-        <ds-loading [showMessage]="false"></ds-loading>
-      }
-
-      @if (activeEPerson$ | async) {
-        <div>
-          <h2>{{messagePrefix + '.groupsEPersonIsMemberOf' | translate}}</h2>
-          @if (groups$ | async | dsHasNoValue) {
-            <ds-loading [showMessage]="false"></ds-loading>
-          }
-          @if ((groups$ | async)?.payload?.totalElements > 0) {
-            <ds-pagination
-              [paginationOptions]="config"
-              [collectionSize]="(groups$ | async)?.payload?.totalElements"
-              [hideGear]="true"
-              [hidePagerWhenSinglePage]="true"
-              (pageChange)="onPageChange($event)">
-              <div class="table-responsive">
-                <table id="groups" class="table table-striped table-hover table-bordered">
-                  <thead>
-                    <tr>
-                      <th scope="col" class="align-middle">{{messagePrefix + '.table.id' | translate}}</th>
-                      <th scope="col" class="align-middle">{{messagePrefix + '.table.name' | translate}}</th>
-                      <th scope="col" class="align-middle">{{messagePrefix + '.table.collectionOrCommunity' | translate}}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @for (group of (groups$ | async)?.payload?.page; track group) {
-                      <tr>
-                        <td class="align-middle">{{group.id}}</td>
-                        <td class="align-middle">
-                          <a (click)="groupRegistryService.startEditingNewGroup(group)"
-                            [routerLink]="[getGroupEditPageRouterLink(group)]">
-                            {{ dsoNameService.getName(group) }}
-                          </a>
-                        </td>
-                        <td class="align-middle">
-                          {{ dsoNameService.getName((group.object | async)?.payload) }}
-                        </td>
-                      </tr>
-                    }
-                  </tbody>
-                </table>
-              </div>
-            </ds-pagination>
-          }
-          @if ((groups$ | async)?.payload?.totalElements === 0) {
-            <div class="alert alert-info w-100 mb-2" role="alert">
-              <div>{{messagePrefix + '.memberOfNoGroups' | translate}}</div>
-              <div>
-                <button [routerLink]="[groupsDataService.getGroupRegistryRouterLink()]"
-                class="btn btn-primary">{{messagePrefix + '.goToGroups' | translate}}</button>
-              </div>
-            </div>
-          }
-        </div>
-      }
-    </div>
+<div class="container user-management-form">
+  <div class="d-flex flex-wrap justify-content-between align-items-center border-bottom mb-4 pb-2 gap-2">
+    <div><h1 class="mb-0">{{ (id ? 'admin.user-management.edit-title' : 'admin.user-management.create-title') | translate }}</h1><p class="text-muted mb-0">{{ (id ? 'admin.user-management.edit-subtitle' : 'admin.user-management.create-subtitle') | translate }}</p></div>
+    <a routerLink="/access-control/epeople" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1" aria-hidden="true"></i>{{ 'admin.user-management.back' | translate }}</a>
   </div>
+
+  @if (error) { <div class="alert alert-danger" role="alert" aria-live="assertive">{{ error | translate }}</div> }
+  @if (validationErrors.length) { <div class="alert alert-danger" role="alert" aria-live="assertive"><h2 class="h6">{{ 'admin.user-management.validation-summary' | translate }}</h2><ul class="mb-0">@for (validationError of validationErrors; track $index) { <li>@if (validationError.index !== null && validationError.index !== undefined) { {{ 'admin.user-management.row' | translate }} {{ validationError.index + 1 }} — }{{ validationError.field }}: {{ validationError.message }}</li> }</ul></div> }
+
+  @if (!id) {
+    <div class="card mb-4"><div class="card-body py-2"><div class="nav nav-pills gap-2" role="tablist" [attr.aria-label]="'ui.creation-mode' | translate"><button type="button" class="nav-link" [class.active]="activeTab === 'single'" role="tab" [attr.aria-selected]="activeTab === 'single'" (click)="setTab('single')">{{ 'admin.user-management.single' | translate }}</button><button type="button" class="nav-link" [class.active]="activeTab === 'bulk'" role="tab" [attr.aria-selected]="activeTab === 'bulk'" (click)="setTab('bulk')">{{ 'admin.user-management.bulk' | translate }}</button></div></div></div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="row g-4">
+      <section class="col-lg-8" aria-labelledby="identity-heading">
+        <div class="card h-100"><div class="card-header"><h2 id="identity-heading" class="h5 mb-0">{{ 'admin.user-management.identity' | translate }}</h2></div><div class="card-body">
+          @if (!id && activeTab === 'bulk') {
+            <p class="text-muted">{{ 'admin.user-management.bulk-help' | translate }}</p>
+            <div class="table-responsive bulk-table" (paste)="pasteBulk($event)"><table class="table table-sm align-middle"><thead><tr><th>{{ 'admin.user-management.username' | translate }}</th><th>{{ 'admin.user-management.first-name' | translate }}</th><th>{{ 'admin.user-management.last-name' | translate }}</th><th>{{ 'admin.user-management.email-optional' | translate }}</th><th><span class="visually-hidden">{{ 'admin.user-management.actions' | translate }}</span></th></tr></thead><tbody>
+              @for (row of rows.controls; track $index; let i = $index) { <tr [formGroup]="row"><td><input class="form-control" formControlName="username" [attr.aria-label]="'admin.user-management.username' | translate"></td><td><input class="form-control" formControlName="firstName" [attr.aria-label]="'admin.user-management.first-name' | translate"></td><td><input class="form-control" formControlName="lastName" [attr.aria-label]="'admin.user-management.last-name' | translate"></td><td><input class="form-control" type="email" formControlName="email" [attr.aria-label]="'admin.user-management.email-optional' | translate"></td><td><button type="button" class="btn btn-outline-danger btn-sm" (click)="removeBulkRow(i)" [attr.aria-label]="'admin.user-management.remove-row' | translate"><i class="fas fa-trash" aria-hidden="true"></i></button></td></tr> }
+            </tbody></table></div>
+            <button type="button" class="btn btn-outline-secondary" (click)="addBulkRow()"><i class="fas fa-plus me-1" aria-hidden="true"></i>{{ 'admin.user-management.add-row' | translate }}</button>
+          } @else {
+            <div class="row g-3"><div class="col-md-4"><label class="form-label" for="username">{{ 'admin.user-management.username' | translate }} *</label><input id="username" class="form-control" formControlName="username" autocomplete="username" [class.is-invalid]="form.controls.username.touched && form.controls.username.invalid"><div class="invalid-feedback">{{ 'admin.user-management.username-help' | translate }}</div></div><div class="col-md-4"><label class="form-label" for="firstName">{{ 'admin.user-management.first-name' | translate }} *</label><input id="firstName" class="form-control" formControlName="firstName" autocomplete="given-name"></div><div class="col-md-4"><label class="form-label" for="lastName">{{ 'admin.user-management.last-name' | translate }} *</label><input id="lastName" class="form-control" formControlName="lastName" autocomplete="family-name"></div><div class="col-md-8"><label class="form-label" for="email">{{ 'admin.user-management.email-optional' | translate }}</label><input id="email" class="form-control" formControlName="email" type="email" autocomplete="email"></div><div class="col-md-4 d-flex align-items-end"><div class="form-check form-switch mb-2"><input id="canLogIn" class="form-check-input" type="checkbox" formControlName="canLogIn"><label class="form-check-label" for="canLogIn">{{ 'admin.user-management.enabled' | translate }}</label></div></div></div>
+          }
+        </div></div>
+      </section>
+
+      <aside class="col-lg-4" aria-labelledby="access-heading">
+        <div class="card h-100"><div class="card-header"><h2 id="access-heading" class="h5 mb-0">{{ 'admin.user-management.access-settings' | translate }}</h2></div><div class="card-body">
+          @if (!id) {
+            <p class="small text-muted">{{ activeTab === 'bulk' ? ('admin.user-management.shared-settings-help' | translate) : ('admin.user-management.password-help' | translate) }}</p>
+            <label class="form-label" for="password">{{ 'admin.user-management.password' | translate }} *</label><div class="input-group mb-3"><input id="password" class="form-control" formControlName="password" [type]="showPassword ? 'text' : 'password'" autocomplete="new-password"><button class="btn btn-outline-secondary" type="button" (click)="togglePassword('password')" [attr.aria-label]="(showPassword ? 'admin.user-management.hide-password' : 'admin.user-management.show-password') | translate"><i class="fa fa-fw" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'" aria-hidden="true"></i></button></div>
+            <label class="form-label" for="passwordConfirm">{{ 'admin.user-management.confirm-password' | translate }} *</label><div class="input-group mb-3"><input id="passwordConfirm" class="form-control" formControlName="passwordConfirm" [type]="showPasswordConfirm ? 'text' : 'password'" autocomplete="new-password"><button class="btn btn-outline-secondary" type="button" (click)="togglePassword('passwordConfirm')" [attr.aria-label]="(showPasswordConfirm ? 'admin.user-management.hide-password' : 'admin.user-management.show-password') | translate"><i class="fa fa-fw" [ngClass]="showPasswordConfirm ? 'fa-eye-slash' : 'fa-eye'" aria-hidden="true"></i></button></div>
+            <div class="form-check form-switch mb-3"><input id="requirePasswordChange" class="form-check-input" type="checkbox" formControlName="requirePasswordChange"><label class="form-check-label" for="requirePasswordChange">{{ 'admin.user-management.require-password-change' | translate }}</label><div class="form-text">{{ 'admin.user-management.require-password-change-help' | translate }}</div></div>
+          } @else { <p class="small text-muted">{{ user?.passwordChangeRequired ? ('admin.user-management.password-change-pending' | translate) : ('admin.user-management.password-change-not-pending' | translate) }}</p><button class="btn btn-outline-warning w-100" type="button" (click)="openReset()"><i class="fas fa-key me-1" aria-hidden="true"></i>{{ 'admin.user-management.reset-password' | translate }}</button> }
+          <hr>
+          <div class="form-check form-switch mb-3"><input id="contentManager" class="form-check-input" type="checkbox" formControlName="contentManager"><label class="form-check-label" for="contentManager">{{ 'admin.user-management.content-manager' | translate }}</label><div class="form-text">{{ 'admin.user-management.content-manager-help' | translate }}</div></div>
+          <div class="admin-warning p-3 rounded"><div class="form-check form-switch"><input id="repositoryAdministrator" class="form-check-input" type="checkbox" formControlName="repositoryAdministrator"><label class="form-check-label fw-semibold" for="repositoryAdministrator">{{ 'admin.user-management.repository-administrator' | translate }}</label></div><p class="small mb-0 mt-1">{{ 'admin.user-management.repository-administrator-help' | translate }}</p>@if (form.value.repositoryAdministrator && !user?.repositoryAdministrator) { <div class="form-check mt-2"><input id="confirmRepositoryAdministrator" class="form-check-input" type="checkbox" formControlName="confirmRepositoryAdministrator"><label class="form-check-label" for="confirmRepositoryAdministrator">{{ 'admin.user-management.confirm-repository-administrator' | translate }}</label></div> }</div>
+        </div></div>
+      </aside>
+    </div>
+
+    <section class="card mt-4" aria-labelledby="roles-heading"><div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2"><h2 id="roles-heading" class="h5 mb-0">{{ 'admin.user-management.roles' | translate }}</h2><input class="form-control role-search" type="search" [(ngModel)]="roleQuery" [ngModelOptions]="{standalone:true}" [placeholder]="'admin.user-management.search-roles' | translate" [attr.aria-label]="'admin.user-management.search-roles' | translate"></div><div class="card-body">
+      @if (categorizedRoles().length) { @for (group of categorizedRoles(); track group[0]) { <section class="role-category"><h3 class="h6 text-uppercase text-muted">{{ group[0] }}</h3><div class="row">@for (role of group[1]; track role.id) { <div class="col-md-6 col-xl-4"><div class="form-check"><input class="form-check-input" type="checkbox" [id]="'role-' + role.id" [checked]="roleSelected(role.id)" (change)="toggleRole(role.id, $any($event.target).checked)"><label class="form-check-label" [for]="'role-' + role.id">{{ role.label }} @if (role.scope?.name) { <span class="text-muted">— {{ role.scope.name }}</span> }</label></div></div> }</div></section> } } @else { <p class="text-muted mb-0">{{ 'admin.user-management.no-roles' | translate }}</p> }
+      @if (id && (user?.inheritedRoles?.length || user?.unmanagedRoles?.length)) { <div class="read-only-memberships mt-3"><h3 class="h6">{{ 'admin.user-management.read-only-memberships' | translate }}</h3>@for (role of user?.inheritedRoles || []; track role.id) { <span class="badge text-bg-secondary me-1">{{ role.label }}</span> }@for (role of user?.unmanagedRoles || []; track role.id) { <span class="badge text-bg-dark me-1">{{ role.label }}</span> }</div> }
+    </div></section>
+
+    <section class="card mt-4" aria-labelledby="permissions-heading">
+      <div class="card-header">
+        <h2 id="permissions-heading" class="h5 mb-0">{{ 'admin.user-management.scoped-permissions' | translate }}</h2>
+        <p class="small text-muted mb-0">{{ isCreating && activeTab === 'bulk' ? ('admin.user-management.shared-settings-help' | translate) : ('admin.user-management.scoped-permissions-help' | translate) }}</p>
+      </div>
+      <div class="card-body">
+        <div class="input-group mb-3"><select class="form-select scope-type" [(ngModel)]="scopeResourceType" [ngModelOptions]="{standalone:true}" [attr.aria-label]="'admin.user-management.scope-type' | translate"><option value="">{{ 'admin.user-management.scope-all' | translate }}</option><option value="COMMUNITY">{{ 'admin.user-management.scope-community' | translate }}</option><option value="COLLECTION">{{ 'admin.user-management.scope-collection' | translate }}</option><option value="ITEM">{{ 'admin.user-management.scope-item' | translate }}</option></select><input class="form-control" type="search" [(ngModel)]="scopeQuery" [ngModelOptions]="{standalone:true}" (keyup.enter)="searchScopes()" [placeholder]="'admin.user-management.search-items' | translate" [attr.aria-label]="'admin.user-management.search-items' | translate"><button type="button" class="btn btn-outline-primary" (click)="searchScopes()">{{ 'admin.user-management.search-button' | translate }}</button></div>
+        @if (scopeResults.scopes.length) {
+          <div class="scope-results mb-3">
+            @for (row of availableScopeRows; track scopeKey(row.scope)) {
+              <div class="scope-result-row d-flex justify-content-between align-items-center border rounded p-2 mb-2 gap-2" [class.scope-parent]="row.hasChildren" [class.scope-child]="row.depth > 0" [style.--scope-depth]="row.depth">
+                <span class="scope-tree-label">
+                  <i class="fas" [class.fa-folder-open]="row.hasChildren" [class.fa-folder]="!row.hasChildren && row.scope.resourceType !== 'ITEM'" [class.fa-file]="row.scope.resourceType === 'ITEM'" aria-hidden="true"></i>
+                  <span><strong>{{ assignmentLabel(row.scope) }}</strong><small class="d-block text-muted">{{ scopeTypeLabel(row.scope.resourceType) | translate }} @if (row.scope.resourcePath) { — {{ row.scope.resourcePath }} } @if (row.scope.resourceType === 'COMMUNITY' && scopeSelected(row.scope)) { <span class="scope-mode">· {{ (hasSelectedCollections(row.scope) ? 'admin.user-management.selected-collections-only' : 'admin.user-management.includes-all-collections') | translate }}</span> }</small></span>
+                </span>
+                @if (scopeSelected(row.scope)) { <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeScope(row.scope)">{{ 'admin.user-management.remove' | translate }}</button> } @else { <button type="button" class="btn btn-outline-primary btn-sm" (click)="addScope(row.scope)">{{ 'admin.user-management.add' | translate }}</button> }
+              </div>
+            }
+            @if (scopeResults.totalElements > scopeResults.scopes.length || (scopeResults.page || 0) > 0) { <div class="d-flex justify-content-end gap-2"><button type="button" class="btn btn-sm btn-outline-secondary" (click)="searchScopes((scopeResults.page || 0) - 1)" [disabled]="(scopeResults.page || 0) === 0">{{ 'pagination.previous.button' | translate }}</button><button type="button" class="btn btn-sm btn-outline-secondary" (click)="searchScopes((scopeResults.page || 0) + 1)" [disabled]="((scopeResults.page || 0) + 1) * (scopeResults.size || 10) >= scopeResults.totalElements">{{ 'pagination.next.button' | translate }}</button></div> }
+          </div>
+        }
+        @if (permissionAssignments.length) {
+          <div class="table-responsive"><table class="table table-bordered align-middle permission-matrix"><thead><tr><th>{{ 'admin.user-management.permission-scope' | translate }}</th><th>{{ 'admin.user-management.full-control' | translate }}</th>@for (action of permissionActions; track action) { <th>{{ ('admin.user-management.permission.' + action) | translate }}</th> }<th><span class="visually-hidden">{{ 'admin.user-management.actions' | translate }}</span></th></tr></thead><tbody>
+            @for (row of selectedPermissionRows; track scopeKey(row.scope)) {
+              @if (row.assignment; as assignment) {
+                <tr [class.scope-parent-row]="row.hasChildren" [class.scope-child-row]="row.depth > 0" [style.--scope-depth]="row.depth">
+                  <td class="scope-tree-cell"><span class="scope-tree-label"><i class="fas" [class.fa-folder-open]="row.hasChildren" [class.fa-folder]="!row.hasChildren && assignment.resourceType !== 'ITEM'" [class.fa-file]="assignment.resourceType === 'ITEM'" aria-hidden="true"></i><span><strong>{{ assignmentLabel(assignment) }}</strong><small class="d-block text-muted">{{ scopeTypeLabel(assignment.resourceType) | translate }} @if (assignment.resourcePath) { — {{ assignment.resourcePath }} } @if (assignment.resourceType === 'COMMUNITY') { <span class="scope-mode">· {{ 'admin.user-management.includes-all-collections' | translate }}</span> }</small></span></span></td>
+                  <td><input class="form-check-input" type="checkbox" [checked]="assignment.fullControl" [disabled]="collectionColumnLocked(assignment, 'FULL_CONTROL')" (change)="setFullControl(assignment, $any($event.target).checked)" [attr.aria-label]="'admin.user-management.full-control' | translate"></td>
+                  @for (action of permissionActions; track action) { <td><input class="form-check-input" type="checkbox" [checked]="hasAction(assignment, action)" [disabled]="assignment.fullControl || collectionColumnLocked(assignment, action)" (change)="setAction(assignment, action, $any($event.target).checked)" [attr.aria-label]="('admin.user-management.permission.' + action) | translate"></td> }
+                  <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="removeScope(assignment)" [attr.aria-label]="'admin.user-management.remove' | translate"><i class="fas fa-trash" aria-hidden="true"></i></button></td>
+                </tr>
+              } @else {
+                <tr class="scope-group-row" [style.--scope-depth]="row.depth"><th class="scope-tree-cell" scope="row"><span class="scope-tree-label"><i class="fas fa-folder-open" aria-hidden="true"></i><span>{{ assignmentLabel(row.scope) }}<small class="d-block text-muted">{{ scopeTypeLabel(row.scope.resourceType) | translate }} · {{ 'admin.user-management.selected-collections-only' | translate }}</small></span></span></th>@if (row.scope.resourceType === 'COMMUNITY') { <td><input class="form-check-input" type="checkbox" [checked]="groupFullControlSelected(row.scope)" [indeterminate]="groupFullControlIndeterminate(row.scope)" [attr.aria-checked]="groupFullControlIndeterminate(row.scope) ? 'mixed' : groupFullControlSelected(row.scope)" (change)="setGroupFullControl(row.scope, $any($event.target).checked)" [attr.aria-label]="'admin.user-management.full-control' | translate" [title]="'admin.user-management.apply-to-selected-collections' | translate"></td>@for (action of permissionActions; track action) { <td><input class="form-check-input" type="checkbox" [checked]="groupActionSelected(row.scope, action)" [indeterminate]="groupActionIndeterminate(row.scope, action)" [attr.aria-checked]="groupActionIndeterminate(row.scope, action) ? 'mixed' : groupActionSelected(row.scope, action)" [disabled]="groupFullControlSelected(row.scope)" (change)="setGroupAction(row.scope, action, $any($event.target).checked)" [attr.aria-label]="('admin.user-management.permission.' + action) | translate" [title]="'admin.user-management.apply-to-selected-collections' | translate"></td> } } @else { <td colspan="5"></td> }<td><button type="button" class="btn btn-outline-danger btn-sm" (click)="removeScope(row.scope)" [attr.aria-label]="'admin.user-management.remove' | translate"><i class="fas fa-trash" aria-hidden="true"></i></button></td></tr>
+              }
+            }
+          </tbody></table></div>
+        } @else { <p class="text-muted mb-0">{{ 'admin.user-management.no-scoped-permissions' | translate }}</p> }
+        @if (inheritedAssignments.length || unmanagedAssignments.length) { <div class="read-only-permissions mt-3"><h3 class="h6">{{ 'admin.user-management.read-only-permissions' | translate }}</h3>@for (assignment of inheritedAssignments; track assignment.resourceType + assignment.resourceId) { <p class="mb-1"><span class="badge text-bg-secondary">{{ 'admin.user-management.inherited' | translate }}</span> {{ assignmentLabel(assignment) }}</p> }@for (assignment of unmanagedAssignments; track assignment.resourceType + assignment.resourceId) { <p class="mb-1"><span class="badge text-bg-dark">{{ 'admin.user-management.unmanaged' | translate }}</span> {{ assignmentLabel(assignment) }}</p> }</div> }
+      </div>
+    </section>
+    <div class="d-flex flex-wrap gap-2 mt-4 mb-5"><button class="btn btn-primary" type="submit" [disabled]="saving"><i class="fas fa-save me-1" aria-hidden="true"></i>{{ (id ? 'admin.user-management.save' : 'admin.user-management.create') | translate }}</button><a class="btn btn-outline-secondary" routerLink="/access-control/epeople">{{ 'form.cancel' | translate }}</a></div>
+  </form>
 </div>
+
+<ng-template #resetPasswordModal let-modal>
+  <div class="modal-header"><h2 id="reset-password-title" class="modal-title h5">{{ 'admin.user-management.reset-password' | translate }}</h2><button type="button" class="btn-close" [attr.aria-label]="'form.cancel' | translate" (click)="modal.dismiss()"></button></div>
+  <form [formGroup]="resetForm" (ngSubmit)="resetPassword()"><div class="modal-body"><p class="text-muted">{{ 'admin.user-management.reset-password-help' | translate }}</p>@if (resetError) { <div class="alert alert-danger" role="alert" aria-live="assertive">{{ resetError | translate }}</div> }<label class="form-label" for="resetPassword">{{ 'admin.user-management.password' | translate }}</label><div class="input-group mb-3"><input id="resetPassword" class="form-control" formControlName="password" [type]="showResetPassword ? 'text' : 'password'" autocomplete="new-password" autofocus><button class="btn btn-outline-secondary" type="button" (click)="togglePassword('resetPassword')" [attr.aria-label]="(showResetPassword ? 'admin.user-management.hide-password' : 'admin.user-management.show-password') | translate"><i class="fa fa-fw" [ngClass]="showResetPassword ? 'fa-eye-slash' : 'fa-eye'"></i></button></div><label class="form-label" for="resetPasswordConfirm">{{ 'admin.user-management.confirm-password' | translate }}</label><div class="input-group"><input id="resetPasswordConfirm" class="form-control" formControlName="passwordConfirm" [type]="showResetPasswordConfirm ? 'text' : 'password'" autocomplete="new-password"><button class="btn btn-outline-secondary" type="button" (click)="togglePassword('resetPasswordConfirm')" [attr.aria-label]="(showResetPasswordConfirm ? 'admin.user-management.hide-password' : 'admin.user-management.show-password') | translate"><i class="fa fa-fw" [ngClass]="showResetPasswordConfirm ? 'fa-eye-slash' : 'fa-eye'"></i></button></div><div class="form-check form-switch mt-3"><input id="resetRequirePasswordChange" class="form-check-input" type="checkbox" formControlName="requirePasswordChange"><label class="form-check-label" for="resetRequirePasswordChange">{{ 'admin.user-management.require-password-change' | translate }}</label></div></div><div class="modal-footer"><button class="btn btn-outline-secondary" type="button" (click)="modal.dismiss()">{{ 'form.cancel' | translate }}</button><button class="btn btn-warning" type="submit">{{ 'admin.user-management.reset-password' | translate }}</button></div></form>
+</ng-template>

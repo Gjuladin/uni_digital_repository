@@ -265,110 +265,6 @@ languages:
   - code: en
     label: English
     active: true
-  - code: ar
-    label: العربية
-    active: true
-  - code: bn
-    label: বাংলা
-    active: true
-  - code: ca
-    label: Català
-    active: true
-  - code: cs
-    label: Čeština
-    active: true
-  - code: de
-    label: Deutsch
-    active: true
-  - code: el
-    label: Ελληνικά
-    active: true
-  - code: es
-    label: Español
-    active: true
-  - code: fa
-    label: فارسی
-    active: true
-  - code: fi
-    label: Suomi
-    active: true
-  - code: fr
-    label: Français
-    active: true
-  - code: gd
-    label: Gàidhlig
-    active: true
-  - code: gu
-    label: ગુજરાતી
-    active: true
-  - code: hi
-    label: हिंदी
-    active: true
-  - code: hu
-    label: Magyar
-    active: true
-  - code: it
-    label: Italiano
-    active: true
-  - code: kk
-    label: Қазақ
-    active: true
-  - code: lv
-    label: Latviešu
-    active: true
-  - code: ml
-    label: മലയാളം
-    active: true
-  - code: mr
-    label: मराठी
-    active: true
-  - code: nl
-    label: Nederlands
-    active: true
-  - code: od
-    label: ଓଡିଆ
-    active: true
-  - code: pl
-    label: Polski
-    active: true
-  - code: pt-PT
-    label: Português
-    active: true
-  - code: pt-BR
-    label: Português do Brasil
-    active: true
-  - code: ru
-    label: Русский
-    active: true
-  - code: sr-lat
-    label: Srpski (lat)
-    active: true
-  - code: sr-cyr
-    label: Српски
-    active: true
-  - code: sv
-    label: Svenska
-    active: true
-  - code: te
-    label: తెలుగు
-    active: true
-  - code: ta
-    label: தமிழ்
-    active: true
-  - code: tr
-    label: Türkçe
-    active: true
-  - code: uk
-    label: Yкраї́нська
-    active: true
-  - code: vi
-    label: Tiếng Việt
-    active: true
-  - code: zh-TW
-    label: 繁體中文
-    active: true
-
-
 
 # Browse-By Pages
 browseBy:
@@ -524,21 +420,12 @@ themes:
     - tagName: link
       attributes:
         rel: icon
-        href: assets/dspace/images/favicons/favicon.ico
+        href: assets/images/favicon.ico
         sizes: any
     - tagName: link
       attributes:
-        rel: icon
-        href: assets/dspace/images/favicons/favicon.svg
-        type: image/svg+xml
-    - tagName: link
-      attributes:
         rel: apple-touch-icon
-        href: assets/dspace/images/favicons/apple-touch-icon.png
-    - tagName: link
-      attributes:
-        rel: manifest
-        href: assets/dspace/images/favicons/manifest.webmanifest
+        href: assets/images/apple-touch-icon.png
 
 # The default bundles that should always be displayed as suggestions when you upload a new bundle
 bundle:

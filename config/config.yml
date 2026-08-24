@@ -29,6 +29,13 @@ ssr:
 info:
   enableCOARNotifySupport: false
 
+fallbackLanguage: en
+
+languages:
+  - code: en
+    label: English
+    active: true
+
 themes:
   - name: uist
     extends: dspace

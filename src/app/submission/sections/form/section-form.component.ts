@@ -38,7 +38,10 @@ import {
   DynamicFormControlEvent,
   DynamicFormControlModel,
 } from '@ng-dynamic-forms/core';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  TranslatePipe,
+  TranslateService,
+} from '@ngx-translate/core';
 import findIndex from 'lodash/findIndex';
 import isEqual from 'lodash/isEqual';
 import {
@@ -83,6 +86,7 @@ import { SectionFormOperationsService } from './section-form-operations.service'
   imports: [
     FormComponent,
     ThemedLoadingComponent,
+    TranslatePipe,
   ],
 })
 export class SubmissionSectionFormComponent extends SectionModelComponent implements OnDestroy {

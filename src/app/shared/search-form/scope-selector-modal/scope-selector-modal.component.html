@@ -1,6 +1,6 @@
 <div>
     <div class="modal-header">{{'dso-selector.'+ action + '.' + objectType.toString().toLowerCase() + '.head' | translate}}
-        <button type="button" class="btn-close" (click)="selectObject(undefined)" aria-label="Close">
+        <button type="button" class="btn-close" (click)="selectObject(undefined)" [attr.aria-label]="'ui.close' | translate">
         </button>
     </div>
     <div class="modal-body">

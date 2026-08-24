@@ -14,7 +14,6 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import {
   AuthenticateAction,
   ResetAuthenticationMessagesAction,
@@ -26,8 +25,6 @@ import {
   getAuthenticationInfo,
 } from '@dspace/core/auth/selectors';
 import { CoreState } from '@dspace/core/core-state.model';
-import { AuthorizationDataService } from '@dspace/core/data/feature-authorization/authorization-data.service';
-import { FeatureID } from '@dspace/core/data/feature-authorization/feature-id';
 import { HardRedirectService } from '@dspace/core/services/hard-redirect.service';
 import { isNotEmpty } from '@dspace/shared/utils/empty.util';
 import {
@@ -35,20 +32,8 @@ import {
   Store,
 } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import {
-  combineLatest,
-  Observable,
-  shareReplay,
-} from 'rxjs';
-import {
-  filter,
-  map,
-} from 'rxjs/operators';
-
-import {
-  getForgotPasswordRoute,
-  getRegisterRoute,
-} from '../../../../app-routing-paths';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { fadeOut } from '../../../animations/fade';
 import { BtnDisabledDirective } from '../../../btn-disabled.directive';
 import { BrowserOnlyPipe } from '../../../utils/browser-only.pipe';
@@ -69,7 +54,6 @@ import { BrowserOnlyPipe } from '../../../utils/browser-only.pipe';
     FormsModule,
     NgClass,
     ReactiveFormsModule,
-    RouterLink,
     TranslateModule,
   ],
 })
@@ -111,20 +95,6 @@ export class LogInPasswordComponent implements OnInit {
    */
   public form: UntypedFormGroup;
 
-  /**
-   * Whether the current user (or anonymous) is authorized to register an account
-   */
-  public canRegister$: Observable<boolean>;
-
-  /**
-   * Whether or not the current user (or anonymous) is authorized to register an account
-   */
-  canForgot$: Observable<boolean>;
-
-  /**
-   * Shows the divider only if contains at least one link to show
-   */
-  canShowDivider$: Observable<boolean>;
 
   /**
    * Has password visibility.
@@ -139,7 +109,6 @@ export class LogInPasswordComponent implements OnInit {
     private hardRedirectService: HardRedirectService,
     private formBuilder: UntypedFormBuilder,
     protected store: Store<CoreState>,
-    protected authorizationService: AuthorizationDataService,
   ) {
     this.authMethod = injectedAuthMethodModel;
   }
@@ -173,26 +142,6 @@ export class LogInPasswordComponent implements OnInit {
       }),
     );
 
-    this.canRegister$ = this.authorizationService.isAuthorized(FeatureID.EPersonRegistration).pipe(
-      shareReplay({ refCount: false, bufferSize: 1 }),
-    );
-    this.canForgot$ = this.authorizationService.isAuthorized(FeatureID.EPersonForgotPassword).pipe(
-      shareReplay({ refCount: false, bufferSize: 1 }),
-    );
-    this.canShowDivider$ =
-      combineLatest([this.canRegister$, this.canForgot$])
-        .pipe(
-          map(([canRegister, canForgot]) => canRegister || canForgot),
-          filter(Boolean),
-        );
-  }
-
-  getRegisterRoute() {
-    return getRegisterRoute();
-  }
-
-  getForgotRoute() {
-    return getForgotPasswordRoute();
   }
 
   togglePasswordVisibility(): void {

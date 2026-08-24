@@ -9,7 +9,7 @@
   <div class="container">
     <h3 class="mb-4">{{'menu.section.cms.edit.metadata.head' | translate}}</h3>
     <div class="input-group">
-      <select class="form-control col-md-4 mr-3 mb-2" aria-label="Select metadata" [(ngModel)]="selectedMetadata">
+      <select class="form-control col-md-4 mr-3 mb-2" [attr.aria-label]="'ui.select-metadata' | translate" [(ngModel)]="selectedMetadata">
         <option [ngValue]="undefined" disabled selected>{{'admin.edit-cms-metadata.select-metadata' | translate}}</option>
         @for (md of metadataList; track $index) {
            <option [value]="md">{{md}}</option>

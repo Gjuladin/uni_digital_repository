@@ -1,644 +1,345 @@
-import { AsyncPipe } from '@angular/common';
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-} from '@angular/router';
-import { AuthService } from '@dspace/core/auth/auth.service';
-import { DSONameService } from '@dspace/core/breadcrumbs/dso-name.service';
-import { EpersonRegistrationService } from '@dspace/core/data/eperson-registration.service';
-import { AuthorizationDataService } from '@dspace/core/data/feature-authorization/authorization-data.service';
-import { FeatureID } from '@dspace/core/data/feature-authorization/feature-id';
-import { PaginatedList } from '@dspace/core/data/paginated-list.model';
-import { RemoteData } from '@dspace/core/data/remote-data';
-import { RequestService } from '@dspace/core/data/request.service';
-import { EPersonDataService } from '@dspace/core/eperson/eperson-data.service';
-import { GroupDataService } from '@dspace/core/eperson/group-data.service';
-import { EPerson } from '@dspace/core/eperson/models/eperson.model';
-import { Group } from '@dspace/core/eperson/models/group.model';
-import { NotificationsService } from '@dspace/core/notification-system/notifications.service';
-import { PaginationService } from '@dspace/core/pagination/pagination.service';
-import { PaginationComponentOptions } from '@dspace/core/pagination/pagination-component-options.model';
-import { followLink } from '@dspace/core/shared/follow-link-config.model';
-import { NoContent } from '@dspace/core/shared/NoContent.model';
-import {
-  getFirstCompletedRemoteData,
-  getFirstSucceededRemoteData,
-  getRemoteDataPayload,
-} from '@dspace/core/shared/operators';
-import { PageInfo } from '@dspace/core/shared/page-info.model';
-import { Registration } from '@dspace/core/shared/registration.model';
-import { hasValue } from '@dspace/shared/utils/empty.util';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  DynamicCheckboxModel,
-  DynamicFormControlModel,
-  DynamicFormLayout,
-  DynamicInputModel,
-} from '@ng-dynamic-forms/core';
-import {
-  TranslateModule,
-  TranslateService,
-} from '@ngx-translate/core';
-import {
-  combineLatest as observableCombineLatest,
-  Observable,
-  of,
-  Subscription,
-} from 'rxjs';
-import {
-  debounceTime,
-  finalize,
-  map,
-  switchMap,
-  take,
-} from 'rxjs/operators';
+import { NgClass } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { TYPE_REQUEST_FORGOT } from '../../../register-email-form/register-email-form.component';
-import { BtnDisabledDirective } from '../../../shared/btn-disabled.directive';
-import { ConfirmationModalComponent } from '../../../shared/confirmation-modal/confirmation-modal.component';
-import { FormBuilderService } from '../../../shared/form/builder/form-builder.service';
-import { FormComponent } from '../../../shared/form/form.component';
-import { ThemedLoadingComponent } from '../../../shared/loading/themed-loading.component';
-import { PaginationComponent } from '../../../shared/pagination/pagination.component';
-import { HasNoValuePipe } from '../../../shared/utils/has-no-value.pipe';
 import {
-  getEPersonsRoute,
-  getGroupEditPageRouterLink,
-} from '../../access-control-routing-paths';
-import { GroupRegistryService } from '../../group-registry/group-registry.service';
-import { EpeopleRegistryService } from '../epeople-registry.service';
-import { ValidateEmailNotTaken } from './validators/email-taken.validator';
+  AccountManagementService,
+  AccountValidationError,
+  ManagedRole,
+  ManagedUser,
+  PermissionAssignment,
+  PermissionScope,
+  PermissionScopePage,
+} from '../account-management.service';
+
+const usernamePattern = /^[a-zA-Z0-9._-]{3,64}$/;
+/** Approved API action names, rendered directly in the permission matrix. */
+const PERMISSION_ACTIONS = ['READ', 'ADD', 'WRITE', 'DELETE'];
+
+interface PermissionScopeTreeRow {
+  scope: PermissionScope;
+  assignment?: PermissionAssignment;
+  depth: number;
+  hasChildren: boolean;
+  synthetic: boolean;
+}
 
 @Component({
   selector: 'ds-eperson-form',
   templateUrl: './eperson-form.component.html',
-  imports: [
-    AsyncPipe,
-    BtnDisabledDirective,
-    FormComponent,
-    HasNoValuePipe,
-    PaginationComponent,
-    RouterLink,
-    ThemedLoadingComponent,
-    TranslateModule,
-  ],
+  styleUrls: ['./eperson-form.component.scss'],
+  imports: [FormsModule, NgClass, ReactiveFormsModule, RouterLink, TranslateModule],
 })
-/**
- * A form used for creating and editing EPeople
- */
-export class EPersonFormComponent implements OnInit, OnDestroy {
+export class EPersonFormComponent implements OnInit {
+  @ViewChild('resetPasswordModal') resetPasswordModal: TemplateRef<unknown>;
 
-  labelPrefix = 'admin.access-control.epeople.form.';
+  readonly permissionActions = PERMISSION_ACTIONS;
+  id: string;
+  roles: ManagedRole[] = [];
+  activeTab: 'single' | 'bulk' = 'single';
+  roleQuery = '';
+  scopeQuery = '';
+  scopeResourceType = '';
+  scopeResults: PermissionScopePage = { scopes: [], totalElements: 0 };
+  permissionAssignments: PermissionAssignment[] = [];
+  saving = false;
+  error: string;
+  resetError: string;
+  validationErrors: AccountValidationError[] = [];
+  user: ManagedUser;
+  showPassword = false;
+  showPasswordConfirm = false;
+  showResetPassword = false;
+  showResetPasswordConfirm = false;
+  private resetModalRef: NgbModalRef;
 
-  /**
-   * A unique id used for ds-form
-   */
-  formId = 'eperson-form';
-
-  /**
-   * The labelPrefix for all messages related to this form
-   */
-  messagePrefix = 'admin.access-control.epeople.form';
-
-  /**
-   * Dynamic input models for the inputs of form
-   */
-  firstName: DynamicInputModel;
-  lastName: DynamicInputModel;
-  email: DynamicInputModel;
-  // booleans
-  canLogIn: DynamicCheckboxModel;
-  requireCertificate: DynamicCheckboxModel;
-
-  /**
-   * A list of all dynamic input models
-   */
-  formModel: DynamicFormControlModel[];
-
-  /**
-   * Layout used for structuring the form inputs
-   */
-  formLayout: DynamicFormLayout = {
-    firstName: {
-      grid: {
-        host: 'row',
-      },
-    },
-    lastName: {
-      grid: {
-        host: 'row',
-      },
-    },
-    email: {
-      grid: {
-        host: 'row',
-      },
-    },
-    canLogIn: {
-      grid: {
-        host: 'col col-sm-6 d-inline-block',
-      },
-    },
-    requireCertificate: {
-      grid: {
-        host: 'col col-sm-6 d-inline-block',
-      },
-    },
-  };
-
-  /**
-   * A FormGroup that combines all inputs
-   */
-  formGroup: UntypedFormGroup;
-
-  /**
-   * An EventEmitter that's fired whenever the form is being submitted
-   */
-  @Output() submitForm: EventEmitter<any> = new EventEmitter();
-
-  /**
-   * An EventEmitter that's fired whenever the form is cancelled
-   */
-  @Output() cancelForm: EventEmitter<any> = new EventEmitter();
-
-  /**
-   * Observable whether or not the admin is allowed to reset the EPerson's password
-   * TODO: Initialize the observable once the REST API supports this (currently hardcoded to return false)
-   */
-  canReset$: Observable<boolean>;
-
-  /**
-   * Observable whether or not the admin is allowed to delete the EPerson
-   */
-  canDelete$: Observable<boolean>;
-
-  /**
-   * Observable whether or not the admin is allowed to impersonate the EPerson
-   */
-  canImpersonate$: Observable<boolean>;
-
-  /**
-   * The current {@link EPerson}
-   */
-  activeEPerson$: Observable<EPerson>;
-
-  /**
-   * List of subscriptions
-   */
-  subs: Subscription[] = [];
-
-  /**
-   * A list of all the groups this EPerson is a member of
-   */
-  groups$: Observable<RemoteData<PaginatedList<Group>>>;
-
-  /**
-   * The pagination of the {@link groups$} list.
-   */
-  groupsPageInfoState$: Observable<PageInfo>;
-
-  /**
-   * Pagination config used to display the list of groups
-   */
-  config: PaginationComponentOptions = Object.assign(new PaginationComponentOptions(), {
-    id: 'gem',
-    pageSize: 5,
-    currentPage: 1,
+  form = this.fb.group({
+    username: ['', [Validators.required, Validators.pattern(usernamePattern)]],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', Validators.email],
+    canLogIn: [true],
+    password: ['', Validators.required],
+    passwordConfirm: ['', Validators.required],
+    requirePasswordChange: [true],
+    roleIds: [[] as string[]],
+    repositoryAdministrator: [false],
+    contentManager: [false],
+    confirmRepositoryAdministrator: [false],
   });
+  bulk = this.fb.array<FormGroup>([]);
+  resetForm = this.fb.group({ password: ['', Validators.required], passwordConfirm: ['', Validators.required], requirePasswordChange: [true] });
 
-  /**
-   * Try to retrieve initial active eperson, to fill in checkboxes at component creation
-   */
-  epersonInitial: EPerson;
+  constructor(private fb: FormBuilder, private accounts: AccountManagementService, private route: ActivatedRoute, private router: Router, private modal: NgbModal) {}
 
-  /**
-   * Whether or not this EPerson is currently being impersonated
-   */
-  isImpersonated = false;
-
-  /**
-   * A boolean that indicate if to display EPersonForm's Rest password button
-   */
-  displayResetPassword = false;
-
-  /**
-   * A string that indicate the label of Submit button
-   */
-  submitLabel = 'form.create';
-  /**
-   * Subscription to email field value change
-   */
-  emailValueChangeSubscribe: Subscription;
-
-  protected readonly getGroupEditPageRouterLink = getGroupEditPageRouterLink;
-
-  constructor(
-    protected changeDetectorRef: ChangeDetectorRef,
-    public epersonService: EPersonDataService,
-    public epeopleRegistryService: EpeopleRegistryService,
-    public groupsDataService: GroupDataService,
-    public groupRegistryService: GroupRegistryService,
-    private formBuilderService: FormBuilderService,
-    private translateService: TranslateService,
-    private notificationsService: NotificationsService,
-    private authService: AuthService,
-    private authorizationService: AuthorizationDataService,
-    private modalService: NgbModal,
-    private paginationService: PaginationService,
-    public requestService: RequestService,
-    private epersonRegistrationService: EpersonRegistrationService,
-    public dsoNameService: DSONameService,
-    protected route: ActivatedRoute,
-    protected router: Router,
-  ) {
-  }
-
-  ngOnInit() {
-    this.activeEPerson$ = this.epeopleRegistryService.getActiveEPerson();
-    this.subs.push(this.activeEPerson$.subscribe((eperson: EPerson) => {
-      this.epersonInitial = eperson;
-      if (hasValue(eperson)) {
-        this.isImpersonated = this.authService.isImpersonatingUser(eperson.id);
-        this.displayResetPassword = true;
-        this.submitLabel = 'form.submit';
-      }
-    }));
-    this.initialisePage();
-  }
-
-  /**
-   * This method will initialise the page
-   */
-  initialisePage() {
-    if (this.route.snapshot.params.id) {
-      this.subs.push(this.epersonService.findById(this.route.snapshot.params.id).subscribe((ePersonRD: RemoteData<EPerson>) => {
-        this.epeopleRegistryService.editEPerson(ePersonRD.payload);
-      }));
-    }
-    this.firstName = new DynamicInputModel({
-      id: 'firstName',
-      label: this.translateService.instant(`${this.messagePrefix}.firstName`),
-      name: 'firstName',
-      validators: {
-        required: null,
-      },
-      required: true,
-    });
-    this.lastName = new DynamicInputModel({
-      id: 'lastName',
-      label: this.translateService.instant(`${this.messagePrefix}.lastName`),
-      name: 'lastName',
-      validators: {
-        required: null,
-      },
-      required: true,
-    });
-    this.email = new DynamicInputModel({
-      id: 'email',
-      label: this.translateService.instant(`${this.messagePrefix}.email`),
-      name: 'email',
-      validators: {
-        required: null,
-        email: null,
-      },
-      required: true,
-      errorMessages: {
-        emailTaken: 'error.validation.emailTaken',
-        email: 'error.validation.NotValidEmail',
-      },
-      hint: this.translateService.instant(`${this.messagePrefix}.emailHint`),
-    });
-    this.canLogIn = new DynamicCheckboxModel(
-      {
-        id: 'canLogIn',
-        label: this.translateService.instant(`${this.messagePrefix}.canLogIn`),
-        name: 'canLogIn',
-        value: (this.epersonInitial != null ? this.epersonInitial.canLogIn : true),
-      });
-    this.requireCertificate = new DynamicCheckboxModel(
-      {
-        id: 'requireCertificate',
-        label: this.translateService.instant(`${this.messagePrefix}.requireCertificate`),
-        name: 'requireCertificate',
-        value: (this.epersonInitial != null ? this.epersonInitial.requireCertificate : false),
-      });
-    this.formModel = [
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.canLogIn,
-      this.requireCertificate,
-    ];
-    this.formGroup = this.formBuilderService.createFormGroup(this.formModel);
-    this.subs.push(this.activeEPerson$.subscribe((eperson: EPerson) => {
-      if (eperson != null) {
-        this.groups$ = this.groupsDataService.findListByHref(eperson._links.groups.href, {
-          currentPage: 1,
-          elementsPerPage: this.config.pageSize,
-        }, undefined, undefined, followLink('object'));
-      }
-      this.formGroup.patchValue({
-        firstName: eperson != null ? eperson.firstMetadataValue('eperson.firstname') : '',
-        lastName: eperson != null ? eperson.firstMetadataValue('eperson.lastname') : '',
-        email: eperson != null ? eperson.email : '',
-        canLogIn: eperson != null ? eperson.canLogIn : true,
-        requireCertificate: eperson != null ? eperson.requireCertificate : false,
-      });
-
-      if (eperson === null && !!this.formGroup.controls.email) {
-        this.formGroup.controls.email.setAsyncValidators(ValidateEmailNotTaken.createValidator(this.epersonService));
-        this.emailValueChangeSubscribe = this.email.valueChanges.pipe(debounceTime(300)).subscribe(() => {
-          this.changeDetectorRef.detectChanges();
-        });
-      }
-    }));
-
-    this.groups$ = this.activeEPerson$.pipe(
-      switchMap((eperson) => {
-        return observableCombineLatest([of(eperson), this.paginationService.getFindListOptions(this.config.id, {
-          currentPage: 1,
-          elementsPerPage: this.config.pageSize,
-        })]);
-      }),
-      switchMap(([eperson, findListOptions]) => {
-        if (eperson != null) {
-          return this.groupsDataService.findListByHref(eperson._links.groups.href, findListOptions, true, true, followLink('object'));
-        }
-        return of(undefined);
-      }),
-    );
-
-    this.groupsPageInfoState$ = this.groups$.pipe(
-      map(groupsRD => groupsRD.payload.pageInfo),
-    );
-
-    this.canImpersonate$ = this.activeEPerson$.pipe(
-      switchMap((eperson) => {
-        if (hasValue(eperson)) {
-          return this.authorizationService.isAuthorized(FeatureID.LoginOnBehalfOf, eperson.self);
-        } else {
-          return of(false);
-        }
-      }),
-    );
-    this.canDelete$ = this.activeEPerson$.pipe(
-      switchMap((eperson) => this.authorizationService.isAuthorized(FeatureID.CanDelete, hasValue(eperson) ? eperson.self : undefined)),
-    );
-    this.canReset$ = of(true);
-  }
-
-  /**
-   * Stop editing the currently selected eperson
-   */
-  onCancel() {
-    this.epeopleRegistryService.cancelEditEPerson();
-    this.cancelForm.emit();
-    void this.router.navigate([getEPersonsRoute()]);
-  }
-
-  /**
-   * Submit the form
-   * When the eperson has an id attached -> Edit the eperson
-   * When the eperson has no id attached -> Create new eperson
-   * Emit the updated/created eperson using the EventEmitter submitForm
-   */
-  onSubmit() {
-    this.activeEPerson$.pipe(take(1)).subscribe(
-      (ePerson: EPerson) => {
-        const values = {
-          metadata: {
-            'eperson.firstname': [
-              {
-                value: this.firstName.value,
-              },
-            ],
-            'eperson.lastname': [
-              {
-                value: this.lastName.value,
-              },
-            ],
-          },
-          email: this.email.value,
-          canLogIn: this.canLogIn.value,
-          requireCertificate: this.requireCertificate.value,
-        };
-        if (ePerson == null) {
-          this.createNewEPerson(values);
-        } else {
-          this.editEPerson(ePerson, values);
-        }
-      },
-    );
-  }
-
-  /**
-   * Creates new EPerson based on given values from form
-   * @param values
-   */
-  createNewEPerson(values) {
-    const ePersonToCreate = Object.assign(new EPerson(), values);
-
-    const response = this.epersonService.create(ePersonToCreate);
-    response.pipe(
-      getFirstCompletedRemoteData(),
-    ).subscribe((rd: RemoteData<EPerson>) => {
-      if (rd.hasSucceeded) {
-        this.notificationsService.success(this.translateService.get(this.labelPrefix + 'notification.created.success', { name: this.dsoNameService.getName(ePersonToCreate) }));
-        this.submitForm.emit(ePersonToCreate);
-        this.epersonService.clearEPersonRequests();
-        void this.router.navigateByUrl(getEPersonsRoute());
-      } else {
-        this.notificationsService.error(this.translateService.get(this.labelPrefix + 'notification.created.failure', { name: this.dsoNameService.getName(ePersonToCreate) }));
-        this.cancelForm.emit();
-      }
-    });
-    this.showNotificationIfEmailInUse(ePersonToCreate, 'created');
-  }
-
-  /**
-   * Edits existing EPerson based on given values from form and old EPerson
-   * @param ePerson   ePerson to edit
-   * @param values    new ePerson values (of form)
-   */
-  editEPerson(ePerson: EPerson, values) {
-    const editedEperson = Object.assign(new EPerson(), {
-      id: ePerson.id,
-      metadata: {
-        'eperson.firstname': [
-          {
-            value: (this.firstName.value ? this.firstName.value : ePerson.firstMetadataValue('eperson.firstname')),
-          },
-        ],
-        'eperson.lastname': [
-          {
-            value: (this.lastName.value ? this.lastName.value : ePerson.firstMetadataValue('eperson.lastname')),
-          },
-        ],
-      },
-      email: (hasValue(values.email) ? values.email : ePerson.email),
-      canLogIn: (hasValue(values.canLogIn) ? values.canLogIn : ePerson.canLogIn),
-      requireCertificate: (hasValue(values.requireCertificate) ? values.requireCertificate : ePerson.requireCertificate),
-      _links: ePerson._links,
-    });
-
-    const response = this.epersonService.updateEPerson(editedEperson);
-    response.pipe(getFirstCompletedRemoteData()).subscribe((rd: RemoteData<EPerson>) => {
-      if (rd.hasSucceeded) {
-        this.notificationsService.success(this.translateService.get(this.labelPrefix + 'notification.edited.success', { name: this.dsoNameService.getName(editedEperson) }));
-        this.submitForm.emit(editedEperson);
-        void this.router.navigateByUrl(getEPersonsRoute());
-      } else {
-        this.notificationsService.error(this.translateService.get(this.labelPrefix + 'notification.edited.failure', { name: this.dsoNameService.getName(editedEperson) }));
-        this.cancelForm.emit();
-      }
-    });
-
-    if (values.email != null && values.email !== ePerson.email) {
-      this.showNotificationIfEmailInUse(editedEperson, 'edited');
-    }
-  }
-
-  /**
-   * Event triggered when the user changes page
-   * @param event
-   */
-  onPageChange(event) {
-    this.updateGroups({
-      currentPage: event,
-      elementsPerPage: this.config.pageSize,
-    });
-  }
-
-  /**
-   * Start impersonating the EPerson
-   */
-  impersonate() {
-    this.authService.impersonate(this.epersonInitial.id);
-    this.isImpersonated = true;
-  }
-
-  /**
-   * Deletes the EPerson from the Repository. The EPerson will be the only that this form is showing.
-   * It'll either show a success or error message depending on whether the delete was successful or not.
-   */
-  delete(): void {
-    this.activeEPerson$.pipe(
-      take(1),
-      switchMap((eperson: EPerson) => {
-        const modalRef = this.modalService.open(ConfirmationModalComponent);
-        modalRef.componentInstance.name = this.dsoNameService.getName(eperson);
-        modalRef.componentInstance.headerLabel = 'confirmation-modal.delete-eperson.header';
-        modalRef.componentInstance.infoLabel = 'confirmation-modal.delete-eperson.info';
-        modalRef.componentInstance.cancelLabel = 'confirmation-modal.delete-eperson.cancel';
-        modalRef.componentInstance.confirmLabel = 'confirmation-modal.delete-eperson.confirm';
-        modalRef.componentInstance.brandColor = 'danger';
-        modalRef.componentInstance.confirmIcon = 'fas fa-trash';
-
-        return modalRef.componentInstance.response.pipe(
-          take(1),
-          switchMap((confirm: boolean) => {
-            if (confirm && hasValue(eperson.id)) {
-              this.canDelete$ = of(false);
-              return this.epersonService.deleteEPerson(eperson).pipe(
-                getFirstCompletedRemoteData(),
-                map((restResponse: RemoteData<NoContent>) => ({ restResponse, eperson })),
-              );
-            } else {
-              return of(null);
-            }
-          }),
-          finalize(() => this.canDelete$ = of(true)),
-        );
-      }),
-    ).subscribe(({ restResponse, eperson }: { restResponse: RemoteData<NoContent> | null, eperson: EPerson }) => {
-      if (restResponse?.hasSucceeded) {
-        this.notificationsService.success(this.translateService.get(this.labelPrefix + 'notification.deleted.success', { name: this.dsoNameService.getName(eperson) }));
-        void this.router.navigate([getEPersonsRoute()]);
-      } else {
-        this.notificationsService.error(`Error occurred when trying to delete EPerson with id: ${eperson?.id} with code: ${restResponse?.statusCode} and message: ${restResponse?.errorMessage}`);
-      }
-      this.cancelForm.emit();
-    });
-  }
-
-  /**
-   * Stop impersonating the EPerson
-   */
-  stopImpersonating() {
-    this.authService.stopImpersonatingAndRefresh();
-    this.isImpersonated = false;
-  }
-
-  /**
-   * Sends an email to current eperson address with the information
-   * to reset password
-   */
-  resetPassword() {
-    if (hasValue(this.epersonInitial.email)) {
-      this.epersonRegistrationService.registerEmail(this.epersonInitial.email, null, TYPE_REQUEST_FORGOT).pipe(getFirstCompletedRemoteData())
-        .subscribe((response: RemoteData<Registration>) => {
-          if (response.hasSucceeded) {
-            this.notificationsService.success(this.translateService.get('admin.access-control.epeople.actions.reset'),
-              this.translateService.get('forgot-email.form.success.content', { email: this.epersonInitial.email }));
-          } else {
-            this.notificationsService.error(this.translateService.get('forgot-email.form.error.head'),
-              this.translateService.get('forgot-email.form.error.content', { email: this.epersonInitial.email }));
-          }
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.accounts.roles().subscribe({ next: (roles) => this.roles = roles || [], error: () => this.error = 'admin.user-management.error.roles' });
+    if (this.id) {
+      this.form.removeControl('password');
+      this.form.removeControl('passwordConfirm');
+      this.form.removeControl('requirePasswordChange');
+      this.accounts.user(this.id).subscribe({
+        next: (user) => {
+          this.user = user;
+          this.permissionAssignments = this.normalizePermissionHierarchy(user.permissionAssignments || []);
+          this.form.patchValue({ ...user, roleIds: user.roleIds || [], repositoryAdministrator: !!user.repositoryAdministrator, contentManager: !!user.contentManager });
         },
-        );
+        error: () => this.error = 'admin.user-management.error.load',
+      });
+    } else {
+      this.addBulkRow();
     }
+    this.searchScopes();
   }
 
-  /**
-   * Cancel the current edit when component is destroyed & unsub all subscriptions
-   */
-  ngOnDestroy(): void {
-    this.subs.filter((sub) => hasValue(sub)).forEach((sub) => sub.unsubscribe());
-    this.paginationService.clearPagination(this.config.id);
-    if (hasValue(this.emailValueChangeSubscribe)) {
-      this.emailValueChangeSubscribe.unsubscribe();
-    }
+  get rows(): FormArray { return this.bulk; }
+  get selectedRoleIds(): string[] { return this.form.value.roleIds || []; }
+  get isCreating(): boolean { return !this.id; }
+  get inheritedAssignments(): PermissionAssignment[] { return this.user?.inheritedPermissionAssignments || []; }
+  get unmanagedAssignments(): PermissionAssignment[] { return this.user?.unmanagedPermissionAssignments || []; }
+  get availableScopeRows(): PermissionScopeTreeRow[] { return this.buildScopeTree(this.scopeResults.scopes); }
+  get selectedPermissionRows(): PermissionScopeTreeRow[] { return this.buildScopeTree(this.permissionAssignments, true); }
+
+  scopeTypeLabel(resourceType: string): string {
+    return {
+      COMMUNITY: 'admin.user-management.scope-community',
+      COLLECTION: 'admin.user-management.scope-collection',
+      ITEM: 'admin.user-management.scope-item',
+    }[resourceType] || resourceType;
   }
 
-  /**
-   * Checks for the given ePerson if there is already an ePerson in the system with that email
-   * and shows notification if this is the case
-   * @param ePerson               ePerson values to check
-   * @param notificationSection   whether in create or edit
-   */
-  private showNotificationIfEmailInUse(ePerson: EPerson, notificationSection: string) {
-    // Relevant message for email in use
-    this.subs.push(this.epersonService.searchByScope('email', ePerson.email, {
-      currentPage: 1,
-      elementsPerPage: 0,
-    }).pipe(getFirstSucceededRemoteData(), getRemoteDataPayload())
-      .subscribe((list: PaginatedList<EPerson>) => {
-        if (list.totalElements > 0) {
-          this.notificationsService.error(this.translateService.get(this.labelPrefix + 'notification.' + notificationSection + '.failure.emailInUse', {
-            name: this.dsoNameService.getName(ePerson),
-            email: ePerson.email,
-          }));
-        }
-      }));
-  }
-
-  /**
-   * Update the list of groups by fetching it from the rest api or cache
-   */
-  private updateGroups(options) {
-    this.subs.push(this.activeEPerson$.subscribe((eperson: EPerson) => {
-      this.groups$ = this.groupsDataService.findListByHref(eperson._links.groups.href, options);
+  addBulkRow(value: any = {}): void {
+    this.bulk.push(this.fb.group({
+      username: [value.username || '', [Validators.required, Validators.pattern(usernamePattern)]],
+      firstName: [value.firstName || '', Validators.required],
+      lastName: [value.lastName || '', Validators.required],
+      email: [value.email || '', Validators.email],
     }));
   }
+  removeBulkRow(index: number): void { if (this.bulk.length > 1) { this.bulk.removeAt(index); } }
+  setTab(tab: 'single' | 'bulk'): void { this.activeTab = tab; this.validationErrors = []; this.error = undefined; }
 
+  pasteBulk(event: ClipboardEvent): void {
+    event.preventDefault();
+    const text = event.clipboardData?.getData('text') || '';
+    const rows = text.trim().split(/\r?\n/).filter(Boolean).map((line) => line.split(/\t|,/).map((cell) => cell.trim()));
+    if (!rows.length) { return; }
+    this.bulk.clear();
+    rows.forEach(([username, firstName, lastName, email]) => this.addBulkRow({ username, firstName, lastName, email }));
+  }
+
+  toggleRole(id: string, selected: boolean): void {
+    const roleIds = this.selectedRoleIds;
+    this.form.patchValue({ roleIds: selected ? [...roleIds, id] : roleIds.filter((roleId) => roleId !== id) });
+  }
+  roleSelected(id: string): boolean { return this.selectedRoleIds.includes(id); }
+  categorizedRoles(): [string, ManagedRole[]][] {
+    const groups = new Map<string, ManagedRole[]>();
+    const query = this.roleQuery.trim().toLocaleLowerCase();
+    this.roles.filter((role) => !query || `${role.label} ${role.category} ${role.scope?.name || ''}`.toLocaleLowerCase().includes(query)).forEach((role) => {
+      const category = role.category || 'Custom';
+      groups.set(category, [...(groups.get(category) || []), role]);
+    });
+    return Array.from(groups.entries());
+  }
+
+  searchScopes(page = 0): void {
+    this.accounts.permissionScopes(this.scopeQuery, this.scopeResourceType || undefined, page, 10).subscribe({
+      next: (result) => {
+        const scopes = Array.isArray(result) ? result : result.scopes || [];
+        this.scopeResults = { scopes, totalElements: Array.isArray(result) ? scopes.length : result.totalElements || 0, page, size: 10 };
+      },
+      error: () => this.error = 'admin.user-management.error.scopes',
+    });
+  }
+  addScope(scope: PermissionScope): void {
+    if (this.scopeSelected(scope)) { return; }
+
+    let fullControl = false;
+    let actions: string[] = [];
+    if (scope.resourceType === 'COLLECTION' && scope.parentResourceId) {
+      const parent = this.permissionAssignments.find((assignment) =>
+        assignment.resourceType === 'COMMUNITY' && assignment.resourceId === scope.parentResourceId);
+      if (parent) {
+        // Selecting the first child narrows an existing whole-community grant.
+        // Carry its choices to that collection so the administrator does not
+        // have to re-enter the permission set.
+        fullControl = parent.fullControl;
+        actions = [...parent.actions];
+        this.permissionAssignments = this.permissionAssignments.filter((assignment) => assignment !== parent);
+      }
+    }
+    this.permissionAssignments = [...this.permissionAssignments, { ...scope, fullControl, actions }];
+  }
+  removeScope(scope: PermissionScope): void {
+    this.permissionAssignments = this.permissionAssignments.filter((assignment) => {
+      const exactScope = assignment.resourceType === scope.resourceType && assignment.resourceId === scope.resourceId;
+      const childOfScope = assignment.parentResourceType === scope.resourceType
+        && assignment.parentResourceId === scope.resourceId;
+      return !exactScope && !childOfScope;
+    });
+  }
+  assignmentFor(scope: PermissionScope): PermissionAssignment | undefined { return this.permissionAssignments.find((assignment) => assignment.resourceType === scope.resourceType && assignment.resourceId === scope.resourceId); }
+  scopeSelected(scope: PermissionScope): boolean {
+    return !!this.assignmentFor(scope) || this.hasSelectedCollections(scope);
+  }
+  hasSelectedCollections(scope: PermissionScope): boolean {
+    return scope.resourceType === 'COMMUNITY' && this.permissionAssignments.some((assignment) =>
+      assignment.resourceType === 'COLLECTION' && assignment.parentResourceId === scope.resourceId);
+  }
+  groupFullControlSelected(community: PermissionScope): boolean {
+    const collections = this.selectedCollectionsForCommunity(community);
+    return collections.length > 0 && collections.every((assignment) => assignment.fullControl);
+  }
+  groupFullControlIndeterminate(community: PermissionScope): boolean {
+    const collections = this.selectedCollectionsForCommunity(community);
+    return collections.some((assignment) => assignment.fullControl) && !this.groupFullControlSelected(community);
+  }
+  groupActionSelected(community: PermissionScope, action: string): boolean {
+    const collections = this.selectedCollectionsForCommunity(community).filter((assignment) => !assignment.fullControl);
+    return collections.length > 0 && collections.every((assignment) => assignment.actions.includes(action));
+  }
+  groupActionIndeterminate(community: PermissionScope, action: string): boolean {
+    const collections = this.selectedCollectionsForCommunity(community).filter((assignment) => !assignment.fullControl);
+    return collections.some((assignment) => assignment.actions.includes(action))
+      && !this.groupActionSelected(community, action);
+  }
+  setGroupFullControl(community: PermissionScope, enabled: boolean): void {
+    this.selectedCollectionsForCommunity(community).forEach((assignment) => this.setFullControl(assignment, enabled));
+  }
+  setGroupAction(community: PermissionScope, action: string, enabled: boolean): void {
+    this.selectedCollectionsForCommunity(community)
+      .filter((assignment) => !assignment.fullControl)
+      .forEach((assignment) => this.setAction(assignment, action, enabled));
+  }
+  collectionColumnLocked(assignment: PermissionAssignment, column: string): boolean {
+    if (assignment.resourceType !== 'COLLECTION' || !assignment.parentResourceId) { return false; }
+    const community: PermissionScope = { resourceType: 'COMMUNITY', resourceId: assignment.parentResourceId };
+    return column === 'FULL_CONTROL'
+      ? this.groupFullControlSelected(community)
+      : this.groupFullControlSelected(community) || this.groupActionSelected(community, column);
+  }
+  assignmentLabel(assignment: PermissionScope): string { return assignment.resourceName || assignment.resourcePath || `${assignment.resourceType}: ${assignment.resourceId}`; }
+  scopeKey(scope: PermissionScope): string { return `${scope.resourceType}:${scope.resourceId}`; }
+  setFullControl(assignment: PermissionAssignment, enabled: boolean): void { assignment.fullControl = enabled; if (enabled) { assignment.actions = []; } }
+  setAction(assignment: PermissionAssignment, action: string, enabled: boolean): void { assignment.actions = enabled ? [...new Set([...assignment.actions, action])] : assignment.actions.filter((value) => value !== action); }
+  hasAction(assignment: PermissionAssignment, action: string): boolean { return assignment.fullControl || assignment.actions.includes(action); }
+
+  togglePassword(field: 'password' | 'passwordConfirm' | 'resetPassword' | 'resetPasswordConfirm'): void {
+    const property = `show${field.charAt(0).toUpperCase()}${field.slice(1)}` as keyof EPersonFormComponent;
+    (this[property] as boolean) = !(this[property] as boolean);
+  }
+  passwordMatches(group: { value: any } = this.form): boolean { const value = group.value; return value.password === value.passwordConfirm; }
+
+  submit(): void {
+    if (this.id) { this.saveEdit(); return; }
+    const users = this.activeTab === 'single' ? [this.userFromValue(this.form.value)] : this.bulk.controls.map((row) => this.userFromValue(row.value));
+    const passwordInvalid = this.form.controls.password.invalid || this.form.controls.passwordConfirm.invalid || !this.passwordMatches();
+    const missingAdminConfirmation = this.form.value.repositoryAdministrator && !this.form.value.confirmRepositoryAdministrator;
+    if ((this.activeTab === 'single' ? this.form.invalid : this.bulk.invalid || passwordInvalid) || missingAdminConfirmation) {
+      this.form.markAllAsTouched(); this.bulk.markAllAsTouched();
+      this.error = missingAdminConfirmation ? 'admin.user-management.error.confirm-administrator' : 'admin.user-management.error.validation';
+      return;
+    }
+    this.saving = true; this.validationErrors = [];
+    this.accounts.create(this.creationPayload(users)).subscribe({ next: () => void this.router.navigate(['/access-control/epeople']), error: (response: HttpErrorResponse) => this.handleSaveError(response) });
+  }
+  saveEdit(): void {
+    if (this.form.invalid || (this.form.value.repositoryAdministrator && !this.user?.repositoryAdministrator && !this.form.value.confirmRepositoryAdministrator)) {
+      this.form.markAllAsTouched(); this.error = this.form.value.repositoryAdministrator ? 'admin.user-management.error.confirm-administrator' : 'admin.user-management.error.validation'; return;
+    }
+    const value = this.form.value;
+    this.saving = true;
+    this.accounts.update(this.id, { username: value.username, firstName: value.firstName, lastName: value.lastName, email: value.email || null, canLogIn: value.canLogIn, roleIds: value.roleIds || [], repositoryAdministrator: !!value.repositoryAdministrator, contentManager: !!value.contentManager, permissionAssignments: this.permissionAssignmentPayloads() }).subscribe({ next: () => void this.router.navigate(['/access-control/epeople']), error: (response: HttpErrorResponse) => this.handleSaveError(response) });
+  }
+
+  openReset(): void {
+    this.resetForm.reset({ requirePasswordChange: true }); this.showResetPassword = false; this.showResetPasswordConfirm = false; this.resetError = undefined;
+    this.resetModalRef = this.modal.open(this.resetPasswordModal, { ariaLabelledBy: 'reset-password-title', size: 'lg' });
+  }
+  resetPassword(): void {
+    if (this.resetForm.invalid || !this.passwordMatches(this.resetForm)) { this.resetForm.markAllAsTouched(); this.resetError = 'admin.user-management.error.validation'; return; }
+    this.resetError = undefined;
+    this.accounts.resetPassword(this.id, this.resetForm.value.password, this.resetForm.value.requirePasswordChange !== false).subscribe({ next: () => this.resetModalRef?.close(), error: (response: HttpErrorResponse) => this.handleResetError(response) });
+  }
+
+  private creationPayload(users: any[]): any {
+    const value = this.form.value;
+    return { users, password: value.password, requirePasswordChange: value.requirePasswordChange !== false, roleIds: value.roleIds || [], repositoryAdministrator: !!value.repositoryAdministrator, contentManager: !!value.contentManager, permissionAssignments: this.permissionAssignmentPayloads() };
+  }
+  private permissionAssignmentPayloads(): Partial<PermissionAssignment>[] {
+    return this.permissionAssignments.map(({ resourceType, resourceId, fullControl, actions }) =>
+      ({ resourceType, resourceId, fullControl, actions }));
+  }
+  private normalizePermissionHierarchy(assignments: PermissionAssignment[]): PermissionAssignment[] {
+    const narrowedCommunityIds = new Set(assignments
+      .filter((assignment) => assignment.resourceType === 'COLLECTION' && assignment.parentResourceType === 'COMMUNITY')
+      .map((assignment) => assignment.parentResourceId));
+    return assignments.filter((assignment) => assignment.resourceType !== 'COMMUNITY'
+      || !narrowedCommunityIds.has(assignment.resourceId));
+  }
+  private selectedCollectionsForCommunity(community: PermissionScope): PermissionAssignment[] {
+    if (community.resourceType !== 'COMMUNITY') { return []; }
+    return this.permissionAssignments.filter((assignment) => assignment.resourceType === 'COLLECTION'
+      && assignment.parentResourceType === 'COMMUNITY'
+      && assignment.parentResourceId === community.resourceId);
+  }
+  private buildScopeTree(scopes: PermissionScope[], includeAssignments = false): PermissionScopeTreeRow[] {
+    const actualKeys = new Set(scopes.map((scope) => this.scopeKey(scope)));
+    const byKey = new Map(scopes.map((scope) => [this.scopeKey(scope), scope]));
+    const syntheticKeys = new Set<string>();
+
+    scopes.forEach((scope) => {
+      if (!scope.parentResourceId || !scope.parentResourceType) { return; }
+      const parentKey = `${scope.parentResourceType}:${scope.parentResourceId}`;
+      if (!byKey.has(parentKey)) {
+        byKey.set(parentKey, {
+          resourceType: scope.parentResourceType,
+          resourceId: scope.parentResourceId,
+          resourceName: scope.parentResourceName,
+          resourcePath: scope.parentResourcePath,
+        });
+        syntheticKeys.add(parentKey);
+      }
+    });
+
+    const children = new Map<string, PermissionScope[]>();
+    const roots: PermissionScope[] = [];
+    byKey.forEach((scope) => {
+      const parentKey = scope.parentResourceId && scope.parentResourceType
+        ? `${scope.parentResourceType}:${scope.parentResourceId}` : undefined;
+      if (parentKey && byKey.has(parentKey)) {
+        children.set(parentKey, [...(children.get(parentKey) || []), scope]);
+      } else {
+        roots.push(scope);
+      }
+    });
+
+    const compareScopes = (left: PermissionScope, right: PermissionScope): number =>
+      (left.resourcePath || left.resourceName || left.resourceId).localeCompare(
+        right.resourcePath || right.resourceName || right.resourceId, undefined, { sensitivity: 'base' });
+    const rows: PermissionScopeTreeRow[] = [];
+    const visit = (scope: PermissionScope, depth: number): void => {
+      const key = this.scopeKey(scope);
+      const childScopes = (children.get(key) || []).sort(compareScopes);
+      rows.push({
+        scope,
+        assignment: includeAssignments && actualKeys.has(key) ? scope as PermissionAssignment : undefined,
+        depth,
+        hasChildren: childScopes.length > 0,
+        synthetic: syntheticKeys.has(key),
+      });
+      childScopes.forEach((child) => visit(child, depth + 1));
+    };
+    roots.sort(compareScopes).forEach((scope) => visit(scope, 0));
+    return rows;
+  }
+  private userFromValue(value: any): any { return { username: value.username, firstName: value.firstName, lastName: value.lastName, email: value.email || undefined, canLogIn: value.canLogIn }; }
+  private handleSaveError(response: HttpErrorResponse): void { this.validationErrors = response.error?.errors || []; this.error = this.validationErrors.length ? 'admin.user-management.error.validation' : 'admin.user-management.error.save'; this.saving = false; }
+  private handleResetError(response: HttpErrorResponse): void { this.resetError = response.error?.errors?.length ? 'admin.user-management.error.validation' : 'admin.user-management.error.save'; }
 }

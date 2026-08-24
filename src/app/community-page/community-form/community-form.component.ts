@@ -71,7 +71,7 @@ export class CommunityFormComponent extends ComColFormComponent<Community> imple
         required: null,
       },
       errorMessages: {
-        required: 'Please enter a name for this title',
+        required: 'community.form.errors.title.required',
       },
     }),
     new DynamicTextAreaModel({

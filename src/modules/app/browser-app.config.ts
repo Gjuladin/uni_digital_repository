@@ -15,7 +15,6 @@ import {
   provideAppInitializer,
   TransferState,
 } from '@angular/core';
-import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { AuthService } from '@dspace/core/auth/auth.service';
 import { AuthRequestService } from '@dspace/core/auth/auth-request.service';
@@ -87,7 +86,6 @@ export const browserAppConfig: ApplicationConfig = mergeApplicationConfig({
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
-    provideClientHydration(),
     importProvidersFrom(
       // forRoot ensures the providers are only created once
       Angulartics2RouterlessModule.forRoot(),

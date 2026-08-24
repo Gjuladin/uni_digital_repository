@@ -182,7 +182,7 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
       href: environment.rest.baseUrl + '/' + this.openSearchUri + '/service',
       type: 'application/atom+xml',
       rel: 'search',
-      title: 'Dspace',
+      title: this.translateService.instant('feed.repository'),
     });
 
     // Update the route subject
@@ -233,14 +233,14 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
       href: route,
       type: 'application/atom+xml',
       rel: 'alternate',
-      title: 'Sitewide Atom feed',
+      title: this.translateService.instant('feed.sitewide-atom'),
     });
     route = route.replace('format=atom', 'format=rss');
     this.linkHeadService.addTag({
       href: route,
       type: 'application/rss+xml',
       rel: 'alternate',
-      title: 'Sitewide RSS feed',
+      title: this.translateService.instant('feed.sitewide-rss'),
     });
   }
 }

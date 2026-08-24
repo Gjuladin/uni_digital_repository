@@ -30,13 +30,13 @@
             </a>
           } @else {
             <div class="uist-community-group" role="group"
-                 [attr.aria-label]="sectionText(communitySection)">
+                 [attr.aria-label]="sectionText(communitySection) | translate">
               <a role="menuitem"
                  class="ds-menu-item uist-community-link"
                  [routerLink]="sectionLink(communitySection)"
                  (click)="deactivateSection($event, false)">
                 <i class="fas fa-university fa-fw me-1" aria-hidden="true"></i>
-                {{ sectionText(communitySection) }}
+                {{ sectionText(communitySection) | translate }}
               </a>
               @for (collectionSection of (getChildSections(communitySection.id) | async); track collectionSection.id) {
                 <a role="menuitem"
@@ -44,7 +44,7 @@
                    [routerLink]="sectionLink(collectionSection)"
                    (click)="deactivateSection($event, false)">
                   <i class="fas fa-folder fa-fw me-1" aria-hidden="true"></i>
-                  {{ sectionText(collectionSection) }}
+                  {{ sectionText(collectionSection) | translate }}
                 </a>
               }
             </div>

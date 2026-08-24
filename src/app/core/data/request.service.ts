@@ -375,6 +375,17 @@ export class RequestService {
   }
 
   /**
+   * Mark every cached REST request as stale.
+   *
+   * This is needed after a temporary authentication gate is lifted: requests
+   * that were denied while the gate was active must not remain authoritative
+   * for the rest of the browser session.
+   */
+  setAllStale(): Observable<boolean> {
+    return this.setStaleByHrefSubstring('');
+  }
+
+  /**
    * Mark a request as stale
    * @param uuid  the UUID of the request
    * @return      an Observable that will emit true once the Request becomes stale

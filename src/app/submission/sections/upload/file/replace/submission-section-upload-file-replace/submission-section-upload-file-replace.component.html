@@ -6,7 +6,7 @@
           fileSize: fileSizeBytes | dsFileSize
         }
       }}</h4>
-    <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+    <button type="button" class="btn-close" (click)="closeModal()" [attr.aria-label]="'ui.close' | translate"></button>
   </div>
   <div class="modal-body">
     <p>

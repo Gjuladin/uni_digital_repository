@@ -20,7 +20,7 @@ import { AlertType } from '../alert/alert-type';
 })
 export class ErrorComponent implements OnDestroy, OnInit {
 
-  @Input() message = 'Error...';
+  @Input() message: string;
 
   /**
    * The AlertType enumeration

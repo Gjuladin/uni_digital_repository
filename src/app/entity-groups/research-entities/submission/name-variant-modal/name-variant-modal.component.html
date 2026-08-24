@@ -1,6 +1,6 @@
 <div class="modal-header">
-    <h4 class="modal-title">New name variant</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <h4 class="modal-title">{{ 'ui.new-name-variant' | translate }}</h4>
+    <button type="button" class="btn-close" [attr.aria-label]="'ui.close' | translate" (click)="modal.dismiss('Cross click')">
     </button>
 </div>
 <div class="modal-body">

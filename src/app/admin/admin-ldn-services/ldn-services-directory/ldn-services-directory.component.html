@@ -75,7 +75,7 @@
       <div>
         <h4>{{'service.overview.delete.header' | translate }}</h4>
       </div>
-      <button (click)="closeModal()" aria-label="Close"
+      <button (click)="closeModal()" [attr.aria-label]="'ui.close' | translate"
         [attr.aria-label]="'ldn-service-overview-close-modal' | translate"
         class="btn-close" type="button">
       </button>
@@ -98,4 +98,3 @@
     </div>
   </div>
 </ng-template>
-

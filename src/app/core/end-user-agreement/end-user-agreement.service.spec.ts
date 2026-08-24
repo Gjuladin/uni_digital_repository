@@ -1,4 +1,7 @@
-import { of } from 'rxjs';
+import {
+  BehaviorSubject,
+  of,
+} from 'rxjs';
 
 import { EPerson } from '../eperson/models/eperson.model';
 import { CookieServiceMock } from '../testing/cookie.service.mock';
@@ -33,12 +36,15 @@ describe('EndUserAgreementService', () => {
 
     cookie = new CookieServiceMock();
     authService = jasmine.createSpyObj('authService', {
+      isAuthenticationLoaded: of(true),
       isAuthenticated: of(true),
       getAuthenticatedUserFromStore: of(userWithMetadata),
+      getAuthenticatedUserIdFromStore: of('user-id'),
     });
     ePersonService = jasmine.createSpyObj('ePersonService', {
       update: createSuccessfulRemoteDataObject$(userWithMetadata),
       patch: createSuccessfulRemoteDataObject$({}),
+      findById: createSuccessfulRemoteDataObject$(userWithMetadata),
     });
 
     service = new EndUserAgreementService(cookie, authService, ePersonService);
@@ -99,8 +105,13 @@ describe('EndUserAgreementService', () => {
       });
 
       it('setUserAcceptedAgreement should update the user with new metadata', (done) => {
+        (ePersonService.findById as jasmine.Spy).and.returnValues(
+          createSuccessfulRemoteDataObject$(userWithoutMetadata),
+          createSuccessfulRemoteDataObject$(userWithMetadata),
+        );
         service.setUserAcceptedAgreement(true).subscribe(() => {
           expect(ePersonService.patch).toHaveBeenCalled();
+          expect(ePersonService.findById).toHaveBeenCalledWith('user-id', false, false);
           done();
         });
       });
@@ -109,6 +120,7 @@ describe('EndUserAgreementService', () => {
     describe('and the user is not authenticated', () => {
       beforeEach(() => {
         (authService.isAuthenticated as jasmine.Spy).and.returnValue(of(false));
+        (authService.getAuthenticatedUserIdFromStore as jasmine.Spy).and.returnValue(of(undefined));
       });
 
       it('hasCurrentUserOrCookieAcceptedAgreement should return false', (done) => {
@@ -124,6 +136,36 @@ describe('EndUserAgreementService', () => {
           done();
         });
       });
+
+      it('does not patch a stale EPerson ID after authentication becomes anonymous', (done) => {
+        (authService.getAuthenticatedUserIdFromStore as jasmine.Spy).and.returnValue(of('stale-user-id'));
+
+        service.setUserAcceptedAgreement(true).subscribe(() => {
+          expect(cookie.get(END_USER_AGREEMENT_COOKIE)).toEqual(true);
+          expect(ePersonService.findById).not.toHaveBeenCalled();
+          expect(ePersonService.patch).not.toHaveBeenCalled();
+          done();
+        });
+      });
+    });
+
+    it('waits for the authenticated EPerson ID instead of accepting as anonymous', (done) => {
+      const userId$ = new BehaviorSubject<string>(undefined);
+      (authService.isAuthenticated as jasmine.Spy).and.returnValue(of(true));
+      (authService.getAuthenticatedUserIdFromStore as jasmine.Spy).and.returnValue(userId$);
+      (ePersonService.findById as jasmine.Spy).and.returnValues(
+        createSuccessfulRemoteDataObject$(userWithoutMetadata),
+        createSuccessfulRemoteDataObject$(userWithMetadata),
+      );
+
+      service.setUserAcceptedAgreement(true).subscribe((success) => {
+        expect(success).toBeTrue();
+        expect(cookie.get(END_USER_AGREEMENT_COOKIE)).toBeUndefined();
+        expect(ePersonService.patch).toHaveBeenCalled();
+        done();
+      });
+      expect(ePersonService.patch).not.toHaveBeenCalled();
+      userId$.next('user-id');
     });
 
     it('isCookieAccepted should return false', () => {

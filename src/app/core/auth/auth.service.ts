@@ -234,8 +234,8 @@ export class AuthService {
    * Returns the authenticated user by href
    * @returns {User}
    */
-  public retrieveAuthenticatedUserByHref(userHref: string): Observable<EPerson> {
-    return this.epersonService.findByHref(userHref).pipe(
+  public retrieveAuthenticatedUserByHref(userHref: string, useCachedVersionIfAvailable = true, reRequestOnStale = true): Observable<EPerson> {
+    return this.epersonService.findByHref(userHref, useCachedVersionIfAvailable, reRequestOnStale).pipe(
       getAllSucceededRemoteDataPayload(),
     );
   }
@@ -244,8 +244,8 @@ export class AuthService {
    * Returns the authenticated user by id
    * @returns {User}
    */
-  public retrieveAuthenticatedUserById(userId: string): Observable<EPerson> {
-    return this.epersonService.findById(userId).pipe(
+  public retrieveAuthenticatedUserById(userId: string, useCachedVersionIfAvailable = true, reRequestOnStale = true): Observable<EPerson> {
+    return this.epersonService.findById(userId, useCachedVersionIfAvailable, reRequestOnStale).pipe(
       getAllSucceededRemoteDataPayload(),
     );
   }

@@ -37,7 +37,6 @@ import {
   TranslateModule,
   TranslateService,
 } from '@ngx-translate/core';
-import { Operation } from 'fast-json-patch';
 import {
   BehaviorSubject,
   Observable,
@@ -49,6 +48,7 @@ import {
 } from 'rxjs/operators';
 
 import { SuggestionsNotificationComponent } from '../notifications/suggestions/notification/suggestions-notification.component';
+import { AccountManagementService } from '../access-control/epeople-registry/account-management.service';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { ErrorComponent } from '../shared/error/error.component';
 import { ThemedLoadingComponent } from '../shared/loading/themed-loading.component';
@@ -151,6 +151,7 @@ export class ProfilePageComponent implements OnInit {
               private configurationService: ConfigurationDataService,
               public dsoNameService: DSONameService,
               private paginationService: PaginationService,
+              private accountManagementService: AccountManagementService,
   ) {
   }
 
@@ -224,21 +225,19 @@ export class ProfilePageComponent implements OnInit {
       this.notificationsService.error(this.translate.instant(this.PASSWORD_NOTIFICATIONS_PREFIX + 'error.general'));
     }
     if (!this.invalidSecurity && passEntered) {
-      const operations = [
-        { 'op': 'add', 'path': '/password', 'value': { 'new_password': this.password, 'current_password': this.currentPassword } },
-      ] as Operation[];
-      this.epersonService.patch(this.currentUser, operations).pipe(getFirstCompletedRemoteData()).subscribe((response: RemoteData<EPerson>) => {
-        if (response.hasSucceeded) {
+      this.accountManagementService.changeMyPassword(this.currentPassword, this.password).subscribe({
+        next: () => {
           this.notificationsService.success(
             this.translate.instant(this.PASSWORD_NOTIFICATIONS_PREFIX + 'success.title'),
             this.translate.instant(this.PASSWORD_NOTIFICATIONS_PREFIX + 'success.content'),
           );
-        } else {
+        },
+        error: () => {
           this.notificationsService.error(
             this.translate.instant(this.PASSWORD_NOTIFICATIONS_PREFIX + 'error.title'),
-            this.getPasswordErrorMessage(response),
+            this.translate.instant(this.PASSWORD_NOTIFICATIONS_PREFIX + 'error.change-failed'),
           );
-        }
+        },
       });
     }
     return passEntered;

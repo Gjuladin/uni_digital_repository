@@ -136,7 +136,7 @@ export class SystemWideAlertFormComponent implements OnInit {
         if (rd.hasSucceeded) {
           return rd.payload;
         } else {
-          this.notificationsService.error('system-wide-alert-form.retrieval.error');
+          this.notificationsService.error(this.translateService.get('system-wide-alert-form.retrieval.error'));
         }
       }),
       map((payload: PaginatedList<SystemWideAlert>) => payload.page),

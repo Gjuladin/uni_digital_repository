@@ -89,7 +89,7 @@ export class FormatFormComponent implements OnInit {
         required: null,
       },
       errorMessages: {
-        required: 'Please enter a name for this bitstream format',
+        required: 'admin.registries.bitstream-formats.edit.shortDescription.required',
       },
     }),
     new DynamicInputModel({
@@ -119,7 +119,7 @@ export class FormatFormComponent implements OnInit {
     new DynamicCheckboxModel({
       id: 'internal',
       name: 'internal',
-      label: 'Internal',
+      label: 'admin.registries.bitstream-formats.edit.internal.label',
       hint: 'admin.registries.bitstream-formats.edit.internal.hint',
     }),
     new DynamicFormArrayModel({

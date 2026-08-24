@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-title">{{ (labelPrefix + label + '.title') | translate }}</h4>
-  <button type="button" class="btn-close" aria-label="Close button" aria-describedby="modal-title"
+  <button type="button" class="btn-close" [attr.aria-label]="'ui.close-button' | translate" aria-describedby="modal-title"
     (click)="modal.dismiss()">
   </button>
 </div>

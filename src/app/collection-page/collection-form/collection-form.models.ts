@@ -46,7 +46,7 @@ export const collectionFormModels: DynamicFormControlModel[] = [
       required: null,
     },
     errorMessages: {
-      required: 'Please enter a name for this title',
+      required: 'collection.form.errors.title.required',
     },
   }),
   new DynamicTextAreaModel({

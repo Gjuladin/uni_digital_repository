@@ -45,6 +45,8 @@ import { FormComponent } from '../../shared/form/form.component';
  */
 export class ProfilePageSecurityFormComponent implements OnDestroy, OnInit {
 
+  private visiblePasswordFields = new Set<string>();
+
   /**
    * Emits the validity of the password
    */
@@ -150,6 +152,26 @@ export class ProfilePageSecurityFormComponent implements OnDestroy, OnInit {
         fieldModel.label = this.translate.instant(this.FORM_PREFIX + 'label.' + fieldModel.id);
       },
     );
+  }
+
+  /** Toggle one password field without changing its current form value. */
+  togglePasswordVisibility(fieldId: string): void {
+    const field = this.formModel.find((model) => model.id === fieldId) as DynamicInputModel;
+    if (!field) {
+      return;
+    }
+    if (this.visiblePasswordFields.has(fieldId)) {
+      this.visiblePasswordFields.delete(fieldId);
+      field.inputType = 'password';
+    } else {
+      this.visiblePasswordFields.add(fieldId);
+      field.inputType = 'text';
+    }
+    this.formModel = [...this.formModel];
+  }
+
+  isPasswordVisible(fieldId: string): boolean {
+    return this.visiblePasswordFields.has(fieldId);
   }
 
   /**

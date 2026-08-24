@@ -20,6 +20,7 @@ import {
 } from '@dspace/config/app-config.interface';
 import { StoreDevModules } from '@dspace/config/store/devtools';
 import { AuthInterceptor } from '@dspace/core/auth/auth.interceptor';
+import { PasswordChangeRequiredInterceptor } from '@dspace/core/auth/password-change-required.interceptor';
 import { ClientCookieService } from '@dspace/core/cookies/client-cookie.service';
 import { DspaceRestInterceptor } from '@dspace/core/dspace-rest/dspace-rest.interceptor';
 import { LocaleInterceptor } from '@dspace/core/locale/locale.interceptor';
@@ -130,6 +131,11 @@ export const commonAppConfig: ApplicationConfig = {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PasswordChangeRequiredInterceptor,
       multi: true,
     },
     // register LocaleInterceptor as HttpInterceptor

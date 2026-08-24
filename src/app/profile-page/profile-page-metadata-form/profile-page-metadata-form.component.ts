@@ -70,7 +70,7 @@ export class ProfilePageMetadataFormComponent implements OnInit {
         required: null,
       },
       errorMessages: {
-        required: 'This field is required',
+        required: 'profile.metadata.form.error.firstname.required',
       },
       autoComplete: 'given-name',
     }),
@@ -82,7 +82,7 @@ export class ProfilePageMetadataFormComponent implements OnInit {
         required: null,
       },
       errorMessages: {
-        required: 'This field is required',
+        required: 'profile.metadata.form.error.lastname.required',
       },
       autoComplete: 'family-name',
     }),

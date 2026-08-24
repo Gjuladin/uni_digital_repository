@@ -213,7 +213,7 @@ export class EditBitstreamPageComponent implements OnInit, OnDestroy {
       required: null,
     },
     errorMessages: {
-      required: 'You must provide a file name for the bitstream',
+      required: 'bitstream.edit.form.fileName.required',
     },
   });
 

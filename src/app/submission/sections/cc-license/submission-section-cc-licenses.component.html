@@ -59,7 +59,7 @@
               <div [innerHTML]="field.description"></div>
             </div>
             <button type="button" class="btn-close"
-              (click)="closeInfoModal()" aria-label="Close">
+              (click)="closeInfoModal()" [attr.aria-label]="'ui.close' | translate">
             </button>
           </div>
           <div class="modal-body">
@@ -135,7 +135,7 @@
         <div (click)="setAccepted(!accepted)">
           <input type="checkbox"
                  class="me-2"
-                 title="accepted"
+                 [attr.title]="'ui.accepted' | translate"
                  [checked]="accepted">
           <span> {{ 'submission.sections.ccLicense.confirmation' | translate }}</span>
         </div>

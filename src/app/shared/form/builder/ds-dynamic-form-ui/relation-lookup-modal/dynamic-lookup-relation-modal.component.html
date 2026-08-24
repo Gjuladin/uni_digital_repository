@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-title">{{ ('submission.sections.describe.relationship-lookup.title.' + relationshipOptions.relationshipType) | translate }}</h4>
-  <button type="button" [dsBtnDisabled]="isPending" class="btn-close" aria-label="Close button" aria-describedby="modal-title"
+  <button type="button" [dsBtnDisabled]="isPending" class="btn-close" [attr.aria-label]="'ui.close-button' | translate" aria-describedby="modal-title"
     (click)="close()">
   </button>
 </div>

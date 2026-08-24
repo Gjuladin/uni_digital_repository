@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { hasValue } from '@dspace/shared/utils/empty.util';
+import { Operation } from 'fast-json-patch';
 import {
+  combineLatest,
   Observable,
   of,
 } from 'rxjs';
 import {
+  filter,
   map,
   switchMap,
   take,
@@ -68,30 +71,52 @@ export class EndUserAgreementService {
    * @param accepted
    */
   setUserAcceptedAgreement(accepted: boolean): Observable<boolean> {
-    return this.authService.isAuthenticated().pipe(
-      switchMap((authenticated) => {
-        if (authenticated) {
-          return this.authService.getAuthenticatedUserFromStore().pipe(
-            take(1),
+    return combineLatest([
+      this.authService.isAuthenticationLoaded(),
+      this.authService.isAuthenticated(),
+      this.authService.getAuthenticatedUserIdFromStore(),
+    ]).pipe(
+      // Do not mistake the brief gap between token authentication and loading
+      // its EPerson ID for an anonymous agreement. Waiting here keeps the
+      // acceptance attached to the account that is actually on screen.
+      filter(([loaded, authenticated, userId]) => loaded && (!authenticated || hasValue(userId))),
+      take(1),
+      switchMap(([_loaded, authenticated, userId]) => {
+        if (authenticated && hasValue(userId)) {
+          return this.getFreshUser(userId).pipe(
             switchMap((user) => {
-              const newValue = { value: String(accepted) };
-              let operation;
-              if (user.hasMetadata(END_USER_AGREEMENT_METADATA_FIELD)) {
-                operation = { op: 'replace', path: `/metadata/${END_USER_AGREEMENT_METADATA_FIELD}/0`, value: newValue };
-              } else {
-                operation = { op: 'add', path: `/metadata/${END_USER_AGREEMENT_METADATA_FIELD}`, value: [ newValue ] };
+              if (!hasValue(user)) {
+                return of(false);
               }
-              return this.ePersonService.patch(user, [operation]);
+              const newValue = { value: String(accepted) };
+              const operation: Operation = user.hasMetadata(END_USER_AGREEMENT_METADATA_FIELD)
+                ? { op: 'replace', path: `/metadata/${END_USER_AGREEMENT_METADATA_FIELD}/0`, value: newValue }
+                : { op: 'add', path: `/metadata/${END_USER_AGREEMENT_METADATA_FIELD}`, value: [newValue] };
+              return this.ePersonService.patch(user, [operation]).pipe(
+                getFirstCompletedRemoteData(),
+                switchMap((response) => response.hasSucceeded
+                  ? this.getFreshUser(userId).pipe(map((freshUser) => hasValue(freshUser)
+                    && freshUser.hasMetadata(END_USER_AGREEMENT_METADATA_FIELD)
+                    && freshUser.firstMetadata(END_USER_AGREEMENT_METADATA_FIELD).value === String(accepted)))
+                  : of(false)),
+              );
             }),
-            getFirstCompletedRemoteData(),
-            map((response) => response.hasSucceeded),
           );
-        } else {
+        } else if (!authenticated) {
           this.setCookieAccepted(accepted);
           return of(true);
         }
+        // This is defensive: the filter above only permits this branch when
+        // authentication is fully loaded but has no account.
+        return of(false);
       }),
-      take(1),
+    );
+  }
+
+  private getFreshUser(userId: string) {
+    return this.ePersonService.findById(userId, false, false).pipe(
+      getFirstCompletedRemoteData(),
+      map((response) => response.hasSucceeded ? response.payload : null),
     );
   }
 

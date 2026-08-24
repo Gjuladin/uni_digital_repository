@@ -36,7 +36,7 @@
                   </a>
                 } @else {
                   <div class="uist-community-group" role="group"
-                       [attr.aria-label]="sectionText(communitySection)">
+                       [attr.aria-label]="sectionText(communitySection) | translate">
                     <button type="button"
                             role="menuitem"
                             class="ds-menu-item uist-community-link uist-mobile-community-toggle border-0 w-100"
@@ -45,7 +45,7 @@
                             (click)="toggleMobileCommunity($event, communitySection.id)">
                       <span>
                         <i class="fas fa-university fa-fw me-1" aria-hidden="true"></i>
-                        {{ sectionText(communitySection) }}
+                        {{ sectionText(communitySection) | translate }}
                       </span>
                       <i class="fas fa-caret-down fa-xs" aria-hidden="true"></i>
                     </button>
@@ -59,7 +59,7 @@
                              [routerLink]="sectionLink(collectionSection)"
                              (click)="deactivateSection($event, false)">
                             <i class="fas fa-folder fa-fw me-1" aria-hidden="true"></i>
-                            {{ sectionText(collectionSection) }}
+                            {{ sectionText(collectionSection) | translate }}
                           </a>
                         }
                       </div>
@@ -84,21 +84,21 @@
                        (click)="deactivateSection($event, false)">
                       <span>
                         <i class="fas fa-university fa-fw me-1" aria-hidden="true"></i>
-                        {{ sectionText(communitySection) }}
+                       {{ sectionText(communitySection) | translate }}
                       </span>
                       <i class="fas fa-caret-right fa-xs ms-3" aria-hidden="true"></i>
                     </a>
                     <div [id]="communitySection.id + '-collections'"
                          class="dropdown-menu uist-community-collections m-0"
                          role="group"
-                         [attr.aria-label]="sectionText(communitySection)">
+                         [attr.aria-label]="sectionText(communitySection) | translate">
                       @for (collectionSection of (getChildSections(communitySection.id) | async); track collectionSection.id) {
                         <a role="menuitem"
                            class="ds-menu-item uist-collection-link"
                            [routerLink]="sectionLink(collectionSection)"
                            (click)="deactivateSection($event, false)">
                           <i class="fas fa-folder fa-fw me-1" aria-hidden="true"></i>
-                          {{ sectionText(collectionSection) }}
+                          {{ sectionText(collectionSection) | translate }}
                         </a>
                       }
                     </div>

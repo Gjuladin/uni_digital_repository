@@ -71,8 +71,8 @@ export class EditBitstreamFormatComponent implements OnInit {
           this.translateService.get('admin.registries.bitstream-formats.edit.success.content'));
         this.router.navigate([getBitstreamFormatsModuleRoute()]);
       } else {
-        this.notificationService.error('admin.registries.bitstream-formats.edit.failure.head',
-          'admin.registries.bitstream-formats.create.edit.content');
+        this.notificationService.error(this.translateService.get('admin.registries.bitstream-formats.edit.failure.head'),
+          this.translateService.get('admin.registries.bitstream-formats.edit.failure.content'));
       }
     },
     );

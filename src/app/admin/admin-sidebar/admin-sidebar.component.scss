@@ -34,10 +34,6 @@
       @include dark-scrollbar;
     }
 
-    img#admin-sidebar-logo {
-      height: var(--ds-admin-sidebar-logo-height);
-    }
-
     ::ng-deep {
 
       // This class must be applied to any nested wrapper containing a sidebar section

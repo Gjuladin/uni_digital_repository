@@ -1,6 +1,6 @@
 <h2 class="comcol-browse-label">{{'browse.comcol.head' | translate}}</h2>
 @if ((allOptions$ | async); as allOptions) {
-  <nav class="comcol-browse mb-4" aria-label="Browse Community or Collection">
+  <nav class="comcol-browse mb-4" [attr.aria-label]="'ui.browse-community-collection' | translate">
     <div class="d-none d-sm-block">
       <div class="list-group list-group-horizontal" role="tablist">
         @for (option of allOptions; track option) {
@@ -21,7 +21,7 @@
     <div class="d-block d-sm-none">
       <select name="browse-type"
         class="form-select"
-        aria-label="Browse Community or Collection"
+        [attr.aria-label]="'ui.browse-community-collection' | translate"
         (change)="onSelectChange($event)">
         @for (option of allOptions; track option) {
           <option

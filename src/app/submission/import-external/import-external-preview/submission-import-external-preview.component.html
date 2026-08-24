@@ -1,7 +1,7 @@
 <div class="modal-header">
   <h2>{{'submission.import-external.preview.title.' + labelPrefix | translate}}</h2>
   <button type="button" class="btn-close"
-    (click)="closeMetadataModal()" aria-label="Close">
+    (click)="closeMetadataModal()" [attr.aria-label]="'ui.close' | translate">
   </button>
 </div>
 <div class="modal-body">

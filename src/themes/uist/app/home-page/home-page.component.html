@@ -1,31 +1,31 @@
 <section class="uist-hero">
   <div class="container">
     <div class="uist-hero__content">
-      <h1>UIST Digital Repository</h1>
-      <p>Discover, preserve, and share scholarly work from the University of Information Science and Technology "St. Paul the Apostle".</p>
-      <form (ngSubmit)="onSearchBySubmit()" class="uist-field-search" role="search" aria-label="Search the repository">
+      <h1>{{ 'home.uist.title' | translate }}</h1>
+      <p>{{ 'home.uist.description' | translate }}</p>
+      <form (ngSubmit)="onSearchBySubmit()" class="uist-field-search" role="search" [attr.aria-label]="'home.uist.search.aria-label' | translate">
         <div class="uist-field-search__bar">
-          <label for="fieldSelect" class="visually-hidden">Search field</label>
+          <label for="fieldSelect" class="visually-hidden">{{ 'home.uist.search.field.label' | translate }}</label>
           <select
             id="fieldSelect"
             [(ngModel)]="selectedSearchField"
             name="searchField"
             class="uist-field-search__select">
-            <option value="">Any field</option>
+            <option value="">{{ 'home.uist.search.field.any' | translate }}</option>
             @for (field of searchFields; track field.id) {
-              <option [value]="field.id">{{ field.label }}</option>
+              <option [value]="field.id">{{ field.labelKey | translate }}</option>
             }
           </select>
-          <label for="fieldSearchInput" class="visually-hidden">Search term</label>
+          <label for="fieldSearchInput" class="visually-hidden">{{ 'home.uist.search.term.label' | translate }}</label>
           <input
             id="fieldSearchInput"
             type="search"
             [(ngModel)]="searchByValue"
             name="searchByValue"
             class="uist-field-search__input"
-            [placeholder]="selectedSearchField ? 'Search by ' + getSelectedFieldLabel() + '...' : 'Search publications, theses, authors...'">
+            [placeholder]="selectedSearchField ? ('home.uist.search.placeholder.by' | translate:{field: (getSelectedFieldLabel() | translate)}) : ('home.uist.search.placeholder' | translate)">
           <button type="submit" class="uist-field-search__btn" [dsBtnDisabled]="!searchByValue.trim()">
-            Search <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+            {{ 'home.uist.search.submit' | translate }} <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
           </button>
         </div>
       </form>
@@ -37,9 +37,9 @@
 <section class="uist-categories">
   <div class="container">
     <div class="uist-section-header">
-      <span class="uist-section-tag">Collections</span>
-      <h2>Browse by Category</h2>
-      <p class="uist-section-sub">Explore curated collections of academic research and scholarly publications</p>
+      <span class="uist-section-tag">{{ 'home.uist.collections.label' | translate }}</span>
+      <h2>{{ 'home.uist.collections.heading' | translate }}</h2>
+      <p class="uist-section-sub">{{ 'home.uist.collections.description' | translate }}</p>
     </div>
     <div class="row g-3 justify-content-center">
       @if (categoryCollections$ | async; as categoryCollections) {

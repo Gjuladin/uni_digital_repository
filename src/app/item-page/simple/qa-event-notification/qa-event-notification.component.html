@@ -5,8 +5,8 @@
         <div class="source-logo-container">
           <img class="source-logo"
             src="assets/images/qa-{{(source.id | dsSplit: ':')[0]}}-logo.png"
-            alt="{{source.id}} logo"
-            onerror="this.src='assets/images/dspace-logo.svg'">
+            [attr.alt]="'quality-assurance.source-logo' | translate:{source: source.id}"
+            />
           </div>
           <div class="w-100 d-flex justify-content-between">
             <div class="ps-4 align-self-center">

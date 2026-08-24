@@ -3,9 +3,12 @@
     background-color: var(--ds-header-bg);
   }
 
-  .navbar-brand img {
-    max-height: var(--ds-header-logo-height);
-    max-width: 100%;
+  .repository-brand {
+    color: inherit;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 16rem;
   }
 
   .navbar-toggler {

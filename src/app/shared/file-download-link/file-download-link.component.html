@@ -67,7 +67,7 @@
 <ng-template #textModal let-modal>
   <div class="modal-header">
     <h2 class="modal-title" id="file-download-link-text-modal-title">{{ modalTitle }}</h2>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    <button type="button" class="btn-close" [attr.aria-label]="'ui.close' | translate" (click)="modal.dismiss()"></button>
   </div>
   <div class="modal-body">
     <div>{{ modalContent }}</div>

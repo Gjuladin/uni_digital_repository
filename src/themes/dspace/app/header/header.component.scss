@@ -13,8 +13,11 @@
     }
   }
 
-  img#header-logo {
-    height: var(--ds-header-logo-height);
+  .repository-brand {
+    color: inherit;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
   }
 
   button#navbar-toggler {

@@ -107,7 +107,11 @@ export class CreateDataImpl<T extends CacheableObject> extends BaseDataService<T
       takeWhile((rd: RemoteData<T>) => rd.isLoading, true),
     ).subscribe((rd: RemoteData<T>) => {
       if (rd.hasFailed) {
-        this.notificationsService.error('Server Error:', rd.errorMessage, new NotificationOptions(-1));
+        this.notificationsService.error(
+          this.notificationsService.getTranslation('core.notification.server-error'),
+          rd.errorMessage,
+          new NotificationOptions(-1),
+        );
       }
     });
 

@@ -7,6 +7,16 @@
     [displaySubmit]="false"
     [displayCancel]="false">
   </ds-form>
+  <div class="d-flex flex-wrap gap-2 mt-2" role="group" [attr.aria-label]="'profile.security.form.password-visibility' | translate">
+    @for (field of formModel; track field.id) {
+      <button type="button" class="btn btn-sm btn-outline-secondary"
+              (click)="togglePasswordVisibility(field.id)"
+              [attr.aria-label]="((isPasswordVisible(field.id) ? 'admin.user-management.hide-password' : 'admin.user-management.show-password') | translate) + ': ' + field.label">
+        <i class="fa fa-fw" [class.fa-eye-slash]="isPasswordVisible(field.id)" [class.fa-eye]="!isPasswordVisible(field.id)" aria-hidden="true"></i>
+        {{ field.label }}
+      </button>
+    }
+  </div>
 }
 @if (formGroup.hasError('notSame')) {
   <div id="notSame" class="container-fluid text-danger">{{FORM_PREFIX + 'error.matching-passwords' | translate}}</div>

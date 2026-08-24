@@ -1,10 +1,9 @@
 @if (isIiifEnabled$ | async) {
   <p class="full-text-op">{{'iiifviewer.fullscreen.notice' | translate}}</p>
   @if (!isViewerAvailable) {
-    <p id="viewer-message">{{viewerMessage}}</p>
+    <p id="viewer-message">{{ viewerMessage | translate }}</p>
   }
   @if (isViewerAvailable) {
-    <iframe title="Mirador Viewer" allowtransparency="true" [src]="iframeViewerUrl | async" id="mirador-viewer"></iframe>
+    <iframe [attr.title]="'ui.mirador-viewer' | translate" allowtransparency="true" [src]="iframeViewerUrl | async" id="mirador-viewer"></iframe>
   }
 }
-

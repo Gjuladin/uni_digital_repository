@@ -95,11 +95,10 @@ const tagsInUseSelector =
 })
 export class HeadTagService {
 
-  private readonly REPOSITORY_NAME = 'UIST Digital Repository';
-  private readonly UIST_NAME = 'University of Information Science and Technology "St. Paul the Apostle"';
-  private readonly UIST_URL = 'https://uist.edu.mk/';
-  private readonly UIST_DESCRIPTION =
-    'Open access scholarly works, publications, theses, conference papers, and research outputs from UIST "St. Paul the Apostle" in Ohrid.';
+  private readonly REPOSITORY_NAME_KEY = 'footer.uist.title';
+  private readonly UIST_NAME_KEY = 'repository.institution';
+  private readonly UIST_URL_KEY = 'repository.website';
+  private readonly UIST_DESCRIPTION_KEY = 'repository.description';
   private readonly SINGLETON_META_TAGS = [
     'author',
     'description',
@@ -242,24 +241,27 @@ export class HeadTagService {
   }
 
   protected setDefaultMetaTags(): void {
-    const title = `${this.REPOSITORY_NAME} | ${this.UIST_NAME}`;
+    const repositoryName = this.translate.instant(this.REPOSITORY_NAME_KEY);
+    const institutionName = this.translate.instant(this.UIST_NAME_KEY);
+    const description = this.translate.instant(this.UIST_DESCRIPTION_KEY);
+    const title = `${repositoryName} | ${institutionName}`;
 
     this.title.setTitle(title);
     this.addMetaTag('title', title);
-    this.addMetaTag('description', this.UIST_DESCRIPTION);
-    this.addMetaTag('author', this.UIST_NAME);
+    this.addMetaTag('description', description);
+    this.addMetaTag('author', institutionName);
     this.setCanonicalTag();
-    this.addPropertyMetaTag('og:site_name', this.REPOSITORY_NAME);
+    this.addPropertyMetaTag('og:site_name', repositoryName);
     this.addPropertyMetaTag('og:type', 'website');
     this.addPropertyMetaTag('og:title', title);
-    this.addPropertyMetaTag('og:description', this.UIST_DESCRIPTION);
+    this.addPropertyMetaTag('og:description', description);
     const canonicalUrl = this.getCanonicalUrl();
     if (canonicalUrl) {
       this.addPropertyMetaTag('og:url', canonicalUrl);
     }
     this.addMetaTag('twitter:card', 'summary');
     this.addMetaTag('twitter:title', title);
-    this.addMetaTag('twitter:description', this.UIST_DESCRIPTION);
+    this.addMetaTag('twitter:description', description);
     this.setJsonLdTags();
   }
 
@@ -277,7 +279,7 @@ export class HeadTagService {
    */
   protected setTitleTag(): void {
     const value = this.dsoNameService.getName(this.currentObject.getValue());
-    const title = `${this.stripHtml(value)} | ${this.REPOSITORY_NAME}`;
+    const title = `${this.stripHtml(value)} | ${this.getRepositoryName()}`;
     this.addMetaTag('title', title);
     this.title.setTitle(title);
   }
@@ -310,7 +312,7 @@ export class HeadTagService {
       'dc.title',
     ]));
 
-    this.addPropertyMetaTag('og:site_name', this.REPOSITORY_NAME);
+    this.addPropertyMetaTag('og:site_name', this.getRepositoryName());
     this.addPropertyMetaTag('og:type', this.currentObject.value instanceof Item ? 'article' : 'website');
     this.addPropertyMetaTag('og:title', title);
     this.addPropertyMetaTag('og:description', description);
@@ -678,16 +680,16 @@ export class HeadTagService {
   protected getOrganizationJsonLd(): Record<string, unknown> {
     return {
       '@type': 'CollegeOrUniversity',
-      '@id': `${this.UIST_URL}#organization`,
-      name: this.UIST_NAME,
-      alternateName: 'UIST',
-      url: this.UIST_URL,
+      '@id': `${this.getRepositoryUrl()}#organization`,
+      name: this.getInstitutionName(),
+      alternateName: this.translate.instant('repository.alternate-name'),
+      url: this.getRepositoryUrl(),
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Partizanska bb',
-        addressLocality: 'Ohrid',
-        postalCode: '6000',
-        addressCountry: 'MK',
+        streetAddress: this.translate.instant('repository.address.street'),
+        addressLocality: this.translate.instant('repository.address.locality'),
+        postalCode: this.translate.instant('repository.address.postal-code'),
+        addressCountry: this.translate.instant('repository.address.country'),
       },
     };
   }
@@ -697,10 +699,10 @@ export class HeadTagService {
     return {
       '@type': 'WebSite',
       '@id': `${baseUrl}#website`,
-      name: this.REPOSITORY_NAME,
+      name: this.getRepositoryName(),
       url: baseUrl,
       publisher: {
-        '@id': `${this.UIST_URL}#organization`,
+        '@id': `${this.getRepositoryUrl()}#organization`,
       },
       potentialAction: {
         '@type': 'SearchAction',
@@ -717,7 +719,7 @@ export class HeadTagService {
       '@type': 'WebPage',
       '@id': canonicalUrl,
       name: this.title.getTitle(),
-      description: this.UIST_DESCRIPTION,
+      description: this.getRepositoryDescription(),
       url: canonicalUrl,
       isPartOf: {
         '@id': `${publicBaseUrl}#website`,
@@ -756,7 +758,7 @@ export class HeadTagService {
       keywords: this.getMetaTagValues(['dc.subject']).map((value: string) => this.stripHtml(value)),
       inLanguage: this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']),
       publisher: {
-        '@id': `${this.UIST_URL}#organization`,
+        '@id': `${this.getRepositoryUrl()}#organization`,
       },
       doi: this.getMetaTagValue('dc.identifier.doi'),
       isbn: this.getMetaTagValue('dc.identifier.isbn'),
@@ -778,8 +780,24 @@ export class HeadTagService {
   }
 
   protected truncateDescription(value: string): string {
-    const strippedValue = this.stripHtml(value || this.UIST_DESCRIPTION).replace(/\s+/g, ' ').trim();
+    const strippedValue = this.stripHtml(value || this.getRepositoryDescription()).replace(/\s+/g, ' ').trim();
     return strippedValue.length <= 160 ? strippedValue : `${strippedValue.slice(0, 157).trim()}...`;
+  }
+
+  private getRepositoryName(): string {
+    return this.translate.instant(this.REPOSITORY_NAME_KEY);
+  }
+
+  private getInstitutionName(): string {
+    return this.translate.instant(this.UIST_NAME_KEY);
+  }
+
+  private getRepositoryUrl(): string {
+    return this.translate.instant(this.UIST_URL_KEY);
+  }
+
+  private getRepositoryDescription(): string {
+    return this.translate.instant(this.UIST_DESCRIPTION_KEY);
   }
 
   protected stripHtml(value: string): string {

@@ -82,7 +82,7 @@ export class MiradorViewerComponent implements OnInit {
    */
   notMobile = false;
 
-  viewerMessage = 'Sorry, the Mirador viewer is not currently available in development mode.';
+  viewerMessage = 'mirador.unavailable';
 
   constructor(private sanitizer: DomSanitizer,
               private viewerService: MiradorViewerService,

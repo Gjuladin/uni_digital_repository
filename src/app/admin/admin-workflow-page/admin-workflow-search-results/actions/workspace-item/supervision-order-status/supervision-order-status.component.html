@@ -8,7 +8,7 @@
         @for (supervisionOrder of supervisionOrders; track supervisionOrder) {
           <a class="badge bg-primary me-1 mb-1 text-capitalize mw-100 text-truncate" data-test="soBadge"
             [ngbTooltip]="'workflow-item.search.result.list.element.supervised.remove-tooltip' | translate"
-            (click)="$event.preventDefault(); $event.stopImmediatePropagation(); deleteSupervisionOrder(supervisionOrder)" aria-label="Close">
+            (click)="$event.preventDefault(); $event.stopImmediatePropagation(); deleteSupervisionOrder(supervisionOrder)" [attr.aria-label]="'ui.close' | translate">
             {{ dsoNameService.getName(supervisionOrder.group) }}
             <span aria-hidden="true"> ×</span>
           </a>

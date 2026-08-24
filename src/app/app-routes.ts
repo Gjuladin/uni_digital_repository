@@ -7,10 +7,8 @@ import { authBlockingGuard } from '@dspace/core/auth/auth-blocking.guard';
 import { authenticatedGuard } from '@dspace/core/auth/authenticated.guard';
 import { groupAdministratorGuard } from '@dspace/core/data/feature-authorization/feature-authorization-guard/group-administrator.guard';
 import { siteAdministratorGuard } from '@dspace/core/data/feature-authorization/feature-authorization-guard/site-administrator.guard';
-import { siteRegisterGuard } from '@dspace/core/data/feature-authorization/feature-authorization-guard/site-register.guard';
 import { endUserAgreementCurrentUserGuard } from '@dspace/core/end-user-agreement/end-user-agreement-current-user.guard';
 import { reloadGuard } from '@dspace/core/reload/reload.guard';
-import { forgotPasswordCheckGuard } from '@dspace/core/rest-property/forgot-password-check-guard.guard';
 import {
   BITSTREAM_MODULE_PATH,
   COLLECTION_MODULE_PATH,
@@ -37,7 +35,10 @@ import {
   WORKFLOW_ITEM_MODULE_PATH,
 } from './app-routing-paths';
 import { notAuthenticatedGuard } from './core/auth/not-authenticated.guard';
+import { passwordChangeRequiredChildGuard } from './core/auth/password-change-required.guard';
+import { selfServiceUnavailableGuard } from './core/auth/self-service-unavailable.guard';
 import { ThemedForbiddenComponent } from './forbidden/themed-forbidden.component';
+import { ForcedPasswordChangePageComponent } from './forced-password-change-page/forced-password-change-page.component';
 import { homePageResolver } from './home-page/home-page.resolver';
 import { provideSuggestionNotificationsState } from './notifications/provide-suggestion-notifications-state';
 import { ThemedPageErrorComponent } from './page-error/themed-page-error.component';
@@ -54,7 +55,7 @@ export const APP_ROUTES: Route[] = [
   {
     path: '',
     canActivate: [authBlockingGuard],
-    canActivateChild: [ServerCheckGuard],
+    canActivateChild: [ServerCheckGuard, passwordChangeRequiredChildGuard],
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
@@ -99,15 +100,13 @@ export const APP_ROUTES: Route[] = [
       },
       {
         path: REGISTER_PATH,
-        loadChildren: () => import('./register-page/register-page-routes')
-          .then((m) => m.ROUTES),
-        canActivate: [notAuthenticatedGuard, siteRegisterGuard],
+        canActivate: [selfServiceUnavailableGuard],
+        children: [],
       },
       {
         path: FORGOT_PASSWORD_PATH,
-        loadChildren: () => import('./forgot-password/forgot-password-routes')
-          .then((m) => m.ROUTES),
-        canActivate: [notAuthenticatedGuard, endUserAgreementCurrentUserGuard, forgotPasswordCheckGuard],
+        canActivate: [selfServiceUnavailableGuard],
+        children: [],
       },
       {
         path: COMMUNITY_MODULE_PATH,
@@ -226,6 +225,12 @@ export const APP_ROUTES: Route[] = [
           .then((m) => m.ROUTES),
         providers: [provideSuggestionNotificationsState()],
         canActivate: [authenticatedGuard, endUserAgreementCurrentUserGuard],
+      },
+      {
+        path: 'change-password',
+        component: ForcedPasswordChangePageComponent,
+        canActivate: [authenticatedGuard],
+        data: { title: 'password-change.title' },
       },
       {
         path: PROCESS_MODULE_PATH,

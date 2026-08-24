@@ -56,7 +56,7 @@ class="fas fa-plus pe-2"></i>{{'process.overview.new' | translate}}</button>
         <h4>{{'process.overview.delete.header' | translate }}</h4>
       </div>
       <button type="button" class="btn-close"
-        (click)="closeModal()" aria-label="Close">
+        (click)="closeModal()" [attr.aria-label]="'ui.close' | translate">
         <span aria-hidden="true">×</span>
       </button>
     </div>
