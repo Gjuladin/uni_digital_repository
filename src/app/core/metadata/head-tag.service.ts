@@ -1,32 +1,14 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  Inject,
-  Injectable,
-} from '@angular/core';
-import {
-  Meta,
-  MetaDefinition,
-  Title,
-} from '@angular/platform-browser';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-} from '@angular/router';
-import {
-  APP_CONFIG,
-  AppConfig,
-} from '@dspace/config/app-config.interface';
+import { Inject, Injectable } from '@angular/core';
+import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { APP_CONFIG, AppConfig } from '@dspace/config/app-config.interface';
 import {
   hasNoValue,
   hasValue,
   isNotEmpty,
 } from '@dspace/shared/utils/empty.util';
-import {
-  createSelector,
-  select,
-  Store,
-} from '@ngrx/store';
+import { createSelector, select, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BehaviorSubject,
@@ -36,13 +18,7 @@ import {
   Observable,
   of,
 } from 'rxjs';
-import {
-  filter,
-  map,
-  mergeMap,
-  switchMap,
-  take,
-} from 'rxjs/operators';
+import { filter, map, mergeMap, switchMap, take } from 'rxjs/operators';
 
 import { DSONameService } from '../breadcrumbs/dso-name.service';
 import { coreSelector } from '../core.selectors';
@@ -67,10 +43,7 @@ import {
   getFirstSucceededRemoteDataPayload,
 } from '../shared/operators';
 import { URLCombiner } from '../url-combiner/url-combiner';
-import {
-  AddMetaTagAction,
-  ClearMetaTagAction,
-} from './meta-tag.actions';
+import { AddMetaTagAction, ClearMetaTagAction } from './meta-tag.actions';
 import { MetaTagState } from './meta-tag.reducer';
 
 /**
@@ -84,17 +57,15 @@ const metaTagSelector = createSelector(
 /**
  * Selector function to select the tags in use from the MetaTagState
  */
-const tagsInUseSelector =
-  createSelector(
-    metaTagSelector,
-    (state: MetaTagState) => state.tagsInUse,
-  );
+const tagsInUseSelector = createSelector(
+  metaTagSelector,
+  (state: MetaTagState) => state.tagsInUse,
+);
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeadTagService {
-
   private readonly REPOSITORY_NAME_KEY = 'footer.uist.title';
   private readonly UIST_NAME_KEY = 'repository.institution';
   private readonly UIST_URL_KEY = 'repository.website';
@@ -109,7 +80,8 @@ export class HeadTagService {
     'twitter:title',
   ];
 
-  private currentObject: BehaviorSubject<DSpaceObject> = new BehaviorSubject<DSpaceObject>(undefined);
+  private currentObject: BehaviorSubject<DSpaceObject> =
+    new BehaviorSubject<DSpaceObject>(undefined);
 
   /**
    * When generating the citation_pdf_url meta tag for Items with more than one Bitstream (and no primary Bitstream),
@@ -118,12 +90,12 @@ export class HeadTagService {
    * @private
    */
   private readonly CITATION_PDF_URL_MIMETYPES = [
-    'application/pdf',                                                          // .pdf
-    'application/postscript',                                                   // .ps
-    'application/msword',                                                       // .doc
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',  // .docx
-    'application/rtf',                                                          // .rtf
-    'application/epub+zip',                                                     // .epub
+    'application/pdf', // .pdf
+    'application/postscript', // .ps
+    'application/msword', // .doc
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+    'application/rtf', // .rtf
+    'application/epub+zip', // .epub
   ];
 
   constructor(
@@ -139,29 +111,34 @@ export class HeadTagService {
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
     protected authorizationService: AuthorizationDataService,
     @Inject(DOCUMENT) protected document: Document,
-  ) {
-  }
+  ) {}
 
   public listenForRouteChange(): void {
     // This never changes, set it only once
     this.setGenerator();
 
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
-      map(() => this.router.routerState.root),
-      map((route: ActivatedRoute) => {
-        route = this.getCurrentRoute(route);
-        return { params: route.params, data: route.data };
-      })).subscribe((routeInfo: any) => {
-      this.processRouteChange(routeInfo);
-    });
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.router.routerState.root),
+        map((route: ActivatedRoute) => {
+          route = this.getCurrentRoute(route);
+          return { params: route.params, data: route.data };
+        }),
+      )
+      .subscribe((routeInfo: any) => {
+        this.processRouteChange(routeInfo);
+      });
   }
 
   protected processRouteChange(routeInfo: any): void {
     this.clearMetaTags();
     this.currentObject.next(undefined);
 
-    if (hasValue(routeInfo.data.value.dso) && hasValue(routeInfo.data.value.dso.payload)) {
+    if (
+      hasValue(routeInfo.data.value.dso) &&
+      hasValue(routeInfo.data.value.dso.payload)
+    ) {
       this.currentObject.next(routeInfo.data.value.dso.payload);
       this.setDSOMetaTags();
     } else {
@@ -170,21 +147,31 @@ export class HeadTagService {
 
     if (routeInfo.data.value.title) {
       const titlePrefix = this.translate.get('repository.title.prefix');
-      const title = this.translate.get(routeInfo.data.value.title, routeInfo.data.value);
-      combineLatest([titlePrefix, title]).pipe(take(1)).subscribe(([translatedTitlePrefix, translatedTitle]: [string, string]) => {
-        const value = translatedTitlePrefix + translatedTitle;
-        this.addMetaTag('title', value);
-        this.addPropertyMetaTag('og:title', value);
-        this.addMetaTag('twitter:title', value);
-        this.title.setTitle(value);
-      });
+      const title = this.translate.get(
+        routeInfo.data.value.title,
+        routeInfo.data.value,
+      );
+      combineLatest([titlePrefix, title])
+        .pipe(take(1))
+        .subscribe(
+          ([translatedTitlePrefix, translatedTitle]: [string, string]) => {
+            const value = translatedTitlePrefix + translatedTitle;
+            this.addMetaTag('title', value);
+            this.addPropertyMetaTag('og:title', value);
+            this.addMetaTag('twitter:title', value);
+            this.title.setTitle(value);
+          },
+        );
     }
     if (routeInfo.data.value.description) {
-      this.translate.get(routeInfo.data.value.description).pipe(take(1)).subscribe((translatedDescription: string) => {
-        this.addMetaTag('description', translatedDescription);
-        this.addPropertyMetaTag('og:description', translatedDescription);
-        this.addMetaTag('twitter:description', translatedDescription);
-      });
+      this.translate
+        .get(routeInfo.data.value.description)
+        .pipe(take(1))
+        .subscribe((translatedDescription: string) => {
+          this.addMetaTag('description', translatedDescription);
+          this.addPropertyMetaTag('og:description', translatedDescription);
+          this.addMetaTag('twitter:description', translatedDescription);
+        });
     }
   }
 
@@ -196,7 +183,6 @@ export class HeadTagService {
   }
 
   protected setDSOMetaTags(): void {
-
     this.setNoIndexTag();
 
     this.setTitleTag();
@@ -214,6 +200,11 @@ export class HeadTagService {
 
     this.setCitationLanguageTag();
     this.setCitationKeywordsTag();
+
+    // Dublin Core tags are intentionally emitted as repeated values. This
+    // keeps the conventional HTML representation aligned with JSON-LD and
+    // avoids losing multi-author or multi-subject metadata.
+    this.setDublinCoreTags();
 
     this.setCitationAbstractUrlTag();
     this.setCitationDoiTag();
@@ -237,7 +228,6 @@ export class HeadTagService {
 
     // this.setCitationPatentCountryTag();
     // this.setCitationPatentNumberTag();
-
   }
 
   protected setDefaultMetaTags(): void {
@@ -269,7 +259,10 @@ export class HeadTagService {
    * Add <meta name="robots" content="noindex">  to the <head> if non-discoverable item
    */
   protected setNoIndexTag(): void {
-    if (this.currentObject.value instanceof Item && this.currentObject.value.isDiscoverable === false) {
+    if (
+      this.currentObject.value instanceof Item &&
+      this.currentObject.value.isDiscoverable === false
+    ) {
       this.addMetaTag('robots', 'noindex');
     }
   }
@@ -288,11 +281,13 @@ export class HeadTagService {
    * Add <meta name="description" ... >  to the <head>
    */
   protected setDescriptionTag(): void {
-    const value = this.truncateDescription(this.getFirstMetaTagValue([
-      'dc.description.abstract',
-      'dc.description',
-      'dc.title',
-    ]));
+    const value = this.truncateDescription(
+      this.getFirstMetaTagValue([
+        'dc.description.abstract',
+        'dc.description',
+        'dc.title',
+      ]),
+    );
     this.addMetaTag('description', value);
   }
 
@@ -305,15 +300,22 @@ export class HeadTagService {
   }
 
   protected setOpenGraphTags(): void {
-    const title = this.stripHtml(this.dsoNameService.getName(this.currentObject.getValue()));
-    const description = this.truncateDescription(this.getFirstMetaTagValue([
-      'dc.description.abstract',
-      'dc.description',
-      'dc.title',
-    ]));
+    const title = this.stripHtml(
+      this.dsoNameService.getName(this.currentObject.getValue()),
+    );
+    const description = this.truncateDescription(
+      this.getFirstMetaTagValue([
+        'dc.description.abstract',
+        'dc.description',
+        'dc.title',
+      ]),
+    );
 
     this.addPropertyMetaTag('og:site_name', this.getRepositoryName());
-    this.addPropertyMetaTag('og:type', this.currentObject.value instanceof Item ? 'article' : 'website');
+    this.addPropertyMetaTag(
+      'og:type',
+      this.currentObject.value instanceof Item ? 'article' : 'website',
+    );
     this.addPropertyMetaTag('og:title', title);
     this.addPropertyMetaTag('og:description', description);
     const canonicalUrl = this.getCanonicalUrl();
@@ -328,12 +330,16 @@ export class HeadTagService {
   }
 
   protected setTwitterCardTags(): void {
-    const title = this.stripHtml(this.dsoNameService.getName(this.currentObject.getValue()));
-    const description = this.truncateDescription(this.getFirstMetaTagValue([
-      'dc.description.abstract',
-      'dc.description',
-      'dc.title',
-    ]));
+    const title = this.stripHtml(
+      this.dsoNameService.getName(this.currentObject.getValue()),
+    );
+    const description = this.truncateDescription(
+      this.getFirstMetaTagValue([
+        'dc.description.abstract',
+        'dc.description',
+        'dc.title',
+      ]),
+    );
 
     this.addMetaTag('twitter:card', 'summary');
     this.addMetaTag('twitter:title', title);
@@ -351,7 +357,9 @@ export class HeadTagService {
       '@graph': [
         this.getOrganizationJsonLd(),
         this.getWebSiteJsonLd(),
-        this.currentObject.value instanceof Item ? this.getItemJsonLd() : this.getWebPageJsonLd(),
+        this.currentObject.value instanceof Item
+          ? this.getItemJsonLd()
+          : this.getWebPageJsonLd(),
       ],
     });
   }
@@ -368,7 +376,11 @@ export class HeadTagService {
    * Add <meta name="citation_author" ... >  to the <head>
    */
   protected setCitationAuthorTags(): void {
-    const values: string[] = this.getMetaTagValues(['dc.author', 'dc.contributor.author', 'dc.creator']);
+    const values: string[] = this.getMetaTagValues([
+      'dc.author',
+      'dc.contributor.author',
+      'dc.creator',
+    ]);
     this.addMetaTags('citation_author', values);
   }
 
@@ -434,14 +446,47 @@ export class HeadTagService {
     this.addMetaTag('citation_keywords', value);
   }
 
+  protected setDublinCoreTags(): void {
+    const mappings: Array<[string, string[]]> = [
+      ['DC.title', ['dc.title']],
+      ['DC.creator', ['dc.creator', 'dc.contributor.author', 'dc.author']],
+      ['DC.description', ['dc.description.abstract', 'dc.description']],
+      ['DC.publisher', ['dc.publisher']],
+      ['DC.date', ['dc.date.issued', 'dc.date.available']],
+      ['DC.type', ['dc.type']],
+      ['DC.language', ['dc.language', 'dc.language.iso']],
+      ['DC.subject', ['dc.subject']],
+      ['DC.rights', ['dc.rights']],
+      [
+        'DC.identifier',
+        ['dc.identifier.doi', 'dc.identifier.handle', 'dc.identifier.uri'],
+      ],
+    ];
+    mappings.forEach(([name, keys]) => {
+      const values = this.getMetaTagValues(keys);
+      const safeValues = name === 'DC.identifier'
+        ? values.filter((value) => !this.isAbsoluteUrl(value) || this.isPublicIdentifierUrl(value))
+        : values;
+      this.addMetaTags(name, safeValues);
+    });
+  }
+
   /**
    * Add <meta name="citation_abstract_html_url" ... >  to the <head>
    */
   protected setCitationAbstractUrlTag(): void {
     if (this.currentObject.value instanceof Item) {
       let url = this.getMetaTagValue('dc.identifier.uri');
-      if (hasNoValue(url)) {
-        url = new URLCombiner(this.hardRedirectService.getBaseUrl(), this.router.url).toString();
+      // Stored localhost/private item identifiers must not leak into
+      // production metadata. Use the current public landing page instead;
+      // local mode still produces its configured localhost URL.
+      if (!this.isPublicIdentifierUrl(url)) {
+        url =
+          this.getCanonicalUrl() ||
+          new URLCombiner(
+            this.hardRedirectService.getBaseUrl(),
+            this.router.url,
+          ).toString();
       }
       this.addMetaTag('citation_abstract_html_url', url);
     }
@@ -467,70 +512,93 @@ export class HeadTagService {
       const item = this.currentObject.value as Item;
 
       // Retrieve the ORIGINAL bundle for the item
-      this.bundleDataService.findByItemAndName(
-        item,
-        'ORIGINAL',
-        true,
-        true,
-        new FindListOptions(),
-        followLink('primaryBitstream'),
-        followLink('bitstreams', {
-          findListOptions: {
-            // limit the number of bitstreams used to find the citation pdf url to the number
-            // shown by default on an item page
-            elementsPerPage: this.appConfig.item.bitstream.pageSize,
-          },
-        }, followLink('format')),
-      ).pipe(
-        getFirstSucceededRemoteDataPayload(),
-        switchMap((bundle: Bundle) =>
-          // First try the primary bitstream
-          bundle.primaryBitstream.pipe(
-            getFirstCompletedRemoteData(),
-            map((rd: RemoteData<Bitstream>) => {
-              if (hasValue(rd.payload)) {
-                return rd.payload;
-              } else {
-                return null;
-              }
-            }),
-            getDownloadableBitstream(this.authorizationService),
-            // return the bundle as well so we can use it again if there's no primary bitstream
-            map((bitstream: Bitstream) => [bundle, bitstream]),
+      this.bundleDataService
+        .findByItemAndName(
+          item,
+          'ORIGINAL',
+          true,
+          true,
+          new FindListOptions(),
+          followLink('primaryBitstream'),
+          followLink(
+            'bitstreams',
+            {
+              findListOptions: {
+                // limit the number of bitstreams used to find the citation pdf url to the number
+                // shown by default on an item page
+                elementsPerPage: this.appConfig.item.bitstream.pageSize,
+              },
+            },
+            followLink('format'),
           ),
-        ),
-        switchMap(([bundle, primaryBitstream]: [Bundle, Bitstream]) => {
-          if (hasValue(primaryBitstream)) {
-            // If there was a downloadable primary bitstream, emit its link
-            return [getBitstreamDownloadRoute(primaryBitstream)];
-          } else {
-            // Otherwise consider the regular bitstreams in the bundle
-            return bundle.bitstreams.pipe(
+        )
+        .pipe(
+          getFirstSucceededRemoteDataPayload(),
+          switchMap((bundle: Bundle) =>
+            // First try the primary bitstream
+            bundle.primaryBitstream.pipe(
               getFirstCompletedRemoteData(),
-              switchMap((bitstreamRd: RemoteData<PaginatedList<Bitstream>>) => {
-                if (hasValue(bitstreamRd.payload) && bitstreamRd.payload.totalElements === 1) {
-                  // If there's only one bitstream in the bundle, emit its link if its downloadable
-                  return this.getBitLinkIfDownloadable(bitstreamRd.payload.page[0], bitstreamRd);
+              map((rd: RemoteData<Bitstream>) => {
+                if (hasValue(rd.payload)) {
+                  return rd.payload;
                 } else {
-                  // Otherwise check all bitstreams to see if one matches the format whitelist
-                  return this.getFirstAllowedFormatBitstreamLink(bitstreamRd);
+                  return null;
                 }
               }),
-            );
-          }
-        }),
-        take(1),
-      ).subscribe((link: string) => {
-        // Use the found link to set the <meta> tag
-        this.addMetaTag(
-          'citation_pdf_url',
-          new URLCombiner(this.hardRedirectService.getBaseUrl(), link).toString(),
-        );
-      });
+              getDownloadableBitstream(this.authorizationService),
+              // return the bundle as well so we can use it again if there's no primary bitstream
+              map((bitstream: Bitstream) => [bundle, bitstream]),
+            ),
+          ),
+          switchMap(([bundle, primaryBitstream]: [Bundle, Bitstream]) => {
+            if (hasValue(primaryBitstream)) {
+              // If there was a downloadable primary bitstream, emit its link
+              return [getBitstreamDownloadRoute(primaryBitstream)];
+            } else {
+              // Otherwise consider the regular bitstreams in the bundle
+              return bundle.bitstreams.pipe(
+                getFirstCompletedRemoteData(),
+                switchMap(
+                  (bitstreamRd: RemoteData<PaginatedList<Bitstream>>) => {
+                    if (
+                      hasValue(bitstreamRd.payload) &&
+                      bitstreamRd.payload.totalElements === 1
+                    ) {
+                      // If there's only one bitstream in the bundle, emit its link if its downloadable
+                      return this.getBitLinkIfDownloadable(
+                        bitstreamRd.payload.page[0],
+                        bitstreamRd,
+                      );
+                    } else {
+                      // Otherwise check all bitstreams to see if one matches the format whitelist
+                      return this.getFirstAllowedFormatBitstreamLink(
+                        bitstreamRd,
+                      );
+                    }
+                  },
+                ),
+              );
+            }
+          }),
+          take(1),
+        )
+        .subscribe((link: string) => {
+          // Use the found link to set the <meta> tag
+          this.addMetaTag(
+            'citation_pdf_url',
+            new URLCombiner(
+              this.hardRedirectService.getBaseUrl(),
+              link,
+            ).toString(),
+          );
+        });
     }
   }
 
-  getBitLinkIfDownloadable(bitstream: Bitstream, bitstreamRd: RemoteData<PaginatedList<Bitstream>>): Observable<string> {
+  getBitLinkIfDownloadable(
+    bitstream: Bitstream,
+    bitstreamRd: RemoteData<PaginatedList<Bitstream>>,
+  ): Observable<string> {
     return of(bitstream).pipe(
       getDownloadableBitstream(this.authorizationService),
       switchMap((bit: Bitstream) => {
@@ -556,30 +624,42 @@ export class HeadTagService {
    * @param bitstreamRd
    * @private
    */
-  protected getFirstAllowedFormatBitstreamLink(bitstreamRd: RemoteData<PaginatedList<Bitstream>>): Observable<string> {
+  protected getFirstAllowedFormatBitstreamLink(
+    bitstreamRd: RemoteData<PaginatedList<Bitstream>>,
+  ): Observable<string> {
     if (hasValue(bitstreamRd.payload) && isNotEmpty(bitstreamRd.payload.page)) {
       // Retrieve the formats of all bitstreams in the page sequentially
       return observableConcat(
-        ...bitstreamRd.payload.page.map((bitstream: Bitstream) => bitstream.format.pipe(
-          getFirstSucceededRemoteDataPayload(),
-          // Keep the original bitstream, because it, not the format, is what we'll need
-          // for the link at the end
-          map((format: BitstreamFormat) => [bitstream, format]),
-        )),
+        ...bitstreamRd.payload.page.map((bitstream: Bitstream) =>
+          bitstream.format.pipe(
+            getFirstSucceededRemoteDataPayload(),
+            // Keep the original bitstream, because it, not the format, is what we'll need
+            // for the link at the end
+            map((format: BitstreamFormat) => [bitstream, format]),
+          ),
+        ),
       ).pipe(
         // Verify that the bitstream is downloadable
-        mergeMap(([bitstream, format]: [Bitstream, BitstreamFormat]) => of(bitstream).pipe(
-          getDownloadableBitstream(this.authorizationService),
-          map((bit: Bitstream) => [bit, format]),
-        )),
+        mergeMap(([bitstream, format]: [Bitstream, BitstreamFormat]) =>
+          of(bitstream).pipe(
+            getDownloadableBitstream(this.authorizationService),
+            map((bit: Bitstream) => [bit, format]),
+          ),
+        ),
         // Filter out only pairs with whitelisted formats and non-null bitstreams, null from download check
-        filter(([bitstream, format]: [Bitstream, BitstreamFormat]) =>
-          hasValue(format) && hasValue(bitstream) && this.CITATION_PDF_URL_MIMETYPES.includes(format.mimetype)),
+        filter(
+          ([bitstream, format]: [Bitstream, BitstreamFormat]) =>
+            hasValue(format) &&
+            hasValue(bitstream) &&
+            this.CITATION_PDF_URL_MIMETYPES.includes(format.mimetype),
+        ),
         // We only need 1
         take(1),
         // Emit the link of the match
         // tap((v) => console.log('result', v)),
-        map(([bitstream, format]: [Bitstream, BitstreamFormat]) => getBitstreamDownloadRoute(bitstream)),
+        map(([bitstream, format]: [Bitstream, BitstreamFormat]) =>
+          getBitstreamDownloadRoute(bitstream),
+        ),
       );
     } else {
       return EMPTY;
@@ -590,13 +670,19 @@ export class HeadTagService {
    * Add <meta name="Generator" ... >  to the <head> containing the current DSpace version
    */
   protected setGenerator(): void {
-    this.rootService.findRoot().pipe(getFirstSucceededRemoteDataPayload()).subscribe((root) => {
-      this.meta.addTag({ name: 'Generator', content: root.dspaceVersion });
-    });
+    this.rootService
+      .findRoot()
+      .pipe(getFirstSucceededRemoteDataPayload())
+      .subscribe((root) => {
+        this.meta.addTag({ name: 'Generator', content: root.dspaceVersion });
+      });
   }
 
   protected hasType(value: string): boolean {
-    return this.currentObject.value.hasMetadata('dc.type', { value: value, ignoreCase: true });
+    return this.currentObject.value.hasMetadata('dc.type', {
+      value: value,
+      ignoreCase: true,
+    });
   }
 
   /**
@@ -640,6 +726,24 @@ export class HeadTagService {
     if (!publicBaseUrl) {
       return undefined;
     }
+    if (this.currentObject.value instanceof Item) {
+      try {
+        const persistedIdentifier = new URL(
+          this.getMetaTagValue('dc.identifier.uri'),
+        );
+        // A repository Handle path remains stable across UUID routes and
+        // environments. Rebase only that path onto the configured public
+        // origin; never adopt an external publisher identifier as canonical.
+        if (/^\/handle\/[^/]+\/[^/]+\/?$/.test(persistedIdentifier.pathname)) {
+          return new URLCombiner(
+            publicBaseUrl,
+            persistedIdentifier.pathname,
+          ).toString();
+        }
+      } catch {
+        // Missing/malformed metadata falls back to the current public route.
+      }
+    }
     const route = this.router.url.split('?')[0].split('#')[0];
     return new URLCombiner(publicBaseUrl, route).toString();
   }
@@ -652,20 +756,64 @@ export class HeadTagService {
    */
   protected getPublicBaseUrl(): string | undefined {
     const configuredUrl = this.appConfig.ui?.baseUrl;
-    if (hasValue(configuredUrl) && this.isPublicHttpsUrl(configuredUrl)) {
+    if (hasValue(configuredUrl) && this.isPublicUrl(configuredUrl)) {
       return new URL(configuredUrl).toString();
     }
     return undefined;
   }
 
-  protected isPublicHttpsUrl(url: string): boolean {
+  /**
+   * Local development is intentionally allowed to use its localhost origin.
+   * Non-local origins must use HTTPS so a production deployment cannot emit
+   * insecure canonical or JSON-LD URLs by accident.
+   */
+  protected isPublicUrl(url: string): boolean {
     try {
       const parsed = new URL(url);
-      return parsed.protocol === 'https:' &&
-        !['localhost', '127.0.0.1', '::1'].includes(parsed.hostname);
+      const localHost = ['localhost', '127.0.0.1', '[::1]', '::1'].includes(
+        parsed.hostname,
+      );
+      return (
+        (localHost && parsed.protocol === 'http:') ||
+        (parsed.protocol === 'https:' &&
+          !localHost &&
+          !this.isPrivateHost(parsed.hostname))
+      );
     } catch {
       return false;
     }
+  }
+
+  protected isPrivateHost(hostname: string): boolean {
+    const host = hostname.toLowerCase().replace(/^\[|\]$/g, '');
+    if (
+      !host.includes('.') ||
+      host === 'localhost' ||
+      host.endsWith('.localhost') ||
+      host.endsWith('.local') ||
+      host.endsWith('.internal') ||
+      host === '::1' ||
+      host.startsWith('fc') ||
+      host.startsWith('fd') ||
+      /^fe[89ab]/.test(host)
+    ) {
+      return true;
+    }
+    const octets = host.split('.').map(Number);
+    if (octets.length !== 4 || octets.some(Number.isNaN)) {
+      return false;
+    }
+    return (
+      octets[0] === 0 ||
+      octets[0] === 10 ||
+      octets[0] === 127 ||
+      (octets[0] === 100 && octets[1] >= 64 && octets[1] <= 127) ||
+      (octets[0] === 169 && octets[1] === 254) ||
+      (octets[0] === 172 && octets[1] >= 16 && octets[1] <= 31) ||
+      (octets[0] === 192 && octets[1] === 168) ||
+      (octets[0] === 198 && (octets[1] === 18 || octets[1] === 19)) ||
+      octets[0] >= 224
+    );
   }
 
   protected getPublicationDate(): string {
@@ -731,12 +879,12 @@ export class HeadTagService {
     const canonicalUrl = this.getCanonicalUrl() as string;
     const publicBaseUrl = this.getPublicBaseUrl() as string;
     const title = this.stripHtml(
-      this.getFirstMetaTagValue(['dc.title']) || this.dsoNameService.getName(this.currentObject.getValue()),
+      this.getFirstMetaTagValue(['dc.title']) ||
+        this.dsoNameService.getName(this.currentObject.getValue()),
     );
-    const description = this.truncateDescription(this.getFirstMetaTagValue([
-      'dc.description.abstract',
-      'dc.description',
-    ]));
+    const description = this.truncateDescription(
+      this.getFirstMetaTagValue(['dc.description.abstract', 'dc.description']),
+    );
     const creators = this.getMetaTagValues([
       'dc.author',
       'dc.contributor.author',
@@ -746,8 +894,18 @@ export class HeadTagService {
       name: this.stripHtml(name),
     }));
 
+    const publisherName = this.getMetaTagValue('dc.publisher');
+    const rights = this.getFirstMetaTagValue(['dc.rights.uri', 'dc.rights']);
+    const identifiers = this.getMetaTagValues([
+      'dc.identifier.doi',
+      'dc.identifier.isbn',
+      'dc.identifier.issn',
+    ])
+      .map((value) => this.normaliseSchemaIdentifier(value))
+      .filter(hasValue);
+
     return this.removeEmptyJsonLdValues({
-      '@type': 'ScholarlyArticle',
+      '@type': this.getSchemaType(),
       '@id': canonicalUrl,
       headline: title,
       name: title,
@@ -755,24 +913,125 @@ export class HeadTagService {
       url: canonicalUrl,
       author: creators,
       datePublished: this.getPublicationDate(),
-      keywords: this.getMetaTagValues(['dc.subject']).map((value: string) => this.stripHtml(value)),
+      keywords: this.getMetaTagValues(['dc.subject']).map((value: string) =>
+        this.stripHtml(value),
+      ),
       inLanguage: this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']),
-      publisher: {
+      publisher: publisherName
+        ? {
+            '@type': 'Organization',
+            name: this.stripHtml(publisherName),
+          }
+        : undefined,
+      provider: {
         '@id': `${this.getRepositoryUrl()}#organization`,
       },
-      doi: this.getMetaTagValue('dc.identifier.doi'),
-      isbn: this.getMetaTagValue('dc.identifier.isbn'),
-      issn: this.getMetaTagValue('dc.identifier.issn'),
+      identifier: identifiers,
+      sameAs: this.getMetaTagValues(['dc.identifier.doi'])
+        .map((value) => this.normaliseIdentifier(value))
+        .filter(
+          (value): value is string =>
+            hasValue(value) && value.startsWith('https://doi.org/'),
+        ),
+      license: this.isAbsoluteUrl(rights) ? rights : undefined,
+      copyrightNotice: this.isAbsoluteUrl(rights) ? undefined : rights,
       isPartOf: {
         '@id': `${publicBaseUrl}#website`,
       },
     });
   }
 
-  protected removeEmptyJsonLdValues(value: Record<string, unknown>): Record<string, unknown> {
+  /** Map the repository's dc.type values to truthful Schema.org classes. */
+  protected getSchemaType(): string {
+    const type = this.getMetaTagValues(['dc.type']).join(' ').toLowerCase();
+    if (/(dataset|data set|database)/.test(type)) {
+      return 'Dataset';
+    }
+    if (/(book chapter|chapter)/.test(type)) {
+      return 'Chapter';
+    }
+    if (/(^|\s)(book|monograph)(\s|$)/.test(type)) {
+      return 'Book';
+    }
+    if (/(thesis|dissertation)/.test(type)) {
+      return 'Thesis';
+    }
+    if (/(report|technical report|working paper)/.test(type)) {
+      return 'Report';
+    }
+    if (/(software|source code|application)/.test(type)) {
+      return 'SoftwareSourceCode';
+    }
+    if (
+      /(article|journal|conference|proceedings|paper|publication)/.test(type)
+    ) {
+      return 'ScholarlyArticle';
+    }
+    return 'CreativeWork';
+  }
+
+  protected normaliseIdentifier(value: string): string | undefined {
+    const trimmed = (value || '').trim();
+    if (!trimmed) {
+      return undefined;
+    }
+    if (/^doi:\s*/i.test(trimmed)) {
+      return `https://doi.org/${trimmed.replace(/^doi:\s*/i, '')}`;
+    }
+    if (/^10\.\d{4,9}\//.test(trimmed)) {
+      return `https://doi.org/${trimmed}`;
+    }
+    return this.isAbsoluteUrl(trimmed) && !this.isPrivateUrl(trimmed)
+      ? trimmed
+      : undefined;
+  }
+
+  protected normaliseSchemaIdentifier(value: string): string | undefined {
+    const trimmed = (value || '').trim();
+    if (!trimmed) {
+      return undefined;
+    }
+    return /^doi:\s*/i.test(trimmed) ||
+      /^10\.\d{4,9}\//.test(trimmed) ||
+      this.isAbsoluteUrl(trimmed)
+      ? this.normaliseIdentifier(trimmed)
+      : trimmed;
+  }
+
+  protected isPublicIdentifierUrl(value: string): boolean {
+    return this.isAbsoluteUrl(value) && !this.isPrivateUrl(value);
+  }
+
+  protected isAbsoluteUrl(value: string): boolean {
+    try {
+      const parsed = new URL(value);
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    } catch {
+      return false;
+    }
+  }
+
+  protected isPrivateUrl(value: string): boolean {
+    try {
+      return (
+        this.isPrivateHost(new URL(value).hostname) ||
+        new URL(value).protocol !== 'https:'
+      );
+    } catch {
+      return true;
+    }
+  }
+
+  protected removeEmptyJsonLdValues(
+    value: Record<string, unknown>,
+  ): Record<string, unknown> {
     Object.keys(value).forEach((key: string) => {
       const property = value[key];
-      if (hasNoValue(property) || property === '' || (Array.isArray(property) && property.length === 0)) {
+      if (
+        hasNoValue(property) ||
+        property === '' ||
+        (Array.isArray(property) && property.length === 0)
+      ) {
         delete value[key];
       }
     });
@@ -780,8 +1039,14 @@ export class HeadTagService {
   }
 
   protected truncateDescription(value: string): string {
-    const strippedValue = this.stripHtml(value || this.getRepositoryDescription()).replace(/\s+/g, ' ').trim();
-    return strippedValue.length <= 160 ? strippedValue : `${strippedValue.slice(0, 157).trim()}...`;
+    const strippedValue = this.stripHtml(
+      value || this.getRepositoryDescription(),
+    )
+      .replace(/\s+/g, ' ')
+      .trim();
+    return strippedValue.length <= 160
+      ? strippedValue
+      : `${strippedValue.slice(0, 157).trim()}...`;
   }
 
   private getRepositoryName(): string {
@@ -842,7 +1107,9 @@ export class HeadTagService {
     const script = this.document.createElement('script');
     script.setAttribute('type', 'application/ld+json');
     script.setAttribute('data-uist-seo-jsonld', 'true');
-    script.textContent = JSON.stringify(data);
+    // Prevent a title/abstract containing </script> from terminating the
+    // JSON-LD element in the initial SSR document.
+    script.textContent = JSON.stringify(data).replace(/</g, '\\u003c');
     this.document.head.appendChild(script);
   }
 
@@ -850,7 +1117,9 @@ export class HeadTagService {
     if (hasNoValue(this.document)) {
       return;
     }
-    this.document.querySelectorAll(selector).forEach((element: Element) => element.remove());
+    this.document
+      .querySelectorAll(selector)
+      .forEach((element: Element) => element.remove());
   }
 
   protected addMetaTags(name: string, content: string[]): void {
@@ -864,16 +1133,13 @@ export class HeadTagService {
   }
 
   protected clearMetaTags(): void {
-    this.store.pipe(
-      select(tagsInUseSelector),
-      take(1),
-    ).subscribe((tagsInUse: string[]) => {
-      for (const name of tagsInUse) {
-        this.meta.removeTag(name.includes('=') ? name : `name='${name}'`);
-      }
-      this.store.dispatch(new ClearMetaTagAction());
-    });
+    this.store
+      .pipe(select(tagsInUseSelector), take(1))
+      .subscribe((tagsInUse: string[]) => {
+        for (const name of tagsInUse) {
+          this.meta.removeTag(name.includes('=') ? name : `name='${name}'`);
+        }
+        this.store.dispatch(new ClearMetaTagAction());
+      });
   }
-
-
 }

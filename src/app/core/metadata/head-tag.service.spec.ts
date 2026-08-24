@@ -1,22 +1,10 @@
-import {
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
-import {
-  Meta,
-  Title,
-} from '@angular/platform-browser';
-import {
-  NavigationEnd,
-  Router,
-} from '@angular/router';
+import { fakeAsync, tick } from '@angular/core/testing';
+import { Meta, Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
 import { AppConfig } from '@dspace/config/app-config.interface';
 import { createMockStore } from '@ngrx/store/testing';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  Observable,
-  of,
-} from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { DSONameService } from '../breadcrumbs/dso-name.service';
 import { AuthorizationDataService } from '../data/feature-authorization/authorization-data.service';
@@ -42,10 +30,7 @@ import {
   createSuccessfulRemoteDataObject$,
 } from '../utilities/remote-data.utils';
 import { HeadTagService } from './head-tag.service';
-import {
-  AddMetaTagAction,
-  ClearMetaTagAction,
-} from './meta-tag.actions';
+import { AddMetaTagAction, ClearMetaTagAction } from './meta-tag.actions';
 
 describe('HeadTagService', () => {
   let headTagService: HeadTagService;
@@ -67,12 +52,15 @@ describe('HeadTagService', () => {
 
   let appConfig: AppConfig;
 
-  const initialState = { 'core': { metaTag: { tagsInUse: ['title', 'description'] } } };
-
+  const initialState = {
+    core: { metaTag: { tagsInUse: ['title', 'description'] } },
+  };
 
   beforeEach(() => {
     rootService = jasmine.createSpyObj({
-      findRoot: createSuccessfulRemoteDataObject$({ dspaceVersion: 'mock-dspace-version' }),
+      findRoot: createSuccessfulRemoteDataObject$({
+        dspaceVersion: 'mock-dspace-version',
+      }),
     });
     bundleDataService = jasmine.createSpyObj({
       findByItemAndName: mockBundleRD$([MockBitstream3]),
@@ -96,7 +84,7 @@ describe('HeadTagService', () => {
         root: {},
       },
     } as any as Router;
-    hardRedirectService = jasmine.createSpyObj( {
+    hardRedirectService = jasmine.createSpyObj({
       getBaseUrl: 'https://request.org',
     });
     authorizationService = jasmine.createSpyObj('authorizationService', {
@@ -134,7 +122,8 @@ describe('HeadTagService', () => {
   });
 
   afterEach(() => {
-    document.querySelectorAll("link[rel='canonical'], script[data-uist-seo-jsonld]")
+    document
+      .querySelectorAll("link[rel='canonical'], script[data-uist-seo-jsonld]")
       .forEach((element: Element) => element.remove());
   });
 
@@ -178,18 +167,29 @@ describe('HeadTagService', () => {
       },
     });
     tick();
-    expect(title.setTitle).toHaveBeenCalledWith('Test PowerPoint Document | UIST Digital Repository');
+    expect(title.setTitle).toHaveBeenCalledWith(
+      'Test PowerPoint Document | UIST Digital Repository',
+    );
     expect(meta.addTag).toHaveBeenCalledWith({
       name: 'citation_title',
       content: 'Test PowerPoint Document',
     });
-    expect(meta.addTag).toHaveBeenCalledWith({ name: 'citation_author', content: 'Doe, Jane' });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_author',
+      content: 'Doe, Jane',
+    });
     expect(meta.addTag).toHaveBeenCalledWith({
       name: 'citation_publication_date',
       content: '1650-06-26',
     });
-    expect(meta.addTag).toHaveBeenCalledWith({ name: 'citation_issn', content: '123456789' });
-    expect(meta.addTag).toHaveBeenCalledWith({ name: 'citation_language', content: 'en' });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_issn',
+      content: '123456789',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_language',
+      content: 'en',
+    });
     expect(meta.addTag).toHaveBeenCalledWith({
       name: 'citation_keywords',
       content: 'keyword1; keyword2; keyword3',
@@ -200,7 +200,9 @@ describe('HeadTagService', () => {
     (headTagService as any).processRouteChange({
       data: {
         value: {
-          dso: createSuccessfulRemoteDataObject(mockPublisher(mockType(ItemMock, 'Thesis'))),
+          dso: createSuccessfulRemoteDataObject(
+            mockPublisher(mockType(ItemMock, 'Thesis')),
+          ),
         },
       },
     });
@@ -211,7 +213,8 @@ describe('HeadTagService', () => {
     });
     expect(meta.addTag).toHaveBeenCalledWith({
       name: 'citation_pdf_url',
-      content: 'https://request.org/bitstreams/4db100c1-e1f5-4055-9404-9bc3e2d15f29/download',
+      content:
+        'https://request.org/bitstreams/4db100c1-e1f5-4055-9404-9bc3e2d15f29/download',
     });
   }));
 
@@ -219,7 +222,9 @@ describe('HeadTagService', () => {
     (headTagService as any).processRouteChange({
       data: {
         value: {
-          dso: createSuccessfulRemoteDataObject(mockPublisher(mockType(ItemMock, 'Technical Report'))),
+          dso: createSuccessfulRemoteDataObject(
+            mockPublisher(mockType(ItemMock, 'Technical Report')),
+          ),
         },
       },
     });
@@ -231,7 +236,10 @@ describe('HeadTagService', () => {
   }));
 
   it('route titles should overwrite dso titles', fakeAsync(() => {
-    (translateService.get as jasmine.Spy).and.returnValues(of('DSpace :: '), of('Translated Route Title'));
+    (translateService.get as jasmine.Spy).and.returnValues(
+      of('DSpace :: '),
+      of('Translated Route Title'),
+    );
     (headTagService as any).processRouteChange({
       data: {
         value: {
@@ -242,12 +250,20 @@ describe('HeadTagService', () => {
     });
     tick();
     expect(title.setTitle).toHaveBeenCalledTimes(2);
-    expect((title.setTitle as jasmine.Spy).calls.argsFor(0)).toEqual(['Test PowerPoint Document | UIST Digital Repository']);
-    expect((title.setTitle as jasmine.Spy).calls.argsFor(1)).toEqual(['DSpace :: Translated Route Title']);
+    expect((title.setTitle as jasmine.Spy).calls.argsFor(0)).toEqual([
+      'Test PowerPoint Document | UIST Digital Repository',
+    ]);
+    expect((title.setTitle as jasmine.Spy).calls.argsFor(1)).toEqual([
+      'DSpace :: Translated Route Title',
+    ]);
   }));
 
   it('other navigation should add title and description', fakeAsync(() => {
-    (translateService.get as jasmine.Spy).and.returnValues(of('DSpace :: '), of('Dummy Title'), of('This is a dummy item component for testing!'));
+    (translateService.get as jasmine.Spy).and.returnValues(
+      of('DSpace :: '),
+      of('Dummy Title'),
+      of('This is a dummy item component for testing!'),
+    );
     (headTagService as any).processRouteChange({
       data: {
         value: {
@@ -269,7 +285,8 @@ describe('HeadTagService', () => {
   }));
 
   it('should use the explicitly configured production HTTPS URL without query parameters', fakeAsync(() => {
-    (router as any).url = '/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357?mode=full#details';
+    (router as any).url =
+      '/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357?mode=full#details';
     (headTagService as any).processRouteChange({
       data: {
         value: {
@@ -286,48 +303,88 @@ describe('HeadTagService', () => {
     );
   }));
 
+  it('should canonicalize an item to its stable repository Handle path', fakeAsync(() => {
+    (headTagService as any).processRouteChange({
+      data: {
+        value: {
+          dso: createSuccessfulRemoteDataObject(
+            mockUri(
+              ItemMock,
+              'https://repository.uist.edu.mk/handle/123456789/78',
+            ),
+          ),
+        },
+      },
+    });
+    tick();
+
+    expect(
+      document.querySelector("link[rel='canonical']")?.getAttribute('href'),
+    ).toBe('https://repository.uist.edu.mk/handle/123456789/78');
+  }));
+
   it('should use an explicitly configured staging HTTPS URL', fakeAsync(() => {
     (appConfig.ui as any).baseUrl = 'https://staging.repository.uist.edu.mk';
     (router as any).url = '/home?draft=true#preview';
     (headTagService as any).processRouteChange({ data: { value: {} } });
     tick();
 
-    expect(document.querySelector("link[rel='canonical']")?.getAttribute('href'))
-      .toBe('https://staging.repository.uist.edu.mk/home');
+    expect(
+      document.querySelector("link[rel='canonical']")?.getAttribute('href'),
+    ).toBe('https://staging.repository.uist.edu.mk/home');
     expect(meta.addTag).toHaveBeenCalledWith({
       property: 'og:url',
       content: 'https://staging.repository.uist.edu.mk/home',
     });
   }));
 
-  ['http://localhost:4000', undefined, 'not a URL'].forEach((invalidPublicUrl) => {
-    it(`should omit canonical and JSON-LD for an invalid public URL: ${invalidPublicUrl}`, fakeAsync(() => {
-      (appConfig.ui as any).baseUrl = invalidPublicUrl;
-      (appConfig.rest as any) = {
-        baseUrl: 'https://browser-rest.example.org/server',
-        ssrBaseUrl: 'http://internal-rest:8080/server',
-      };
-      (router as any).url = '/home';
-      (headTagService as any).processRouteChange({ data: { value: {} } });
-      tick();
+  [
+    undefined,
+    'not a URL',
+    'http://repository.example.org',
+    'https://dspace',
+    'https://api.internal',
+    'https://100.64.0.1',
+    'https://169.254.1.1',
+    'https://[fd00::1]',
+  ].forEach(
+    (invalidPublicUrl) => {
+      it(`should omit canonical and JSON-LD for an invalid public URL: ${invalidPublicUrl}`, fakeAsync(() => {
+        (appConfig.ui as any).baseUrl = invalidPublicUrl;
+        (appConfig.rest as any) = {
+          baseUrl: 'https://browser-rest.example.org/server',
+          ssrBaseUrl: 'http://internal-rest:8080/server',
+        };
+        (router as any).url = '/home';
+        (headTagService as any).processRouteChange({ data: { value: {} } });
+        tick();
 
-      expect(document.querySelector("link[rel='canonical']")).toBeNull();
-      expect(document.querySelector('script[data-uist-seo-jsonld]')).toBeNull();
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({
-        property: 'og:url',
+        expect(document.querySelector("link[rel='canonical']")).toBeNull();
+        expect(
+          document.querySelector('script[data-uist-seo-jsonld]'),
+        ).toBeNull();
+        expect(meta.addTag).not.toHaveBeenCalledWith(
+          jasmine.objectContaining({
+            property: 'og:url',
+          }),
+        );
+        expect(document.head.innerHTML).not.toContain('internal-rest:8080');
       }));
-      expect(document.head.innerHTML).not.toContain('internal-rest:8080');
-    }));
-  });
+    },
+  );
 
-  it('should not substitute a production hostname for localhost configuration', fakeAsync(() => {
+  it('should preserve the localhost origin in local configuration', fakeAsync(() => {
     (appConfig.ui as any).baseUrl = 'http://localhost:4000';
     (router as any).url = '/home';
     (headTagService as any).processRouteChange({ data: { value: {} } });
     tick();
 
-    expect(document.querySelector("link[rel='canonical']")).toBeNull();
-    expect(document.querySelector('script[data-uist-seo-jsonld]')).toBeNull();
+    expect(
+      document.querySelector("link[rel='canonical']")?.getAttribute('href'),
+    ).toBe('http://localhost:4000/home');
+    expect(
+      document.querySelector('script[data-uist-seo-jsonld]'),
+    ).not.toBeNull();
   }));
 
   it('should add singleton OpenGraph, Twitter, and JSON-LD item metadata', fakeAsync(() => {
@@ -352,20 +409,27 @@ describe('HeadTagService', () => {
     const scripts = document.querySelectorAll('script[data-uist-seo-jsonld]');
     expect(scripts.length).toBe(1);
     const jsonLd = JSON.parse(scripts.item(0).textContent);
-    expect(jsonLd['@graph'].map((entry: any) => entry['@type']))
-      .toEqual(['CollegeOrUniversity', 'WebSite', 'ScholarlyArticle']);
+    expect(jsonLd['@graph'].map((entry: any) => entry['@type'])).toEqual([
+      'CollegeOrUniversity',
+      'WebSite',
+      jasmine.stringMatching(/^(CreativeWork|Dataset|Chapter|Book|Thesis|Report|SoftwareSourceCode|ScholarlyArticle)$/),
+    ]);
     expect(JSON.stringify(jsonLd)).not.toContain('localhost');
   }));
 
   describe(`listenForRouteChange`, () => {
     it(`should call processRouteChange`, fakeAsync(() => {
-      spyOn(headTagService as any, 'processRouteChange').and.callFake(() => undefined);
+      spyOn(headTagService as any, 'processRouteChange').and.callFake(
+        () => undefined,
+      );
       headTagService.listenForRouteChange();
       tick();
       expect((headTagService as any).processRouteChange).toHaveBeenCalled();
     }));
     it(`should add Generator`, fakeAsync(() => {
-      spyOn(headTagService as any, 'processRouteChange').and.callFake(() => undefined);
+      spyOn(headTagService as any, 'processRouteChange').and.callFake(
+        () => undefined,
+      );
       headTagService.listenForRouteChange();
       tick();
       expect(meta.addTag).toHaveBeenCalledWith({
@@ -380,7 +444,9 @@ describe('HeadTagService', () => {
       (headTagService as any).processRouteChange({
         data: {
           value: {
-            dso: createSuccessfulRemoteDataObject(mockUri(ItemMock, 'https://ddg.gg')),
+            dso: createSuccessfulRemoteDataObject(
+              mockUri(ItemMock, 'https://ddg.gg'),
+            ),
           },
         },
       });
@@ -402,7 +468,8 @@ describe('HeadTagService', () => {
       tick();
       expect(meta.addTag).toHaveBeenCalledWith({
         name: 'citation_abstract_html_url',
-        content: 'https://request.org/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357',
+        content:
+          'https://repository.uist.edu.mk/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357',
       });
     }));
   });
@@ -412,7 +479,9 @@ describe('HeadTagService', () => {
       (headTagService as any).processRouteChange({
         data: {
           value: {
-            dso: createSuccessfulRemoteDataObject(mockPublisher(mockType(ItemMock, 'Thesis'))),
+            dso: createSuccessfulRemoteDataObject(
+              mockPublisher(mockType(ItemMock, 'Thesis')),
+            ),
           },
         },
       });
@@ -421,38 +490,58 @@ describe('HeadTagService', () => {
         name: 'citation_dissertation_institution',
         content: 'Mock Publisher',
       });
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_technical_report_institution' }));
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_publisher' }));
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({
+          name: 'citation_technical_report_institution',
+        }),
+      );
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({ name: 'citation_publisher' }),
+      );
     }));
 
     it('should use citation_tech_report_institution tag for tech reports', fakeAsync(() => {
       (headTagService as any).processRouteChange({
         data: {
           value: {
-            dso: createSuccessfulRemoteDataObject(mockPublisher(mockType(ItemMock, 'Technical Report'))),
+            dso: createSuccessfulRemoteDataObject(
+              mockPublisher(mockType(ItemMock, 'Technical Report')),
+            ),
           },
         },
       });
       tick();
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_dissertation_institution' }));
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({ name: 'citation_dissertation_institution' }),
+      );
       expect(meta.addTag).toHaveBeenCalledWith({
         name: 'citation_technical_report_institution',
         content: 'Mock Publisher',
       });
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_publisher' }));
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({ name: 'citation_publisher' }),
+      );
     }));
 
     it('should use citation_publisher for other item types', fakeAsync(() => {
       (headTagService as any).processRouteChange({
         data: {
           value: {
-            dso: createSuccessfulRemoteDataObject(mockPublisher(mockType(ItemMock, 'Some Other Type'))),
+            dso: createSuccessfulRemoteDataObject(
+              mockPublisher(mockType(ItemMock, 'Some Other Type')),
+            ),
           },
         },
       });
       tick();
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_dissertation_institution' }));
-      expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_technical_report_institution' }));
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({ name: 'citation_dissertation_institution' }),
+      );
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({
+          name: 'citation_technical_report_institution',
+        }),
+      );
       expect(meta.addTag).toHaveBeenCalledWith({
         name: 'citation_publisher',
         content: 'Mock Publisher',
@@ -462,7 +551,9 @@ describe('HeadTagService', () => {
 
   describe('citation_pdf_url', () => {
     it('should link to primary Bitstream URL regardless of format', fakeAsync(() => {
-      (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(mockBundleRD$([], MockBitstream3));
+      (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(
+        mockBundleRD$([], MockBitstream3),
+      );
 
       (headTagService as any).processRouteChange({
         data: {
@@ -474,14 +565,19 @@ describe('HeadTagService', () => {
       tick();
       expect(meta.addTag).toHaveBeenCalledWith({
         name: 'citation_pdf_url',
-        content: 'https://request.org/bitstreams/4db100c1-e1f5-4055-9404-9bc3e2d15f29/download',
+        content:
+          'https://request.org/bitstreams/4db100c1-e1f5-4055-9404-9bc3e2d15f29/download',
       });
     }));
 
     describe('bitstream not download allowed', () => {
       it('should not have citation_pdf_url', fakeAsync(() => {
-        (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(mockBundleRD$([MockBitstream3]));
-        (authorizationService.isAuthorized as jasmine.Spy).and.returnValue(of(false));
+        (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(
+          mockBundleRD$([MockBitstream3]),
+        );
+        (authorizationService.isAuthorized as jasmine.Spy).and.returnValue(
+          of(false),
+        );
 
         (headTagService as any).processRouteChange({
           data: {
@@ -491,14 +587,17 @@ describe('HeadTagService', () => {
           },
         });
         tick();
-        expect(meta.addTag).not.toHaveBeenCalledWith(jasmine.objectContaining({ name: 'citation_pdf_url' }));
+        expect(meta.addTag).not.toHaveBeenCalledWith(
+          jasmine.objectContaining({ name: 'citation_pdf_url' }),
+        );
       }));
-
     });
 
     describe('no primary Bitstream', () => {
       it('should link to first and only Bitstream regardless of format', fakeAsync(() => {
-        (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(mockBundleRD$([MockBitstream3]));
+        (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(
+          mockBundleRD$([MockBitstream3]),
+        );
 
         (headTagService as any).processRouteChange({
           data: {
@@ -510,7 +609,8 @@ describe('HeadTagService', () => {
         tick();
         expect(meta.addTag).toHaveBeenCalledWith({
           name: 'citation_pdf_url',
-          content: 'https://request.org/bitstreams/4db100c1-e1f5-4055-9404-9bc3e2d15f29/download',
+          content:
+            'https://request.org/bitstreams/4db100c1-e1f5-4055-9404-9bc3e2d15f29/download',
         });
       }));
 
@@ -519,7 +619,9 @@ describe('HeadTagService', () => {
 
         beforeEach(() => {
           bitstreams = [MockBitstream2, MockBitstream3, MockBitstream1];
-          (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(mockBundleRD$(bitstreams));
+          (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(
+            mockBundleRD$(bitstreams),
+          );
         });
 
         it('should link to first Bitstream with allowed format', fakeAsync(() => {
@@ -533,12 +635,11 @@ describe('HeadTagService', () => {
           tick();
           expect(meta.addTag).toHaveBeenCalledWith({
             name: 'citation_pdf_url',
-            content: 'https://request.org/bitstreams/99b00f3c-1cc6-4689-8158-91965bee6b28/download',
+            content:
+              'https://request.org/bitstreams/99b00f3c-1cc6-4689-8158-91965bee6b28/download',
           });
         }));
-
       });
-
     });
   });
 
@@ -547,7 +648,9 @@ describe('HeadTagService', () => {
 
     beforeEach(() => {
       bitstreams = [MockBitstream1, MockBitstream3, MockBitstream2];
-      (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(mockBundleRD$(bitstreams));
+      (bundleDataService.findByItemAndName as jasmine.Spy).and.returnValue(
+        mockBundleRD$(bitstreams),
+      );
     });
 
     it(`shouldn't add a citation_pdf_url meta tag`, fakeAsync(() => {
@@ -561,12 +664,11 @@ describe('HeadTagService', () => {
       tick();
       expect(meta.addTag).not.toHaveBeenCalledWith({
         name: 'citation_pdf_url',
-        content: 'https://request.org/bitstreams/99b00f3c-1cc6-4689-8158-91965bee6b28/download',
+        content:
+          'https://request.org/bitstreams/99b00f3c-1cc6-4689-8158-91965bee6b28/download',
       });
     }));
-
   });
-
 
   describe('tagstore', () => {
     beforeEach(fakeAsync(() => {
@@ -581,14 +683,20 @@ describe('HeadTagService', () => {
     }));
 
     it('should remove previous tags on route change', fakeAsync(() => {
-      expect(meta.removeTag).toHaveBeenCalledWith('name=\'title\'');
-      expect(meta.removeTag).toHaveBeenCalledWith('name=\'description\'');
+      expect(meta.removeTag).toHaveBeenCalledWith("name='title'");
+      expect(meta.removeTag).toHaveBeenCalledWith("name='description'");
     }));
 
     it('should clear all tags and add new ones on route change', () => {
-      expect(store.dispatch.calls.argsFor(0)).toEqual([new ClearMetaTagAction()]);
-      expect(store.dispatch.calls.argsFor(1)).toEqual([new AddMetaTagAction('title')]);
-      expect(store.dispatch.calls.argsFor(2)).toEqual([new AddMetaTagAction('description')]);
+      expect(store.dispatch.calls.argsFor(0)).toEqual([
+        new ClearMetaTagAction(),
+      ]);
+      expect(store.dispatch.calls.argsFor(1)).toEqual([
+        new AddMetaTagAction('title'),
+      ]);
+      expect(store.dispatch.calls.argsFor(2)).toEqual([
+        new AddMetaTagAction('description'),
+      ]);
     });
   });
 
@@ -610,29 +718,42 @@ describe('HeadTagService', () => {
   };
 
   const mockUri = (mockItem: Item, uri?: string): Item => {
-    const publishedMockItem = Object.assign(new Item(), mockItem) as Item;
-    publishedMockItem.metadata['dc.identifier.uri'] = [{ value: uri }] as MetadataValue[];
-    return publishedMockItem;
+    return Object.assign(new Item(), mockItem, {
+      metadata: {
+        ...mockItem.metadata,
+        'dc.identifier.uri': [{ value: uri }] as MetadataValue[],
+      },
+    }) as Item;
   };
 
-  const mockBundleRD$ = (bitstreams: Bitstream[], primary?: Bitstream): Observable<RemoteData<Bundle>> => {
+  const mockBundleRD$ = (
+    bitstreams: Bitstream[],
+    primary?: Bitstream,
+  ): Observable<RemoteData<Bundle>> => {
     return createSuccessfulRemoteDataObject$(
       Object.assign(new Bundle(), {
         name: 'ORIGINAL',
-        bitstreams: createSuccessfulRemoteDataObject$(mockBitstreamPages$(bitstreams)[0]),
+        bitstreams: createSuccessfulRemoteDataObject$(
+          mockBitstreamPages$(bitstreams)[0],
+        ),
         primaryBitstream: createSuccessfulRemoteDataObject$(primary),
       }),
     );
   };
 
-  const mockBitstreamPages$ = (bitstreams: Bitstream[]): PaginatedList<Bitstream>[] => {
-    return bitstreams.map((bitstream, index) => Object.assign(createPaginatedList([bitstream]), {
-      pageInfo: {
-        totalElements: bitstreams.length,       // announce multiple elements/pages
-      },
-      _links: index < bitstreams.length - 1
-        ? { next: { href: 'not empty' } }        // fake link to the next bitstream page
-        : { next: { href: undefined } },         // last page has no link
-    }));
+  const mockBitstreamPages$ = (
+    bitstreams: Bitstream[],
+  ): PaginatedList<Bitstream>[] => {
+    return bitstreams.map((bitstream, index) =>
+      Object.assign(createPaginatedList([bitstream]), {
+        pageInfo: {
+          totalElements: bitstreams.length, // announce multiple elements/pages
+        },
+        _links:
+          index < bitstreams.length - 1
+            ? { next: { href: 'not empty' } } // fake link to the next bitstream page
+            : { next: { href: undefined } }, // last page has no link
+      }),
+    );
   };
 });
