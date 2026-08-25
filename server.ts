@@ -178,6 +178,20 @@ export function app() {
   }));
 
   /**
+   * Proxy HEAD requests for public bitstream download URLs directly to the
+   * corresponding REST content endpoint. Angular's download route redirects
+   * GET requests during SSR, but a HEAD request cannot run that redirect guard
+   * and would otherwise return the HTML application shell and text/html.
+   */
+  router.head('/bitstreams/:uuid/download', createProxyMiddleware({
+    target: `${REST_BASE_URL}`,
+    pathRewrite: {
+      '^/bitstreams/([^/]+)/download': '/api/core/bitstreams/$1/content',
+    },
+    changeOrigin: true,
+  }));
+
+  /**
    * Checks if the rateLimiter property is present
    * When it is present, the rateLimiter will be enabled. When it is undefined, the rateLimiter will be disabled.
    */
@@ -296,6 +310,7 @@ function serverSideRender(req, res, next, sendToUser: boolean = true) {
         saveToCache(req, html);
         if (sendToUser) {
           res.locals.ssr = true;  // mark response as SSR (enables text compression)
+          res.setHeader('X-DSpace-SSR', 'true');
           // send rendered page to user
           res.send(html);
         }
@@ -431,6 +446,7 @@ function cacheCheck(req, res, next) {
       });
     }
     res.locals.ssr = true;  // mark response as SSR-generated (enables text compression)
+    res.setHeader('X-DSpace-SSR', 'true');
     res.send(cachedCopy.page);
 
     // Tell Express to skip all other handlers for this path
