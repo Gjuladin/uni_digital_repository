@@ -107,6 +107,9 @@ const toClientConfig = ({
     ...cache
   },
   ui: {
+    ssl: _uiSsl,
+    host: _uiHost,
+    port: _uiPort,
     rateLimiter: _rateLimiter,
     useProxies: _useProxies,
     ...ui

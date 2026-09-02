@@ -58,6 +58,7 @@ import {
   RESPONSE,
 } from './src/express.tokens';
 import { SsrExcludePatterns } from './src/config/ssr-config.interface';
+import { rewriteBitstreamDownloadPath } from './src/server/bitstream-download-proxy.util';
 
 /*
  * Set path for the browser application's dist folder
@@ -178,18 +179,19 @@ export function app() {
   }));
 
   /**
-   * Proxy HEAD requests for public bitstream download URLs directly to the
-   * corresponding REST content endpoint. Angular's download route redirects
-   * GET requests during SSR, but a HEAD request cannot run that redirect guard
-   * and would otherwise return the HTML application shell and text/html.
+   * Stream public bitstream download URLs directly from the REST content
+   * endpoint. Handling both GET and HEAD here keeps binary downloads and Range
+   * requests out of Angular SSR, which must only render application pages.
    */
-  router.head('/bitstreams/:uuid/download', createProxyMiddleware({
+  const bitstreamDownloadProxy = createProxyMiddleware({
     target: `${REST_BASE_URL}`,
-    pathRewrite: {
-      '^/bitstreams/([^/]+)/download': '/api/core/bitstreams/$1/content',
-    },
+    pathRewrite: rewriteBitstreamDownloadPath,
     changeOrigin: true,
-  }));
+  });
+  // Register HEAD first because Express otherwise treats GET routes as an
+  // implicit fallback for HEAD requests.
+  router.head('/bitstreams/:uuid/download', bitstreamDownloadProxy);
+  router.get('/bitstreams/:uuid/download', bitstreamDownloadProxy);
 
   /**
    * Checks if the rateLimiter property is present
