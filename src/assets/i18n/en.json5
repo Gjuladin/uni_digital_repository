@@ -2107,7 +2107,31 @@
 
   "footer.uist.title": "UIST Digital Repository",
 
+  "footer.uist.explore": "Explore the repository",
+
+  "footer.uist.search": "Search repository",
+
+  "footer.uist.collections": "Communities & collections",
+
+  "footer.uist.authors": "Browse authors",
+
+  "footer.uist.university": "At UIST",
+
+  "footer.uist.website": "University website",
+
+  "footer.uist.about": "About UIST",
+
+  "footer.uist.library": "E-library",
+
+  "footer.uist.contact": "Contact UIST",
+
+  "footer.uist.policies": "Repository policies and settings",
+
+  "footer.uist.copyright": "© {{ year }} UIST",
+
   "footer.uist.description": "Research, theses, publications, project outputs, and institutional collections from UIST.",
+
+  "footer.uist.address": "Partizanska bb, 6000 Ohrid, North Macedonia",
 
   "footer.uist.visit-site": "Visit uist.edu.mk",
 
@@ -2299,7 +2323,6 @@
   "legal.privacy.heading.how-we-use-your-information": "How we use your information",
   "legal.privacy.heading.disclosure-of-your-information": "Disclosure of your information",
   "legal.privacy.heading.changes-to-our-privacy-policy": "Changes to our privacy policy",
-  "legal.privacy.paragraph.1": "{{ 'legal.privacy.introduction.first' | translate: { repository: ('repository.title' | translate) } }}",
   "legal.privacy.paragraph.2": "This policy describes the types of information we may collect from you or that you may provide when you visit this website (our \"Website\") and our practices for collecting, using, maintaining, protecting, and disclosing that information.",
   "legal.privacy.paragraph.3": "This policy applies to information we collect:",
   "legal.privacy.paragraph.4": "It does not apply to information collected by:",
@@ -2627,7 +2650,7 @@
 
   "home.uist.title": "UIST Digital Repository",
 
-  "home.uist.description": "Discover, preserve, and share scholarly work from the University of Information Science and Technology \"St. Paul the Apostle\".",
+  "home.uist.description": "Discover and preserve publications, theses, conference papers, and project outputs from UIST \"St. Paul the Apostle\" in Ohrid, North Macedonia.",
 
   "home.uist.search.aria-label": "Search the repository",
 
@@ -2659,9 +2682,9 @@
 
   "home.uist.news.eyebrow": "Open scholarship at UIST",
 
-  "home.uist.news.title": "Research made discoverable and reusable",
+  "home.uist.news.title": "Research across computing, engineering, and the digital society",
 
-  "home.uist.news.description": "The UIST Digital Repository preserves publications, theses, conference papers, project outputs, and other scholarly work from the University of Information Science and Technology \"St. Paul the Apostle\".",
+  "home.uist.news.description": "Browse UIST publications and theses in computer science and engineering, artificial intelligence and robotics, data science, communication networks and cybersecurity, visualization and multimedia, and digital business.",
 
   "home.default.title": "DSpace 9",
 

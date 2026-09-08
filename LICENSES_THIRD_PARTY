@@ -1,10 +1,14 @@
 
 DSpace uses third-party libraries which may be distributed under different licenses.
-A summary of all third-party, production dependencies used by this user interface may be found by running:
+The production dependency inventory for this source revision is recorded in
+THIRD_PARTY_LICENSES.json and THIRD_PARTY_NOTICES.txt. They are generated from the installed dependency tree
+and must be regenerated whenever package-lock.json changes:
 
-    npx license-checker --production --summary
+    npm run licenses:production
 
-(Additional license-checker options may be found in its documentation: https://github.com/davglass/license-checker)
+The inventory identifies each package, version, declared licence, and upstream
+location. THIRD_PARTY_NOTICES.txt includes the available licence text for each
+production dependency; release packaging must preserve both files.
 
 You must agree to the terms of these licenses, in addition to the DSpace source code license, in order to use this
 software.

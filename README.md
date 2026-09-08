@@ -568,3 +568,11 @@ The full license is available in the [LICENSE](LICENSE) file or online at https:
 
 DSpace uses third-party libraries which may be distributed under different licenses. Those licenses are listed
 in the [LICENSES_THIRD_PARTY](LICENSES_THIRD_PARTY) file.
+
+The versioned production dependency inventory and licence texts are available in
+[THIRD_PARTY_LICENSES.json](THIRD_PARTY_LICENSES.json) and
+[THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt); regenerate them with
+`npm run licenses:production` after changing `package-lock.json`.
+
+Brand and non-code asset provenance is recorded in
+[ASSET-NOTICES.md](ASSET-NOTICES.md).

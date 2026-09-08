@@ -6,17 +6,17 @@
   background: var(--uist-ink);
   color: #fff;
   margin-top: calc(var(--ds-content-spacing) * -1);
-  min-height: clamp(200px, 28vh, 320px);
+  min-height: clamp(390px, 46vh, 520px);
   overflow: hidden;
   position: relative;
 
   &::before {
-    background: url("/assets/images/uist-logo-full-white.png") calc(100% - clamp(1.5rem, 7vw, 9rem)) center / clamp(18rem, 34vw, 35rem) auto no-repeat;
+    background: linear-gradient(90deg, #051b30 0%, #051b30 25%, rgba(5, 27, 48, 0.8) 44%, rgba(5, 27, 48, 0.3) 67%, rgba(5, 27, 48, 0.08) 100%);
     content: "";
     inset: 0;
-    opacity: 0.12;
     pointer-events: none;
     position: absolute;
+    z-index: 1;
   }
 
   &::after {
@@ -38,24 +38,66 @@
 
   @media (max-width: 575.98px) {
     &::before {
-      display: none;
+      background: linear-gradient(90deg, rgba(5, 27, 48, 0.98) 0%, rgba(5, 27, 48, 0.86) 58%, rgba(5, 27, 48, 0.46) 100%);
+    }
+  }
+}
+
+.uist-hero__image {
+  height: 100%;
+  inset: 0 0 0 auto;
+  object-fit: cover;
+  object-position: right 42%;
+  pointer-events: none;
+  position: absolute;
+  width: 76%;
+  z-index: 0;
+
+  @media (max-width: 575.98px) {
+    object-position: 68% center;
+    width: 100%;
+  }
+}
+
+.uist-hero__credit {
+  align-items: center;
+  background: rgba(5, 27, 48, 0.75);
+  border-radius: 3px;
+  bottom: 1rem;
+  color: #fff;
+  display: flex;
+  font-size: 0.6875rem;
+  gap: 0.4rem;
+  padding: 0.3rem 0.55rem;
+  position: absolute;
+  right: max(1rem, 5vw);
+  z-index: 2;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
     }
   }
 }
 
 .uist-hero__content {
   align-self: center;
-  max-width: 850px;
-  padding: clamp(1.75rem, 3.8vw, 2.75rem) 0;
+  max-width: 760px;
+  padding: clamp(3.25rem, 7vw, 6rem) 0;
 
   h1 {
     color: #fff;
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+    font-size: clamp(2.15rem, 4.5vw, 4rem);
     font-weight: 700;
-    letter-spacing: 0;
-    line-height: 1.08;
-    margin: 0.5rem 0 0.75rem;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    margin: 0 0 1rem;
 
     @media (min-width: 576px) {
       white-space: nowrap;
@@ -63,15 +105,23 @@
   }
 
   p {
-    color: rgba(255, 255, 255, 0.82);
-    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(0.95rem, 1.35vw, 1.15rem);
     line-height: 1.65;
-    margin-bottom: 1rem;
-    max-width: 600px;
+    margin-bottom: 1.75rem;
+    max-width: 610px;
   }
 
   .uist-field-search {
     max-width: 720px;
+
+    &__bar {
+      background: rgba(15, 41, 62, 0.94);
+    }
+
+    &__input::placeholder {
+      color: rgba(255, 255, 255, 0.72);
+    }
   }
 }
 
@@ -190,15 +240,10 @@
   position: relative;
 
   &__bar {
-    -webkit-backdrop-filter: blur(20px);
     align-items: stretch;
-    backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.1);
     border: 1.5px solid rgba(255, 255, 255, 0.18);
-    border-radius: 60px;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
     display: flex;
     overflow: hidden;
     transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -206,10 +251,7 @@
     &:focus-within {
       background: rgba(255, 255, 255, 0.15);
       border-color: rgba(255, 255, 255, 0.35);
-      box-shadow:
-        0 0 0 4px rgba(255, 255, 255, 0.1),
-        0 12px 40px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 3px rgba(107, 182, 223, 0.3);
     }
   }
 
@@ -271,7 +313,7 @@
     align-items: center;
     background: #fff;
     border: none;
-    border-radius: 0 60px 60px 0;
+    border-radius: 0;
     color: var(--uist-navy);
     cursor: pointer;
     display: flex;
@@ -302,7 +344,7 @@
 @include media-breakpoint-down(sm) {
   .uist-field-search {
     &__bar {
-      border-radius: 18px;
+      border-radius: 4px;
       flex-wrap: wrap;
     }
 
@@ -320,7 +362,7 @@
     }
 
     &__btn {
-      border-radius: 0 0 18px 18px;
+      border-radius: 0;
       height: 42px;
       justify-content: center;
       width: 100%;

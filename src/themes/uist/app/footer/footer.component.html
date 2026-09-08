@@ -1,62 +1,72 @@
 <footer class="site-footer">
-  <div class="bottom-footer">
-    <div class="container footer-shell">
-      <div class="footer-hero">
-        <div class="brand-lockup">
-          <div class="brand-mark">
-            <img
-              src="assets/images/uist-logo-full-white.png"
-              [attr.alt]="'repository.image.logo' | translate"
-            />
-          </div>
-          <div class="brand-copy">
-            <p class="eyebrow mb-2">{{ 'footer.uist.title' | translate }}</p>
-            <p class="description mb-0">
-              {{ 'footer.uist.description' | translate }}
-            </p>
-          </div>
-        </div>
-        <a href="https://uist.edu.mk/" class="uist-footer-link" rel="noopener">{{ 'footer.uist.visit-site' | translate }}</a>
+  <div class="container footer-shell">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand-mark" href="https://uist.edu.mk/"
+           [attr.aria-label]="'footer.uist.visit-site' | translate">
+          <img src="assets/images/uist-logo-full-white.png"
+               [attr.alt]="'footer.uist.institution' | translate" />
+        </a>
+        <p class="footer-title">{{ 'footer.uist.title' | translate }}</p>
+        <p class="footer-description">{{ 'footer.uist.description' | translate }}</p>
       </div>
 
-      <div class="footer-meta">
-        <p class="footer-copy mb-0">
-          {{ 'footer.uist.institution' | translate }}
-          {{ 'footer.copyright' | translate:{year: dateObj | date:'y'} }}
-        </p>
+      <nav [attr.aria-labelledby]="'footer-explore-heading'">
+        <h2 id="footer-explore-heading" class="footer-heading">{{ 'footer.uist.explore' | translate }}</h2>
+        <ul class="footer-links">
+          <li><a routerLink="/search">{{ 'footer.uist.search' | translate }}</a></li>
+          <li><a routerLink="/community-list">{{ 'footer.uist.collections' | translate }}</a></li>
+          <li><a routerLink="/browse/author">{{ 'footer.uist.authors' | translate }}</a></li>
+        </ul>
+      </nav>
 
-        <ul class="footer-info list-unstyled mb-0">
+      <nav [attr.aria-labelledby]="'footer-university-heading'">
+        <h2 id="footer-university-heading" class="footer-heading">{{ 'footer.uist.university' | translate }}</h2>
+        <ul class="footer-links">
+          <li><a href="https://uist.edu.mk/">{{ 'footer.uist.website' | translate }} <span class="external-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://uist.edu.mk/about/uist/">{{ 'footer.uist.about' | translate }} <span class="external-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://uist.edu.mk/e-library/">{{ 'footer.uist.library' | translate }} <span class="external-arrow" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h2 class="footer-heading">{{ 'footer.uist.contact' | translate }}</h2>
+        <address>
+          <p class="footer-address">{{ 'footer.uist.address' | translate }}</p>
+          <ul class="footer-links">
+            <li><a href="mailto:contact@uist.edu.mk">contact&#64;uist.edu.mk</a></li>
+            <li><a href="tel:+38946511000">+389 46 511 000</a></li>
+          </ul>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <p class="footer-copy">
+        {{ 'footer.uist.copyright' | translate:{year: dateObj | date:'y'} }}
+        <span>{{ 'footer.uist.institution' | translate }}</span>
+      </p>
+      <nav [attr.aria-label]="'footer.uist.policies' | translate">
+        <ul class="footer-info">
           @if (showCookieSettings) {
             <li>
-              <button class="btn btn-link footer-action" type="button" (click)="openCookieSettings()" role="button" tabindex="0">
-                {{ 'footer.link.cookies' | translate}}
+              <button class="footer-action" type="button" (click)="openCookieSettings()">
+                {{ 'footer.link.cookies' | translate }}
               </button>
             </li>
           }
-          <li>
-            <a class="btn footer-action"
-               routerLink="info/accessibility" role="link" tabindex="0">{{ 'footer.link.accessibility' | translate }}</a>
-          </li>
+          <li><a class="footer-action" routerLink="/info/accessibility">{{ 'footer.link.accessibility' | translate }}</a></li>
           @if (showPrivacyPolicy) {
-            <li>
-              <a class="btn footer-action"
-                 routerLink="info/privacy" role="link" tabindex="0">{{ 'footer.link.privacy-policy' | translate}}</a>
-            </li>
+            <li><a class="footer-action" routerLink="/info/privacy">{{ 'footer.link.privacy-policy' | translate }}</a></li>
           }
           @if (showEndUserAgreement) {
-            <li>
-              <a class="btn footer-action"
-                 routerLink="info/end-user-agreement" role="link" tabindex="0">{{ 'footer.link.end-user-agreement' | translate}}</a>
-            </li>
+            <li><a class="footer-action" routerLink="/info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate }}</a></li>
           }
           @if (showSendFeedback$ | async) {
-            <li>
-              <a class="btn footer-action"
-                 routerLink="info/feedback" role="link" tabindex="0">{{ 'footer.link.feedback' | translate}}</a>
-            </li>
+            <li><a class="footer-action" routerLink="/info/feedback">{{ 'footer.link.feedback' | translate }}</a></li>
           }
         </ul>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
