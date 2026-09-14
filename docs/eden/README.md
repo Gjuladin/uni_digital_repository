@@ -4,7 +4,7 @@ This directory separates EDEN work by technical area, owner, and approval bounda
 
 ## Current position
 
-- On 2026-09-14, the unchanged baseline harvester at `200c7c750501c5cc6cfc4bbcc18b0bfe80d7c380` reported all eight technical discovery mechanisms as `Found` for both local `/` and `/home` targets. The normalized results and separate raw responses are under [evidence/2026-09-14](evidence/2026-09-14/). An independent Luna run reproduced the result with no baseline regressions under [evidence/2026-09-14-independent-luna](evidence/2026-09-14-independent-luna/).
+- On 2026-09-14, the unchanged baseline harvester at `200c7c750501c5cc6cfc4bbcc18b0bfe80d7c380` reported all eight technical discovery mechanisms as `Found` for both local `/` and `/home` targets. The normalized results and separate raw responses are under [evidence/2026-09-14](evidence/2026-09-14/). An independent Luna run reproduced the result with no baseline regressions under [evidence/2026-09-14-independent-luna](evidence/2026-09-14-independent-luna/), and the [final Terra audit](evidence/2026-09-14-final-terra/final-audit.md) found no actionable product defect.
 - The linked primary repository entity is `DataCatalog`, all eight synthetic item types map correctly, and restricted-item non-disclosure is covered by the backend integration suite.
 - Frontend and backend changes are implemented and tested locally but are not deployed to the production UIST service. Read-only public checks still show the previous discovery behavior.
 - re3data and FAIRsharing were deliberately disabled during the deterministic local mechanism run. No public UIST record has been evidenced; account creation, approved claims, submission, publication, and propagation remain external authorization-dependent work.
