@@ -22,10 +22,16 @@ The harvester combines records from embedded metadata, linked metadata, and regi
 
 The live and local `/server/actuator/health` endpoint may return aggregate `DOWN` even while OpenSearch is operating normally. OpenSearch must be checked directly through `/server/opensearch/service` and an Atom/RSS search request.
 
-In the local stack, the aggregate state is explained by DSpace's built-in `SEOHealthIndicator`: it intentionally marks SEO `DOWN` when `robots.txt` contains a `localhost` URL. That is correct for a development origin and must not be addressed by disabling OpenSearch or globally suppressing the SEO indicator. In production, verify the public UI URL and forwarded host/protocol headers so the generated robots and sitemap URLs use `https://repository.uist.edu.mk`.
+In the local Compose stack, DSpace's built-in `SEOHealthIndicator` runs inside the backend container while `dspace.ui.url` is the deliberately browser-facing `http://localhost:4000`. The container therefore cannot reach the UI at that loopback address; if it could, the indicator would intentionally reject localhost URLs in `robots.txt`. This explains the SEO-only `DOWN` result without suppressing it. Database, Solr, and SSL are `UP`; direct OpenSearch description and Atom/RSS queries succeed. In production, verify the public UI URL and forwarded host/protocol headers so generated robots and sitemap URLs use the public HTTPS origin.
 
 ## Local regression operation
 
 Local-only harvesting requires `EDEN_ALLOW_PRIVATE_TARGETS=1` and binding the harvester to `127.0.0.1`; never expose that mode publicly. Fuseki can be left disabled for deterministic mechanism checks. Registry queries may be disabled or limited during local iteration, but the final post-deployment run must enable both registries.
 
 For each score-affecting checkpoint, run the checker against both `http://localhost:4000/` and `http://localhost:4000/home`, preserve its raw HTML/API/linked-document artifacts, and compare the summarized mechanism statuses with the preceding checkpoint.
+
+## Recorded local result (2026-09-14)
+
+The unchanged baseline checkout reported `Found` for embedded JSON-LD, exact meta tags, linked JSON-LD, FAIRiCat, Atom/RSS, sitemap, OpenSearch, and SearchAction for both local target URLs. The linked repository resource type was `DataCatalog`. Normalized results and raw artifacts are stored under [eden/evidence/2026-09-14](eden/evidence/2026-09-14/); a repeat run using `--baseline` reported no regressions. An independent Luna run preserved a separate raw set under [eden/evidence/2026-09-14-independent-luna](eden/evidence/2026-09-14-independent-luna/) and reproduced both passes with no baseline regressions.
+
+re3data, FAIRsharing, and Fuseki were disabled for this deterministic local mechanism run. That is optional registry/Fuseki degradation, not a product regression and not evidence of a registry record. Publication remains pending UIST approval, account ownership, submission, curator review, and external propagation.

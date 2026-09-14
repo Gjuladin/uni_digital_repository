@@ -19,7 +19,7 @@ The development team can prepare evidence, populate draft forms with approved va
 
 - Approved repository name, URL, description, institution, country, address, language, and research areas.
 - Approved public repository contact.
-- Verified production REST, OAI-PMH, OpenSearch, feeds, sitemap, Signposting, FAIRiCat, and JSON-LD URLs.
+- Production-verified REST, OAI-PMH, OpenSearch, feeds, sitemap, Signposting, FAIRiCat, and JSON-LD URLs. Local verification alone does not satisfy this prerequisite.
 - Verified enabled metadata formats and OAI-PMH crosswalks.
 - Approved content types and repository scope.
 - A decision on Handle and DOI support.

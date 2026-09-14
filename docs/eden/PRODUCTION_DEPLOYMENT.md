@@ -35,6 +35,10 @@ The code can be prepared locally, but these actions require access to or coopera
 
 The aggregate DSpace actuator may be `DOWN` even when OpenSearch works. Inspect individual health components and logs. Treat OpenSearch as healthy only when `/server/opensearch/service` and actual Atom/RSS searches succeed. A localhost sitemap causes the SEO health indicator to be `DOWN` in development; production must generate public HTTPS URLs.
 
+The read-only public check on 2026-09-14 returned HTTP 200 with `{"status":"DOWN"}` while OpenSearch description, Atom, and RSS all returned HTTP 200 with their expected media types. Component details were not exposed publicly. A production operator must inspect authenticated/local component details; this observation does not identify the failing public component and must not be “fixed” by suppressing health indicators.
+
+The same check found `/.well-known/repository.jsonld`, `/.well-known/api-catalog`, and `/home/robots.txt` returning 404, with the old invalid `/server/opensearch/search/service` URL still present in SSR HTML. Therefore no production EDEN compatibility claim is complete until the new frontend/backend are deployed and re-probed.
+
 ## Operational handoff
 
 UIST must nominate owners for application monitoring, certificate renewal, backups/restores, Handle service operation, registry record maintenance, policy reviews, and repository contact responses.

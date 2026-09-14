@@ -23,3 +23,15 @@ The tested harvester is checked out unchanged at `/Users/samil/wp2-repo-harveste
 5. Keep repository-side explicit metadata even if EDEN later accepts the fallbacks; explicit catalogue metadata is more reliable.
 
 `meta name="generator" content="DSpace 10.0"` should remain informational. It describes software, not the repository resource type, name, or organisation.
+
+## Isolated local patch evidence (2026-09-14)
+
+All seven behaviors above were reproduced against the unchanged scoring checkout at commit `200c7c750501c5cc6cfc4bbcc18b0bfe80d7c380`. A separate worktree was used for the proposed fixes:
+
+- worktree: `/Users/samil/wp2-repo-harvester-eden-parser`;
+- branch: `codex/eden-parser-robustness`;
+- local commit: `fab4179ffa7070380bbcf662f8baf628e37c9654` (`Harden EDEN landing page and linkset parsing`);
+- focused tests: 8 passed;
+- suite excluding the pre-existing port-collision test: 125 passed.
+
+The complete suite has two environment failures in `test_server` because TCP port 8000 is already in use; neither failure exercises the parser changes. The patch has not been pushed, submitted, or merged. The scoring checkout remains at the recorded commit with a clean worktree.

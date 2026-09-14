@@ -1,0 +1,466 @@
+{
+  "checkedAt": "2026-09-14T14:00:18.276Z",
+  "harvesterCommit": "200c7c750501c5cc6cfc4bbcc18b0bfe80d7c380",
+  "harvesterCheckout": "/Users/samil/wp2-repo-harvester",
+  "target": "http://localhost:4000/home",
+  "mechanismStatuses": {
+    "Embedded JSON-LD Metadata Extraction": "Found",
+    "Embedded Meta-Tags Metadata Extraction": "Found",
+    "Linked (signposting) JSON-LD Metadata Extraction": "Found",
+    "FAIRiCAT / Linkset / API Catalog Discovery": "Found",
+    "Feed (Atom/RSS) Service Discovery": "Found",
+    "Sitemap Service Discovery": "Found",
+    "OpenSearch Service Discovery": "Found",
+    "SearchAction": "Found"
+  },
+  "registryStatuses": {
+    "re3data": "Not consulted (switched off in this deployment)",
+    "FAIRsharing": "Not consulted (switched off in this deployment)"
+  },
+  "primaryTypes": [
+    "dcat:Catalog",
+    "foaf:Project"
+  ],
+  "repoURI": "http://localhost:4000/home",
+  "linkedRepositoryType": "DataCatalog",
+  "serviceTypes": [
+    "DataService",
+    "OAI-PMH",
+    "OpenSearch",
+    "ATOM",
+    "RSS",
+    "Sitemaps",
+    "DataService",
+    "SearchAction",
+    "DataService",
+    "OAI-PMH",
+    "OpenSearch",
+    "ATOM",
+    "RSS",
+    "Sitemaps",
+    "DataService",
+    "OAI-PMH",
+    "OpenSearch",
+    "ATOM",
+    "RSS",
+    "Sitemaps",
+    "FAIRiCat",
+    "ATOM",
+    "RSS",
+    "OpenSearch",
+    "Sitemaps"
+  ],
+  "responseEvidence": {
+    "landing": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "location": null
+    },
+    "report": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "location": null
+    },
+    "api": {
+      "status": 200,
+      "contentType": "application/json",
+      "location": null
+    },
+    "repositoryMetadata": {
+      "status": 200,
+      "contentType": "application/ld+json; charset=utf-8",
+      "location": null
+    },
+    "apiCatalog": {
+      "status": 200,
+      "contentType": "application/linkset+json; charset=utf-8",
+      "location": null
+    },
+    "rootRobots": {
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "location": null
+    },
+    "homeRobots": {
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "location": null
+    },
+    "openSearch": {
+      "status": 200,
+      "contentType": "application/opensearchdescription+xml;charset=UTF-8",
+      "location": null
+    },
+    "sitemap": {
+      "status": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "location": null
+    }
+  },
+  "baselineComparison": {
+    "path": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14/home.json",
+    "target": "http://localhost:4000/home",
+    "regressions": [],
+    "passed": true
+  },
+  "rawArtifacts": {
+    "landingHtml": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.landing.html",
+    "reportHtml": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.report.html",
+    "api": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.api.json",
+    "repositoryMetadata": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.repository.jsonld.json",
+    "apiCatalog": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.api-catalog.json",
+    "rootRobots": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.robots.txt",
+    "homeRobots": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.home-robots.txt",
+    "openSearch": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.opensearch.xml",
+    "sitemap": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.sitemap.xml",
+    "responseEvidence": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-09-14-independent-luna/home.response-evidence.json"
+  },
+  "passed": true,
+  "failures": [],
+  "api": {
+    "metadata": {
+      "@context": {
+        "dc": "http://purl.org/dc/terms/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dct": "http://purl.org/dc/terms/",
+        "dqv": "http://www.w3.org/ns/dqv#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+        "ldqd": "http://www.w3.org/2016/05/ldqd#",
+        "oa": "http://www.w3.org/ns/oa#",
+        "premis": "http://www.loc.gov/premis/rdf/v3/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "schema": "http://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+      },
+      "@id": "eden://harvester/embedded_jsonld/http://localhost:4000/home",
+      "@type": "dcat:CatalogRecord",
+      "dct:issued": "2026-09-14T16:00:18",
+      "foaf:primaryTopic": {
+        "@id": "http://localhost:4000/home",
+        "@type": [
+          "dcat:Catalog",
+          "foaf:Project"
+        ],
+        "dcat:contactPoint": [],
+        "dcat:keyword": [],
+        "dcat:service": [
+          {
+            "@id": "http://localhost:8080/server/api",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:8080/server/api",
+            "dct:conformsTo": "https://github.com/DSpace/RestContract",
+            "dct:title": "DSpace REST API",
+            "dct:type": "DataService"
+          },
+          {
+            "@id": "http://localhost:8080/server/oai/request",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+            "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+            "dct:title": "OAI-PMH",
+            "dct:type": "OAI-PMH"
+          },
+          {
+            "@id": "http://localhost:8080/server/opensearch/search",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+            "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+            "dct:title": "OpenSearch",
+            "dct:type": "OpenSearch"
+          },
+          {
+            "@id": "http://localhost:8080/server/opensearch/search?format=atom&query=%2A",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom&query=%2A",
+            "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+            "dct:title": "Sitewide Atom feed",
+            "dct:type": "ATOM"
+          },
+          {
+            "@id": "http://localhost:8080/server/opensearch/search?format=rss&query=%2A",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss&query=%2A",
+            "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+            "dct:title": "Sitewide RSS feed",
+            "dct:type": "RSS"
+          },
+          {
+            "@id": "http://localhost:4000/sitemap_index.xml",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+            "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+            "dct:title": "Repository sitemap",
+            "dct:type": "Sitemaps"
+          },
+          {
+            "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+            "dct:conformsTo": "https://signposting.org/",
+            "dct:title": "Signposting item links",
+            "dct:type": "DataService"
+          },
+          {
+            "@id": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+            "dct:conformsTo": "https://www.ietf.org/rfc/rfc2616",
+            "dct:format": "text/html",
+            "dct:type": "SearchAction"
+          }
+        ],
+        "dct:description": "Institutional digital repository of the University of Information Science and Technology \"St. Paul the Apostle\".",
+        "dct:identifier": [
+          "http://localhost:4000/#repository"
+        ],
+        "dct:language": [
+          "en"
+        ],
+        "dct:publisher": [
+          {
+            "@type": "foaf:Agent",
+            "foaf:homepage": "https://uist.edu.mk/",
+            "foaf:name": "University of Information Science and Technology \"St. Paul the Apostle\""
+          }
+        ],
+        "dct:title": "UIST Digital Repository",
+        "dct:type": "DataCatalog"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "eden://harvester",
+        "@type": "prov:SoftwareAgent",
+        "rdfs:label": "EDEN Catalog Service Harvester"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "eden://harvester/embedded_jsonld",
+        "@type": "prov:Activity",
+        "prov:startedAtTime": "2026-09-14T16:00:18",
+        "rdfs:label": "Embedded JSON-LD Metadata Extraction"
+      }
+    },
+    "repoURI": "http://localhost:4000/home",
+    "services": [
+      {
+        "@id": "http://localhost:8080/server/api",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/api",
+        "dct:conformsTo": "https://github.com/DSpace/RestContract",
+        "dct:title": "DSpace REST API",
+        "dct:type": "DataService"
+      },
+      {
+        "@id": "http://localhost:8080/server/oai/request",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+        "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+        "dct:title": "OAI-PMH",
+        "dct:type": "OAI-PMH"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+        "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+        "dct:title": "OpenSearch",
+        "dct:type": "OpenSearch"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=atom&query=%2A",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom&query=%2A",
+        "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+        "dct:title": "Sitewide Atom feed",
+        "dct:type": "ATOM"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=rss&query=%2A",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss&query=%2A",
+        "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+        "dct:title": "Sitewide RSS feed",
+        "dct:type": "RSS"
+      },
+      {
+        "@id": "http://localhost:4000/sitemap_index.xml",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+        "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+        "dct:title": "Repository sitemap",
+        "dct:type": "Sitemaps"
+      },
+      {
+        "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+        "dct:conformsTo": "https://signposting.org/",
+        "dct:title": "Signposting item links",
+        "dct:type": "DataService"
+      },
+      {
+        "@id": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+        "dct:conformsTo": "https://www.ietf.org/rfc/rfc2616",
+        "dct:format": "text/html",
+        "dct:type": "SearchAction"
+      },
+      {
+        "@id": "http://localhost:8080/server/api",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/api",
+        "dct:conformsTo": "https://github.com/DSpace/RestContract",
+        "dct:title": "DSpace REST API",
+        "dct:type": "DataService"
+      },
+      {
+        "@id": "http://localhost:8080/server/oai/request",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+        "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+        "dct:title": "OAI-PMH",
+        "dct:type": "OAI-PMH"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+        "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+        "dct:title": "OpenSearch",
+        "dct:type": "OpenSearch"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=atom&query=%2A",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom&query=%2A",
+        "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+        "dct:title": "Sitewide Atom feed",
+        "dct:type": "ATOM"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=rss&query=%2A",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss&query=%2A",
+        "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+        "dct:title": "Sitewide RSS feed",
+        "dct:type": "RSS"
+      },
+      {
+        "@id": "http://localhost:4000/sitemap_index.xml",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+        "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+        "dct:title": "Repository sitemap",
+        "dct:type": "Sitemaps"
+      },
+      {
+        "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+        "dct:conformsTo": "https://signposting.org/",
+        "dct:title": "Signposting item links",
+        "dct:type": "DataService"
+      },
+      {
+        "@id": "http://localhost:8080/server/api",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/api",
+        "dct:conformsTo": "https://github.com/DSpace/RestContract",
+        "dct:format": "application/hal+json",
+        "dct:title": "DSpace REST API"
+      },
+      {
+        "@id": "http://localhost:8080/server/oai/request",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+        "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+        "dct:format": "application/xml",
+        "dct:title": "OAI-PMH",
+        "dct:type": "OAI-PMH"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+        "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+        "dct:format": "application/opensearchdescription+xml",
+        "dct:title": "OpenSearch",
+        "dct:type": "OpenSearch"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=atom&query=*",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom&query=*",
+        "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+        "dct:type": "ATOM"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=rss&query=*",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss&query=*",
+        "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+        "dct:type": "RSS"
+      },
+      {
+        "@id": "http://localhost:4000/sitemap_index.xml",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+        "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+        "dct:type": "Sitemaps"
+      },
+      {
+        "@id": "http://localhost:4000/signposting/links/{uuid}",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/signposting/links/{uuid}",
+        "dct:conformsTo": "https://signposting.org/"
+      },
+      {
+        "@id": "http://localhost:4000/.well-known/api-catalog",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/.well-known/api-catalog",
+        "dct:conformsTo": "https://signposting.org/FAIRiCat/",
+        "dct:format": "application/linkset+json",
+        "dct:title": "UIST repository API catalog",
+        "dct:type": "FAIRiCat"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10",
+        "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+        "dct:format": "application/atom+xml",
+        "dct:title": "Sitewide Atom feed",
+        "dct:type": "ATOM"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/search?format=rss&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10",
+        "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+        "dct:format": "application/rss+xml",
+        "dct:title": "Sitewide RSS feed",
+        "dct:type": "RSS"
+      },
+      {
+        "@id": "http://localhost:8080/server/opensearch/service",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:8080/server/opensearch/service",
+        "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+        "dct:format": "text/xml",
+        "dct:type": "OpenSearch"
+      },
+      {
+        "@id": "http://localhost:4000/sitemap_index.xml",
+        "@type": "dcat:DataService",
+        "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+        "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+        "dct:format": "application/xml",
+        "dct:type": "Sitemaps"
+      }
+    ]
+  }
+}

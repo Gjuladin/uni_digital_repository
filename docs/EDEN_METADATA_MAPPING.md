@@ -22,3 +22,9 @@ The repository submission vocabulary currently includes Article, Book, Book chap
 After changing stored metadata or mappings, rebuild the relevant application and reindex both Discovery and OAI-PMH before evaluating the EDEN result. A configuration-only mapping change does not rewrite existing item metadata.
 
 Do not advertise DOI or Handle support in re3data, FAIRsharing, or repository-level service claims until the deployed prefixes and minting workflows have been verified. Development placeholder prefixes are not evidence of production PID support.
+
+## Local mapping evidence (2026-09-14)
+
+Synthetic fixtures in the isolated `dspace10test` volume exercised every configured submission type. The linked item JSON-LD returned `ScholarlyArticle` for Article, `Book`, `Chapter`, `Dataset`, `SoftwareSourceCode`, `Report`, `Thesis`, and the `CreativeWork` fallback for Other. Additional unit coverage confirms Preprint and Academic work. These fixtures are test data only and do not establish an official UIST content-type vocabulary.
+
+The public/discoverable metadata audit is stored in [eden/evidence/data-quality.md](eden/evidence/data-quality.md) with item-level JSON evidence alongside it. Existing `123456789/*` values are classified as unregistered example-prefix identifiers, not UIST PID support.

@@ -17,3 +17,6 @@
 
 # Generated documentation should have LF line endings to reduce git noise
 docs/lint/**/*.md eol=lf
+
+# EDEN harvester reports are raw generated evidence; do not whitespace-diff them.
+docs/eden/evidence/**/*.report.html -diff eol=lf

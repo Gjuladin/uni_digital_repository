@@ -1,0 +1,3279 @@
+{
+  "generatedAt": "2026-09-14T13:57:43.222Z",
+  "source": "http://localhost:8080/server/api/discover/search/objects",
+  "scope": "Public discoverable items returned by DSpace Discovery",
+  "itemCount": 165,
+  "excludedFixtureCount": 8,
+  "issueCount": 291,
+  "automaticCandidateCount": 0,
+  "byField": {
+    "dc.type": 0,
+    "dc.language": 1,
+    "creator": 0,
+    "licence": 123,
+    "date": 2,
+    "identifier": 165
+  },
+  "byCode": {
+    "date:non-iso-value": 2,
+    "dc.language:invalid-code": 1,
+    "identifier:unregistered-example-handle-prefix": 165,
+    "licence:missing": 123
+  },
+  "typeDistribution": {
+    "Article": 120,
+    "Book": 8,
+    "Book chapter": 29,
+    "Conference abstract": 2,
+    "Conference paper": 5,
+    "Technical Report": 1
+  },
+  "issues": [
+    {
+      "uuid": "0026c4e9-185f-4322-8294-9e74ef4ed2d8",
+      "handle": "123456789/160",
+      "title": "Social Media Use by Businesses in Europe",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "0026c4e9-185f-4322-8294-9e74ef4ed2d8",
+      "handle": "123456789/160",
+      "title": "Social Media Use by Businesses in Europe",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/160"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "027d4e1a-3999-4842-9b8f-b4c21a6971a5",
+      "handle": "123456789/103",
+      "title": "A few exercises for Square (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "027d4e1a-3999-4842-9b8f-b4c21a6971a5",
+      "handle": "123456789/103",
+      "title": "A few exercises for Square (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/103"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "058dc9a7-4e33-4041-a8c0-cf9ad18ce75e",
+      "handle": "123456789/78",
+      "title": "Impact of COVID-19 on the Macedonian E-Pharmacy Market with Survey Analysis",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/78"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "07584a50-ac5b-4f5c-bec4-85703a7d6c35",
+      "handle": "123456789/257",
+      "title": "New Literature, or the Literature of Our Time (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "07584a50-ac5b-4f5c-bec4-85703a7d6c35",
+      "handle": "123456789/257",
+      "title": "New Literature, or the Literature of Our Time (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/257"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "08181c94-6f1f-4827-897c-d3aeeb6ba8ce",
+      "handle": "123456789/242",
+      "title": "Blockchain-Integrated Chatbots and IoT: Transforming Food Delivery",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/242"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "08318d78-265d-4f3b-82d2-c7f5220d5301",
+      "handle": "123456789/166",
+      "title": "A Comparative Analysis of Informed and Uninformed Search Algorithms for the 8-Puzzle Problem with a Novel Hybrid Approach",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/166"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "08cb6094-5a5f-4a26-a574-0c7a08a146e4",
+      "handle": "123456789/186",
+      "title": "Overview of Blockchain and Cloud Computing Services Integration",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/186"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "09a90703-6796-458e-8e50-5f6d3f6cd559",
+      "handle": "123456789/95",
+      "title": "Influence of the Online Freelancing to the Labor Market",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "09a90703-6796-458e-8e50-5f6d3f6cd559",
+      "handle": "123456789/95",
+      "title": "Influence of the Online Freelancing to the Labor Market",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/95"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "0da043f1-1955-4966-9273-5404d0aa94a6",
+      "handle": "123456789/179",
+      "title": "Design and evaluation of a portable ESP8266-based IoT tool for Wi-Fi signal monitoring",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "0da043f1-1955-4966-9273-5404d0aa94a6",
+      "handle": "123456789/179",
+      "title": "Design and evaluation of a portable ESP8266-based IoT tool for Wi-Fi signal monitoring",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/179"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "1015796a-7418-48db-bb0a-e1df50295f0e",
+      "handle": "123456789/126",
+      "title": "Information Theory for Medical Data Fusion",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "1015796a-7418-48db-bb0a-e1df50295f0e",
+      "handle": "123456789/126",
+      "title": "Information Theory for Medical Data Fusion",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/126"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "10b1f6bd-fd5f-4418-9140-a4620c443900",
+      "handle": "123456789/210",
+      "title": "An automated ranking model of higher education institutions and academic staff in the Republic of Macedonia",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "10b1f6bd-fd5f-4418-9140-a4620c443900",
+      "handle": "123456789/210",
+      "title": "An automated ranking model of higher education institutions and academic staff in the Republic of Macedonia",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/210"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "11d7f939-e2da-4387-bcd4-ec9b2e26c67c",
+      "handle": "123456789/248",
+      "title": "Enhancing Language Models with Retrieval-Augmented Generation: A Comparative Study on Performance",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "11d7f939-e2da-4387-bcd4-ec9b2e26c67c",
+      "handle": "123456789/248",
+      "title": "Enhancing Language Models with Retrieval-Augmented Generation: A Comparative Study on Performance",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/248"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "12379f87-8b57-4211-aca3-a2b6c5cbeb4c",
+      "handle": "123456789/261",
+      "title": "Privacy Risks and Security Threats in Online Social Networks",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "12379f87-8b57-4211-aca3-a2b6c5cbeb4c",
+      "handle": "123456789/261",
+      "title": "Privacy Risks and Security Threats in Online Social Networks",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/261"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "1517f09c-ee66-429f-b679-96cc5e4a8a1d",
+      "handle": "123456789/109",
+      "title": "Mathematical modelling of scalability and performance testing methods for evaluating server capabilities",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "1517f09c-ee66-429f-b679-96cc5e4a8a1d",
+      "handle": "123456789/109",
+      "title": "Mathematical modelling of scalability and performance testing methods for evaluating server capabilities",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/109"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "15c402bb-6edf-4999-bcdb-f32f10f9a531",
+      "handle": "123456789/119",
+      "title": "Design of the Functional Entities of the BloHeS System",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "15c402bb-6edf-4999-bcdb-f32f10f9a531",
+      "handle": "123456789/119",
+      "title": "Design of the Functional Entities of the BloHeS System",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/119"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "15d5a23f-6be6-4e5a-a804-f8ee65c2ee3a",
+      "handle": "123456789/129",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions (2nd ed.)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "15d5a23f-6be6-4e5a-a804-f8ee65c2ee3a",
+      "handle": "123456789/129",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions (2nd ed.)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/129"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "160af907-7866-4046-a361-377264ec9568",
+      "handle": "123456789/230",
+      "title": "Industry Symbiosis – Literature Review and Situation in North Macedonia",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "160af907-7866-4046-a361-377264ec9568",
+      "handle": "123456789/230",
+      "title": "Industry Symbiosis – Literature Review and Situation in North Macedonia",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/230"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "163a584e-d633-4abb-8567-38109e63cd7d",
+      "handle": "123456789/107",
+      "title": "Diophantine equations (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "163a584e-d633-4abb-8567-38109e63cd7d",
+      "handle": "123456789/107",
+      "title": "Diophantine equations (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/107"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "18ddc867-4d1b-45d9-ad6d-0a6bff85a1f4",
+      "handle": "123456789/94",
+      "title": "BlockMedCare: Advancing healthcare through blockchain integration with AI and IoT",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "18ddc867-4d1b-45d9-ad6d-0a6bff85a1f4",
+      "handle": "123456789/94",
+      "title": "BlockMedCare: Advancing healthcare through blockchain integration with AI and IoT",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/94"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "1ba6fee3-3465-4ff2-b77b-e7ab359d03d5",
+      "handle": "123456789/152",
+      "title": "Silver Economy as an Opportunity for SME Growth",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "1ba6fee3-3465-4ff2-b77b-e7ab359d03d5",
+      "handle": "123456789/152",
+      "title": "Silver Economy as an Opportunity for SME Growth",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/152"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "22aeed41-b3f8-4632-a7cf-9cfda93c0fa1",
+      "handle": "123456789/110",
+      "title": "Overview and performance analysis of the latest supercomputer",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "22aeed41-b3f8-4632-a7cf-9cfda93c0fa1",
+      "handle": "123456789/110",
+      "title": "Overview and performance analysis of the latest supercomputer",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/110"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "22f3b283-03b6-4155-9993-7b6b726082d5",
+      "handle": "123456789/154",
+      "title": "Sensor system for real-time water quality monitoring",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/154"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "274a003b-bd14-43d9-9b90-5b569bc1b00f",
+      "handle": "123456789/162",
+      "title": "EHR system tracks prisoner's data across countries to monitor COVID-19 in U.S. State and Federal Prisons",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/162"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "2b56dd6a-19ac-462f-a257-bec3ff9ee177",
+      "handle": "123456789/138",
+      "title": "Coordinated Multi-View Visual Analytics for AWS VPC Flow Log Analysis",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/138"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "2bde816f-c7c9-473d-81d6-d4fd95faa2cd",
+      "handle": "123456789/183",
+      "title": "Blockchain Empowering Web 3.0: Decentralized Trust and Secure Transactions for the Future Internet",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/183"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "2cbacfc3-b8a1-455a-8a4d-0e74c8357eb9",
+      "handle": "123456789/80",
+      "title": "The ARTICONF Approach to Decentralized Car-Sharing",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/80"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "2dacd5bc-4023-4201-8527-9789a864d7be",
+      "handle": "123456789/203",
+      "title": "Analysis of Gender Differences in COVID-19",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "2dacd5bc-4023-4201-8527-9789a864d7be",
+      "handle": "123456789/203",
+      "title": "Analysis of Gender Differences in COVID-19",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/203"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "307a081e-1b63-43e1-8365-ec6e16344d53",
+      "handle": "123456789/100",
+      "title": "Mathematics in Everyday Life",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "307a081e-1b63-43e1-8365-ec6e16344d53",
+      "handle": "123456789/100",
+      "title": "Mathematics in Everyday Life",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/100"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "30f26537-fa0b-440d-afdb-9e313c3609b7",
+      "handle": "123456789/117",
+      "title": "Non-Fungible Token Model for Wildlife Conservation",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "30f26537-fa0b-440d-afdb-9e313c3609b7",
+      "handle": "123456789/117",
+      "title": "Non-Fungible Token Model for Wildlife Conservation",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/117"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3438deb0-8e63-4c37-8cc4-1980e8263ac3",
+      "handle": "123456789/232",
+      "title": "Examining the software piracy problem through the case of the Macedonian economy",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3438deb0-8e63-4c37-8cc4-1980e8263ac3",
+      "handle": "123456789/232",
+      "title": "Examining the software piracy problem through the case of the Macedonian economy",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/232"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "357b1b84-7665-465e-8388-809947297e04",
+      "handle": "123456789/120",
+      "title": "Gamification of NFT collections: Virtual NFT gallery",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "357b1b84-7665-465e-8388-809947297e04",
+      "handle": "123456789/120",
+      "title": "Gamification of NFT collections: Virtual NFT gallery",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/120"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "36577061-ea64-4a29-ba7b-7ad3f9a23952",
+      "handle": "123456789/76",
+      "title": "Blockchain Technology toward Creating a Smart Local Food Supply Chain",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/76"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "38c6fa47-2f86-468e-8924-11da3d7d6f1b",
+      "handle": "123456789/208",
+      "title": "Novel Methodology for Improving the Generalization Capability of Chemo-Informatics Deep Learning Models",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "38c6fa47-2f86-468e-8924-11da3d7d6f1b",
+      "handle": "123456789/208",
+      "title": "Novel Methodology for Improving the Generalization Capability of Chemo-Informatics Deep Learning Models",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/208"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "394ee619-f724-4b46-93c5-f0d1e06ad953",
+      "handle": "123456789/241",
+      "title": "Overview of Memory-Efficient Architectures for Deep Learning in Real-Time Systems",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/241"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3aae54cc-f009-4f39-828e-a09ed20b7197",
+      "handle": "123456789/190",
+      "title": "Trade-offs between Anonymity and Performance in Mix Networks",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3aae54cc-f009-4f39-828e-a09ed20b7197",
+      "handle": "123456789/190",
+      "title": "Trade-offs between Anonymity and Performance in Mix Networks",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/190"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3ae10afa-1ca0-4096-ab9a-82c28d82ab3c",
+      "handle": "123456789/143",
+      "title": "COVID-19 Pandemic Management: A Cloud-Based Electronic Health Record System",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3ae10afa-1ca0-4096-ab9a-82c28d82ab3c",
+      "handle": "123456789/143",
+      "title": "COVID-19 Pandemic Management: A Cloud-Based Electronic Health Record System",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/143"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "3edc3ced-31b1-49c1-bfd5-5df2185053ef",
+      "handle": "123456789/250",
+      "title": "Automated classification of fish using machine learning and pattern recognition",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/250"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4018a603-7be7-4b97-bcc3-aec7e8d22381",
+      "handle": "123456789/245",
+      "title": "Crowdsourcing for language learning in Turkey, Bosnia and Herzegovina, Republic of North Macedonia and Poland",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4018a603-7be7-4b97-bcc3-aec7e8d22381",
+      "handle": "123456789/245",
+      "title": "Crowdsourcing for language learning in Turkey, Bosnia and Herzegovina, Republic of North Macedonia and Poland",
+      "field": "date",
+      "code": "non-iso-value",
+      "values": [
+        "2021/06/30"
+      ],
+      "correction": "Normalize only when the original date meaning is unambiguous.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4018a603-7be7-4b97-bcc3-aec7e8d22381",
+      "handle": "123456789/245",
+      "title": "Crowdsourcing for language learning in Turkey, Bosnia and Herzegovina, Republic of North Macedonia and Poland",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/245"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "40a36f65-7db5-452e-a93e-ec5ac30973ef",
+      "handle": "123456789/149",
+      "title": "Croatia, North Macedonia and Mauritius – Industrial Symbiosis barriers comparison",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "40a36f65-7db5-452e-a93e-ec5ac30973ef",
+      "handle": "123456789/149",
+      "title": "Croatia, North Macedonia and Mauritius – Industrial Symbiosis barriers comparison",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/149"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "419d98ad-a722-4645-a06c-970c97037392",
+      "handle": "123456789/263",
+      "title": "What makes anglicisms survive? A corpus-based study of patterns of conventionalization, institutionalization and lexicalization",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "419d98ad-a722-4645-a06c-970c97037392",
+      "handle": "123456789/263",
+      "title": "What makes anglicisms survive? A corpus-based study of patterns of conventionalization, institutionalization and lexicalization",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/263"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4284cf89-e2e6-433f-886f-25bc22ea301d",
+      "handle": "123456789/228",
+      "title": "Optimizing customer journey through advanced analytics techniques over Google Analytics 4 data in Google BigQuery",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4284cf89-e2e6-433f-886f-25bc22ea301d",
+      "handle": "123456789/228",
+      "title": "Optimizing customer journey through advanced analytics techniques over Google Analytics 4 data in Google BigQuery",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/228"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "42bdc12d-ad0f-437d-8167-d56192e04d71",
+      "handle": "123456789/177",
+      "title": "Quantum AI for Ethical Decision-Making in Medical Education",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "42bdc12d-ad0f-437d-8167-d56192e04d71",
+      "handle": "123456789/177",
+      "title": "Quantum AI for Ethical Decision-Making in Medical Education",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/177"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4312a0ef-69a3-434e-9a10-e3ffce16e962",
+      "handle": "123456789/176",
+      "title": "The Role of Human Error in Cybersecurity Threats – Minimizing Risks in Information Systems",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4312a0ef-69a3-434e-9a10-e3ffce16e962",
+      "handle": "123456789/176",
+      "title": "The Role of Human Error in Cybersecurity Threats – Minimizing Risks in Information Systems",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/176"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "45dd2f36-effd-4bd2-b97a-5beda40c13f0",
+      "handle": "123456789/87",
+      "title": "A novel model-driven deterministic approach to wind power imputation",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/87"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4631224d-b158-4c4b-b4dd-290f31ab0233",
+      "handle": "123456789/151",
+      "title": "Innovative Data-Driven Email Campaign Strategies with Salesforce Marketing Cloud",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4631224d-b158-4c4b-b4dd-290f31ab0233",
+      "handle": "123456789/151",
+      "title": "Innovative Data-Driven Email Campaign Strategies with Salesforce Marketing Cloud",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/151"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4687c6f6-af4e-435a-8362-28e7fc4cb52f",
+      "handle": "123456789/258",
+      "title": "The COST Network and Its Significance for the Digitalization of Culture (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4687c6f6-af4e-435a-8362-28e7fc4cb52f",
+      "handle": "123456789/258",
+      "title": "The COST Network and Its Significance for the Digitalization of Culture (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/258"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4955f410-09b2-4e91-82b6-c5eefc087bdc",
+      "handle": "123456789/196",
+      "title": "Tools for Analytics and Cognition for Crowd Journalism Application",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4955f410-09b2-4e91-82b6-c5eefc087bdc",
+      "handle": "123456789/196",
+      "title": "Tools for Analytics and Cognition for Crowd Journalism Application",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/196"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4a381b09-de6b-41ad-a893-0739b8c198ec",
+      "handle": "123456789/201",
+      "title": "Enhancing Facial Recognition Through 3D Depth Map Optimization",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/201"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4a9eaf74-5d5f-4b0d-9a91-da05b643d7ff",
+      "handle": "123456789/81",
+      "title": "Trading Application Based on Blockchain Technology",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "4a9eaf74-5d5f-4b0d-9a91-da05b643d7ff",
+      "handle": "123456789/81",
+      "title": "Trading Application Based on Blockchain Technology",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/81"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "5062b7c1-b384-4483-bc86-60bcdf56c30d",
+      "handle": "123456789/269",
+      "title": "[Abstract only – paper title not specified]",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "5062b7c1-b384-4483-bc86-60bcdf56c30d",
+      "handle": "123456789/269",
+      "title": "[Abstract only – paper title not specified]",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/269"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "50750972-6ae8-4100-a685-c009b144a251",
+      "handle": "123456789/93",
+      "title": "Block MedCare: Advancing healthcare through blockchain integration",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "50750972-6ae8-4100-a685-c009b144a251",
+      "handle": "123456789/93",
+      "title": "Block MedCare: Advancing healthcare through blockchain integration",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/93"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "52336aec-2a54-4302-856b-c71c5dd95ffe",
+      "handle": "123456789/115",
+      "title": "Comparative Analysis of Large Language Models: On-Premise Architectures vs. Cloud-Based Deployments",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "52336aec-2a54-4302-856b-c71c5dd95ffe",
+      "handle": "123456789/115",
+      "title": "Comparative Analysis of Large Language Models: On-Premise Architectures vs. Cloud-Based Deployments",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/115"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "534deec4-1403-4d6c-886e-c4d5270f421a",
+      "handle": "123456789/239",
+      "title": "Threats Targeting Children on Online Social Networks",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "534deec4-1403-4d6c-886e-c4d5270f421a",
+      "handle": "123456789/239",
+      "title": "Threats Targeting Children on Online Social Networks",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/239"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "583917b5-4b5c-48be-a1aa-c43e90325e31",
+      "handle": "123456789/82",
+      "title": "Fast Decoding of Images with Cryptcodes for Burst Channels",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/82"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "58df4f27-ae7b-4e57-9e56-318fafd377ab",
+      "handle": "123456789/144",
+      "title": "Brain tumor classification via UNet architecture of CNN technique",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "58df4f27-ae7b-4e57-9e56-318fafd377ab",
+      "handle": "123456789/144",
+      "title": "Brain tumor classification via UNet architecture of CNN technique",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/144"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "5bec23ec-2f93-4839-adb1-5813d586384c",
+      "handle": "123456789/270",
+      "title": "Artificial Bee Colony algorithm applied in optimization problems",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "5bec23ec-2f93-4839-adb1-5813d586384c",
+      "handle": "123456789/270",
+      "title": "Artificial Bee Colony algorithm applied in optimization problems",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/270"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "5f578bc0-569e-4d20-b4a0-027ff1299e72",
+      "handle": "123456789/69",
+      "title": "The Gig Economy and Employment Creation in the Digital Era: Exploring the Opportunities and Facilitating Conditions for Policy Considerations",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "5f578bc0-569e-4d20-b4a0-027ff1299e72",
+      "handle": "123456789/69",
+      "title": "The Gig Economy and Employment Creation in the Digital Era: Exploring the Opportunities and Facilitating Conditions for Policy Considerations",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/69"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "604484e4-485e-4db1-9a2f-c216fdc4abbb",
+      "handle": "123456789/75",
+      "title": "Low-Cost Arduino Environmental Monitoring: Structured vs. Unstructured Data Formats",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "604484e4-485e-4db1-9a2f-c216fdc4abbb",
+      "handle": "123456789/75",
+      "title": "Low-Cost Arduino Environmental Monitoring: Structured vs. Unstructured Data Formats",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/75"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6090a2ad-5afb-42e5-b3cb-1dd1e6b3359e",
+      "handle": "123456789/180",
+      "title": "AWS-Based Chatbot and IoT Framework in Healthcare",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6090a2ad-5afb-42e5-b3cb-1dd1e6b3359e",
+      "handle": "123456789/180",
+      "title": "AWS-Based Chatbot and IoT Framework in Healthcare",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/180"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6410d0d1-2241-46b1-8a87-46a23a4bc5f1",
+      "handle": "123456789/253",
+      "title": "Autumn Mathematical School 2020: Lectures for VIII and IX grade primary school and high school students (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6410d0d1-2241-46b1-8a87-46a23a4bc5f1",
+      "handle": "123456789/253",
+      "title": "Autumn Mathematical School 2020: Lectures for VIII and IX grade primary school and high school students (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/253"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6483c53a-2c92-4e65-8789-6ff33e05a82a",
+      "handle": "123456789/235",
+      "title": "Design and Deployment of Custom GPT Solutions Using Azure OpenAI Service",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6483c53a-2c92-4e65-8789-6ff33e05a82a",
+      "handle": "123456789/235",
+      "title": "Design and Deployment of Custom GPT Solutions Using Azure OpenAI Service",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/235"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "65676b3d-90c1-4aa2-8780-740e9c5414e4",
+      "handle": "123456789/244",
+      "title": "Crowdsourcing and language learning habits and practices in Turkey, Bosnia and Herzegovina, the Republic of North Macedonia and Poland in the pre-pandemic and pandemic periods",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/244"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "65700352-a905-4a99-940f-f663c0b6311f",
+      "handle": "123456789/224",
+      "title": "The Future of Web Crowdfunding: An Ethereum Blockchain Approach",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "65700352-a905-4a99-940f-f663c0b6311f",
+      "handle": "123456789/224",
+      "title": "The Future of Web Crowdfunding: An Ethereum Blockchain Approach",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/224"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "666bb589-7e54-4e0e-9094-c28c41eaad03",
+      "handle": "123456789/215",
+      "title": "From Earthquakes to Age Quakes: Promoting the Silver Economy and Gearing Toward a Sustainable Aging Population in Mauritius",
+      "field": "dc.language",
+      "code": "invalid-code",
+      "values": [
+        "English"
+      ],
+      "correction": "Review against the repository language vocabulary.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "666bb589-7e54-4e0e-9094-c28c41eaad03",
+      "handle": "123456789/215",
+      "title": "From Earthquakes to Age Quakes: Promoting the Silver Economy and Gearing Toward a Sustainable Aging Population in Mauritius",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "666bb589-7e54-4e0e-9094-c28c41eaad03",
+      "handle": "123456789/215",
+      "title": "From Earthquakes to Age Quakes: Promoting the Silver Economy and Gearing Toward a Sustainable Aging Population in Mauritius",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/215"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "66fde7ad-420f-4723-88f3-349d071d35d2",
+      "handle": "123456789/114",
+      "title": "Film as an attitude toward culture: David Fincher's adaptation of 'Fight Club' by Chuck Palahniuk (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "66fde7ad-420f-4723-88f3-349d071d35d2",
+      "handle": "123456789/114",
+      "title": "Film as an attitude toward culture: David Fincher's adaptation of 'Fight Club' by Chuck Palahniuk (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/114"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "67a7446d-dd92-4e9b-b99f-a3ff63d0110c",
+      "handle": "123456789/214",
+      "title": "Virtual Reality, Real Emergency: Integrating AR/VR in Computing and Medical Crisis Management",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "67a7446d-dd92-4e9b-b99f-a3ff63d0110c",
+      "handle": "123456789/214",
+      "title": "Virtual Reality, Real Emergency: Integrating AR/VR in Computing and Medical Crisis Management",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/214"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "67ca15c0-93dc-42b5-a756-99ccb678492b",
+      "handle": "123456789/155",
+      "title": "Intelligent Real-Time Face Mask and Temperature Recognition Using Deep Learning on Raspberry Pi",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/155"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "680b36e5-d99f-4c42-82ac-5b47bbd83ad0",
+      "handle": "123456789/240",
+      "title": "Human Rights AI Assistants: Empowering Global Citizens in the Digital Age",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "680b36e5-d99f-4c42-82ac-5b47bbd83ad0",
+      "handle": "123456789/240",
+      "title": "Human Rights AI Assistants: Empowering Global Citizens in the Digital Age",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/240"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6ce5cc6a-710d-45d0-8a5b-b2a79217ecfd",
+      "handle": "123456789/216",
+      "title": "Silver Economy",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6ce5cc6a-710d-45d0-8a5b-b2a79217ecfd",
+      "handle": "123456789/216",
+      "title": "Silver Economy",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/216"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6ea43413-7abd-43ae-87c3-bd7b449877ee",
+      "handle": "123456789/156",
+      "title": "A Mathematical Concept in Lens-Based Media: Revisiting the Golden Ratio",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6ea43413-7abd-43ae-87c3-bd7b449877ee",
+      "handle": "123456789/156",
+      "title": "A Mathematical Concept in Lens-Based Media: Revisiting the Golden Ratio",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/156"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6eec4e48-eaa5-4094-9d85-98997b960a65",
+      "handle": "123456789/158",
+      "title": "AI-Driven Smart Drying: Enhancing Efficiency in Transformer Production Systems",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6eec4e48-eaa5-4094-9d85-98997b960a65",
+      "handle": "123456789/158",
+      "title": "AI-Driven Smart Drying: Enhancing Efficiency in Transformer Production Systems",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/158"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "6f8aca34-29c0-4083-8586-497e7002a1ad",
+      "handle": "123456789/178",
+      "title": "Cloud-Based AI Surveillance for Motion Detection and Facial Recognition",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/178"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "70a500bb-de3c-432f-8de9-a75def7570da",
+      "handle": "123456789/223",
+      "title": "Legendre Neural Network Method for Solving Nonlinear Singular Systems",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "70a500bb-de3c-432f-8de9-a75def7570da",
+      "handle": "123456789/223",
+      "title": "Legendre Neural Network Method for Solving Nonlinear Singular Systems",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/223"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "716af9fa-2fd4-431c-bd6f-8c72a6a51968",
+      "handle": "123456789/105",
+      "title": "Counting lines and 2D figures – part 1 (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "716af9fa-2fd4-431c-bd6f-8c72a6a51968",
+      "handle": "123456789/105",
+      "title": "Counting lines and 2D figures – part 1 (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/105"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "72bf2980-1cef-4919-ae22-19ab1b12409c",
+      "handle": "123456789/266",
+      "title": "Computational Photography Assessment: A Framework for Image Quality and Composition Analysis",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "72bf2980-1cef-4919-ae22-19ab1b12409c",
+      "handle": "123456789/266",
+      "title": "Computational Photography Assessment: A Framework for Image Quality and Composition Analysis",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/266"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7422a9e1-df3c-422c-8626-7c56b01735de",
+      "handle": "123456789/88",
+      "title": "A Hybrid Machine Learning Approach of Fuzzy-rough-k-nearest Neighbor, Latent Semantic Analysis, and Ranker Search for Efficient Disease Diagnosis",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7422a9e1-df3c-422c-8626-7c56b01735de",
+      "handle": "123456789/88",
+      "title": "A Hybrid Machine Learning Approach of Fuzzy-rough-k-nearest Neighbor, Latent Semantic Analysis, and Ranker Search for Efficient Disease Diagnosis",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/88"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "75c32623-cf7e-4827-8239-71549878ce5e",
+      "handle": "123456789/222",
+      "title": "Blockchain network with artificial intelligence – DeFi affair management",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "75c32623-cf7e-4827-8239-71549878ce5e",
+      "handle": "123456789/222",
+      "title": "Blockchain network with artificial intelligence – DeFi affair management",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/222"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "76fea934-8fe5-40b5-afae-4f491136f195",
+      "handle": "123456789/256",
+      "title": "Alienation in Everyday Life: Applying Gestalt Theory and Methodology to 'Never Let Me Go' by Kazuo Ishiguro (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "76fea934-8fe5-40b5-afae-4f491136f195",
+      "handle": "123456789/256",
+      "title": "Alienation in Everyday Life: Applying Gestalt Theory and Methodology to 'Never Let Me Go' by Kazuo Ishiguro (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/256"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "788287e7-077e-4e77-ad9d-b044d41136ec",
+      "handle": "123456789/251",
+      "title": "Rise of the Online GIG Economy – An Opportunity for the Development of the Developing Economies",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "788287e7-077e-4e77-ad9d-b044d41136ec",
+      "handle": "123456789/251",
+      "title": "Rise of the Online GIG Economy – An Opportunity for the Development of the Developing Economies",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/251"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7a14a8f9-6f98-4e48-9a80-c813a6b940d3",
+      "handle": "123456789/220",
+      "title": "Emerging Computer Technologies",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7a14a8f9-6f98-4e48-9a80-c813a6b940d3",
+      "handle": "123456789/220",
+      "title": "Emerging Computer Technologies",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/220"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7ae852bb-84f8-41c3-a996-48b6606f7bd1",
+      "handle": "123456789/259",
+      "title": "Review of the novel 'The Northwestern Wind' by Zdenko Basic (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7ae852bb-84f8-41c3-a996-48b6606f7bd1",
+      "handle": "123456789/259",
+      "title": "Review of the novel 'The Northwestern Wind' by Zdenko Basic (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/259"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7b68f47c-7bbf-4636-aaef-3b0ce04e2569",
+      "handle": "123456789/73",
+      "title": "Secondary Structure Prediction of RNA using Convolutional Neural Networks",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7b68f47c-7bbf-4636-aaef-3b0ce04e2569",
+      "handle": "123456789/73",
+      "title": "Secondary Structure Prediction of RNA using Convolutional Neural Networks",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/73"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7bd819ac-3fb4-4202-bb13-72ae6283d285",
+      "handle": "123456789/71",
+      "title": "Log Analysis with Hadoop MapReduce",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7bd819ac-3fb4-4202-bb13-72ae6283d285",
+      "handle": "123456789/71",
+      "title": "Log Analysis with Hadoop MapReduce",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/71"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "7e8b0841-f099-473e-92b3-8eff15c005b5",
+      "handle": "123456789/84",
+      "title": "Extraction of anglicisms from a corpus of Macedonian magazine texts",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/84"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8148ed48-c4ad-4dcc-abbb-60224135d51a",
+      "handle": "123456789/101",
+      "title": "Binary number system and binary coding",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8148ed48-c4ad-4dcc-abbb-60224135d51a",
+      "handle": "123456789/101",
+      "title": "Binary number system and binary coding",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/101"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "84119faf-7d68-4f38-905a-2c9d0c555bd1",
+      "handle": "123456789/181",
+      "title": "Architectural Scalability of Conversational Chatbot: The Case of ChatGPT",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "84119faf-7d68-4f38-905a-2c9d0c555bd1",
+      "handle": "123456789/181",
+      "title": "Architectural Scalability of Conversational Chatbot: The Case of ChatGPT",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/181"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "85f7a1fb-2e9e-46dd-bb7e-7ab7a78ac807",
+      "handle": "123456789/146",
+      "title": "Energy management system based on wireless sensor networks and power line communications",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/146"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "86947e1e-42d6-43d9-9502-59f0f0665f53",
+      "handle": "123456789/96",
+      "title": "Artificial Intelligence Based Model in the Provision of Financial Services",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "86947e1e-42d6-43d9-9502-59f0f0665f53",
+      "handle": "123456789/96",
+      "title": "Artificial Intelligence Based Model in the Provision of Financial Services",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/96"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "88c25675-8cd6-48a7-b70c-ccad1af21590",
+      "handle": "123456789/118",
+      "title": "Modern Threats in Online Social Networks, Privacy Solutions offered by OSN Providers and Commercial Solutions",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "88c25675-8cd6-48a7-b70c-ccad1af21590",
+      "handle": "123456789/118",
+      "title": "Modern Threats in Online Social Networks, Privacy Solutions offered by OSN Providers and Commercial Solutions",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/118"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "88c45234-e806-4570-9caf-651852c6633f",
+      "handle": "123456789/77",
+      "title": "Exact solution of an inverse problem for affine images of IFS attractors",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/77"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8a346d61-76c0-43a2-a3ba-c0d7d91cbce8",
+      "handle": "123456789/131",
+      "title": "Mathematical Statistics with Examples in R",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8a346d61-76c0-43a2-a3ba-c0d7d91cbce8",
+      "handle": "123456789/131",
+      "title": "Mathematical Statistics with Examples in R",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/131"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8c999142-6cdd-4ed4-8f41-892f261d0b05",
+      "handle": "123456789/243",
+      "title": "Emergency online learning during the first Covid-19 period: students' perspectives",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/243"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8d63a235-21f6-43e9-8b28-f77d567d369a",
+      "handle": "123456789/111",
+      "title": "Jonathan Livingston Seagull by Richard Bach – a Meeting between Literature and the Principles of Gestalt Therapy (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8d63a235-21f6-43e9-8b28-f77d567d369a",
+      "handle": "123456789/111",
+      "title": "Jonathan Livingston Seagull by Richard Bach – a Meeting between Literature and the Principles of Gestalt Therapy (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/111"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8e2d0224-5794-4be6-a4f2-48e91220c561",
+      "handle": "123456789/189",
+      "title": "Student evaluation of teachers' pedagogical skills during the first COVID-19 period",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/189"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "8ec14c1a-eb45-4e1f-b613-f836bb08a613",
+      "handle": "123456789/233",
+      "title": "Introductory survey on challenges encountered by university teachers in online teaching of STEM subjects during COVID-19 lockdown",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/233"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "920aa4f5-a7ea-430f-80ed-8413dc0195da",
+      "handle": "123456789/247",
+      "title": "Weakly chain separated sets in a topological space",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "920aa4f5-a7ea-430f-80ed-8413dc0195da",
+      "handle": "123456789/247",
+      "title": "Weakly chain separated sets in a topological space",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/247"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "95bf395e-4c5f-4029-9c0d-b3679dd72f5c",
+      "handle": "123456789/128",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "95bf395e-4c5f-4029-9c0d-b3679dd72f5c",
+      "handle": "123456789/128",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/128"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "96c9c9a0-5b2f-475f-af7d-a1b9d0dca924",
+      "handle": "123456789/229",
+      "title": "Silver entrepreneurship: A golden opportunity for ageing society",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/229"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9729c17d-6d00-4270-97e3-b76d50bdc5cb",
+      "handle": "123456789/97",
+      "title": "The role of modern tools for electronic communication vis-a-vis violation of labor rights – international and Macedonian perspective",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9729c17d-6d00-4270-97e3-b76d50bdc5cb",
+      "handle": "123456789/97",
+      "title": "The role of modern tools for electronic communication vis-a-vis violation of labor rights – international and Macedonian perspective",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/97"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9817a257-307e-4aa9-b581-31e8dd9b027c",
+      "handle": "123456789/236",
+      "title": "Improving Operational Efficiency with an Automated Invoicing System",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9817a257-307e-4aa9-b581-31e8dd9b027c",
+      "handle": "123456789/236",
+      "title": "Improving Operational Efficiency with an Automated Invoicing System",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/236"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "99f81071-bda4-46a1-a53a-e47d89da4eea",
+      "handle": "123456789/252",
+      "title": "Identification of technical and non-technical barriers related to the implementation of Industrial Symbiosis",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "99f81071-bda4-46a1-a53a-e47d89da4eea",
+      "handle": "123456789/252",
+      "title": "Identification of technical and non-technical barriers related to the implementation of Industrial Symbiosis",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/252"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9c202ec4-fc9a-47e3-9039-5312866e2c69",
+      "handle": "123456789/98",
+      "title": "Monte Carlo Calculations Supporting Automatic Verification",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9c202ec4-fc9a-47e3-9039-5312866e2c69",
+      "handle": "123456789/98",
+      "title": "Monte Carlo Calculations Supporting Automatic Verification",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/98"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9dbc928a-5db3-47cd-8442-8d8f9d607cff",
+      "handle": "123456789/268",
+      "title": "Activation functions' impact on regularization of deep neural networks application in atomic simulations",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9dbc928a-5db3-47cd-8442-8d8f9d607cff",
+      "handle": "123456789/268",
+      "title": "Activation functions' impact on regularization of deep neural networks application in atomic simulations",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/268"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "9f543011-75c9-423f-a8b4-b2bdcd1f3005",
+      "handle": "123456789/86",
+      "title": "Blockchain-enhanced hydrogen fuel production and distribution for sustainable energy management",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/86"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a475e362-5fb3-4f65-bea3-2da58321f3d3",
+      "handle": "123456789/79",
+      "title": "ARTICONF decentralized social media platform for democratic crowd journalism",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/79"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a4d5459d-2bee-4761-99e6-73830ee04a73",
+      "handle": "123456789/165",
+      "title": "Generative Artificial Intelligence as a Tool for the Preservation and Interpretation of Linguistic Heritage (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a4d5459d-2bee-4761-99e6-73830ee04a73",
+      "handle": "123456789/165",
+      "title": "Generative Artificial Intelligence as a Tool for the Preservation and Interpretation of Linguistic Heritage (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/165"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a51f9d2c-1090-419d-b2f8-35004acef306",
+      "handle": "123456789/112",
+      "title": "The Entrepreneurial Learning in North Macedonia",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a51f9d2c-1090-419d-b2f8-35004acef306",
+      "handle": "123456789/112",
+      "title": "The Entrepreneurial Learning in North Macedonia",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/112"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a5b97eab-0093-4950-9d5e-10be9fcb39b0",
+      "handle": "123456789/267",
+      "title": "From Bias to Fairness: Challenges in Artificial Intelligence Systems through a Social Systems Lens",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a5b97eab-0093-4950-9d5e-10be9fcb39b0",
+      "handle": "123456789/267",
+      "title": "From Bias to Fairness: Challenges in Artificial Intelligence Systems through a Social Systems Lens",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/267"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a788cc68-7208-4d2e-bfd0-8698412698c2",
+      "handle": "123456789/92",
+      "title": "Method For Solving System Of Linear Equations mxn, m=1, 2, 3; Based On Its Geometrical Interpretations",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a788cc68-7208-4d2e-bfd0-8698412698c2",
+      "handle": "123456789/92",
+      "title": "Method For Solving System Of Linear Equations mxn, m=1, 2, 3; Based On Its Geometrical Interpretations",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/92"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a7bc6d60-3ede-4969-90f4-23d349181dd8",
+      "handle": "123456789/172",
+      "title": "Augmented Reality Tourist Guide for Cultural Heritage Sites: A Low-Cost Prototype Implementation for Ohrid, North Macedonia",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a7bc6d60-3ede-4969-90f4-23d349181dd8",
+      "handle": "123456789/172",
+      "title": "Augmented Reality Tourist Guide for Cultural Heritage Sites: A Low-Cost Prototype Implementation for Ohrid, North Macedonia",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/172"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a8b9d304-9440-4169-977a-30579c9d7b84",
+      "handle": "123456789/104",
+      "title": "Counting lines and 2D figures – part 2 (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a8b9d304-9440-4169-977a-30579c9d7b84",
+      "handle": "123456789/104",
+      "title": "Counting lines and 2D figures – part 2 (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/104"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "a930434b-d4f6-4255-9865-2fea76863157",
+      "handle": "123456789/249",
+      "title": "The Republic of Macedonia's Research Ranking Platform for Academic Staff and Universities",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/249"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "ac9b4f47-ceca-4ac0-945f-38c1e435627d",
+      "handle": "123456789/195",
+      "title": "Design and Development of the Robot for Aquatic Debris Using a Smartphone",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "ac9b4f47-ceca-4ac0-945f-38c1e435627d",
+      "handle": "123456789/195",
+      "title": "Design and Development of the Robot for Aquatic Debris Using a Smartphone",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/195"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "ae78c0b3-32d3-468f-b1c7-abc782ca9fd1",
+      "handle": "123456789/218",
+      "title": "Creative Aging Through Using Digital Technology",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "ae78c0b3-32d3-468f-b1c7-abc782ca9fd1",
+      "handle": "123456789/218",
+      "title": "Creative Aging Through Using Digital Technology",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/218"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "afb0d72e-1b24-4db3-8577-1b47cd2db386",
+      "handle": "123456789/225",
+      "title": "Media literacy in education – A Western Balkans perspective",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "afb0d72e-1b24-4db3-8577-1b47cd2db386",
+      "handle": "123456789/225",
+      "title": "Media literacy in education – A Western Balkans perspective",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/225"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "afd0c0bc-fe8a-4e53-a5b3-5d841594c66f",
+      "handle": "123456789/106",
+      "title": "Fill in words, fill in numbers",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "afd0c0bc-fe8a-4e53-a5b3-5d841594c66f",
+      "handle": "123456789/106",
+      "title": "Fill in words, fill in numbers",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/106"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b0c93791-d432-4711-b87a-50e6a213eaa0",
+      "handle": "123456789/147",
+      "title": "Guided analytics software for smart aggregation, cognition, and interactive visualisation",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b0c93791-d432-4711-b87a-50e6a213eaa0",
+      "handle": "123456789/147",
+      "title": "Guided analytics software for smart aggregation, cognition, and interactive visualisation",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/147"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b1c8631e-0c87-486d-a4b1-4493f8276a93",
+      "handle": "123456789/217",
+      "title": "Adoption and Exploitation of Online Banking Services by the Elderly",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b1c8631e-0c87-486d-a4b1-4493f8276a93",
+      "handle": "123456789/217",
+      "title": "Adoption and Exploitation of Online Banking Services by the Elderly",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/217"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b3f7c900-4703-4256-97d8-c26433cc26ac",
+      "handle": "123456789/136",
+      "title": "Urbana chitanka: Voved vo gragansko obrazovanie za mladi (Urban reader: Introduction to civic education for youth) (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b3f7c900-4703-4256-97d8-c26433cc26ac",
+      "handle": "123456789/136",
+      "title": "Urbana chitanka: Voved vo gragansko obrazovanie za mladi (Urban reader: Introduction to civic education for youth) (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/136"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b4a07aec-beba-45c4-9159-65dada760f60",
+      "handle": "123456789/122",
+      "title": "Chain Separatedness In A Family Coverings Space",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b4a07aec-beba-45c4-9159-65dada760f60",
+      "handle": "123456789/122",
+      "title": "Chain Separatedness In A Family Coverings Space",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/122"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b5386a37-877e-4795-b6fd-e474c692bb62",
+      "handle": "123456789/113",
+      "title": "Universal ethics, culture, ethical education and global processes (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b5386a37-877e-4795-b6fd-e474c692bb62",
+      "handle": "123456789/113",
+      "title": "Universal ethics, culture, ethical education and global processes (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/113"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b63b0fc6-1171-4226-a03c-3fc74325af96",
+      "handle": "123456789/108",
+      "title": "How Data Engineering and Big Data Analytics Can Contribute into Introducing Intelligence in Business: A Case Study",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b63b0fc6-1171-4226-a03c-3fc74325af96",
+      "handle": "123456789/108",
+      "title": "How Data Engineering and Big Data Analytics Can Contribute into Introducing Intelligence in Business: A Case Study",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/108"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b89b4cfe-bae4-48c1-a595-1c3c5c1cf1ac",
+      "handle": "123456789/207",
+      "title": "Modeling in Social Systems meets Artificial Intelligence",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "b89b4cfe-bae4-48c1-a595-1c3c5c1cf1ac",
+      "handle": "123456789/207",
+      "title": "Modeling in Social Systems meets Artificial Intelligence",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/207"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "bf8a40cb-afe1-47eb-93a7-3bc9fb4b0d39",
+      "handle": "123456789/193",
+      "title": "Electronic health records system for efficient healthcare services",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "bf8a40cb-afe1-47eb-93a7-3bc9fb4b0d39",
+      "handle": "123456789/193",
+      "title": "Electronic health records system for efficient healthcare services",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/193"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c0a02152-606b-4cb8-a48d-78478eb14b0f",
+      "handle": "123456789/211",
+      "title": "Metaverse: clash of the worlds and the birth of a new hybrid reality",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c0a02152-606b-4cb8-a48d-78478eb14b0f",
+      "handle": "123456789/211",
+      "title": "Metaverse: clash of the worlds and the birth of a new hybrid reality",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/211"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c3baeaa2-63ae-4869-bd86-c38e535810bd",
+      "handle": "123456789/74",
+      "title": "High-Performance Divide-and-conquer Algorithms: A Comprehensive Framework with Recursive Parallel Decomposition and Hardware-aware Optimization",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c3baeaa2-63ae-4869-bd86-c38e535810bd",
+      "handle": "123456789/74",
+      "title": "High-Performance Divide-and-conquer Algorithms: A Comprehensive Framework with Recursive Parallel Decomposition and Hardware-aware Optimization",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/74"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c3ebdca3-c5b4-4a27-ba4b-9fa1becea496",
+      "handle": "123456789/212",
+      "title": "Approaching Forensic Analysis in Cyberspace",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c3ebdca3-c5b4-4a27-ba4b-9fa1becea496",
+      "handle": "123456789/212",
+      "title": "Approaching Forensic Analysis in Cyberspace",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/212"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c4e0aa35-97d7-46e0-9e15-4112811b0403",
+      "handle": "123456789/185",
+      "title": "A Secure and Effective Solution for Electronic Health Records with Hyperledger Fabric Blockchain",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c4e0aa35-97d7-46e0-9e15-4112811b0403",
+      "handle": "123456789/185",
+      "title": "A Secure and Effective Solution for Electronic Health Records with Hyperledger Fabric Blockchain",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/185"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c51842ae-6ed3-463a-abc3-47ca5e6f5000",
+      "handle": "123456789/246",
+      "title": "Totally weakly chain separated sets in a topological space",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c51842ae-6ed3-463a-abc3-47ca5e6f5000",
+      "handle": "123456789/246",
+      "title": "Totally weakly chain separated sets in a topological space",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/246"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c6fe656c-4d7d-4c4f-98a6-cfb44550f4b1",
+      "handle": "123456789/221",
+      "title": "Cryptocoding Based on Quasigroups",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c6fe656c-4d7d-4c4f-98a6-cfb44550f4b1",
+      "handle": "123456789/221",
+      "title": "Cryptocoding Based on Quasigroups",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/221"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c84e438a-0253-4764-85fd-f38eaa458f04",
+      "handle": "123456789/137",
+      "title": "A teacher-centered mobile application for screening learning disabilities to support inclusive education",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/137"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c94aa7cf-2938-4df7-8e5e-479b959945c3",
+      "handle": "123456789/231",
+      "title": "Relationship between FDI Inflow and Unemployment Rate in the Case of the Former Yugoslav Republics",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "c94aa7cf-2938-4df7-8e5e-479b959945c3",
+      "handle": "123456789/231",
+      "title": "Relationship between FDI Inflow and Unemployment Rate in the Case of the Former Yugoslav Republics",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/231"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "cc007865-ef21-4411-8970-7a7515df2a60",
+      "handle": "123456789/123",
+      "title": "Efficient Automated Software Testing Strategies and Methods",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "cc007865-ef21-4411-8970-7a7515df2a60",
+      "handle": "123456789/123",
+      "title": "Efficient Automated Software Testing Strategies and Methods",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/123"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "cd6dfa1a-e50a-4eeb-b153-c73a816de88b",
+      "handle": "123456789/202",
+      "title": "Surface Sampling, Vertex Manipulation and Surface Generation Based on WebGL Technologies",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/202"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d0395822-0eaa-4e50-8f2b-6699508261ac",
+      "handle": "123456789/125",
+      "title": "Machine Vision and AI-based Detection Systems in Industrial Applications",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d0395822-0eaa-4e50-8f2b-6699508261ac",
+      "handle": "123456789/125",
+      "title": "Machine Vision and AI-based Detection Systems in Industrial Applications",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/125"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d03c7234-4e67-499e-a6fe-b4b957907c14",
+      "handle": "123456789/174",
+      "title": "BloHeS Consensus Mechanism – Introduction and Performance Evaluation",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d03c7234-4e67-499e-a6fe-b4b957907c14",
+      "handle": "123456789/174",
+      "title": "BloHeS Consensus Mechanism – Introduction and Performance Evaluation",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/174"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d1567628-bd55-4d48-8d44-1ff0e6844557",
+      "handle": "123456789/85",
+      "title": "Has online learning changed the way we study? Student evaluation of teachers' pedagogical skills during the first COVID-19 period and potential change in their learning habits",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d1567628-bd55-4d48-8d44-1ff0e6844557",
+      "handle": "123456789/85",
+      "title": "Has online learning changed the way we study? Student evaluation of teachers' pedagogical skills during the first COVID-19 period and potential change in their learning habits",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/85"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d2e55192-6c79-44b6-ae73-9e381ce47f87",
+      "handle": "123456789/99",
+      "title": "Prime numbers",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d2e55192-6c79-44b6-ae73-9e381ce47f87",
+      "handle": "123456789/99",
+      "title": "Prime numbers",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/99"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d3b81b41-96ed-41c6-b4e2-b27793cc6c46",
+      "handle": "123456789/121",
+      "title": "AI-driven Chatbot in E-Commerce",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d3b81b41-96ed-41c6-b4e2-b27793cc6c46",
+      "handle": "123456789/121",
+      "title": "AI-driven Chatbot in E-Commerce",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/121"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d475642a-8745-4f7f-b25c-6ab800f436cf",
+      "handle": "123456789/192",
+      "title": "Social Data Analytics for Enhancing the Collaborative Economy",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/192"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "d9323e52-5c01-4221-a2d6-ed300af0acaa",
+      "handle": "123456789/89",
+      "title": "Blockchain-based prosumer incentivization for peak mitigation through temporal aggregation and contextual clustering",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/89"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "dc96855f-f8e0-414d-8c3a-e9397e8476a6",
+      "handle": "123456789/116",
+      "title": "Single-Label COVID-19 Lung Disease Classification",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "dc96855f-f8e0-414d-8c3a-e9397e8476a6",
+      "handle": "123456789/116",
+      "title": "Single-Label COVID-19 Lung Disease Classification",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/116"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e0314b6a-ffe1-46e6-bb5a-0676817ec6c6",
+      "handle": "123456789/153",
+      "title": "Smart Villages – Examples from Croatia and Macedonia",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e0314b6a-ffe1-46e6-bb5a-0676817ec6c6",
+      "handle": "123456789/153",
+      "title": "Smart Villages – Examples from Croatia and Macedonia",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/153"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e0fa4fe8-4975-42c3-a9c4-2ac5daafdb4c",
+      "handle": "123456789/226",
+      "title": "Enhancing educational technology in lectures for school students with learning disabilities: A comprehensive analysis",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/226"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e27463c9-9ed1-4912-b6dd-897822e927c6",
+      "handle": "123456789/206",
+      "title": "Beyond Single-Label Classification: Enhancing Radiological Diagnostics for Thoracic Diseases with Azure AutoML",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e27463c9-9ed1-4912-b6dd-897822e927c6",
+      "handle": "123456789/206",
+      "title": "Beyond Single-Label Classification: Enhancing Radiological Diagnostics for Thoracic Diseases with Azure AutoML",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/206"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e450b11d-7dc7-42ee-bc2e-ca37a99d5530",
+      "handle": "123456789/150",
+      "title": "Leveraging Customer Value: Custom CLV Calculator for Enhanced Market Insights",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/150"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e4f73ce3-713f-49e7-9d34-fa6ad53c5c21",
+      "handle": "123456789/209",
+      "title": "Evaluation and Results of Research Ranking Platform for Academic Staff and Universities in the Republic of Macedonia",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/209"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e57df6a6-0c98-43a9-ac81-47df883a1811",
+      "handle": "123456789/157",
+      "title": "Matrix Profile based Anomaly Detection in Streaming Gait Data for Fall Prevention",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/157"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e766c210-eb27-45b0-a8e3-77094ae04beb",
+      "handle": "123456789/265",
+      "title": "Chain connected set in a space",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e766c210-eb27-45b0-a8e3-77094ae04beb",
+      "handle": "123456789/265",
+      "title": "Chain connected set in a space",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/265"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e8564a35-73ae-4d6b-9e73-5ddf63cfc490",
+      "handle": "123456789/194",
+      "title": "Normalized Comparison Method for Finding the Most Efficient DSS Code",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e8564a35-73ae-4d6b-9e73-5ddf63cfc490",
+      "handle": "123456789/194",
+      "title": "Normalized Comparison Method for Finding the Most Efficient DSS Code",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/194"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e8c63ae3-4622-4693-9f9b-e221003b288e",
+      "handle": "123456789/213",
+      "title": "Comparative analysis of the impact of China's cultural diplomacy in the Western Balkans",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e8c63ae3-4622-4693-9f9b-e221003b288e",
+      "handle": "123456789/213",
+      "title": "Comparative analysis of the impact of China's cultural diplomacy in the Western Balkans",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/213"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e93b280a-5549-4aaf-8c49-7deb92737fb2",
+      "handle": "123456789/184",
+      "title": "IoT and IoT Blockchain Market Analyses and Benefits in Europe",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e93b280a-5549-4aaf-8c49-7deb92737fb2",
+      "handle": "123456789/184",
+      "title": "IoT and IoT Blockchain Market Analyses and Benefits in Europe",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/184"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e9cc5cf0-119d-4e9a-92d3-37352f22b13d",
+      "handle": "123456789/262",
+      "title": "LEO-Based Direct-to-Cell Communication as an Emerging Paradigm in Next-Generation Wireless Networks",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "e9cc5cf0-119d-4e9a-92d3-37352f22b13d",
+      "handle": "123456789/262",
+      "title": "LEO-Based Direct-to-Cell Communication as an Emerging Paradigm in Next-Generation Wireless Networks",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/262"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "ecff7344-66f9-4eb0-8db1-ee1aeee08681",
+      "handle": "123456789/102",
+      "title": "Commutative, Associative and Distributive Law (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "ecff7344-66f9-4eb0-8db1-ee1aeee08681",
+      "handle": "123456789/102",
+      "title": "Commutative, Associative and Distributive Law (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/102"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "edf033b0-734d-4ad7-b10c-b2f4b71e5b95",
+      "handle": "123456789/191",
+      "title": "Optimizing Anonymity and Performance in a Mix Network",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "edf033b0-734d-4ad7-b10c-b2f4b71e5b95",
+      "handle": "123456789/191",
+      "title": "Optimizing Anonymity and Performance in a Mix Network",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/191"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "f34ae722-64f8-4754-bf88-46f741d6424f",
+      "handle": "123456789/260",
+      "title": "I set out as a woman, I returned as a human being (in Macedonian)",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "f34ae722-64f8-4754-bf88-46f741d6424f",
+      "handle": "123456789/260",
+      "title": "I set out as a woman, I returned as a human being (in Macedonian)",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/260"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "f3f4f1d8-1d91-49ab-8f05-5436dfaf82a6",
+      "handle": "123456789/161",
+      "title": "MOGPlay: A Decentralized Crowd Journalism Application for Democratic News Production",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/161"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "f3fda70f-d2d5-477e-9553-d99846832ef8",
+      "handle": "123456789/83",
+      "title": "Revolutionising the Document Workflow Using Blockchain in Banking Sector",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/83"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "f48333f4-19bf-46d9-8f00-e2fb3a6da759",
+      "handle": "123456789/188",
+      "title": "Comparative analysis of students' views of online learning in the first and second Covid-19 semesters: Examples from Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/188"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fae68067-6ca5-4a44-8eb2-59a53ddcf7d3",
+      "handle": "123456789/167",
+      "title": "Democratizing IVDR Technology: Low-Cost Real-Time Driver Feedback Using Consumer Hardware",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/167"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fc555f96-a061-4941-b4a0-99a75cee5fc1",
+      "handle": "123456789/72",
+      "title": "Students' evaluation of online assessment practices in the Covid-19 online teaching period: In Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fc555f96-a061-4941-b4a0-99a75cee5fc1",
+      "handle": "123456789/72",
+      "title": "Students' evaluation of online assessment practices in the Covid-19 online teaching period: In Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+      "field": "date",
+      "code": "non-iso-value",
+      "values": [
+        "2023/12/15"
+      ],
+      "correction": "Normalize only when the original date meaning is unambiguous.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fc555f96-a061-4941-b4a0-99a75cee5fc1",
+      "handle": "123456789/72",
+      "title": "Students' evaluation of online assessment practices in the Covid-19 online teaching period: In Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/72"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fd243f86-dd5a-46d4-9510-daa263473b76",
+      "handle": "123456789/175",
+      "title": "Tendermint Performance with Large Transactions: The Healthcare System Scenario",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/175"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fd546ec0-9359-4b69-8a6d-a65cf7fa3b57",
+      "handle": "123456789/219",
+      "title": "A review of the definitions of the term 'mathematics'",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fd546ec0-9359-4b69-8a6d-a65cf7fa3b57",
+      "handle": "123456789/219",
+      "title": "A review of the definitions of the term 'mathematics'",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/219"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fda38f69-d5b9-46ec-8d11-ce74476194e2",
+      "handle": "123456789/182",
+      "title": "Blockchain-Integrated Chatbot",
+      "field": "licence",
+      "code": "missing",
+      "values": [],
+      "correction": "No repository-wide default is approved; obtain item-level evidence.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fda38f69-d5b9-46ec-8d11-ce74476194e2",
+      "handle": "123456789/182",
+      "title": "Blockchain-Integrated Chatbot",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/182"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    },
+    {
+      "uuid": "fea347ef-fc3f-4db3-b79d-05a1b75fe652",
+      "handle": "123456789/187",
+      "title": "Blockchain as a Service – an overview of AWS and its BaaS",
+      "field": "identifier",
+      "code": "unregistered-example-handle-prefix",
+      "values": [
+        "https://repository.uist.edu.mk/handle/123456789/187"
+      ],
+      "correction": "Treat as a local legacy identifier until UIST approves a registered prefix and migration plan.",
+      "automaticCandidate": false
+    }
+  ]
+}
