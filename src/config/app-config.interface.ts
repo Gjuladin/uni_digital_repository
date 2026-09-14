@@ -20,6 +20,7 @@ import { DiscoverySortConfig } from './discovery-sort.config';
 import { FilterVocabularyConfig } from './filter-vocabulary-config';
 import { FormConfig } from './form-config.interfaces';
 import { GeospatialMapConfig } from './geospatial-map-config';
+import { HarvestingConfig } from './harvesting-config.interface';
 import { HomeConfig } from './homepage-config.interface';
 import { InfoConfig } from './info-config.interface';
 import { ItemConfig } from './item-config.interface';
@@ -54,6 +55,7 @@ interface AppConfig extends Config {
   browseBy: BrowseByConfig;
   communityList: CommunityListConfig;
   homePage: HomeConfig;
+  harvesting?: HarvestingConfig;
   item: ItemConfig;
   community: CommunityPageConfig;
   collection: CollectionPageConfig;

@@ -12,7 +12,6 @@ import { MockProvider } from 'ng-mocks';
 import { LinkHeadService } from './link-head.service';
 
 describe('LinkHeadService', () => {
-
   let service: LinkHeadService;
 
   const renderer2: Renderer2 = {
@@ -34,7 +33,11 @@ describe('LinkHeadService', () => {
   }));
 
   beforeEach(() => {
-    service = new LinkHeadService(TestBed.inject(RendererFactory2), TestBed.inject(DOCUMENT));
+    (renderer2.appendChild as jasmine.Spy).calls.reset();
+    service = new LinkHeadService(
+      TestBed.inject(RendererFactory2),
+      TestBed.inject(DOCUMENT),
+    );
   });
 
   describe('link', () => {
@@ -47,6 +50,42 @@ describe('LinkHeadService', () => {
       });
       expect(link).not.toBeUndefined();
     });
-  });
 
+    it('should not append a duplicate link already rendered by SSR', () => {
+      const existing = TestBed.inject(DOCUMENT).createElement('link');
+      existing.setAttribute('href', 'https://example.org/metadata');
+      existing.setAttribute('rel', 'describedby');
+      existing.setAttribute('type', 'application/ld+json');
+      TestBed.inject(DOCUMENT).head.appendChild(existing);
+
+      service.addTag({
+        href: 'https://example.org/metadata',
+        rel: 'describedby',
+        type: 'application/ld+json',
+      });
+
+      expect(renderer2.appendChild).not.toHaveBeenCalled();
+      existing.remove();
+    });
+
+    it('should treat ownership and title attributes as non-semantic for deduplication', () => {
+      const existing = TestBed.inject(DOCUMENT).createElement('link');
+      existing.setAttribute('href', 'https://example.org/feed');
+      existing.setAttribute('rel', 'alternate');
+      existing.setAttribute('type', 'application/atom+xml');
+      existing.setAttribute('data-uist-harvesting', 'true');
+      TestBed.inject(DOCUMENT).head.appendChild(existing);
+
+      service.addTag({
+        href: 'https://example.org/feed',
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        title: 'Sitewide Atom feed',
+        'data-uist-rss': 'true',
+      });
+
+      expect(renderer2.appendChild).not.toHaveBeenCalled();
+      existing.remove();
+    });
+  });
 });

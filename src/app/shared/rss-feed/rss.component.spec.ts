@@ -71,6 +71,7 @@ describe('RssComponent', () => {
     });
     linkHeadService = jasmine.createSpyObj('linkHeadService', {
       addTag: '',
+      removeTag: '',
     });
     const mockCollectionRD: RemoteData<Collection> = createSuccessfulRemoteDataObject(mockCollection);
     const mockSearchOptions = of(new PaginatedSearchOptions({
@@ -90,7 +91,7 @@ describe('RssComponent', () => {
     const searchConfigService = {
       paginatedSearchOptions: mockSearchOptions,
     };
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       providers: [
         { provide: GroupDataService, useValue: groupDataService },
         { provide: LinkHeadService, useValue: linkHeadService },
@@ -146,5 +147,21 @@ describe('RssComponent', () => {
     const route = comp.formulateRoute(uuid, 'opensearch/search', options, query, null, null, 50);
     expect(route).toBe('/opensearch/search?format=atom&scope=2cfcf65e-0a51-4bcb-8592-b8db7b064790&sort=dc.title&sort_direction=DESC&query=test&rpp=50');
   });
-});
 
+  it('should advertise the OpenSearch description document with the correct type', () => {
+    (comp as any).openSearchUri = 'opensearch/search';
+    (comp as any).isEnabled$.next(true);
+
+    (comp as any).updateRssLinks();
+
+    expect(linkHeadService.removeTag).toHaveBeenCalledWith(
+      "data-uist-rss='true'",
+    );
+    expect(linkHeadService.addTag).toHaveBeenCalledWith(jasmine.objectContaining({
+      href: jasmine.stringMatching(/\/opensearch\/service$/),
+      rel: 'search',
+      type: 'application/opensearchdescription+xml',
+      'data-uist-rss': 'true',
+    }));
+  });
+});

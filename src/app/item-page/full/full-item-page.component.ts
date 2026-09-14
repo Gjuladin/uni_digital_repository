@@ -127,7 +127,8 @@ export class FullItemPageComponent extends ItemPageComponent implements OnInit, 
     this._location.back();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs.filter((sub) => hasValue(sub)).forEach((sub) => sub.unsubscribe());
+    super.ngOnDestroy();
   }
 }

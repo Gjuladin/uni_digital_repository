@@ -266,6 +266,36 @@ languages:
     label: English
     active: true
 
+# Optional machine-readable repository metadata for EDEN and other harvesters.
+harvesting:
+  enabled: false
+  repository:
+    name: DSpace Repository
+    description: Institutional digital repository
+    languages: []
+    subjects: []
+    publisher:
+      id: ''
+      name: ''
+      url: ''
+      countryCode: ''
+    # Optional claims are emitted only when both enabled and non-empty.
+    # contactEmail: { enabled: false, value: '' }
+    # licenseUrl: { enabled: false, value: '' }
+    # accessRightsUrl: { enabled: false, value: '' }
+    # depositPolicyUrl: { enabled: false, value: '' }
+    # preservationPolicyUrl: { enabled: false, value: '' }
+    # curationPolicyUrl: { enabled: false, value: '' }
+    # re3dataId: { enabled: false, value: '' }
+    # fairsharingId: { enabled: false, value: '' }
+  services:
+    rest: true
+    oaiPmh: true
+    openSearch: true
+    feeds: true
+    sitemap: true
+    signposting: true
+
 # Browse-By Pages
 browseBy:
   # Amount of years to display using jumps of one year (current year - oneYearLimit)

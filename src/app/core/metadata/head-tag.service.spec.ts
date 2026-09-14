@@ -1,10 +1,22 @@
-import { fakeAsync, tick } from '@angular/core/testing';
-import { Meta, Title } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
+import {
+  Meta,
+  Title,
+} from '@angular/platform-browser';
+import {
+  NavigationEnd,
+  Router,
+} from '@angular/router';
 import { AppConfig } from '@dspace/config/app-config.interface';
 import { createMockStore } from '@ngrx/store/testing';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, of } from 'rxjs';
+import {
+  Observable,
+  of,
+} from 'rxjs';
 
 import { DSONameService } from '../breadcrumbs/dso-name.service';
 import { AuthorizationDataService } from '../data/feature-authorization/authorization-data.service';
@@ -30,7 +42,10 @@ import {
   createSuccessfulRemoteDataObject$,
 } from '../utilities/remote-data.utils';
 import { HeadTagService } from './head-tag.service';
-import { AddMetaTagAction, ClearMetaTagAction } from './meta-tag.actions';
+import {
+  AddMetaTagAction,
+  ClearMetaTagAction,
+} from './meta-tag.actions';
 
 describe('HeadTagService', () => {
   let headTagService: HeadTagService;
@@ -98,6 +113,32 @@ describe('HeadTagService', () => {
       ui: {
         baseUrl: 'https://repository.uist.edu.mk',
       },
+      rest: {
+        baseUrl: 'https://repository.uist.edu.mk/server',
+      },
+      harvesting: {
+        enabled: true,
+        repository: {
+          name: 'UIST Digital Repository',
+          description: 'UIST research outputs',
+          languages: ['en'],
+          subjects: [],
+          publisher: {
+            id: 'https://uist.edu.mk/#organization',
+            name: 'University of Information Science and Technology',
+            url: 'https://uist.edu.mk/',
+            countryCode: 'MK',
+          },
+        },
+        services: {
+          rest: true,
+          oaiPmh: true,
+          openSearch: true,
+          feeds: true,
+          sitemap: true,
+          signposting: true,
+        },
+      },
       item: {
         bitstream: {
           pageSize: 5,
@@ -123,7 +164,9 @@ describe('HeadTagService', () => {
 
   afterEach(() => {
     document
-      .querySelectorAll("link[rel='canonical'], script[data-uist-seo-jsonld]")
+      .querySelectorAll(
+        "link[rel='canonical'], link[data-uist-harvesting], script[data-uist-seo-jsonld]",
+      )
       .forEach((element: Element) => element.remove());
   });
 
@@ -284,6 +327,99 @@ describe('HeadTagService', () => {
     });
   }));
 
+  it('should expose a DataCatalog and EDEN-compatible repository discovery metadata', fakeAsync(() => {
+    (router as any).url = '/';
+    (headTagService as any).processRouteChange({ data: { value: {} } });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'publisher',
+      content: 'University of Information Science and Technology',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'language',
+      content: 'en',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'type',
+      content: 'DataCatalog',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'title',
+      content:
+        'UIST Digital Repository | University of Information Science and Technology',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'description',
+      content: 'UIST research outputs',
+    });
+
+    const jsonLd = JSON.parse(
+      document.querySelector('script[data-uist-seo-jsonld]')?.textContent,
+    );
+    expect(jsonLd['@graph'][0]['@type']).toBe('DataCatalog');
+    expect(jsonLd['@graph'][0].publisher['@id']).toBe(
+      'https://uist.edu.mk/#organization',
+    );
+    expect(jsonLd['@graph'][0].service.length).toBeGreaterThan(0);
+    expect(
+      document
+        .querySelector("link[rel='describedby'][type='application/ld+json']")
+        ?.getAttribute('href'),
+    ).toBe('https://repository.uist.edu.mk/.well-known/repository.jsonld');
+    expect(
+      document
+        .querySelector(
+          "link[rel='api-catalog'][type='application/linkset+json']",
+        )
+        ?.getAttribute('href'),
+    ).toBe('https://repository.uist.edu.mk/.well-known/api-catalog');
+    expect(
+      document
+        .querySelector(
+          "link[data-uist-harvesting][rel='search'][type='application/opensearchdescription+xml']",
+        )
+        ?.getAttribute('href'),
+    ).toBe('https://repository.uist.edu.mk/server/opensearch/service');
+    expect(
+      document.querySelectorAll(
+        "link[data-uist-harvesting][rel='alternate']",
+      ).length,
+    ).toBe(2);
+    expect(meta.addTag).not.toHaveBeenCalledWith(
+      jasmine.objectContaining({ name: 'license' }),
+    );
+    expect(meta.addTag).not.toHaveBeenCalledWith(
+      jasmine.objectContaining({ name: 'contact' }),
+    );
+  }));
+
+  it('uses dspace.entity.type when detailed dc.type is absent', () => {
+    const entityOnlyItem = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.type': [],
+        'dspace.entity.type': [{ value: 'Dataset' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).currentObject.next(entityOnlyItem);
+
+    expect((headTagService as any).getSchemaType()).toBe('Dataset');
+  });
+
+  it('prefers detailed dc.type over the broad DSpace entity type', () => {
+    const typedItem = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.type': [{ value: 'Book chapter' }] as MetadataValue[],
+        'dspace.entity.type': [{ value: 'Publication' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).currentObject.next(typedItem);
+
+    expect((headTagService as any).getSchemaType()).toBe('Chapter');
+  });
+
   it('should use the explicitly configured production HTTPS URL without query parameters', fakeAsync(() => {
     (router as any).url =
       '/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357?mode=full#details';
@@ -347,31 +483,27 @@ describe('HeadTagService', () => {
     'https://100.64.0.1',
     'https://169.254.1.1',
     'https://[fd00::1]',
-  ].forEach(
-    (invalidPublicUrl) => {
-      it(`should omit canonical and JSON-LD for an invalid public URL: ${invalidPublicUrl}`, fakeAsync(() => {
-        (appConfig.ui as any).baseUrl = invalidPublicUrl;
-        (appConfig.rest as any) = {
-          baseUrl: 'https://browser-rest.example.org/server',
-          ssrBaseUrl: 'http://internal-rest:8080/server',
-        };
-        (router as any).url = '/home';
-        (headTagService as any).processRouteChange({ data: { value: {} } });
-        tick();
+  ].forEach((invalidPublicUrl) => {
+    it(`should omit canonical and JSON-LD for an invalid public URL: ${invalidPublicUrl}`, fakeAsync(() => {
+      (appConfig.ui as any).baseUrl = invalidPublicUrl;
+      (appConfig.rest as any) = {
+        baseUrl: 'https://browser-rest.example.org/server',
+        ssrBaseUrl: 'http://internal-rest:8080/server',
+      };
+      (router as any).url = '/home';
+      (headTagService as any).processRouteChange({ data: { value: {} } });
+      tick();
 
-        expect(document.querySelector("link[rel='canonical']")).toBeNull();
-        expect(
-          document.querySelector('script[data-uist-seo-jsonld]'),
-        ).toBeNull();
-        expect(meta.addTag).not.toHaveBeenCalledWith(
-          jasmine.objectContaining({
-            property: 'og:url',
-          }),
-        );
-        expect(document.head.innerHTML).not.toContain('internal-rest:8080');
-      }));
-    },
-  );
+      expect(document.querySelector("link[rel='canonical']")).toBeNull();
+      expect(document.querySelector('script[data-uist-seo-jsonld]')).toBeNull();
+      expect(meta.addTag).not.toHaveBeenCalledWith(
+        jasmine.objectContaining({
+          property: 'og:url',
+        }),
+      );
+      expect(document.head.innerHTML).not.toContain('internal-rest:8080');
+    }));
+  });
 
   it('should preserve the localhost origin in local configuration', fakeAsync(() => {
     (appConfig.ui as any).baseUrl = 'http://localhost:4000';
@@ -410,10 +542,16 @@ describe('HeadTagService', () => {
     expect(scripts.length).toBe(1);
     const jsonLd = JSON.parse(scripts.item(0).textContent);
     expect(jsonLd['@graph'].map((entry: any) => entry['@type'])).toEqual([
+      jasmine.stringMatching(
+        /^(CreativeWork|Dataset|Chapter|Book|Thesis|Report|SoftwareSourceCode|ScholarlyArticle)$/,
+      ),
+      'DataCatalog',
       'CollegeOrUniversity',
       'WebSite',
-      jasmine.stringMatching(/^(CreativeWork|Dataset|Chapter|Book|Thesis|Report|SoftwareSourceCode|ScholarlyArticle)$/),
     ]);
+    expect(jsonLd['@graph'][0].provider).toEqual({
+      '@id': 'https://repository.uist.edu.mk/#repository',
+    });
     expect(JSON.stringify(jsonLd)).not.toContain('localhost');
   }));
 

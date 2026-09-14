@@ -1,14 +1,36 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
-import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { APP_CONFIG, AppConfig } from '@dspace/config/app-config.interface';
+import {
+  Inject,
+  Injectable,
+} from '@angular/core';
+import {
+  Meta,
+  MetaDefinition,
+  Title,
+} from '@angular/platform-browser';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+} from '@angular/router';
+import {
+  APP_CONFIG,
+  AppConfig,
+} from '@dspace/config/app-config.interface';
+import {
+  buildRepositoryGraph,
+  getEnabledClaimValue,
+} from '@dspace/config/harvesting-metadata.util';
 import {
   hasNoValue,
   hasValue,
   isNotEmpty,
 } from '@dspace/shared/utils/empty.util';
-import { createSelector, select, Store } from '@ngrx/store';
+import {
+  createSelector,
+  select,
+  Store,
+} from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BehaviorSubject,
@@ -18,7 +40,13 @@ import {
   Observable,
   of,
 } from 'rxjs';
-import { filter, map, mergeMap, switchMap, take } from 'rxjs/operators';
+import {
+  filter,
+  map,
+  mergeMap,
+  switchMap,
+  take,
+} from 'rxjs/operators';
 
 import { DSONameService } from '../breadcrumbs/dso-name.service';
 import { coreSelector } from '../core.selectors';
@@ -43,7 +71,10 @@ import {
   getFirstSucceededRemoteDataPayload,
 } from '../shared/operators';
 import { URLCombiner } from '../url-combiner/url-combiner';
-import { AddMetaTagAction, ClearMetaTagAction } from './meta-tag.actions';
+import {
+  AddMetaTagAction,
+  ClearMetaTagAction,
+} from './meta-tag.actions';
 import { MetaTagState } from './meta-tag.reducer';
 
 /**
@@ -72,9 +103,14 @@ export class HeadTagService {
   private readonly UIST_DESCRIPTION_KEY = 'repository.description';
   private readonly SINGLETON_META_TAGS = [
     'author',
+    'contact',
     'description',
+    'language',
+    'license',
+    'publisher',
     'robots',
     'title',
+    'type',
     'twitter:card',
     'twitter:description',
     'twitter:title',
@@ -133,6 +169,7 @@ export class HeadTagService {
 
   protected processRouteChange(routeInfo: any): void {
     this.clearMetaTags();
+    this.clearRepositoryDiscoveryLinks();
     this.currentObject.next(undefined);
 
     if (
@@ -231,15 +268,33 @@ export class HeadTagService {
   }
 
   protected setDefaultMetaTags(): void {
-    const repositoryName = this.translate.instant(this.REPOSITORY_NAME_KEY);
-    const institutionName = this.translate.instant(this.UIST_NAME_KEY);
-    const description = this.translate.instant(this.UIST_DESCRIPTION_KEY);
+    const harvestingRepository = this.appConfig.harvesting?.enabled
+      ? this.appConfig.harvesting.repository
+      : undefined;
+    const repositoryName =
+      harvestingRepository?.name ||
+      this.translate.instant(this.REPOSITORY_NAME_KEY);
+    const institutionName =
+      harvestingRepository?.publisher.name ||
+      this.translate.instant(this.UIST_NAME_KEY);
+    const description =
+      harvestingRepository?.description ||
+      this.translate.instant(this.UIST_DESCRIPTION_KEY);
     const title = `${repositoryName} | ${institutionName}`;
 
     this.title.setTitle(title);
     this.addMetaTag('title', title);
     this.addMetaTag('description', description);
     this.addMetaTag('author', institutionName);
+    if (this.appConfig.harvesting?.enabled) {
+      const repository = this.appConfig.harvesting.repository;
+      this.addMetaTag('publisher', repository.publisher.name);
+      this.addMetaTag('language', repository.languages[0]);
+      this.addMetaTag('type', 'DataCatalog');
+      this.addMetaTag('contact', getEnabledClaimValue(repository.contactEmail));
+      this.addMetaTag('license', getEnabledClaimValue(repository.licenseUrl));
+      this.setRepositoryDiscoveryLinks();
+    }
     this.setCanonicalTag();
     this.addPropertyMetaTag('og:site_name', repositoryName);
     this.addPropertyMetaTag('og:type', 'website');
@@ -349,6 +404,48 @@ export class HeadTagService {
   protected setJsonLdTags(): void {
     this.removeHeadElements('script[data-uist-seo-jsonld]');
     if (!this.getPublicBaseUrl()) {
+      return;
+    }
+
+    if (
+      !(this.currentObject.value instanceof Item) &&
+      this.appConfig.harvesting?.enabled
+    ) {
+      const repositoryGraph = buildRepositoryGraph(
+        this.appConfig.harvesting,
+        this.getPublicBaseUrl(),
+        this.appConfig.rest.baseUrl,
+      );
+      this.addJsonLdTag({
+        '@context': 'https://schema.org',
+        '@graph': [
+          ...((repositoryGraph['@graph'] as Array<Record<string, unknown>>) ||
+            []),
+          this.getWebSiteJsonLd(),
+          this.getWebPageJsonLd(),
+        ],
+      });
+      return;
+    }
+
+    if (
+      this.currentObject.value instanceof Item &&
+      this.appConfig.harvesting?.enabled
+    ) {
+      const repositoryGraph = buildRepositoryGraph(
+        this.appConfig.harvesting,
+        this.getPublicBaseUrl(),
+        this.appConfig.rest.baseUrl,
+      );
+      this.addJsonLdTag({
+        '@context': 'https://schema.org',
+        '@graph': [
+          this.getItemJsonLd(),
+          ...((repositoryGraph['@graph'] as Array<Record<string, unknown>>) ||
+            []),
+          this.getWebSiteJsonLd(),
+        ],
+      });
       return;
     }
 
@@ -464,9 +561,13 @@ export class HeadTagService {
     ];
     mappings.forEach(([name, keys]) => {
       const values = this.getMetaTagValues(keys);
-      const safeValues = name === 'DC.identifier'
-        ? values.filter((value) => !this.isAbsoluteUrl(value) || this.isPublicIdentifierUrl(value))
-        : values;
+      const safeValues =
+        name === 'DC.identifier'
+          ? values.filter(
+            (value) =>
+              !this.isAbsoluteUrl(value) || this.isPublicIdentifierUrl(value),
+          )
+          : values;
       this.addMetaTags(name, safeValues);
     });
   }
@@ -898,6 +999,8 @@ export class HeadTagService {
     const rights = this.getFirstMetaTagValue(['dc.rights.uri', 'dc.rights']);
     const identifiers = this.getMetaTagValues([
       'dc.identifier.doi',
+      'dc.identifier.handle',
+      'dc.identifier.uri',
       'dc.identifier.isbn',
       'dc.identifier.issn',
     ])
@@ -919,12 +1022,12 @@ export class HeadTagService {
       inLanguage: this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']),
       publisher: publisherName
         ? {
-            '@type': 'Organization',
-            name: this.stripHtml(publisherName),
-          }
+          '@type': 'Organization',
+          name: this.stripHtml(publisherName),
+        }
         : undefined,
       provider: {
-        '@id': `${this.getRepositoryUrl()}#organization`,
+        '@id': `${publicBaseUrl.replace(/\/$/, '')}/#repository`,
       },
       identifier: identifiers,
       sameAs: this.getMetaTagValues(['dc.identifier.doi'])
@@ -935,15 +1038,18 @@ export class HeadTagService {
         ),
       license: this.isAbsoluteUrl(rights) ? rights : undefined,
       copyrightNotice: this.isAbsoluteUrl(rights) ? undefined : rights,
-      isPartOf: {
-        '@id': `${publicBaseUrl}#website`,
-      },
+      conditionsOfAccess: this.getMetaTagValue('dc.rights.accessRights'),
+      isPartOf: this.getOwningCollectionJsonLd(),
     });
   }
 
-  /** Map the repository's dc.type values to truthful Schema.org classes. */
+  /** Map detailed dc.type values, with the DSpace entity type as a fallback. */
   protected getSchemaType(): string {
-    const type = this.getMetaTagValues(['dc.type']).join(' ').toLowerCase();
+    const type = (
+      this.getMetaTagValue('dc.type') ||
+      this.getMetaTagValue('dspace.entity.type') ||
+      ''
+    ).toLowerCase();
     if (/(dataset|data set|database)/.test(type)) {
       return 'Dataset';
     }
@@ -968,6 +1074,22 @@ export class HeadTagService {
       return 'ScholarlyArticle';
     }
     return 'CreativeWork';
+  }
+
+  protected getOwningCollectionJsonLd(): Record<string, unknown> | undefined {
+    const item = this.currentObject.value as Item;
+    const collectionHref = item?._links?.owningCollection?.href;
+    const collectionName = this.getFirstMetaTagValue([
+      'dc.relation.ispartof',
+    ]);
+    if (!collectionHref && !collectionName) {
+      return undefined;
+    }
+    return this.removeEmptyJsonLdValues({
+      '@type': 'DataCatalog',
+      '@id': collectionHref,
+      name: collectionName,
+    });
   }
 
   protected normaliseIdentifier(value: string): string | undefined {
@@ -1097,6 +1219,74 @@ export class HeadTagService {
     link.setAttribute('rel', rel);
     link.setAttribute('href', href);
     this.document.head.appendChild(link);
+  }
+
+  protected setRepositoryDiscoveryLinks(): void {
+    const baseUrl = this.getPublicBaseUrl();
+    if (!baseUrl || !this.appConfig.harvesting?.enabled) {
+      return;
+    }
+    const restBaseUrl = this.appConfig.rest.baseUrl.replace(/\/+$/, '');
+    this.addHarvestingLinkTag(
+      'describedby',
+      new URL('/.well-known/repository.jsonld', baseUrl).toString(),
+      'application/ld+json',
+      'UIST repository metadata',
+    );
+    this.addHarvestingLinkTag(
+      'api-catalog',
+      new URL('/.well-known/api-catalog', baseUrl).toString(),
+      'application/linkset+json',
+      'UIST repository API catalog',
+    );
+    if (this.appConfig.harvesting.services.feeds) {
+      this.addHarvestingLinkTag(
+        'alternate',
+        `${restBaseUrl}/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10`,
+        'application/atom+xml',
+        'Sitewide Atom feed',
+      );
+      this.addHarvestingLinkTag(
+        'alternate',
+        `${restBaseUrl}/opensearch/search?format=rss&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10`,
+        'application/rss+xml',
+        'Sitewide RSS feed',
+      );
+    }
+    if (this.appConfig.harvesting.services.openSearch) {
+      this.addHarvestingLinkTag(
+        'search',
+        `${restBaseUrl}/opensearch/service`,
+        'application/opensearchdescription+xml',
+        this.getRepositoryName(),
+      );
+    }
+  }
+
+  protected addHarvestingLinkTag(
+    rel: string,
+    href: string,
+    type: string,
+    title: string,
+  ): void {
+    if (hasNoValue(this.document)) {
+      return;
+    }
+    const escapedHref = href.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    this.removeHeadElements(
+      `link[data-uist-harvesting][rel='${rel}'][href='${escapedHref}']`,
+    );
+    const link = this.document.createElement('link');
+    link.setAttribute('data-uist-harvesting', 'true');
+    link.setAttribute('rel', rel);
+    link.setAttribute('href', href);
+    link.setAttribute('type', type);
+    link.setAttribute('title', title);
+    this.document.head.appendChild(link);
+  }
+
+  protected clearRepositoryDiscoveryLinks(): void {
+    this.removeHeadElements('link[data-uist-harvesting]');
   }
 
   protected addJsonLdTag(data: Record<string, unknown>): void {

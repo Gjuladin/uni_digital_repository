@@ -196,6 +196,13 @@ describe('FullItemPageComponent', () => {
     expect(simpleViewBtn).toBeTruthy();
   });
 
+  it('should remove inherited Signposting head links on destroy', () => {
+    comp.ngOnDestroy();
+
+    expect(linkHeadService.removeTag).toHaveBeenCalledWith("href='http://test.org'");
+    expect(linkHeadService.removeTag).toHaveBeenCalledWith("href='http://test2.org'");
+  });
+
   it('should not show simple view button when originated from workflow', fakeAsync(() => {
     routeData.wfi = createSuccessfulRemoteDataObject$({ id: 'wfiId' });
     comp.ngOnInit();

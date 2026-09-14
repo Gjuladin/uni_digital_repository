@@ -19,6 +19,7 @@ import { DiscoverySortConfig } from './discovery-sort.config';
 import { FilterVocabularyConfig } from './filter-vocabulary-config';
 import { FormConfig } from './form-config.interfaces';
 import { GeospatialMapConfig } from './geospatial-map-config';
+import { HarvestingConfig } from './harvesting-config.interface';
 import { HomeConfig } from './homepage-config.interface';
 import { IdentifierSubtypesIconPositionEnum } from './identifier-subtypes-config.interface';
 import { InfoConfig } from './info-config.interface';
@@ -46,6 +47,30 @@ export class DefaultAppConfig implements AppConfig {
 
   // NOTE: will log all redux actions and transfers in console
   debug = false;
+
+  harvesting: HarvestingConfig = {
+    enabled: false,
+    repository: {
+      name: 'DSpace Repository',
+      description: 'Institutional digital repository',
+      languages: [],
+      subjects: [],
+      publisher: {
+        id: '',
+        name: '',
+        url: '',
+        countryCode: '',
+      },
+    },
+    services: {
+      rest: true,
+      oaiPmh: true,
+      openSearch: true,
+      feeds: true,
+      sitemap: true,
+      signposting: true,
+    },
+  };
 
   // Angular express server settings
   // NOTE: these must be 'synced' with the 'dspace.ui.url' setting in your backend's local.cfg.

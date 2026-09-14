@@ -14,9 +14,7 @@ export class LinkHeadService {
   constructor(
     private rendererFactory: RendererFactory2,
     @Inject(DOCUMENT) private document,
-  ) {
-
-  }
+  ) {}
 
   /**
    * Method to create a Link tag in the HEAD of the html.
@@ -24,7 +22,6 @@ export class LinkHeadService {
    * @returns Link tag that was created
    */
   addTag(tag: LinkDefinition) {
-
     try {
       const renderer = this.rendererFactory.createRenderer(this.document, {
         id: '-1',
@@ -32,13 +29,30 @@ export class LinkHeadService {
         styles: [],
         data: {},
       });
-
-      const link = renderer.createElement('link');
       const head = this.document.head;
 
       if (head === null) {
         throw new Error('<head> not found within DOCUMENT.');
       }
+
+      // Link identity is defined by its target and relation semantics. Ignore
+      // presentation/ownership attributes (for example title or data-*) so a
+      // client component does not duplicate an equivalent tag rendered by SSR.
+      const identityAttributes = ['href', 'rel', 'type', 'profile'].filter(
+        (attribute) => tag[attribute] !== undefined,
+      );
+      const alreadyPresent = Array.from(head.querySelectorAll('link')).some(
+        (candidate: HTMLLinkElement) =>
+          identityAttributes.every(
+            (attribute) =>
+              candidate.getAttribute(attribute) === String(tag[attribute]),
+          ),
+      );
+      if (alreadyPresent) {
+        return renderer;
+      }
+
+      const link = renderer.createElement('link');
 
       Object.keys(tag).forEach((prop: string) => {
         return renderer.setAttribute(link, prop, tag[prop]);
@@ -68,7 +82,9 @@ export class LinkHeadService {
         if (head === null) {
           throw new Error('<head> not found within DOCUMENT.');
         }
-        const linkTags = this.document.querySelectorAll('link[' + attrSelector + ']');
+        const linkTags = this.document.querySelectorAll(
+          'link[' + attrSelector + ']',
+        );
         for (const link of linkTags) {
           renderer.removeChild(head, link);
         }
@@ -93,5 +109,5 @@ export declare type LinkDefinition = {
   target?: string;
   type?: string;
 } & {
-    [prop: string]: string;
-  };
+  [prop: string]: string;
+};

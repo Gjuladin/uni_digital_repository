@@ -36,6 +36,37 @@ languages:
     label: English
     active: true
 
+harvesting:
+  enabled: true
+  repository:
+    name: UIST Digital Repository
+    description: Open access scholarly works, publications, theses, conference papers, and research outputs from UIST "St. Paul the Apostle" in Ohrid.
+    languages:
+      - en
+    subjects: []
+    publisher:
+      id: https://uist.edu.mk/#organization
+      name: University of Information Science and Technology "St. Paul the Apostle"
+      url: https://uist.edu.mk/
+      countryCode: MK
+    # Governance and registry claims are intentionally omitted until approved.
+    # Optional claims use { enabled: true, value: ... } and are omitted otherwise.
+    # contactEmail: { enabled: false, value: '' }
+    # licenseUrl: { enabled: false, value: '' }
+    # accessRightsUrl: { enabled: false, value: '' }
+    # depositPolicyUrl: { enabled: false, value: '' }
+    # preservationPolicyUrl: { enabled: false, value: '' }
+    # curationPolicyUrl: { enabled: false, value: '' }
+    # re3dataId: { enabled: false, value: '' }
+    # fairsharingId: { enabled: false, value: '' }
+  services:
+    rest: true
+    oaiPmh: true
+    openSearch: true
+    feeds: true
+    sitemap: true
+    signposting: true
+
 themes:
   - name: uist
     extends: dspace

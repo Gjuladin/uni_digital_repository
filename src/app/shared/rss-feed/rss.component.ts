@@ -77,7 +77,7 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnDestroy(): void {
-    this.linkHeadService.removeTag("rel='alternate'");
+    this.removeOwnedLinks();
     this.subs.forEach(sub => {
       sub.unsubscribe();
     });
@@ -153,7 +153,7 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     // Remove existing link tags before adding new ones
-    this.linkHeadService.removeTag("rel='alternate'");
+    this.removeOwnedLinks();
 
     // Get the current search options and apply our sortConfig if provided
     const searchOptions = this.searchConfigurationService.paginatedSearchOptions.value;
@@ -179,14 +179,22 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
 
     // Add the OpenSearch service link
     this.linkHeadService.addTag({
-      href: environment.rest.baseUrl + '/' + this.openSearchUri + '/service',
-      type: 'application/atom+xml',
+      href: this.getOpenSearchDescriptionUrl(),
+      type: 'application/opensearchdescription+xml',
       rel: 'search',
       title: this.translateService.instant('feed.repository'),
+      'data-uist-rss': 'true',
     });
 
     // Update the route subject
     this.route$.next(route);
+  }
+
+  private getOpenSearchDescriptionUrl(): string {
+    const servicePath = this.openSearchUri
+      .replace(/^\/+|\/+$/g, '')
+      .replace(/\/search$/, '/service');
+    return `${environment.rest.baseUrl.replace(/\/+$/, '')}/${servicePath}`;
   }
 
   /**
@@ -234,6 +242,7 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
       type: 'application/atom+xml',
       rel: 'alternate',
       title: this.translateService.instant('feed.sitewide-atom'),
+      'data-uist-rss': 'true',
     });
     route = route.replace('format=atom', 'format=rss');
     this.linkHeadService.addTag({
@@ -241,6 +250,12 @@ export class RSSComponent implements OnInit, OnDestroy, OnChanges {
       type: 'application/rss+xml',
       rel: 'alternate',
       title: this.translateService.instant('feed.sitewide-rss'),
+      'data-uist-rss': 'true',
     });
+  }
+
+  /** Remove only links created by this component, preserving repository-level discovery tags. */
+  private removeOwnedLinks(): void {
+    this.linkHeadService.removeTag("data-uist-rss='true'");
   }
 }

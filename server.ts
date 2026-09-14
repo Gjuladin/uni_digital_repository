@@ -59,6 +59,10 @@ import {
 } from './src/express.tokens';
 import { SsrExcludePatterns } from './src/config/ssr-config.interface';
 import { rewriteBitstreamDownloadPath } from './src/server/bitstream-download-proxy.util';
+import {
+  buildFairicatLinkset,
+  buildRepositoryGraph,
+} from './src/config/harvesting-metadata.util';
 
 /*
  * Set path for the browser application's dist folder
@@ -148,11 +152,42 @@ export function app() {
   /**
    * Serve the robots.txt ejs template, filling in the origin variable
    */
-  server.get('/robots.txt', (req, res) => {
+  server.get(['/robots.txt', '/home/robots.txt'], (req, res) => {
     res.setHeader('content-type', 'text/plain');
     res.render('assets/robots.txt.ejs', {
       'origin': environment.ui.baseUrl,
     });
+  });
+
+  /**
+   * Repository-level metadata and FAIRiCat discovery documents. These are
+   * generated from public runtime configuration so local/staging deployments
+   * never leak production URLs and disabled governance claims stay absent.
+   */
+  server.get('/.well-known/repository.jsonld', (req, res) => {
+    if (!appConfig.harvesting?.enabled) {
+      res.sendStatus(404);
+      return;
+    }
+    res.setHeader('content-type', 'application/ld+json');
+    res.send(JSON.stringify(buildRepositoryGraph(
+      appConfig.harvesting,
+      environment.ui.baseUrl,
+      environment.rest.baseUrl,
+    )));
+  });
+
+  server.get('/.well-known/api-catalog', (req, res) => {
+    if (!appConfig.harvesting?.enabled) {
+      res.sendStatus(404);
+      return;
+    }
+    res.setHeader('content-type', 'application/linkset+json');
+    res.send(JSON.stringify(buildFairicatLinkset(
+      appConfig.harvesting,
+      environment.ui.baseUrl,
+      environment.rest.baseUrl,
+    )));
   });
 
   /*
