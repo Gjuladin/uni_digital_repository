@@ -62,6 +62,7 @@ import { rewriteBitstreamDownloadPath } from './src/server/bitstream-download-pr
 import {
   buildFairicatLinkset,
   buildRepositoryGraph,
+  getSafePublicBaseUrl,
 } from './src/config/harvesting-metadata.util';
 
 /*
@@ -153,9 +154,14 @@ export function app() {
    * Serve the robots.txt ejs template, filling in the origin variable
    */
   server.get(['/robots.txt', '/home/robots.txt'], (req, res) => {
+    const publicUiBaseUrl = getSafePublicBaseUrl(environment.ui.baseUrl);
+    if (!publicUiBaseUrl) {
+      res.sendStatus(503);
+      return;
+    }
     res.setHeader('content-type', 'text/plain');
     res.render('assets/robots.txt.ejs', {
-      'origin': environment.ui.baseUrl,
+      'origin': publicUiBaseUrl,
     });
   });
 
@@ -165,27 +171,29 @@ export function app() {
    * never leak production URLs and disabled governance claims stay absent.
    */
   server.get('/.well-known/repository.jsonld', (req, res) => {
-    if (!appConfig.harvesting?.enabled) {
+    const publicUiBaseUrl = getSafePublicBaseUrl(environment.ui.baseUrl);
+    if (!appConfig.harvesting?.enabled || !publicUiBaseUrl) {
       res.sendStatus(404);
       return;
     }
     res.setHeader('content-type', 'application/ld+json');
     res.send(JSON.stringify(buildRepositoryGraph(
       appConfig.harvesting,
-      environment.ui.baseUrl,
+      publicUiBaseUrl,
       environment.rest.baseUrl,
     )));
   });
 
   server.get('/.well-known/api-catalog', (req, res) => {
-    if (!appConfig.harvesting?.enabled) {
+    const publicUiBaseUrl = getSafePublicBaseUrl(environment.ui.baseUrl);
+    if (!appConfig.harvesting?.enabled || !publicUiBaseUrl) {
       res.sendStatus(404);
       return;
     }
     res.setHeader('content-type', 'application/linkset+json');
     res.send(JSON.stringify(buildFairicatLinkset(
       appConfig.harvesting,
-      environment.ui.baseUrl,
+      publicUiBaseUrl,
       environment.rest.baseUrl,
     )));
   });

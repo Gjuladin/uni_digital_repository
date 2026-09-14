@@ -59,7 +59,6 @@ export class DefaultAppConfig implements AppConfig {
         id: '',
         name: '',
         url: '',
-        countryCode: '',
       },
     },
     services: {

@@ -20,6 +20,7 @@ import {
 import {
   buildRepositoryGraph,
   getEnabledClaimValue,
+  getSafePublicBaseUrl,
 } from '@dspace/config/harvesting-metadata.util';
 import {
   hasNoValue,
@@ -856,65 +857,7 @@ export class HeadTagService {
    * production site.
    */
   protected getPublicBaseUrl(): string | undefined {
-    const configuredUrl = this.appConfig.ui?.baseUrl;
-    if (hasValue(configuredUrl) && this.isPublicUrl(configuredUrl)) {
-      return new URL(configuredUrl).toString();
-    }
-    return undefined;
-  }
-
-  /**
-   * Local development is intentionally allowed to use its localhost origin.
-   * Non-local origins must use HTTPS so a production deployment cannot emit
-   * insecure canonical or JSON-LD URLs by accident.
-   */
-  protected isPublicUrl(url: string): boolean {
-    try {
-      const parsed = new URL(url);
-      const localHost = ['localhost', '127.0.0.1', '[::1]', '::1'].includes(
-        parsed.hostname,
-      );
-      return (
-        (localHost && parsed.protocol === 'http:') ||
-        (parsed.protocol === 'https:' &&
-          !localHost &&
-          !this.isPrivateHost(parsed.hostname))
-      );
-    } catch {
-      return false;
-    }
-  }
-
-  protected isPrivateHost(hostname: string): boolean {
-    const host = hostname.toLowerCase().replace(/^\[|\]$/g, '');
-    if (
-      !host.includes('.') ||
-      host === 'localhost' ||
-      host.endsWith('.localhost') ||
-      host.endsWith('.local') ||
-      host.endsWith('.internal') ||
-      host === '::1' ||
-      host.startsWith('fc') ||
-      host.startsWith('fd') ||
-      /^fe[89ab]/.test(host)
-    ) {
-      return true;
-    }
-    const octets = host.split('.').map(Number);
-    if (octets.length !== 4 || octets.some(Number.isNaN)) {
-      return false;
-    }
-    return (
-      octets[0] === 0 ||
-      octets[0] === 10 ||
-      octets[0] === 127 ||
-      (octets[0] === 100 && octets[1] >= 64 && octets[1] <= 127) ||
-      (octets[0] === 169 && octets[1] === 254) ||
-      (octets[0] === 172 && octets[1] >= 16 && octets[1] <= 31) ||
-      (octets[0] === 192 && octets[1] === 168) ||
-      (octets[0] === 198 && (octets[1] === 18 || octets[1] === 19)) ||
-      octets[0] >= 224
-    );
+    return getSafePublicBaseUrl(this.appConfig.ui?.baseUrl);
   }
 
   protected getPublicationDate(): string {
@@ -933,13 +876,6 @@ export class HeadTagService {
       name: this.getInstitutionName(),
       alternateName: this.translate.instant('repository.alternate-name'),
       url: this.getRepositoryUrl(),
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: this.translate.instant('repository.address.street'),
-        addressLocality: this.translate.instant('repository.address.locality'),
-        postalCode: this.translate.instant('repository.address.postal-code'),
-        addressCountry: this.translate.instant('repository.address.country'),
-      },
     };
   }
 
@@ -1135,9 +1071,11 @@ export class HeadTagService {
 
   protected isPrivateUrl(value: string): boolean {
     try {
-      return (
-        this.isPrivateHost(new URL(value).hostname) ||
-        new URL(value).protocol !== 'https:'
+      const parsed = new URL(value);
+      return Boolean(
+        parsed.username ||
+          parsed.password ||
+          !getSafePublicBaseUrl(parsed.origin),
       );
     } catch {
       return true;
@@ -1226,7 +1164,7 @@ export class HeadTagService {
     if (!baseUrl || !this.appConfig.harvesting?.enabled) {
       return;
     }
-    const restBaseUrl = this.appConfig.rest.baseUrl.replace(/\/+$/, '');
+    const restBaseUrl = getSafePublicBaseUrl(this.appConfig.rest.baseUrl);
     this.addHarvestingLinkTag(
       'describedby',
       new URL('/.well-known/repository.jsonld', baseUrl).toString(),
@@ -1239,7 +1177,7 @@ export class HeadTagService {
       'application/linkset+json',
       'UIST repository API catalog',
     );
-    if (this.appConfig.harvesting.services.feeds) {
+    if (this.appConfig.harvesting.services.feeds && restBaseUrl) {
       this.addHarvestingLinkTag(
         'alternate',
         `${restBaseUrl}/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10`,
@@ -1253,7 +1191,7 @@ export class HeadTagService {
         'Sitewide RSS feed',
       );
     }
-    if (this.appConfig.harvesting.services.openSearch) {
+    if (this.appConfig.harvesting.services.openSearch && restBaseUrl) {
       this.addHarvestingLinkTag(
         'search',
         `${restBaseUrl}/opensearch/service`,

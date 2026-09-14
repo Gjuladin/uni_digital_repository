@@ -1,0 +1,21 @@
+# This file is part of DSpace.
+#
+# Build a local runtime image from a host-verified SSR production build. The
+# `prebuilt` named context must point at ./dist, for example:
+# docker build --build-context prebuilt=dist -f docker/Dockerfile.prebuilt .
+
+FROM docker.io/node:22-alpine
+
+RUN npm install --global pm2
+
+COPY --chown=node:node --from=prebuilt . /app/dist
+COPY --chown=node:node config /app/config
+COPY --chown=node:node docker/dspace-ui.json /app/dspace-ui.json
+
+WORKDIR /app
+USER node
+ENV NODE_ENV=production
+EXPOSE 4000
+
+ENTRYPOINT [ "pm2-runtime", "start", "dspace-ui.json" ]
+CMD ["--json"]

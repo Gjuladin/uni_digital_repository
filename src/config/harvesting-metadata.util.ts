@@ -17,6 +17,79 @@ function withoutTrailingSlash(value: string): string {
   return (value || '').replace(/\/+$/, '');
 }
 
+function isPrivateHost(hostname: string): boolean {
+  const host = hostname.toLowerCase().replace(/^\[|\]$/g, '');
+  if (
+    !host.includes('.') ||
+    host === 'localhost' ||
+    host.endsWith('.localhost') ||
+    host.endsWith('.local') ||
+    host.endsWith('.internal') ||
+    host === '::1' ||
+    host === '::' ||
+    host.startsWith('fc') ||
+    host.startsWith('fd') ||
+    /^fe[89ab]/.test(host)
+  ) {
+    return true;
+  }
+  if (host.startsWith('::ffff:')) {
+    const mapped = host.slice('::ffff:'.length);
+    const mappedHex = mapped.match(/^([0-9a-f]{1,4}):([0-9a-f]{1,4})$/);
+    if (mappedHex) {
+      const high = Number.parseInt(mappedHex[1], 16);
+      const low = Number.parseInt(mappedHex[2], 16);
+      return isPrivateHost(
+        `${Math.floor(high / 256)}.${high % 256}.${Math.floor(low / 256)}.${low % 256}`,
+      );
+    }
+    return isPrivateHost(mapped);
+  }
+  const octets = host.split('.').map(Number);
+  if (octets.length !== 4 || octets.some(Number.isNaN)) {
+    return false;
+  }
+  return (
+    octets[0] === 0 ||
+    octets[0] === 10 ||
+    octets[0] === 127 ||
+    (octets[0] === 100 && octets[1] >= 64 && octets[1] <= 127) ||
+    (octets[0] === 169 && octets[1] === 254) ||
+    (octets[0] === 172 && octets[1] >= 16 && octets[1] <= 31) ||
+    (octets[0] === 192 && octets[1] === 168) ||
+    (octets[0] === 192 && octets[1] === 0 && [0, 2].includes(octets[2])) ||
+    (octets[0] === 198 && (octets[1] === 18 || octets[1] === 19)) ||
+    (octets[0] === 198 && octets[1] === 51 && octets[2] === 100) ||
+    (octets[0] === 203 && octets[1] === 0 && octets[2] === 113) ||
+    octets[0] >= 224
+  );
+}
+
+/**
+ * Accept a configured browser-facing origin/base path, never an SSR-only or
+ * private deployment hostname. Localhost HTTP is allowed solely for local QA.
+ */
+export function getSafePublicBaseUrl(value: string): string | undefined {
+  try {
+    const parsed = new URL(value);
+    if (parsed.username || parsed.password || parsed.search || parsed.hash) {
+      return undefined;
+    }
+    const localHost = ['localhost', '127.0.0.1', '[::1]', '::1'].includes(
+      parsed.hostname,
+    );
+    if (localHost && parsed.protocol === 'http:') {
+      return withoutTrailingSlash(parsed.toString());
+    }
+    if (parsed.protocol !== 'https:' || isPrivateHost(parsed.hostname)) {
+      return undefined;
+    }
+    return withoutTrailingSlash(parsed.toString());
+  } catch {
+    return undefined;
+  }
+}
+
 function compact<T>(values: Array<T | undefined>): T[] {
   return values.filter((value): value is T => value !== undefined);
 }
@@ -33,12 +106,12 @@ export function getHarvestingServices(
   uiBaseUrl: string,
   restBaseUrl: string,
 ): HarvestingServiceDescription[] {
-  const ui = withoutTrailingSlash(uiBaseUrl);
-  const rest = withoutTrailingSlash(restBaseUrl);
+  const ui = getSafePublicBaseUrl(uiBaseUrl);
+  const rest = getSafePublicBaseUrl(restBaseUrl);
   const enabled = config.services;
 
   return compact([
-    enabled.rest
+    enabled.rest && rest
       ? {
         id: `${rest}/api`,
         name: 'DSpace REST API',
@@ -48,7 +121,7 @@ export function getHarvestingServices(
         metadataUrl: `${rest}/api`,
       }
       : undefined,
-    enabled.oaiPmh
+    enabled.oaiPmh && rest
       ? {
         id: `${rest}/oai/request`,
         name: 'OAI-PMH',
@@ -59,7 +132,7 @@ export function getHarvestingServices(
         metadataUrl: `${rest}/oai/request?verb=Identify`,
       }
       : undefined,
-    enabled.openSearch
+    enabled.openSearch && rest
       ? {
         id: `${rest}/opensearch/search`,
         name: 'OpenSearch',
@@ -73,7 +146,7 @@ export function getHarvestingServices(
         metadataUrl: `${rest}/opensearch/service?source=fairicat`,
       }
       : undefined,
-    enabled.feeds
+    enabled.feeds && rest
       ? {
         id: `${rest}/opensearch/search?format=atom&query=*`,
         name: 'Sitewide Atom feed',
@@ -82,7 +155,7 @@ export function getHarvestingServices(
         mediaType: 'application/atom+xml',
       }
       : undefined,
-    enabled.feeds
+    enabled.feeds && rest
       ? {
         id: `${rest}/opensearch/search?format=rss&query=*`,
         name: 'Sitewide RSS feed',
@@ -91,7 +164,7 @@ export function getHarvestingServices(
         mediaType: 'application/rss+xml',
       }
       : undefined,
-    enabled.sitemap
+    enabled.sitemap && ui
       ? {
         id: `${ui}/sitemap_index.xml`,
         name: 'Repository sitemap',
@@ -100,7 +173,7 @@ export function getHarvestingServices(
         mediaType: 'application/xml',
       }
       : undefined,
-    enabled.signposting
+    enabled.signposting && ui
       ? {
         id: `${ui}/signposting/links/{uuid}`,
         name: 'Signposting item links',
@@ -152,7 +225,10 @@ export function buildRepositoryGraph(
   uiBaseUrl: string,
   restBaseUrl: string,
 ): Record<string, unknown> {
-  const ui = withoutTrailingSlash(uiBaseUrl);
+  const ui = getSafePublicBaseUrl(uiBaseUrl);
+  if (!ui) {
+    throw new Error('A safe public UI base URL is required for harvesting metadata');
+  }
   const repository = config.repository;
   const publisher = repository.publisher;
   const services = getHarvestingServices(config, ui, restBaseUrl);
@@ -160,6 +236,11 @@ export function buildRepositoryGraph(
   const contactEmail = getEnabledClaimValue(repository.contactEmail);
   const licenseUrl = getEnabledClaimValue(repository.licenseUrl);
   const accessRightsUrl = getEnabledClaimValue(repository.accessRightsUrl);
+  const registryIdentifiers = compact([
+    getEnabledClaimValue(repository.re3dataId),
+    getEnabledClaimValue(repository.fairsharingId),
+  ]);
+  const countryCode = getEnabledClaimValue(publisher.countryCode);
 
   const catalog: Record<string, unknown> = {
     '@type': 'DataCatalog',
@@ -169,7 +250,7 @@ export function buildRepositoryGraph(
     url: `${ui}/`,
     landingPage: `${ui}/`,
     inLanguage: repository.languages,
-    keywords: repository.subjects,
+    keywords: repository.subjects.length > 0 ? repository.subjects : undefined,
     publisher: { '@id': publisher.id },
     provider: { '@id': publisher.id },
     contactPoint: contactEmail
@@ -180,6 +261,10 @@ export function buildRepositoryGraph(
       : undefined,
     license: licenseUrl,
     conditionsOfAccess: accessRightsUrl,
+    identifier: registryIdentifiers.length > 0 ? registryIdentifiers : undefined,
+    sameAs: registryIdentifiers.length > 0
+      ? registryIdentifiers.filter((value) => /^https?:\/\//i.test(value))
+      : undefined,
     service: services.map((service) => ({
       '@type': 'DataService',
       '@id': service.id,
@@ -189,7 +274,7 @@ export function buildRepositoryGraph(
       conformsTo: service.conformsTo,
       encodingFormat: service.mediaType,
     })),
-    policy: policies,
+    policy: policies.length > 0 ? policies : undefined,
   };
 
   const organization = {
@@ -197,10 +282,12 @@ export function buildRepositoryGraph(
     '@id': publisher.id,
     name: publisher.name,
     url: publisher.url,
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: publisher.countryCode,
-    },
+    address: countryCode
+      ? {
+        '@type': 'PostalAddress',
+        addressCountry: countryCode,
+      }
+      : undefined,
   };
 
   return {

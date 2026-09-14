@@ -278,7 +278,7 @@ harvesting:
       id: ''
       name: ''
       url: ''
-      countryCode: ''
+      # countryCode: { enabled: false, value: '' }
     # Optional claims are emitted only when both enabled and non-empty.
     # contactEmail: { enabled: false, value: '' }
     # licenseUrl: { enabled: false, value: '' }

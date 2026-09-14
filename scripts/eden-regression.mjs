@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
 import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 const args = new Map();
 for (let index = 2; index < process.argv.length; index += 2) {
@@ -20,6 +24,16 @@ const rawPrefix = resolve(
 const allowMissingRegistries =
   args.get("--allow-missing-registries") === "true";
 const expectedType = args.get("--expect-type") || "DataCatalog";
+const expectedHarvesterCommit =
+  "200c7c750501c5cc6cfc4bbcc18b0bfe80d7c380";
+const harvesterCheckout = resolve(
+  args.get("--harvester-checkout") ||
+    process.env.EDEN_HARVESTER_CHECKOUT ||
+    resolve(repositoryRoot, "../wp2-repo-harvester"),
+);
+const baselinePath = args.get("--baseline")
+  ? resolve(args.get("--baseline"))
+  : undefined;
 
 const reportUrl = new URL(`${harvester}/`);
 reportUrl.searchParams.set("url", target);
@@ -31,52 +45,63 @@ const rootRobotsUrl = new URL("/robots.txt", target);
 const homeRobotsUrl = new URL("/home/robots.txt", target);
 const sitemapUrl = new URL("/sitemap_index.xml", target);
 
-const [
-  landingResponse,
-  reportResponse,
-  apiResponse,
-  repositoryMetadataResponse,
-  apiCatalogResponse,
-  rootRobotsResponse,
-  homeRobotsResponse,
-  sitemapResponse,
-] =
-  await Promise.all([
-    fetch(target),
-    fetch(reportUrl),
-    fetch(apiUrl),
-    fetch(repositoryMetadataUrl),
-    fetch(apiCatalogUrl),
-    fetch(rootRobotsUrl),
-    fetch(homeRobotsUrl),
-    fetch(sitemapUrl),
-  ]);
-
-if (
-  !landingResponse.ok ||
-  !reportResponse.ok ||
-  !apiResponse.ok ||
-  !repositoryMetadataResponse.ok ||
-  !apiCatalogResponse.ok ||
-  !rootRobotsResponse.ok ||
-  !homeRobotsResponse.ok ||
-  !sitemapResponse.ok
-) {
+const actualHarvesterCommit = execFileSync(
+  "git",
+  ["-C", harvesterCheckout, "rev-parse", "HEAD"],
+  { encoding: "utf8" },
+).trim();
+const harvesterDirty = execFileSync(
+  "git",
+  ["-C", harvesterCheckout, "status", "--porcelain"],
+  { encoding: "utf8" },
+).trim();
+if (actualHarvesterCommit !== expectedHarvesterCommit || harvesterDirty) {
   throw new Error(
-    `Regression input failed: landing=${landingResponse.status}, report=${reportResponse.status}, api=${apiResponse.status}, ` +
-      `repository-metadata=${repositoryMetadataResponse.status}, api-catalog=${apiCatalogResponse.status}, ` +
-      `root-robots=${rootRobotsResponse.status}, home-robots=${homeRobotsResponse.status}, ` +
-      `sitemap=${sitemapResponse.status}`,
+    `Harvester baseline check failed: commit=${actualHarvesterCommit}, dirty=${Boolean(harvesterDirty)}`,
   );
 }
 
-const landingHtml = await landingResponse.text();
-const reportHtml = await reportResponse.text();
-const api = await apiResponse.json();
-const repositoryMetadata = await repositoryMetadataResponse.json();
-const apiCatalog = await apiCatalogResponse.json();
-const rootRobots = await rootRobotsResponse.text();
-const homeRobots = await homeRobotsResponse.text();
+async function fetchEvidence(url) {
+  try {
+    const response = await fetch(url);
+    return { response, body: await response.text() };
+  } catch (error) {
+    return { response: undefined, body: "", error: String(error) };
+  }
+}
+
+const [landing, report, apiResult, repositoryResult, catalogResult, rootRobotsResult, homeRobotsResult, sitemapResult] =
+  await Promise.all([
+    fetchEvidence(target),
+    fetchEvidence(reportUrl),
+    fetchEvidence(apiUrl),
+    fetchEvidence(repositoryMetadataUrl),
+    fetchEvidence(apiCatalogUrl),
+    fetchEvidence(rootRobotsUrl),
+    fetchEvidence(homeRobotsUrl),
+    fetchEvidence(sitemapUrl),
+  ]);
+
+const landingHtml = landing.body;
+const reportHtml = report.body;
+const rootRobots = rootRobotsResult.body;
+const homeRobots = homeRobotsResult.body;
+const sitemap = sitemapResult.body;
+const parseErrors = [];
+function parseJson(body, label) {
+  try {
+    return JSON.parse(body);
+  } catch (error) {
+    parseErrors.push(`${label}: ${String(error)}`);
+    return {};
+  }
+}
+const api = parseJson(apiResult.body, "harvester API JSON");
+const repositoryMetadata = parseJson(
+  repositoryResult.body,
+  "repository JSON-LD",
+);
+const apiCatalog = parseJson(catalogResult.body, "FAIRiCat JSON");
 const openSearchTag = [...landingHtml.matchAll(/<link\b[^>]*>/gi)]
   .map((match) => match[0])
   .find(
@@ -86,18 +111,26 @@ const openSearchTag = [...landingHtml.matchAll(/<link\b[^>]*>/gi)]
   );
 const openSearchHref = openSearchTag?.match(/\bhref=["']([^"']+)["']/i)?.[1]
   ?.replaceAll("&amp;", "&");
-if (!openSearchHref) {
-  throw new Error("Landing page does not advertise an OpenSearch description URL");
+const openSearchUrl = openSearchHref
+  ? new URL(openSearchHref, target)
+  : undefined;
+const openSearchResult = openSearchUrl
+  ? await fetchEvidence(openSearchUrl)
+  : {
+    response: undefined,
+    body: "",
+    error: "Landing page does not advertise an OpenSearch description URL",
+  };
+const openSearch = openSearchResult.body;
+
+function responseEvidence(result) {
+  return {
+    status: result.response?.status,
+    contentType: result.response?.headers.get("content-type"),
+    location: result.response?.headers.get("location"),
+    error: result.error,
+  };
 }
-const openSearchUrl = new URL(openSearchHref, target);
-const openSearchResponse = await fetch(openSearchUrl);
-if (!openSearchResponse.ok) {
-  throw new Error(
-    `Advertised OpenSearch description failed: ${openSearchUrl} returned ${openSearchResponse.status}`,
-  );
-}
-const openSearch = await openSearchResponse.text();
-const sitemap = await sitemapResponse.text();
 
 const checks = [
   "Embedded JSON-LD Metadata Extraction",
@@ -151,7 +184,25 @@ const publisherNode = repositoryGraph.find(
   (node) => node?.["@id"] === publisherId,
 );
 
-const failures = [];
+const failures = [...parseErrors];
+const requiredResponses = {
+  landing,
+  report,
+  api: apiResult,
+  repositoryMetadata: repositoryResult,
+  apiCatalog: catalogResult,
+  rootRobots: rootRobotsResult,
+  homeRobots: homeRobotsResult,
+  sitemap: sitemapResult,
+  openSearch: openSearchResult,
+};
+for (const [name, result] of Object.entries(requiredResponses)) {
+  if (!result.response?.ok) {
+    failures.push(
+      `${name} request failed: ${result.error || result.response?.status || "no response"}`,
+    );
+  }
+}
 for (const [name, status] of Object.entries(mechanismStatuses)) {
   if (status !== "Found") {
     failures.push(`${name}: ${status}`);
@@ -184,10 +235,9 @@ for (const field of ["name", "url", "description", "inLanguage", "service"]) {
 }
 if (
   !publisherId ||
-  !publisherNode?.name ||
-  !publisherNode?.address?.addressCountry
+  !publisherNode?.name
 ) {
-  failures.push("linked repository publisher or country is missing");
+  failures.push("linked repository publisher is missing");
 }
 if (
   !api?.repoURI ||
@@ -196,16 +246,16 @@ if (
 ) {
   failures.push("API response is missing repoURI, metadata, or services");
 }
-if (!apiCatalogResponse.headers.get("content-type")?.startsWith("application/linkset+json")) {
+if (!catalogResult.response?.headers.get("content-type")?.startsWith("application/linkset+json")) {
   failures.push("FAIRiCat response has the wrong content type");
 }
 if (!Array.isArray(apiCatalog?.linkset) || apiCatalog.linkset.length === 0) {
   failures.push("FAIRiCat response has no linksets");
 }
-if (!repositoryMetadataResponse.headers.get("content-type")?.startsWith("application/ld+json")) {
+if (!repositoryResult.response?.headers.get("content-type")?.startsWith("application/ld+json")) {
   failures.push("linked repository metadata has the wrong content type");
 }
-if (!openSearchResponse.headers.get("content-type")?.startsWith("application/opensearchdescription+xml")) {
+if (!openSearchResult.response?.headers.get("content-type")?.startsWith("application/opensearchdescription+xml")) {
   failures.push("OpenSearch description has the wrong content type");
 }
 if (!openSearch.includes("<OpenSearchDescription")) {
@@ -217,6 +267,9 @@ if (!rootRobots.includes("Sitemap:") || !homeRobots.includes("Sitemap:")) {
 if (!sitemap.includes("<sitemapindex")) {
   failures.push("sitemap index is not a sitemap index document");
 }
+if (landingHtml.includes("/server/opensearch/search/service")) {
+  failures.push("landing page contains the invalid /server/opensearch/search/service URL");
+}
 if (!allowMissingRegistries) {
   for (const [name, status] of Object.entries(registryStatuses)) {
     if (status !== "Found") {
@@ -225,9 +278,46 @@ if (!allowMissingRegistries) {
   }
 }
 
+let baselineComparison;
+if (baselinePath) {
+  const baseline = JSON.parse(await readFile(baselinePath, "utf8"));
+  const regressions = [];
+  if (baseline.target !== target) {
+    regressions.push(
+      `baseline target mismatch: ${baseline.target || "missing"} != ${target}`,
+    );
+  }
+  for (const check of checks) {
+    if (
+      baseline?.mechanismStatuses?.[check] === "Found" &&
+      mechanismStatuses[check] !== "Found"
+    ) {
+      regressions.push(
+        `${check}: Found -> ${mechanismStatuses[check] || "missing"}`,
+      );
+    }
+  }
+  if (
+    baseline?.linkedRepositoryType === expectedType &&
+    repositoryNode?.["@type"] !== expectedType
+  ) {
+    regressions.push(
+      `linked repository type: ${expectedType} -> ${repositoryNode?.["@type"] || "missing"}`,
+    );
+  }
+  baselineComparison = {
+    path: baselinePath,
+    target: baseline.target,
+    regressions,
+    passed: regressions.length === 0,
+  };
+  failures.push(...regressions.map((regression) => `regression: ${regression}`));
+}
+
 const result = {
   checkedAt: new Date().toISOString(),
-  harvesterCommit: "200c7c750501c5cc6cfc4bbcc18b0bfe80d7c380",
+  harvesterCommit: actualHarvesterCommit,
+  harvesterCheckout,
   target,
   mechanismStatuses,
   registryStatuses,
@@ -237,6 +327,18 @@ const result = {
   serviceTypes: (api?.services || [])
     .map((service) => service["dct:type"])
     .filter(Boolean),
+  responseEvidence: {
+    landing: responseEvidence(landing),
+    report: responseEvidence(report),
+    api: responseEvidence(apiResult),
+    repositoryMetadata: responseEvidence(repositoryResult),
+    apiCatalog: responseEvidence(catalogResult),
+    rootRobots: responseEvidence(rootRobotsResult),
+    homeRobots: responseEvidence(homeRobotsResult),
+    openSearch: responseEvidence(openSearchResult),
+    sitemap: responseEvidence(sitemapResult),
+  },
+  baselineComparison,
   rawArtifacts: {
     landingHtml: `${rawPrefix}.landing.html`,
     reportHtml: `${rawPrefix}.report.html`,
@@ -247,6 +349,7 @@ const result = {
     homeRobots: `${rawPrefix}.home-robots.txt`,
     openSearch: `${rawPrefix}.opensearch.xml`,
     sitemap: `${rawPrefix}.sitemap.xml`,
+    responseEvidence: `${rawPrefix}.response-evidence.json`,
   },
   passed: failures.length === 0,
   failures,
@@ -259,23 +362,28 @@ await writeFile(`${rawPrefix}.landing.html`, landingHtml, "utf8");
 await writeFile(`${rawPrefix}.report.html`, reportHtml, "utf8");
 await writeFile(
   `${rawPrefix}.api.json`,
-  `${JSON.stringify(api, null, 2)}\n`,
+  apiResult.body,
   "utf8",
 );
 await writeFile(
   `${rawPrefix}.repository.jsonld.json`,
-  `${JSON.stringify(repositoryMetadata, null, 2)}\n`,
+  repositoryResult.body,
   "utf8",
 );
 await writeFile(
   `${rawPrefix}.api-catalog.json`,
-  `${JSON.stringify(apiCatalog, null, 2)}\n`,
+  catalogResult.body,
   "utf8",
 );
 await writeFile(`${rawPrefix}.robots.txt`, rootRobots, "utf8");
 await writeFile(`${rawPrefix}.home-robots.txt`, homeRobots, "utf8");
 await writeFile(`${rawPrefix}.opensearch.xml`, openSearch, "utf8");
 await writeFile(`${rawPrefix}.sitemap.xml`, sitemap, "utf8");
+await writeFile(
+  `${rawPrefix}.response-evidence.json`,
+  `${JSON.stringify(result.responseEvidence, null, 2)}\n`,
+  "utf8",
+);
 await writeFile(output, `${JSON.stringify(result, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({ ...result, api: undefined }, null, 2));
 

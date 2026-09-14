@@ -483,6 +483,8 @@ describe('HeadTagService', () => {
     'https://100.64.0.1',
     'https://169.254.1.1',
     'https://[fd00::1]',
+    'https://user:redacted@repository.example.org',
+    'https://repository.example.org/?origin=untrusted',
   ].forEach((invalidPublicUrl) => {
     it(`should omit canonical and JSON-LD for an invalid public URL: ${invalidPublicUrl}`, fakeAsync(() => {
       (appConfig.ui as any).baseUrl = invalidPublicUrl;

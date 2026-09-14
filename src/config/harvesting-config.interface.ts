@@ -31,7 +31,7 @@ export interface HarvestingPublisherConfig {
   id: string;
   name: string;
   url: string;
-  countryCode: string;
+  countryCode?: HarvestingOptionalClaim;
 }
 
 export interface HarvestingServicesConfig {

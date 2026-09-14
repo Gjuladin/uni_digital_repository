@@ -11,6 +11,7 @@ dist
 typings
 tsd_typings
 coverage
+.angular
 __build__
 __server_build__
 

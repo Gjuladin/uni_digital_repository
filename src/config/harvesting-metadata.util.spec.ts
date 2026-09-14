@@ -17,7 +17,6 @@ describe('harvesting metadata utilities', () => {
         id: 'https://uist.edu.mk/#organization',
         name: 'UIST',
         url: 'https://uist.edu.mk/',
-        countryCode: 'MK',
       },
     },
     services: {
@@ -43,6 +42,7 @@ describe('harvesting metadata utilities', () => {
     );
     expect(graph['@graph'][0].license).toBeUndefined();
     expect(graph['@graph'][0].contactPoint).toBeUndefined();
+    expect(graph['@graph'][1].address).toBeUndefined();
   });
 
   it('uses the correct OpenSearch description endpoint', () => {
@@ -59,6 +59,37 @@ describe('harvesting metadata utilities', () => {
       'https://repository.uist.edu.mk/server/opensearch/service?source=fairicat',
     );
     expect(openSearch.mediaType).toBe('application/opensearchdescription+xml');
+  });
+
+  it('omits services whose configured browser URL is private or insecure', () => {
+    const services = getHarvestingServices(
+      config,
+      'https://repository.uist.edu.mk',
+      'http://internal-rest:8080/server',
+    );
+
+    expect(services.map((service) => service.name)).toEqual([
+      'Repository sitemap',
+    ]);
+    expect(JSON.stringify(services)).not.toContain('internal-rest');
+  });
+
+  it('rejects special-use and IPv4-mapped private browser URLs', () => {
+    for (const restUrl of [
+      'https://192.0.2.1/server',
+      'https://198.51.100.1/server',
+      'https://203.0.113.1/server',
+      'https://[::ffff:127.0.0.1]/server',
+    ]) {
+      const services = getHarvestingServices(
+        config,
+        'https://repository.uist.edu.mk',
+        restUrl,
+      );
+      expect(services.map((service) => service.name)).toEqual([
+        'Repository sitemap',
+      ]);
+    }
   });
 
   it('builds an RFC 9264 linkset with service documentation and metadata', () => {
@@ -92,6 +123,18 @@ describe('harvesting metadata utilities', () => {
           enabled: true,
           value: 'https://example.org/deposit',
         },
+        re3dataId: {
+          enabled: true,
+          value: 'https://www.re3data.org/repository/example',
+        },
+        fairsharingId: {
+          enabled: false,
+          value: 'https://fairsharing.org/example',
+        },
+        publisher: {
+          ...config.repository.publisher,
+          countryCode: { enabled: true, value: 'MK' },
+        },
       },
     };
     const graph = buildRepositoryGraph(
@@ -105,5 +148,12 @@ describe('harvesting metadata utilities', () => {
     expect(graph['@graph'][0].policy).toEqual([
       jasmine.objectContaining({ '@id': 'https://example.org/deposit' }),
     ]);
+    expect(graph['@graph'][0].identifier).toEqual([
+      'https://www.re3data.org/repository/example',
+    ]);
+    expect(graph['@graph'][0].sameAs).toEqual([
+      'https://www.re3data.org/repository/example',
+    ]);
+    expect(graph['@graph'][1].address.addressCountry).toBe('MK');
   });
 });

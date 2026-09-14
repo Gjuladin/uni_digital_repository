@@ -40,7 +40,7 @@ harvesting:
   enabled: true
   repository:
     name: UIST Digital Repository
-    description: Open access scholarly works, publications, theses, conference papers, and research outputs from UIST "St. Paul the Apostle" in Ohrid.
+    description: Institutional digital repository of the University of Information Science and Technology "St. Paul the Apostle".
     languages:
       - en
     subjects: []
@@ -48,7 +48,7 @@ harvesting:
       id: https://uist.edu.mk/#organization
       name: University of Information Science and Technology "St. Paul the Apostle"
       url: https://uist.edu.mk/
-      countryCode: MK
+      # countryCode: { enabled: false, value: '' }
     # Governance and registry claims are intentionally omitted until approved.
     # Optional claims use { enabled: true, value: ... } and are omitted otherwise.
     # contactEmail: { enabled: false, value: '' }
