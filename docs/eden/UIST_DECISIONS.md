@@ -21,6 +21,8 @@ This is the institutional decision register. These items cannot be finalized sol
 
 ## Handle prefix decision
 
+Update 2026-10-01: the user supplied registered UIST prefix **`20.500.15029`** and reference **`HNRT-185049`**, and instructed development to use it. The public naming-authority record `0.NA/20.500.15029` confirms a UIST Digital Repository Handle Server at `79.125.183.22`, TCP/UDP `2641` and HTTP `8000`, with registration timestamps dated 2026-09-30. Backend source configuration now uses the supplied prefix and HTTPS Handle resolver URLs. This resolves the prefix-selection question; it does not establish successful item resolution, migration approval, or service operation. See [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md) for activation and migration details.
+
 The live-looking local identifier `123456789/261` uses:
 
 - prefix: `123456789`
@@ -28,13 +30,13 @@ The live-looking local identifier `123456789/261` uses:
 
 `123456789` is the common DSpace example/default namespace and is not evidence that UIST owns a production Handle service. The local URL `/handle/123456789/261` can work while the global URL `https://hdl.handle.net/123456789/261` does not resolve. UIST must not claim Handle PID support in EDEN, re3data, or FAIRsharing on that basis.
 
-UIST must decide one of the following:
+The original prefix-selection alternatives were:
 
 1. **Use an existing UIST prefix:** provide the registered prefix, Handle service owner, administrator contact, credentials/site bundle custody, and proof that UIST is authorized to mint under it.
 2. **Obtain a new prefix:** authorize registration through Handle.Net or an approved service provider. New prefixes normally use the form `20.500.xxxxx`.
 3. **Do not offer Handles yet:** retain local item URLs but describe them as local identifiers, not globally registered PIDs.
 
-Before enabling a real prefix, UIST must also approve:
+The following migration and operational decisions remain:
 
 - the suffix strategy for new items;
 - whether existing `123456789/*` records are migrated, aliased, or left as legacy local routes;

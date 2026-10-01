@@ -22,7 +22,7 @@ The work is separated by category in [eden/README.md](eden/README.md). In partic
 - Confirm the production contact address that may be published by registries.
 - Supply approved deposit, access, preservation, curation, privacy, and takedown policy URLs.
 - Confirm whether a repository-wide licence exists; item licences remain item-specific by default.
-- Confirm an existing UIST-owned Handle prefix or obtain a new registered prefix, then approve the suffix and legacy-identifier migration strategy. The DSpace example prefix `123456789` must not be claimed as UIST PID support.
+- UIST prefix `20.500.15029` was supplied on 2026-10-01 (reference `HNRT-185049`) and confirmed in the public naming-authority record. Complete server activation, approve the suffix and legacy-identifier migration strategy, and verify global item resolution before claiming operational Handle PID support. See [eden/HANDLE_ACTIVATION.md](eden/HANDLE_ACTIVATION.md). The DSpace example prefix `123456789` must not be claimed as UIST PID support.
 - Confirm DOI registration and resolution before claiming DOI minting support.
 - Supply evidence for any repository certification claim.
 - Confirm authoritative research-area/subject classifications.

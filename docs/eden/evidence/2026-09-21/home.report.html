@@ -1,0 +1,1931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The harvest is a GET with a query parameter: an indexed or unfurled
+     result URL would trigger a real outbound harvest for whoever's link
+     gets crawled. See also /robots.txt (views.py) for bots that check it
+     first rather than the page they already fetched. -->
+<meta name="robots" content="noindex,nofollow">
+<title>EDEN Repository Harvester</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --line: #d8d8d8;
+          --ok: #1a6b2f; --gap: #8a4b00; --off: #5c5c5c; --warn: #8a1a1a; }
+  /* No max-width here on purpose: this page is mostly tables, JSON and
+     cards, and those should use whatever width the visitor's screen gives
+     them. Only the prose elements below (.note, .banner, .error, the header
+     tagline) get their own reading-width cap, since long paragraph lines are
+     what actually get hard to follow when stretched - not a table row. */
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+         line-height: 1.5; color: var(--ink); margin: 0;
+         padding: 1.5rem clamp(1rem, 5vw, 4rem); }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 .5rem;
+       border-bottom: 1px solid var(--line); padding-bottom: .25rem; }
+  .banner { background: #fff8e1; border: 1px solid #e6c86a; border-radius: 4px;
+            padding: .6rem .8rem; font-size: .9rem; margin: .75rem 0 1.5rem;
+            max-width: 60rem; }
+  form { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; max-width: 60rem; }
+  input[type=url], input[type=text] { flex: 1 1 24rem; padding: .5rem;
+            border: 1px solid var(--line); border-radius: 4px; font-size: 1rem; }
+  button { padding: .5rem 1.2rem; font-size: 1rem; cursor: pointer;
+           border: 1px solid var(--ink); background: var(--ink); color: #fff;
+           border-radius: 4px; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line);
+           vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: .85rem;
+       text-transform: uppercase; letter-spacing: .03em; }
+  /* Group headers inside a table: metadata and services are two kinds of
+     answer, and a visitor scanning for "does my page publish an API" should not
+     have to read every row to find where one list ends.
+
+     Styled deliberately unlike the column headers above them. Both are <th>,
+     but they label different things - one names the columns, the other names a
+     block of rows - and giving both the same uppercase muted treatment made the
+     group header read as a second column header. Sentence case in the body ink
+     is the contrast that separates them. */
+  tr.group th { text-transform: none; letter-spacing: 0; font-size: .95rem;
+                color: var(--ink); padding-top: 1.1rem;
+                border-bottom-color: var(--ink); }
+  tbody:first-of-type tr.group th { padding-top: .4rem; }
+  /* Members sit under their group header rather than beside it. */
+  tbody.grouped td:first-child { padding-left: 1.5rem; }
+  /* Second line under a row's label: where a service came from, or that a
+     check's "Found" stands for endpoints listed further down. */
+  .row-note { display: block; color: var(--muted); font-size: .85em; }
+  .help-cell { width: 1px; }
+  .help-open { display: inline-block; width: 1.3rem; height: 1.3rem; padding: 0;
+       border: 1px solid var(--line); border-radius: 50%; background: none;
+       color: var(--muted); font-size: .8rem; line-height: 1.2rem; }
+  .help-open:hover { color: var(--ink); border-color: var(--muted); }
+  .help-open.active { color: var(--ink); border: 1px solid var(--ink); }
+  .help-dialog { position: fixed; margin: 0; overflow: visible;
+       border: 1px solid var(--ink); border-radius: 6px; padding: 0;
+       background: #fff; color: var(--ink); font-size: .95rem; }
+  .help-scroll { max-height: 80vh; overflow-y: auto; padding: 1.25rem; }
+  .help-dialog::after { content: ''; position: absolute; top: var(--line-y);
+       left: -24px; width: 24px; border-top: 1px solid var(--ink); }
+  .help-dialog.to-left::after { left: 100%; }
+  body:has(.help-dialog[open]) { overflow: hidden; }
+  .help-dialog h3 { margin: 0 0 .75rem; font-size: 1.05rem; }
+  .help-dialog blockquote { margin: .5rem 0; padding-left: .8rem;
+       border-left: 2px solid var(--line); }
+  .help-dialog cite { display: block; font-style: normal; color: var(--muted);
+       font-size: .85em; }
+  .help-dialog form { margin: 1rem 0 0; }
+  .help-label { font-weight: 600; margin-bottom: .2rem; }
+  .help-result { font-weight: 600; margin: 1rem 0 0; }
+  .help-found { margin: .25rem 0 0; padding-left: 1.2rem; }
+  .help-checked { color: var(--muted); }
+  .help-caption { color: var(--muted); font-size: .85em; margin-bottom: 0; }
+  h3 { font-size: 1rem; margin: 1.25rem 0 .4rem; }
+  .status-found { color: var(--ok); font-weight: 600; }
+  .status-missing { color: var(--gap); font-weight: 600; }
+  .status-not_checked, .status-disabled, .status-no_record, .status-misconfigured { color: var(--off); }
+  .status-unavailable { color: var(--warn); font-weight: 600; }
+  .note { color: var(--muted); font-size: .9rem; max-width: 60rem; }
+  .error { border-left: 3px solid var(--warn); padding-left: .8rem; max-width: 60rem; }
+  pre { background: #f6f6f6; padding: .8rem; border-radius: 4px;
+        overflow-x: auto; font-size: .85rem; }
+  details { margin: .75rem 0; }
+  summary { cursor: pointer; color: var(--muted); font-size: .9rem; }
+  /* Both grids below always hold exactly two items today (REGISTRY_NAMES,
+     and the table+JSON pair each split section builds). An auto-fit/minmax
+     column count is calibrated against a specific container width - it does
+     the wrong thing once the container has no max-width and can be
+     arbitrarily wide, because extra phantom tracks can fit at the minimum
+     size and then collapse unevenly (this bit us once already, at a bounded
+     960px width). A fixed two-column breakpoint has no such ceiling: it is
+     exactly two columns above it and exactly one below it, at any width. */
+  .registries { display: grid; grid-template-columns: 1fr;
+                gap: 1.5rem; align-items: start; margin-top: 1rem; }
+  .registry-card { border: 1px solid var(--line); border-radius: 4px; padding: 1rem; }
+  .registry-card h2 { margin-top: 0; }
+  .split { display: grid; grid-template-columns: 1fr;
+           gap: 1.5rem; align-items: start; margin: 1rem 0; }
+  @media (min-width: 48rem) {
+    .registries, .split { grid-template-columns: 1fr 1fr; }
+  }
+  /* The found/missing and services tables have short cell content (a
+     label, a status word, a URL) - stretched to fill a much wider column
+     now that body has no max-width, they leave a stranded band of empty
+     space after the last column. Content-sized, capped by the column, is
+     the honest width for this specific content; still full column width
+     whenever the content actually needs it (e.g. long service URLs). */
+  .split table { width: auto; max-width: 100%; }
+  /* A grid item's automatic minimum width defaults to its content's natural
+     size - an un-wrapped table can be that wide, and that minimum belongs to
+     the grid item itself, not to .table-scroll one level further in, so
+     wrapping the table alone cannot cap it. Overriding it here is what lets
+     .table-scroll's own overflow-x:auto actually engage on a narrow screen,
+     instead of the whole grid track - and the page under it - stretching to
+     fit the table. Both grids need it: .registry-card's Title/Description
+     cells are plain text with no word-break, so a long unbroken value there
+     is exactly as capable of forcing .registries wide as a table cell is
+     in .split. */
+  .split > div, .registries > div { min-width: 0; }
+  /* Left column is a short table; the JSON on the right is often many times
+     its height. Left unbounded, the row grows to the JSON's full height and
+     leaves the table stranded above a wall of empty space. A capped,
+     independently-scrolling pane keeps the row a sane height while the JSON
+     stays open and readable. */
+  .split pre { max-height: 22rem; overflow-y: auto; }
+  .logo { height: 3rem; width: auto; display: block; margin-bottom: .75rem; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 3rem; padding-top: .75rem; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: .9rem; }
+  code { font-size: .9em; word-break: break-all; }
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="/logo-eden.svg" alt="EOSC EDEN">
+  <h1>EDEN Repository Harvester</h1>
+  <p class="note">See what this repository landing page exposes to an automated harvester.</p>
+  <p class="banner">
+    Experimental preview. No availability guarantee, no authentication, nothing is stored.
+  </p>
+</header>
+<main>
+
+
+<form method="get" action="/">
+  <input type="url" name="url" placeholder="https://data.example.org/"
+         value="http://localhost:4000/home" required
+         aria-label="Repository landing page URL">
+  <button type="submit">Harvest</button>
+</form>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+  
+
+
+
+
+
+<h2>What your landing page exposes</h2>
+
+<p class="note">
+  Harvested from <code>http://localhost:4000/home</code>.
+</p>
+
+
+
+
+<div class="split">
+  <div>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>What was looked for</th><th>Result</th><th></th></tr></thead>
+      
+      <tbody class="grouped">
+        <tr class="group"><th colspan="3">Metadata</th></tr>
+        
+
+  
+  <tr>
+    <td>Embedded JSON-LD Metadata Extraction</td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+<button type="button" class="help-open" data-help="help-embedded_jsonld"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-embedded_jsonld" class="help-dialog">
+  <div class="help-scroll">
+  <h3>Embedded JSON-LD Metadata Extraction</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond. [...] Many applications from Google, Microsoft, Pinterest, Yandex and others already use these vocabularies to power rich, extensible experiences.</p>
+    <cite><a href="https://schema.org/" target="_blank" rel="noopener noreferrer">Schema.org</a></cite>
+  </blockquote>
+  
+  <blockquote>
+    <p>This specification defines JSON-LD 1.1, a JSON-based format to serialize Linked Data.</p>
+    <cite><a href="https://www.w3.org/TR/json-ld11/" target="_blank" rel="noopener noreferrer">JSON-LD 1.1, W3C Recommendation</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: A &lt;script type=&#34;application/ld+json&#34;&gt; element in the page.</p>
+  
+  
+  <pre><code>&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org/&#34;,
+  &#34;@type&#34;: &#34;DataCatalog&#34;,
+  &#34;name&#34;: &#34;Example Data Repository&#34;,
+  &#34;url&#34;: &#34;https://data.example.org/&#34;,
+  &#34;description&#34;: &#34;Open research data from Example University.&#34;,
+  &#34;publisher&#34;: {&#34;@type&#34;: &#34;Organization&#34;, &#34;name&#34;: &#34;Example University&#34;},
+  &#34;license&#34;: &#34;https://creativecommons.org/licenses/by/4.0/&#34;
+}
+&lt;/script&gt;</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <ul class="help-found">
+    <li><code>http://localhost:8080/server/api</code></li><li><code>http://localhost:8080/server/oai/request</code></li><li><code>http://localhost:8080/server/opensearch/search</code></li><li><code>http://localhost:8080/server/opensearch/search?format=atom&amp;query=%2A</code></li><li><code>http://localhost:8080/server/opensearch/search?format=rss&amp;query=%2A</code></li><li><code>http://localhost:4000/sitemap_index.xml</code></li><li><code>http://localhost:4000/signposting/links/%7Buuid%7D</code></li><li><code>http://localhost:4000/search?query=%7Bsearch_term_string%7D</code></li>
+  </ul>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+  
+  <tr>
+    <td>Embedded Meta-Tags Metadata Extraction</td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+<button type="button" class="help-open" data-help="help-meta_tags"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-meta_tags" class="help-dialog">
+  <div class="help-scroll">
+  <h3>Embedded Meta-Tags Metadata Extraction</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>This document describes how Dublin Core metadata can be encoded in HTML/XHTML &lt;meta&gt; and &lt;link&gt; elements.</p>
+    <cite><a href="https://www.dublincore.org/specifications/dublin-core/dcq-html/" target="_blank" rel="noopener noreferrer">Expressing Dublin Core in HTML/XHTML meta and link elements, DCMI</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: The meta names title, description, publisher, license, contact, language and type.</p>
+  
+  
+  <pre><code>&lt;meta name=&#34;title&#34; content=&#34;Example Data Repository&#34;&gt;
+&lt;meta name=&#34;description&#34; content=&#34;Open research data from Example University.&#34;&gt;
+&lt;meta name=&#34;publisher&#34; content=&#34;Example University&#34;&gt;
+&lt;meta name=&#34;license&#34; content=&#34;https://creativecommons.org/licenses/by/4.0/&#34;&gt;
+&lt;meta name=&#34;contact&#34; content=&#34;data@example.org&#34;&gt;
+&lt;meta name=&#34;language&#34; content=&#34;en&#34;&gt;
+&lt;meta name=&#34;type&#34; content=&#34;Dataset&#34;&gt;</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+  
+  <tr>
+    <td>Linked (signposting) JSON-LD Metadata Extraction</td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+<button type="button" class="help-open" data-help="help-linked_jsonld"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-linked_jsonld" class="help-dialog">
+  <div class="help-scroll">
+  <h3>Linked (signposting) JSON-LD Metadata Extraction</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>The Signposting site started in 2016 by recommending patterns, based on typed links, that repositories can implement to make it easier for machines to navigate the scholarly objects they host. For example, use describedby links to point from an object&#39;s landing page to metadata descriptions of the object, and item links to point at the object&#39;s actual content resources.</p>
+    <cite><a href="https://signposting.org/" target="_blank" rel="noopener noreferrer">Signposting the Scholarly Web</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: A describedby link typed application/ld+json, in the HTTP Link header or the page head. Up to ten are followed.</p>
+  
+  <p class="help-caption">As a response header:</p>
+  <pre><code>Link: &lt;https://data.example.org/records/42/metadata.jsonld&gt;
+      ; rel=&#34;describedby&#34; ; type=&#34;application/ld+json&#34;</code></pre>
+  
+  <p class="help-caption">Or in the page head:</p>
+  <pre><code>&lt;link rel=&#34;describedby&#34; type=&#34;application/ld+json&#34;
+      href=&#34;https://data.example.org/records/42/metadata.jsonld&#34;&gt;</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <ul class="help-found">
+    <li><code>http://localhost:8080/server/api</code></li><li><code>http://localhost:8080/server/oai/request</code></li><li><code>http://localhost:8080/server/opensearch/search</code></li><li><code>http://localhost:8080/server/opensearch/search?format=atom&amp;query=%2A</code></li><li><code>http://localhost:8080/server/opensearch/search?format=rss&amp;query=%2A</code></li><li><code>http://localhost:4000/sitemap_index.xml</code></li><li><code>http://localhost:4000/signposting/links/%7Buuid%7D</code></li>
+  </ul>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+
+      </tbody>
+      
+      
+      <tbody class="grouped">
+        <tr class="group"><th colspan="3">Services</th></tr>
+        
+
+  
+  <tr>
+    <td>FAIRiCAT / Linkset / API Catalog Discovery<span class="row-note">details listed below</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+<button type="button" class="help-open" data-help="help-fairicat_services"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-fairicat_services" class="help-dialog">
+  <div class="help-scroll">
+  <h3>FAIRiCAT / Linkset / API Catalog Discovery</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>Discovering whether and which interoperability affordances are provided by a repository remains a challenge. [...] They can be used in automatic processes by clients that are looking for specific approaches to interoperate with a repository, e.g. via OAI-PMH, SPARQL, Sitemaps, Linked Data Notifications.</p>
+    <cite><a href="https://signposting.org/FAIRiCat/" target="_blank" rel="noopener noreferrer">FAIRiCat: Supporting Discovery of a Repository&#39;s Interoperability Affordances</a></cite>
+  </blockquote>
+  
+  <blockquote>
+    <p>This specification defines two formats and associated media types for representing sets of links as standalone documents.</p>
+    <cite><a href="https://www.rfc-editor.org/rfc/rfc9264.html" target="_blank" rel="noopener noreferrer">RFC 9264, Linkset</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: An api-catalog link typed application/linkset+json, and the service-doc and service-meta links in the linkset it points to.</p>
+  
+  <p class="help-caption">On the landing page (or as a Link header):</p>
+  <pre><code>&lt;link rel=&#34;api-catalog&#34; type=&#34;application/linkset+json&#34;
+      href=&#34;https://data.example.org/.well-known/api-catalog&#34;&gt;</code></pre>
+  
+  <p class="help-caption">The catalog itself, one entry per interface:</p>
+  <pre><code>{
+  &#34;linkset&#34;: [
+    {
+      &#34;anchor&#34;: &#34;https://data.example.org/oai&#34;,
+      &#34;service-doc&#34;: [
+        {&#34;href&#34;: &#34;https://www.openarchives.org/OAI/openarchivesprotocol.html&#34;}
+      ],
+      &#34;service-meta&#34;: [
+        {&#34;href&#34;: &#34;https://data.example.org/oai?verb=Identify&#34;,
+         &#34;type&#34;: &#34;application/xml&#34;, &#34;title&#34;: &#34;OAI-PMH 2.0&#34;}
+      ]
+    }
+  ]
+}</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <ul class="help-found">
+    <li><code>http://localhost:8080/server/api</code></li><li><code>http://localhost:8080/server/oai/request</code></li><li><code>http://localhost:8080/server/opensearch/search</code></li><li><code>http://localhost:8080/server/opensearch/search?format=atom&amp;query=*</code></li><li><code>http://localhost:8080/server/opensearch/search?format=rss&amp;query=*</code></li><li><code>http://localhost:4000/sitemap_index.xml</code></li><li><code>http://localhost:4000/signposting/links/{uuid}</code></li><li><code>http://localhost:4000/.well-known/api-catalog</code></li>
+  </ul>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+  
+  <tr>
+    <td>Feed (Atom/RSS) Service Discovery<span class="row-note">details listed below</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+  
+    
+  
+    
+  
+
+<button type="button" class="help-open" data-help="help-feed_services"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-feed_services" class="help-dialog">
+  <div class="help-scroll">
+  <h3>Feed (Atom/RSS) Service Discovery</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>Atom is an XML-based document format that describes lists of related information known as &#34;feeds&#34;. Feeds are composed of a number of items, known as &#34;entries&#34;, each with an extensible set of attached metadata. [...] The primary use case that Atom addresses is the syndication of Web content such as weblogs and news headlines to Web sites as well as directly to user agents.</p>
+    <cite><a href="https://www.rfc-editor.org/rfc/rfc4287.html" target="_blank" rel="noopener noreferrer">RFC 4287, The Atom Syndication Format</a></cite>
+  </blockquote>
+  
+  <blockquote>
+    <p>RSS autodiscovery is a technique that makes it possible for browsers and other software to automatically find a site&#39;s RSS feed, whether it&#39;s in RSS 1.0 or RSS 2.0 format. [...] This specification describes how web publishers can support autodiscovery by adding an HTML header to web pages.</p>
+    <cite><a href="https://www.rssboard.org/rss-autodiscovery" target="_blank" rel="noopener noreferrer">RSS Autodiscovery, RSS Advisory Board</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: An alternate link typed application/atom+xml or application/rss+xml.</p>
+  
+  
+  <pre><code>&lt;link rel=&#34;alternate&#34; type=&#34;application/atom+xml&#34;
+      title=&#34;New deposits&#34; href=&#34;https://data.example.org/feed.atom&#34;&gt;</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <ul class="help-found">
+    <li><code>http://localhost:8080/server/opensearch/search?format=atom&amp;sort=dc.date.accessioned&amp;sort_direction=DESC&amp;query=*&amp;rpp=10</code></li><li><code>http://localhost:8080/server/opensearch/search?format=rss&amp;sort=dc.date.accessioned&amp;sort_direction=DESC&amp;query=*&amp;rpp=10</code></li>
+  </ul>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+  
+  <tr>
+    <td>Sitemap Service Discovery<span class="row-note">details listed below</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+  
+    
+  
+
+<button type="button" class="help-open" data-help="help-sitemap_service"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-sitemap_service" class="help-dialog">
+  <div class="help-scroll">
+  <h3>Sitemap Service Discovery</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>Sitemaps are an easy way for webmasters to inform search engines about pages on their sites that are available for crawling.</p>
+    <cite><a href="https://www.sitemaps.org/" target="_blank" rel="noopener noreferrer">sitemaps.org</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: The first Sitemap line in robots.txt.</p>
+  
+  <p class="help-caption">https://data.example.org/robots.txt</p>
+  <pre><code>User-agent: *
+Allow: /
+
+Sitemap: https://data.example.org/sitemap.xml</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <ul class="help-found">
+    <li><code>http://localhost:4000/sitemap_index.xml</code></li>
+  </ul>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+  
+  <tr>
+    <td>OpenSearch Service Discovery<span class="row-note">details listed below</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell">
+
+
+  
+    
+  
+
+<button type="button" class="help-open" data-help="help-open_search"
+        title="What is this?" aria-label="What is this?">?</button>
+<dialog id="help-open_search" class="help-dialog">
+  <div class="help-scroll">
+  <h3>OpenSearch Service Discovery</h3>
+  <p class="help-label">Relevance</p>
+  
+  <blockquote>
+    <p>Search clients can use OpenSearch description documents to learn about the public interface of a search engine.</p>
+    <cite><a href="https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md" target="_blank" rel="noopener noreferrer">OpenSearch 1.1 Draft 6</a></cite>
+  </blockquote>
+  
+  <p class="help-checked">This check looks for: A search link typed application/opensearchdescription+xml.</p>
+  
+  <p class="help-caption">On the landing page:</p>
+  <pre><code>&lt;link rel=&#34;search&#34; type=&#34;application/opensearchdescription+xml&#34;
+      title=&#34;Example Data Repository&#34;
+      href=&#34;https://data.example.org/opensearch.xml&#34;&gt;</code></pre>
+  
+  <p class="help-caption">https://data.example.org/opensearch.xml</p>
+  <pre><code>&lt;OpenSearchDescription xmlns=&#34;http://a9.com/-/spec/opensearch/1.1/&#34;&gt;
+  &lt;ShortName&gt;Example Data&lt;/ShortName&gt;
+  &lt;Description&gt;Search datasets in the Example Data Repository.&lt;/Description&gt;
+  &lt;Url type=&#34;application/atom+xml&#34;
+       template=&#34;https://data.example.org/search?q={searchTerms}&amp;amp;format=atom&#34;/&gt;
+&lt;/OpenSearchDescription&gt;</code></pre>
+  
+  <p class="help-result status-found">Found on this page</p>
+  
+  <ul class="help-found">
+    <li><code>http://localhost:8080/server/opensearch/service</code></li>
+  </ul>
+  
+  <form method="dialog"><button type="submit">Close</button></form>
+  </div>
+</dialog>
+</td>
+  </tr>
+
+  
+  <tr>
+    <td>DataService<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>OAI-PMH<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>OpenSearch<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>ATOM<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>RSS<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>Sitemaps<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>DataService<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>SearchAction<span class="row-note">via Embedded JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>DataService<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>OAI-PMH<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>OpenSearch<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>ATOM<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>RSS<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>Sitemaps<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+  
+  <tr>
+    <td>DataService<span class="row-note">via Linked (signposting) JSON-LD Metadata Extraction</span></td>
+    <td class="status-found">Found</td>
+    <td class="help-cell"></td>
+  </tr>
+
+
+      </tbody>
+      
+    </table>
+    </div>
+    <p class="note">
+      &ldquo;Not found&rdquo; means the check ran and your page did not expose it. &ldquo;Not checked&rdquo; means the harvest
+      stopped before reaching that check. Services a registry knows about but your page does not
+      publish are listed with that registry further down, not here.
+    </p>
+  </div>
+  <div>
+    
+    <details open>
+      <summary>Raw records (JSON)</summary>
+      <pre>[
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/embedded_jsonld/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dcat:service": [
+        {
+          "@id": "http://localhost:8080/server/api",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/api",
+          "dct:conformsTo": "https://github.com/DSpace/RestContract",
+          "dct:title": "DSpace REST API",
+          "dct:type": "DataService"
+        },
+        {
+          "@id": "http://localhost:8080/server/oai/request",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+          "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+          "dct:title": "OAI-PMH",
+          "dct:type": "OAI-PMH"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+          "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+          "dct:title": "OpenSearch",
+          "dct:type": "OpenSearch"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+          "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+          "dct:title": "Sitewide Atom feed",
+          "dct:type": "ATOM"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+          "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+          "dct:title": "Sitewide RSS feed",
+          "dct:type": "RSS"
+        },
+        {
+          "@id": "http://localhost:4000/sitemap_index.xml",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+          "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+          "dct:title": "Repository sitemap",
+          "dct:type": "Sitemaps"
+        },
+        {
+          "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+          "dct:conformsTo": "https://signposting.org/",
+          "dct:title": "Signposting item links",
+          "dct:type": "DataService"
+        },
+        {
+          "@id": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+          "dct:conformsTo": "https://www.ietf.org/rfc/rfc2616",
+          "dct:format": "text/html",
+          "dct:type": "SearchAction"
+        }
+      ],
+      "dct:description": "Institutional digital repository of the University of Information Science and Technology \"St. Paul the Apostle\".",
+      "dct:identifier": [
+        "http://localhost:4000/#repository"
+      ],
+      "dct:language": [
+        "en"
+      ],
+      "dct:publisher": [
+        {
+          "@type": "foaf:Agent",
+          "foaf:homepage": "https://uist.edu.mk/",
+          "foaf:name": "University of Information Science and Technology \"St. Paul the Apostle\""
+        }
+      ],
+      "dct:title": "UIST Digital Repository",
+      "dct:type": "DataCatalog"
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/embedded_jsonld",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "Embedded JSON-LD Metadata Extraction"
+    }
+  },
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/meta_tags/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dct:description": "Institutional digital repository of the University of Information Science and Technology \"St. Paul the Apostle\".",
+      "dct:identifier": "http://localhost:4000/home",
+      "dct:language": "en",
+      "dct:publisher": [
+        {
+          "@type": "foaf:Agent"
+        }
+      ],
+      "dct:title": "UIST Repository :: Home",
+      "dct:type": [
+        "dcmitype:Text",
+        "DataCatalog"
+      ]
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/meta_tags",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "Embedded Meta-Tags Metadata Extraction"
+    }
+  },
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/linked_jsonld/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dcat:service": [
+        {
+          "@id": "http://localhost:8080/server/api",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/api",
+          "dct:conformsTo": "https://github.com/DSpace/RestContract",
+          "dct:title": "DSpace REST API",
+          "dct:type": "DataService"
+        },
+        {
+          "@id": "http://localhost:8080/server/oai/request",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+          "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+          "dct:title": "OAI-PMH",
+          "dct:type": "OAI-PMH"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+          "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+          "dct:title": "OpenSearch",
+          "dct:type": "OpenSearch"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+          "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+          "dct:title": "Sitewide Atom feed",
+          "dct:type": "ATOM"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+          "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+          "dct:title": "Sitewide RSS feed",
+          "dct:type": "RSS"
+        },
+        {
+          "@id": "http://localhost:4000/sitemap_index.xml",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+          "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+          "dct:title": "Repository sitemap",
+          "dct:type": "Sitemaps"
+        },
+        {
+          "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+          "dct:conformsTo": "https://signposting.org/",
+          "dct:title": "Signposting item links",
+          "dct:type": "DataService"
+        }
+      ],
+      "dct:description": "Institutional digital repository of the University of Information Science and Technology \"St. Paul the Apostle\".",
+      "dct:identifier": [
+        "http://localhost:4000/#repository"
+      ],
+      "dct:language": [
+        "en"
+      ],
+      "dct:publisher": [
+        {
+          "@type": "foaf:Agent",
+          "foaf:homepage": "https://uist.edu.mk/",
+          "foaf:name": "University of Information Science and Technology \"St. Paul the Apostle\""
+        }
+      ],
+      "dct:title": "UIST Digital Repository",
+      "dct:type": "DataCatalog"
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/linked_jsonld",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "Linked (signposting) JSON-LD Metadata Extraction"
+    }
+  },
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/fairicat_services/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dcat:service": [
+        {
+          "@id": "http://localhost:8080/server/api",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/api",
+          "dct:conformsTo": "https://github.com/DSpace/RestContract",
+          "dct:format": "application/hal+json",
+          "dct:title": "DSpace REST API"
+        },
+        {
+          "@id": "http://localhost:8080/server/oai/request",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+          "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+          "dct:format": "application/xml",
+          "dct:title": "OAI-PMH",
+          "dct:type": "OAI-PMH"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+          "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+          "dct:format": "application/opensearchdescription+xml",
+          "dct:title": "OpenSearch",
+          "dct:type": "OpenSearch"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=*",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=*",
+          "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+          "dct:type": "ATOM"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=*",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=*",
+          "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+          "dct:type": "RSS"
+        },
+        {
+          "@id": "http://localhost:4000/sitemap_index.xml",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+          "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+          "dct:type": "Sitemaps"
+        },
+        {
+          "@id": "http://localhost:4000/signposting/links/{uuid}",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/signposting/links/{uuid}",
+          "dct:conformsTo": "https://signposting.org/"
+        },
+        {
+          "@id": "http://localhost:4000/.well-known/api-catalog",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/.well-known/api-catalog",
+          "dct:conformsTo": "https://signposting.org/FAIRiCat/",
+          "dct:format": "application/linkset+json",
+          "dct:title": "UIST repository API catalog",
+          "dct:type": "FAIRiCat"
+        }
+      ],
+      "dct:identifier": "http://localhost:4000/home",
+      "dct:publisher": []
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/fairicat_services",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "FAIRiCAT / Linkset / API Catalog Discovery"
+    }
+  },
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/feed_services/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dcat:service": [
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+          "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+          "dct:format": "application/atom+xml",
+          "dct:title": "Sitewide Atom feed",
+          "dct:type": "ATOM"
+        },
+        {
+          "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+          "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+          "dct:format": "application/rss+xml",
+          "dct:title": "Sitewide RSS feed",
+          "dct:type": "RSS"
+        }
+      ],
+      "dct:identifier": "http://localhost:4000/home",
+      "dct:publisher": []
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/feed_services",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "Feed (Atom/RSS) Service Discovery"
+    }
+  },
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/open_search/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dcat:service": [
+        {
+          "@id": "http://localhost:8080/server/opensearch/service",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:8080/server/opensearch/service",
+          "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+          "dct:format": "text/xml",
+          "dct:type": "OpenSearch"
+        }
+      ],
+      "dct:identifier": "http://localhost:4000/home",
+      "dct:publisher": []
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/open_search",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "OpenSearch Service Discovery"
+    }
+  },
+  {
+    "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "dct": "http://purl.org/dc/terms/",
+      "dqv": "http://www.w3.org/ns/dqv#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "fsharing": "http://fairsharing.org/model/fairsharing_record_schema#",
+      "ldqd": "http://www.w3.org/2016/05/ldqd#",
+      "oa": "http://www.w3.org/ns/oa#",
+      "premis": "http://www.loc.gov/premis/rdf/v3/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "eden://harvester/sitemap_service/http://localhost:4000/home",
+    "@type": "dcat:CatalogRecord",
+    "dct:issued": "2026-09-21T18:17:28",
+    "foaf:primaryTopic": {
+      "@id": "http://localhost:4000/home",
+      "@type": [
+        "dcat:Catalog",
+        "foaf:Project"
+      ],
+      "dcat:contactPoint": [],
+      "dcat:keyword": [],
+      "dcat:service": [
+        {
+          "@id": "http://localhost:4000/sitemap_index.xml",
+          "@type": "dcat:DataService",
+          "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+          "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+          "dct:format": "application/xml",
+          "dct:type": "Sitemaps"
+        }
+      ],
+      "dct:identifier": "http://localhost:4000/home",
+      "dct:publisher": []
+    },
+    "prov:wasAssociatedWith": {
+      "@id": "eden://harvester",
+      "@type": "prov:SoftwareAgent",
+      "rdfs:label": "EDEN Catalog Service Harvester"
+    },
+    "prov:wasGeneratedBy": {
+      "@id": "eden://harvester/sitemap_service",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2026-09-21T18:17:28",
+      "rdfs:label": "Sitemap Service Discovery"
+    }
+  }
+]</pre>
+    </details>
+    
+  </div>
+</div>
+
+
+<h2>Services found on your landing page</h2>
+
+
+<div class="split">
+  <div>
+    
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Endpoint</th><th>Type</th><th>Conforms to</th></tr></thead>
+  
+  <tbody class="grouped">
+    
+    <tr class="group"><th colspan="3">Embedded JSON-LD Metadata Extraction</th></tr>
+    
+    
+    <tr>
+      <td><code>http://localhost:8080/server/api</code></td>
+      <td>DataService</td>
+      <td><code>https://github.com/DSpace/RestContract</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/oai/request</code></td>
+      <td>OAI-PMH</td>
+      <td><code>https://www.openarchives.org/OAI/openarchivesprotocol.html</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search</code></td>
+      <td>OpenSearch</td>
+      <td><code>https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=atom&amp;query=%2A</code></td>
+      <td>ATOM</td>
+      <td><code>https://www.ietf.org/rfc/rfc4287.txt</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=rss&amp;query=%2A</code></td>
+      <td>RSS</td>
+      <td><code>https://www.rssboard.org/rss-specification</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/sitemap_index.xml</code></td>
+      <td>Sitemaps</td>
+      <td><code>https://www.sitemaps.org/protocol.html</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/signposting/links/%7Buuid%7D</code></td>
+      <td>DataService</td>
+      <td><code>https://signposting.org/</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/search?query=%7Bsearch_term_string%7D</code></td>
+      <td>SearchAction</td>
+      <td><code>https://www.ietf.org/rfc/rfc2616</code></td>
+    </tr>
+    
+  </tbody>
+  
+  <tbody class="grouped">
+    
+    <tr class="group"><th colspan="3">Linked (signposting) JSON-LD Metadata Extraction</th></tr>
+    
+    
+    <tr>
+      <td><code>http://localhost:8080/server/api</code></td>
+      <td>DataService</td>
+      <td><code>https://github.com/DSpace/RestContract</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/oai/request</code></td>
+      <td>OAI-PMH</td>
+      <td><code>https://www.openarchives.org/OAI/openarchivesprotocol.html</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search</code></td>
+      <td>OpenSearch</td>
+      <td><code>https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=atom&amp;query=%2A</code></td>
+      <td>ATOM</td>
+      <td><code>https://www.ietf.org/rfc/rfc4287.txt</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=rss&amp;query=%2A</code></td>
+      <td>RSS</td>
+      <td><code>https://www.rssboard.org/rss-specification</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/sitemap_index.xml</code></td>
+      <td>Sitemaps</td>
+      <td><code>https://www.sitemaps.org/protocol.html</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/signposting/links/%7Buuid%7D</code></td>
+      <td>DataService</td>
+      <td><code>https://signposting.org/</code></td>
+    </tr>
+    
+  </tbody>
+  
+  <tbody class="grouped">
+    
+    <tr class="group"><th colspan="3">FAIRiCAT / Linkset / API Catalog Discovery</th></tr>
+    
+    
+    <tr>
+      <td><code>http://localhost:8080/server/api</code></td>
+      <td>DSpace REST API</td>
+      <td><code>https://github.com/DSpace/RestContract</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/oai/request</code></td>
+      <td>OAI-PMH</td>
+      <td><code>https://www.openarchives.org/OAI/openarchivesprotocol.html</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search</code></td>
+      <td>OpenSearch</td>
+      <td><code>https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=atom&amp;query=*</code></td>
+      <td>ATOM</td>
+      <td><code>https://www.ietf.org/rfc/rfc4287.txt</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=rss&amp;query=*</code></td>
+      <td>RSS</td>
+      <td><code>https://www.rssboard.org/rss-specification</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/sitemap_index.xml</code></td>
+      <td>Sitemaps</td>
+      <td><code>https://www.sitemaps.org/protocol.html</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/signposting/links/{uuid}</code></td>
+      <td></td>
+      <td><code>https://signposting.org/</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:4000/.well-known/api-catalog</code></td>
+      <td>FAIRiCat</td>
+      <td><code>https://signposting.org/FAIRiCat/</code></td>
+    </tr>
+    
+  </tbody>
+  
+  <tbody class="grouped">
+    
+    <tr class="group"><th colspan="3">Feed (Atom/RSS) Service Discovery</th></tr>
+    
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=atom&amp;sort=dc.date.accessioned&amp;sort_direction=DESC&amp;query=*&amp;rpp=10</code></td>
+      <td>ATOM</td>
+      <td><code>https://www.ietf.org/rfc/rfc4287.txt</code></td>
+    </tr>
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/search?format=rss&amp;sort=dc.date.accessioned&amp;sort_direction=DESC&amp;query=*&amp;rpp=10</code></td>
+      <td>RSS</td>
+      <td><code>https://www.rssboard.org/rss-specification</code></td>
+    </tr>
+    
+  </tbody>
+  
+  <tbody class="grouped">
+    
+    <tr class="group"><th colspan="3">OpenSearch Service Discovery</th></tr>
+    
+    
+    <tr>
+      <td><code>http://localhost:8080/server/opensearch/service</code></td>
+      <td>OpenSearch</td>
+      <td><code>https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md</code></td>
+    </tr>
+    
+  </tbody>
+  
+  <tbody class="grouped">
+    
+    <tr class="group"><th colspan="3">Sitemap Service Discovery</th></tr>
+    
+    
+    <tr>
+      <td><code>http://localhost:4000/sitemap_index.xml</code></td>
+      <td>Sitemaps</td>
+      <td><code>https://www.sitemaps.org/protocol.html</code></td>
+    </tr>
+    
+  </tbody>
+  
+</table>
+</div>
+
+  </div>
+  <div>
+    <details open>
+      <summary>Raw services (JSON)</summary>
+      <pre>[
+  {
+    "@id": "http://localhost:8080/server/api",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/api",
+    "dct:conformsTo": "https://github.com/DSpace/RestContract",
+    "dct:title": "DSpace REST API",
+    "dct:type": "DataService"
+  },
+  {
+    "@id": "http://localhost:8080/server/oai/request",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+    "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+    "dct:title": "OAI-PMH",
+    "dct:type": "OAI-PMH"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+    "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+    "dct:title": "OpenSearch",
+    "dct:type": "OpenSearch"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+    "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+    "dct:title": "Sitewide Atom feed",
+    "dct:type": "ATOM"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+    "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+    "dct:title": "Sitewide RSS feed",
+    "dct:type": "RSS"
+  },
+  {
+    "@id": "http://localhost:4000/sitemap_index.xml",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+    "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+    "dct:title": "Repository sitemap",
+    "dct:type": "Sitemaps"
+  },
+  {
+    "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+    "dct:conformsTo": "https://signposting.org/",
+    "dct:title": "Signposting item links",
+    "dct:type": "DataService"
+  },
+  {
+    "@id": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/search?query=%7Bsearch_term_string%7D",
+    "dct:conformsTo": "https://www.ietf.org/rfc/rfc2616",
+    "dct:format": "text/html",
+    "dct:type": "SearchAction"
+  },
+  {
+    "@id": "http://localhost:8080/server/api",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/api",
+    "dct:conformsTo": "https://github.com/DSpace/RestContract",
+    "dct:title": "DSpace REST API",
+    "dct:type": "DataService"
+  },
+  {
+    "@id": "http://localhost:8080/server/oai/request",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+    "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+    "dct:title": "OAI-PMH",
+    "dct:type": "OAI-PMH"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+    "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+    "dct:title": "OpenSearch",
+    "dct:type": "OpenSearch"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=%2A",
+    "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+    "dct:title": "Sitewide Atom feed",
+    "dct:type": "ATOM"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=%2A",
+    "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+    "dct:title": "Sitewide RSS feed",
+    "dct:type": "RSS"
+  },
+  {
+    "@id": "http://localhost:4000/sitemap_index.xml",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+    "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+    "dct:title": "Repository sitemap",
+    "dct:type": "Sitemaps"
+  },
+  {
+    "@id": "http://localhost:4000/signposting/links/%7Buuid%7D",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/signposting/links/%7Buuid%7D",
+    "dct:conformsTo": "https://signposting.org/",
+    "dct:title": "Signposting item links",
+    "dct:type": "DataService"
+  },
+  {
+    "@id": "http://localhost:8080/server/api",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/api",
+    "dct:conformsTo": "https://github.com/DSpace/RestContract",
+    "dct:format": "application/hal+json",
+    "dct:title": "DSpace REST API"
+  },
+  {
+    "@id": "http://localhost:8080/server/oai/request",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/oai/request",
+    "dct:conformsTo": "https://www.openarchives.org/OAI/openarchivesprotocol.html",
+    "dct:format": "application/xml",
+    "dct:title": "OAI-PMH",
+    "dct:type": "OAI-PMH"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search",
+    "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+    "dct:format": "application/opensearchdescription+xml",
+    "dct:title": "OpenSearch",
+    "dct:type": "OpenSearch"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=*",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026query=*",
+    "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+    "dct:type": "ATOM"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=*",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026query=*",
+    "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+    "dct:type": "RSS"
+  },
+  {
+    "@id": "http://localhost:4000/sitemap_index.xml",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+    "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+    "dct:type": "Sitemaps"
+  },
+  {
+    "@id": "http://localhost:4000/signposting/links/{uuid}",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/signposting/links/{uuid}",
+    "dct:conformsTo": "https://signposting.org/"
+  },
+  {
+    "@id": "http://localhost:4000/.well-known/api-catalog",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/.well-known/api-catalog",
+    "dct:conformsTo": "https://signposting.org/FAIRiCat/",
+    "dct:format": "application/linkset+json",
+    "dct:title": "UIST repository API catalog",
+    "dct:type": "FAIRiCat"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=atom\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=atom\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+    "dct:conformsTo": "https://www.ietf.org/rfc/rfc4287.txt",
+    "dct:format": "application/atom+xml",
+    "dct:title": "Sitewide Atom feed",
+    "dct:type": "ATOM"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/search?format=rss\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/search?format=rss\u0026sort=dc.date.accessioned\u0026sort_direction=DESC\u0026query=*\u0026rpp=10",
+    "dct:conformsTo": "https://www.rssboard.org/rss-specification",
+    "dct:format": "application/rss+xml",
+    "dct:title": "Sitewide RSS feed",
+    "dct:type": "RSS"
+  },
+  {
+    "@id": "http://localhost:8080/server/opensearch/service",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:8080/server/opensearch/service",
+    "dct:conformsTo": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md",
+    "dct:format": "text/xml",
+    "dct:type": "OpenSearch"
+  },
+  {
+    "@id": "http://localhost:4000/sitemap_index.xml",
+    "@type": "dcat:DataService",
+    "dcat:endpointURL": "http://localhost:4000/sitemap_index.xml",
+    "dct:conformsTo": "https://www.sitemaps.org/protocol.html",
+    "dct:format": "application/xml",
+    "dct:type": "Sitemaps"
+  }
+]</pre>
+    </details>
+  </div>
+</div>
+
+
+<div class="registries">
+
+<div class="registry-card">
+
+<h2>re3data</h2>
+
+
+<p class="status-disabled">Not consulted (switched off in this deployment)</p>
+
+</div>
+
+<div class="registry-card">
+
+<h2>FAIRsharing</h2>
+
+
+<p class="status-disabled">Not consulted (switched off in this deployment)</p>
+
+</div>
+
+</div>
+
+
+
+
+</main>
+<script>
+document.addEventListener('click', function (event) {
+  var opener = event.target.closest('[data-help]');
+  if (!opener) return;
+  var dialog = document.getElementById(opener.dataset.help);
+  if (dialog.open) { dialog.close(); return; }
+  document.querySelectorAll('.help-dialog[open]').forEach(function (open) {
+    open.close();
+  });
+  var a = opener.getBoundingClientRect();
+  var gap = 24, pad = 8;
+  var room = { right: window.innerWidth - a.right - gap - pad, left: a.left - gap - pad };
+  var toLeft = room.right < 320 && room.left > room.right;
+  var width = Math.min(672, Math.max(280, toLeft ? room.left : room.right));
+  dialog.style.width = width + 'px';
+  dialog.show();
+  opener.classList.add('active');
+  dialog.addEventListener('close', function () {
+    opener.classList.remove('active');
+  }, { once: true });
+  var height = dialog.getBoundingClientRect().height;
+  var top = Math.max(pad, Math.min(a.top + a.height / 2 - height / 2,
+                                   window.innerHeight - height - pad));
+  dialog.classList.toggle('to-left', toLeft);
+  dialog.style.left = (toLeft ? a.left - gap - width : a.right + gap) + 'px';
+  dialog.style.top = top + 'px';
+  dialog.style.setProperty('--line-y', (a.top + a.height / 2 - top) + 'px');
+});
+</script>
+<footer>
+  <p>EOSC EDEN WP2 &middot; <a href="/api/ui/">JSON API</a></p>
+</footer>
+</body>
+</html>

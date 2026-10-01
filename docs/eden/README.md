@@ -8,7 +8,7 @@ This directory separates EDEN work by technical area, owner, and approval bounda
 - The linked primary repository entity is `DataCatalog`, all eight synthetic item types map correctly, and restricted-item non-disclosure is covered by the backend integration suite.
 - Frontend and backend changes are implemented and tested locally but are not deployed to the production UIST service. Read-only public checks still show the previous discovery behavior.
 - re3data and FAIRsharing were deliberately disabled during the deterministic local mechanism run. No public UIST record has been evidenced; account creation, approved claims, submission, publication, and propagation remain external authorization-dependent work.
-- The current `123456789` DSpace Handle prefix must not be claimed as UIST PID support. UIST must confirm an existing registered prefix or obtain a new one.
+- On 2026-10-01, the user supplied UIST prefix `20.500.15029` (reference `HNRT-185049`). Its registry record is present, and the backend source now uses this prefix and `https://hdl.handle.net/`. Server activation, existing-record migration, and end-to-end resolution remain pending; see [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md). Existing `123456789/*` identifiers remain example-prefix identifiers until migrated.
 
 ## Categories
 

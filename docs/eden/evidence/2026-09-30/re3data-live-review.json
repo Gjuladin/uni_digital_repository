@@ -1,0 +1,3427 @@
+{
+  "reviewDate": "2026-09-30",
+  "scope": "Anonymous public GET responses; all two Discovery pages; item metadata only, not file-content inspection",
+  "responses": {
+    "terms": {
+      "url": "https://repository.uist.edu.mk/info/end-user-agreement",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "data": "UIST Repository :: End User Agreement\nSkip to main content\nLog In\nLog in\nCommunities & Collections\nAll of UIST\nHome\nEnd User Agreement\nEnd User Agreement\nLast updated May 4, 2023\nAgreement to terms\nThese Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (\"you\") and UIST Repository (\"Company\", \"we\", \"us\", or \"our\"), concerning your access to and use of this website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the \"Site\"). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use and any future amendments thereof.\nSupplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the \"Last updated\" date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.\nThe information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent such laws are applicable.\nIntellectual property rights\nUnless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the \"Content\") and the trademarks, service marks, and logos contained therein (the \"Marks\") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site \"AS IS\" for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content\n[a]\nor Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.\nProvided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.\nUser representations\nBy using the Site, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Use; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.\nIf you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof).\nUser registration\nYou may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.\nProhibited activities\nYou may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.\nAs a user of the Site, you agree not to:\nSystematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.\nTrick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.\nCircumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.\nDisparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.\nUse any information obtained from the Site in order to harass, abuse, or harm another person.\nMake improper use of our support services or submit false reports of abuse or misconduct.\nUse the Site in a manner inconsistent with any applicable laws or regulations.\nEngage in unauthorized framing of or linking to the Site.\nUpload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party's uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.\nDelete the copyright or other proprietary rights notice from any Content.\nAttempt to impersonate another user or person or use the username and password of another user.\nUpload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (\"gifs\"), 1x1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as \"spyware\" or \"passive collection mechanisms\" or \"pcms\").\nInterfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.\nHarass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.\nAttempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion thereof.\nMake any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email or other forms of electronic communication, or creating user accounts by automated means or under false pretenses.\nUse the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.\nUser generated contributions\nThe Site may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, \"Contributions\"). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:\nThe creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.\nYou are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.\nYou have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.\nYour Contributions are not false, inaccurate, or misleading.\nYour Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.\nYour Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).\nYour Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.\nYour Contributions are not used to harass or threaten (in the legal sense of those terms) any other person, do not create and are not used to promote violence against a specific person or class of people.\nYour Contributions do not violate any applicable law, regulation, or rule.\nYour Contributions do not violate the privacy or publicity rights of any third party.\nYour Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.\nYour Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, colour, religion, creed or physical handicap.\nYour Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.\nAny use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.\nSite management\nWe reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.\nPrivacy policy\nWe care about data privacy and security. Please review our\nPrivacy Policy\n. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use.\nPlease be advised the Site is hosted in the United States. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you agree to have your data transferred to and processed in the United States.\nTerm and termination\nThese Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, TO DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.\nIf we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.\nModifications and interruptions\nWe reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, change, suspension, or discontinuance of the Site.\nWe cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.\nCorrections\nThere may be information on the Site that contains typographical errors, inaccuracies, or omissions. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.\nDisclaimer\nTHE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE'S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.\nLimitations of liability\nIN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.\nIndemnification\nYou agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys' fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your representations and warranties set forth in these Terms of Use; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding that is subject to this indemnification upon becoming aware of it.\nUser Data\nWe will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.\nMiscellaneous\nThese Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.\n[a]\nThe DSpace software used to run this site is open source. Options for reuse and reproduction of the DSpace software is governed by its open source license:\nhttps://github.com/DSpace/DSpace/blob/main/LICENSE\nI have read and I agree to the End User Agreement\nCancel\nSave\nUIST Digital Repository\nResearch, theses, publications, project outputs, and institutional collections from UIST.\nExplore the repository\nSearch repository\nCommunities & collections\nBrowse authors\nAt UIST\nUniversity website\n↗\nAbout UIST\n↗\nE-library\n↗\nContact UIST\nPartizanska bb, 6000 Ohrid, North Macedonia\ncontact@uist.edu.mk\n+389 46 511 000\n© 2026 UIST\nUniversity of Information Science and Technology \"St. Paul the Apostle\"\nCookie settings\nAccessibility settings\nPrivacy policy\nEnd User Agreement"
+    },
+    "privacy": {
+      "url": "https://repository.uist.edu.mk/info/privacy",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "data": "UIST Repository :: Privacy Statement\nSkip to main content\nLog In\nLog in\nCommunities & Collections\nAll of UIST\nHome\nPrivacy Statement\nPrivacy Statement\nLast updated May 4, 2023\nIntroduction\nUIST Repository (\"Company\" or \"We\") respects your privacy and is committed to protecting it through our compliance with this policy.\nThis policy describes the types of information we may collect from you or that you may provide when you visit this website (our \"Website\") and our practices for collecting, using, maintaining, protecting, and disclosing that information.\nThis policy applies to information we collect:\nOn this Website.\nIn email, text, and other electronic messages between you and this Website.\nIt does not apply to information collected by:\nus offline or through any other means, including on any other website operated by Company or any third party; or\nany third party, including through any application or content (including advertising) that may link to or be accessible from or on the Website.\nPlease read this policy carefully to understand our policies and practices regarding your information and how we will treat it. If you do not agree with our policies and practices, your choice is not to use our Website. By accessing or using this Website, you agree to this privacy policy. This policy may change from time to time. Your continued use of this Website after we make changes is deemed to be acceptance of those changes, so please check the policy periodically for updates.\nChildren under the age of 13\nOur Website is not intended for children under 13 years of age. No one under age 13 may provide any personal information to or on the Website. We do not knowingly collect personal information from children under 13. If you are under 13, do not use or provide any information on this Website or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or username you may use. If we learn we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information.\nInformation we collect about you and how we collect it\nWe collect several types of information from and about users of our Website, including information:\nby which you may be personally identified, such as name, email address, telephone number, or any other identifier by which you may be contacted online or offline (\"personal information\"); and/or\nabout your internet connection, the equipment you use to access our Website and usage details.\nWe collect this information:\ndirectly from you when you provide it to us.\nautomatically as you navigate through the site. Information collected automatically may include usage details, IP addresses, and information collected through cookies, web beacons, and other tracking technologies; and/or\nfrom third parties, for example, our business partners.\nInformation you provide to us\nThe information we collect on or through our Website may include:\nInformation that you provide by filling in forms on our Website. We may also ask you for information when you report a problem with our Website.\nRecords and copies of your correspondence (including email addresses), if you contact us.\nYour responses to surveys that we might ask you to complete for research purpose.\nInformation we collect through automatic data collection technologies\nAs you navigate through and interact with our Website, we may use automatic data collection technologies to collect certain information about your equipment, browsing actions, and patterns, including:\nDetails of your visits to our Website, including traffic data, location data, logs, and other communication data and the resources that you access and use on the Website.\nInformation about your computer and internet connection, including your IP address, operating system, and browser type.\nThe information we collect automatically is statistical data and does not include personal information, but we may maintain it or associate it with personal information we collect in other ways or receive from third parties. It helps us to improve our Website and to deliver a better and more personalized service, including by enabling us to:\nEstimate our audience size and usage patterns.\nStore information about your preferences, allowing us to customize our Website according to your individual interests.\nSpeed up your searches.\nRecognize you when you return to our Website.\nThe technologies we use for this automatic data collection may include:\nCookies (or browser cookies). A cookie is a small file placed on the hard drive of your computer. You may refuse to accept browser cookies by activating the appropriate setting on your browser. However, if you select this setting you may be unable to access certain parts of our Website. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you direct your browser to our Website.\nHow we use your information\nWe use information that we collect about you or that you provide to us, including any personal information:\nTo present our Website and its contents to you.\nTo provide you with information, products, or services that you request from us.\nTo fulfill any other purpose for which you provide it.\nTo carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection.\nTo notify you about changes to our Website or any products or services we offer or provide through it.\nIn any other way we may describe when you provide the information.\nFor any other purpose with your consent.\nDisclosure of your information\nWe may disclose aggregated information about our users, and information that does not identify any individual, without restriction.\nWe may disclose personal information that we collect or you provide as described in this privacy policy:\nTo contractors, service providers, and other third parties we use to support our business and who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them.\nTo a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Company's assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by Company about our Website users is among the assets transferred.\nTo fulfill the purpose for which you provide it.\nFor any other purpose disclosed by us when you provide the information.\nWith your consent.\nWe may also disclose your personal information:\nTo comply with any court order, law, or legal process, including to respond to any government or regulatory request.\nTo enforce or apply our\nEnd User Agreement\nand other agreements, including for billing and collection purposes.\nIf we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others.\nChanges to our privacy policy\nIt is our policy to post any changes we make to our privacy policy on this page. The date the privacy policy was last revised is identified at the top of the page. You are responsible for periodically visiting our Website and this privacy policy to check for any changes.\nUIST Digital Repository\nResearch, theses, publications, project outputs, and institutional collections from UIST.\nExplore the repository\nSearch repository\nCommunities & collections\nBrowse authors\nAt UIST\nUniversity website\n↗\nAbout UIST\n↗\nE-library\n↗\nContact UIST\nPartizanska bb, 6000 Ohrid, North Macedonia\ncontact@uist.edu.mk\n+389 46 511 000\n© 2026 UIST\nUniversity of Information Science and Technology \"St. Paul the Apostle\"\nCookie settings\nAccessibility settings\nPrivacy policy\nEnd User Agreement"
+    },
+    "rest": {
+      "url": "https://repository.uist.edu.mk/server/api",
+      "status": 200,
+      "contentType": "application/hal+json;charset=UTF-8",
+      "data": {
+        "dspaceUI": "https://repository.uist.edu.mk",
+        "dspaceName": "UIST Digital Repository",
+        "dspaceServer": "https://repository.uist.edu.mk/server",
+        "dspaceVersion": "DSpace 10.0"
+      }
+    },
+    "discovery": {
+      "url": "https://repository.uist.edu.mk/server/api/discover/search/objects?size=100&page=0",
+      "status": 200,
+      "contentType": "application/hal+json;charset=UTF-8",
+      "pagesFetched": [
+        0,
+        1
+      ]
+    },
+    "oai": {
+      "url": "https://repository.uist.edu.mk/server/oai/request?verb=ListMetadataFormats",
+      "status": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "data": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"static/style.xsl\"?><OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\"><responseDate>2026-09-30T09:27:24Z</responseDate><request verb=\"ListMetadataFormats\">https://repository.uist.edu.mk/server/oai/request</request><ListMetadataFormats><metadataFormat><metadataPrefix>oai_dc</metadataPrefix><schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema><metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace></metadataFormat></ListMetadataFormats></OAI-PMH>"
+    }
+  },
+  "summary": {
+    "discoveryTotalObjects": 181,
+    "publicItems": 165,
+    "typeCounts": {
+      "Article": 120,
+      "Conference paper": 5,
+      "Book": 8,
+      "Book chapter": 29,
+      "Technical Report": 1,
+      "Conference abstract": 2
+    },
+    "itemsWithoutType": 0,
+    "itemsWithoutRightsOrLicense": 116,
+    "itemsWithoutAccessRights": 165,
+    "handlePrefixCounts": {
+      "123456789": 165
+    },
+    "datasetOrSoftwareCandidates": []
+  },
+  "itemEvidence": [
+    {
+      "uuid": "00c41c3b-d7b4-4228-aba4-b76d0f788e98",
+      "title": "I set out as a woman, I returned as a human being (in Macedonian)",
+      "handle": "123456789/260",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "01e87839-86a8-44e4-9b70-90ef0d2bc4d4",
+      "title": "Evaluation and Results of Research Ranking Platform for Academic Staff and Universities in the Republic of Macedonia",
+      "handle": "123456789/209",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "04639f58-c974-4c9e-af40-2c2df6373f40",
+      "title": "BlockMedCare: Advancing healthcare through blockchain integration with AI and IoT",
+      "handle": "123456789/94",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "06bab468-de51-4a2c-bcb5-efa665020690",
+      "title": "Block MedCare: Advancing healthcare through blockchain integration",
+      "handle": "123456789/93",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "0842a16b-7db8-448c-a3db-ea05139632f4",
+      "title": "The ARTICONF Approach to Decentralized Car-Sharing",
+      "handle": "123456789/80",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "094031a8-1a9d-4ae9-a82f-654f6aebe570",
+      "title": "Trade-offs between Anonymity and Performance in Mix Networks",
+      "handle": "123456789/190",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Conference paper",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "0d5b45cf-5ec7-4e29-8584-35af6a7be586",
+      "title": "Privacy Risks and Security Threats in Online Social Networks",
+      "handle": "123456789/261",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "0de15561-ad68-4141-aa70-7268c6fcbe10",
+      "title": "Crowdsourcing and language learning habits and practices in Turkey, Bosnia and Herzegovina, the Republic of North Macedonia and Poland in the pre-pandemic and pandemic periods",
+      "handle": "123456789/244",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by-sa/4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "0f2955ca-d086-4cd2-b337-965d2525cba0",
+      "title": "Optimizing customer journey through advanced analytics techniques over Google Analytics 4 data in Google BigQuery",
+      "handle": "123456789/228",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "111fd06c-d435-47b0-9553-f852c5d081ab",
+      "title": "Virtual Reality, Real Emergency: Integrating AR/VR in Computing and Medical Crisis Management",
+      "handle": "123456789/214",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "14f19184-a1f4-4c81-9bd9-36efffcd2b85",
+      "title": "Weakly chain separated sets in a topological space",
+      "handle": "123456789/247",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "19d122ca-5d66-44be-a856-8787d8e013c5",
+      "title": "Design and Development of the Robot for Aquatic Debris Using a Smartphone",
+      "handle": "123456789/195",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "1a2d44be-6f4e-4fb3-85c2-71769dbd21cf",
+      "title": "Surface Sampling, Vertex Manipulation and Surface Generation Based on WebGL Technologies",
+      "handle": "123456789/202",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "1a7a96fe-154c-4c7f-b828-10aeea991944",
+      "title": "A teacher-centered mobile application for screening learning disabilities to support inclusive education",
+      "handle": "123456789/137",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "1c4558e6-7945-4690-a691-b18dca60cdf8",
+      "title": "Student evaluation of teachers' pedagogical skills during the first COVID-19 period",
+      "handle": "123456789/189",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "1c712ee3-1c93-4509-9068-f5fa40a27295",
+      "title": "Computational Photography Assessment: A Framework for Image Quality and Composition Analysis",
+      "handle": "123456789/266",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "1d292464-ef3b-4d33-91fc-8782511c1f8c",
+      "title": "Cryptocoding Based on Quasigroups",
+      "handle": "123456789/221",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "1f007eb9-28f7-41a9-b30c-b61250c959b1",
+      "title": "Film as an attitude toward culture: David Fincher's adaptation of 'Fight Club' by Chuck Palahniuk (in Macedonian)",
+      "handle": "123456789/114",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "21a00376-7b8c-45cb-93dd-52529c41d170",
+      "title": "Counting lines and 2D figures – part 2 (in Macedonian)",
+      "handle": "123456789/104",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "23579bdf-1638-4dce-b150-305ba725060e",
+      "title": "Democratizing IVDR Technology: Low-Cost Real-Time Driver Feedback Using Consumer Hardware",
+      "handle": "123456789/167",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "238334fd-c1c9-4783-90cf-83d7a9a5329b",
+      "title": "Tendermint Performance with Large Transactions: The Healthcare System Scenario",
+      "handle": "123456789/175",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "239adaab-76f7-4fc9-b7d0-fc2797697fa5",
+      "title": "The COST Network and Its Significance for the Digitalization of Culture (in Macedonian)",
+      "handle": "123456789/258",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "24fcf719-f02f-43aa-96e0-ccef5fe253ae",
+      "title": "Identification of technical and non-technical barriers related to the implementation of Industrial Symbiosis",
+      "handle": "123456789/252",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Technical Report",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "25f107a4-3557-4a56-8196-9604bda488f1",
+      "title": "A review of the definitions of the term 'mathematics'",
+      "handle": "123456789/219",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "264457d4-bb01-48f9-95a9-b0ddfb4aae04",
+      "title": "Gamification of NFT collections: Virtual NFT gallery",
+      "handle": "123456789/120",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "27adaa13-5fde-4873-b3f6-adc0b92a3077",
+      "title": "Electronic health records system for efficient healthcare services",
+      "handle": "123456789/193",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "29da5c97-2d8f-4623-b3a6-f16d3e9a542a",
+      "title": "Legendre Neural Network Method for Solving Nonlinear Singular Systems",
+      "handle": "123456789/223",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "29e4f012-3b4e-4410-86d7-aac9aef6a915",
+      "title": "An automated ranking model of higher education institutions and academic staff in the Republic of Macedonia",
+      "handle": "123456789/210",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Conference paper",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "2a227fa0-1c57-4cdf-8c6e-38df5b22021b",
+      "title": "Single-Label COVID-19 Lung Disease Classification",
+      "handle": "123456789/116",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "2c28a17f-245f-451f-bc0f-b068334a38ff",
+      "title": "Innovative Data-Driven Email Campaign Strategies with Salesforce Marketing Cloud",
+      "handle": "123456789/151",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by-nc",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "2c8ae4b2-4b02-4d97-a2bd-c67e0679c7ed",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions (2nd ed.)",
+      "handle": "123456789/129",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "2d029eea-2e72-47ce-9a65-21d488078e3a",
+      "title": "Blockchain network with artificial intelligence – DeFi affair management",
+      "handle": "123456789/222",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "2e7bcb01-16c7-49b4-b1a9-135054ea6694",
+      "title": "Fast Decoding of Images with Cryptcodes for Burst Channels",
+      "handle": "123456789/82",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "3000a329-5e2e-4578-abb7-0655f6e690e7",
+      "title": "Urbana chitanka: Voved vo gragansko obrazovanie za mladi (Urban reader: Introduction to civic education for youth) (in Macedonian)",
+      "handle": "123456789/136",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "30f4effe-91e5-42b0-a201-8cc9350155dd",
+      "title": "Adoption and Exploitation of Online Banking Services by the Elderly",
+      "handle": "123456789/217",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "33616f34-bc3b-489c-b753-9be20c0cd71e",
+      "title": "LEO-Based Direct-to-Cell Communication as an Emerging Paradigm in Next-Generation Wireless Networks",
+      "handle": "123456789/262",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Conference abstract",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "3735d95f-9d71-45b5-b4d3-93c4237f28cd",
+      "title": "Novel Methodology for Improving the Generalization Capability of Chemo-Informatics Deep Learning Models",
+      "handle": "123456789/208",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "37eaec26-f258-40a9-b908-a4046c327f10",
+      "title": "Overview of Blockchain and Cloud Computing Services Integration",
+      "handle": "123456789/186",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "3924ba55-ecb9-4e23-aec0-256292cd9b36",
+      "title": "IoT and IoT Blockchain Market Analyses and Benefits in Europe",
+      "handle": "123456789/184",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "3c88fece-82c9-47e7-8229-84422c8a4010",
+      "title": "Mathematics in Everyday Life",
+      "handle": "123456789/100",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "3da93b20-75cd-44b5-b660-68f487b70d94",
+      "title": "Commutative, Associative and Distributive Law (in Macedonian)",
+      "handle": "123456789/102",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "42830e57-016f-41b1-bf20-108fdf3b9a16",
+      "title": "EHR system tracks prisoner's data across countries to monitor COVID-19 in U.S. State and Federal Prisons",
+      "handle": "123456789/162",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "434439e7-54dd-48ca-acca-66a0a55a74d2",
+      "title": "Matrix Profile based Anomaly Detection in Streaming Gait Data for Fall Prevention",
+      "handle": "123456789/157",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "466dbbda-7a32-489d-84fa-6dedf62e4390",
+      "title": "Introductory survey on challenges encountered by university teachers in online teaching of STEM subjects during COVID-19 lockdown",
+      "handle": "123456789/233",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "46b12844-23b8-4846-a5b9-9ca23a5560ff",
+      "title": "Architectural Scalability of Conversational Chatbot: The Case of ChatGPT",
+      "handle": "123456789/181",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "48cab29c-0b80-4ed8-981b-d23d515cd975",
+      "title": "Mathematical modelling of scalability and performance testing methods for evaluating server capabilities",
+      "handle": "123456789/109",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "49ada9af-ec07-4051-941c-9dfac65e542c",
+      "title": "Human Rights AI Assistants: Empowering Global Citizens in the Digital Age",
+      "handle": "123456789/240",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "4adb050e-75b4-4a47-9d29-17c107ca8de0",
+      "title": "Examining the software piracy problem through the case of the Macedonian economy",
+      "handle": "123456789/232",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "4c62662e-8d77-4300-a11c-df5f3124bb64",
+      "title": "Alienation in Everyday Life: Applying Gestalt Theory and Methodology to 'Never Let Me Go' by Kazuo Ishiguro (in Macedonian)",
+      "handle": "123456789/256",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "4d36d41a-991d-4029-85bd-d79ea516bbdd",
+      "title": "Review of the novel 'The Northwestern Wind' by Zdenko Basic (in Macedonian)",
+      "handle": "123456789/259",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "504d7663-9a73-4e05-ade4-fab8ba970266",
+      "title": "Automated classification of fish using machine learning and pattern recognition",
+      "handle": "123456789/250",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by-nc/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5356e81d-d18f-4fcb-84cd-37541b116f88",
+      "title": "The role of modern tools for electronic communication vis-a-vis violation of labor rights – international and Macedonian perspective",
+      "handle": "123456789/97",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "53e6c9c8-9fdd-4e52-b509-6436b060ab10",
+      "title": "Has online learning changed the way we study? Student evaluation of teachers' pedagogical skills during the first COVID-19 period and potential change in their learning habits",
+      "handle": "123456789/85",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "54e99eae-758b-40c7-9d83-7be56a3f7fc0",
+      "title": "Secondary Structure Prediction of RNA using Convolutional Neural Networks",
+      "handle": "123456789/73",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "561dbf2a-b107-4bc0-afae-b2fe38f59660",
+      "title": "Machine Vision and AI-based Detection Systems in Industrial Applications",
+      "handle": "123456789/125",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "56757898-a7aa-4562-91f5-7293d7a3fb44",
+      "title": "Monte Carlo Calculations Supporting Automatic Verification",
+      "handle": "123456789/98",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "58472283-6486-4c1e-9eac-e91e97e35da0",
+      "title": "Modern Threats in Online Social Networks, Privacy Solutions offered by OSN Providers and Commercial Solutions",
+      "handle": "123456789/118",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "594ee453-6a86-4941-a318-5488a6613258",
+      "title": "The Gig Economy and Employment Creation in the Digital Era: Exploring the Opportunities and Facilitating Conditions for Policy Considerations",
+      "handle": "123456789/69",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "59cbd8f6-ec3d-4da1-b249-dc5a68c95994",
+      "title": "Analysis of Gender Differences in COVID-19",
+      "handle": "123456789/203",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5a7485a1-0378-48d1-921a-937a75f577c4",
+      "title": "High-Performance Divide-and-conquer Algorithms: A Comprehensive Framework with Recursive Parallel Decomposition and Hardware-aware Optimization",
+      "handle": "123456789/74",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5d709176-0d1e-4b5e-b9be-27faadd6e16c",
+      "title": "Augmented Reality Tourist Guide for Cultural Heritage Sites: A Low-Cost Prototype Implementation for Ohrid, North Macedonia",
+      "handle": "123456789/172",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5da9ad7f-c2bf-4c24-8dfa-faa35d61b201",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions",
+      "handle": "123456789/128",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5e83edcd-54ad-4aae-bead-55ff03dd71fa",
+      "title": "Low-Cost Arduino Environmental Monitoring: Structured vs. Unstructured Data Formats",
+      "handle": "123456789/75",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5f844c5b-29b7-4add-964e-500d6e7f75cb",
+      "title": "What makes anglicisms survive? A corpus-based study of patterns of conventionalization, institutionalization and lexicalization",
+      "handle": "123456789/263",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5f8b9675-216a-4104-ae1c-ae3b63b94eec",
+      "title": "AI-Driven Smart Drying: Enhancing Efficiency in Transformer Production Systems",
+      "handle": "123456789/158",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "60d679e5-4324-4014-bc4a-4be0785f53c6",
+      "title": "A Comparative Analysis of Informed and Uninformed Search Algorithms for the 8-Puzzle Problem with a Novel Hybrid Approach",
+      "handle": "123456789/166",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "627141af-74cc-477d-8925-c5ee3b773608",
+      "title": "Comparative Analysis of Large Language Models: On-Premise Architectures vs. Cloud-Based Deployments",
+      "handle": "123456789/115",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "64cad131-2784-4db3-9234-0654a28305ef",
+      "title": "Normalized Comparison Method for Finding the Most Efficient DSS Code",
+      "handle": "123456789/194",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6525ffc9-69f5-4548-be3e-303701d6d496",
+      "title": "Crowdsourcing for language learning in Turkey, Bosnia and Herzegovina, Republic of North Macedonia and Poland",
+      "handle": "123456789/245",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "66249070-ecff-4870-903c-d538f4d2924e",
+      "title": "A few exercises for Square (in Macedonian)",
+      "handle": "123456789/103",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "680df514-dc0d-49ce-a3ff-2eab7775e3f2",
+      "title": "Coordinated Multi-View Visual Analytics for AWS VPC Flow Log Analysis",
+      "handle": "123456789/138",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "69095693-290d-4ca9-8e84-8b97ff8d2d94",
+      "title": "Enhancing Facial Recognition Through 3D Depth Map Optimization",
+      "handle": "123456789/201",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6a02ca7b-fe45-42fb-b760-492a7ba85529",
+      "title": "ARTICONF decentralized social media platform for democratic crowd journalism",
+      "handle": "123456789/79",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "2023 The Author(s)",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6a0a61a7-18c4-4d82-a21d-24bc83b5742e",
+      "title": "Optimizing Anonymity and Performance in a Mix Network",
+      "handle": "123456789/191",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6b1c6990-cf14-4de1-a299-0c63a24c2274",
+      "title": "[Abstract only – paper title not specified]",
+      "handle": "123456789/269",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Conference abstract",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6b2dbac0-4e8c-4a78-bc79-fe65a9739489",
+      "title": "Blockchain-Integrated Chatbot",
+      "handle": "123456789/182",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6b6f7368-7535-4a7a-a6a6-7b43daa60109",
+      "title": "Industry Symbiosis – Literature Review and Situation in North Macedonia",
+      "handle": "123456789/230",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6b80fb34-e4b2-4b55-9b30-5bd6ec195878",
+      "title": "Metaverse: clash of the worlds and the birth of a new hybrid reality",
+      "handle": "123456789/211",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6c5118cb-7261-455c-929d-4ddbd6912728",
+      "title": "Relationship between FDI Inflow and Unemployment Rate in the Case of the Former Yugoslav Republics",
+      "handle": "123456789/231",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by-nc-nd",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "6c5f8306-ce15-4214-b0f2-6902979de7fe",
+      "title": "Enhancing educational technology in lectures for school students with learning disabilities: A comprehensive analysis",
+      "handle": "123456789/226",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "2024 The Author(s)",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "7352c3f1-d4c6-4dcc-98dc-830c7c6819db",
+      "title": "Smart Villages – Examples from Croatia and Macedonia",
+      "handle": "123456789/153",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "75b7b217-9a18-494c-83df-24ae774e44ff",
+      "title": "Activation functions' impact on regularization of deep neural networks application in atomic simulations",
+      "handle": "123456789/268",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "791a12b7-615b-438a-947f-323b12d4bc90",
+      "title": "Sensor system for real-time water quality monitoring",
+      "handle": "123456789/154",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "7b9fb629-8a9b-482d-b121-88b0779e4b53",
+      "title": "Enhancing Language Models with Retrieval-Augmented Generation: A Comparative Study on Performance",
+      "handle": "123456789/248",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "7c65360b-b048-441d-9741-f9621da5ec6e",
+      "title": "A Hybrid Machine Learning Approach of Fuzzy-rough-k-nearest Neighbor, Latent Semantic Analysis, and Ranker Search for Efficient Disease Diagnosis",
+      "handle": "123456789/88",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "7f00318d-00fe-44ed-bbd7-81b5da200592",
+      "title": "COVID-19 Pandemic Management: A Cloud-Based Electronic Health Record System",
+      "handle": "123456789/143",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "8019c134-6e01-45aa-b9f9-adc894b06320",
+      "title": "Universal ethics, culture, ethical education and global processes (in Macedonian)",
+      "handle": "123456789/113",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "83ce4623-64ec-4a55-8181-75ac93e1070e",
+      "title": "AWS-Based Chatbot and IoT Framework in Healthcare",
+      "handle": "123456789/180",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "83dac700-830a-4106-b976-189efe84b6ad",
+      "title": "Chain connected set in a space",
+      "handle": "123456789/265",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Conference paper",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "85dbaec4-1297-40c6-befc-1e89a79e1bb2",
+      "title": "Silver entrepreneurship: A golden opportunity for ageing society",
+      "handle": "123456789/229",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "85eafa57-e0e6-4ad3-9192-53e4a448ac89",
+      "title": "Non-Fungible Token Model for Wildlife Conservation",
+      "handle": "123456789/117",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "8a402628-0f1f-41ee-8ba4-9eed5d2316bb",
+      "title": "Totally weakly chain separated sets in a topological space",
+      "handle": "123456789/246",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "8d281344-0ce0-4d5f-909e-6223451fd54d",
+      "title": "Blockchain Technology toward Creating a Smart Local Food Supply Chain",
+      "handle": "123456789/76",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "8e32dd9c-9760-4f10-98d8-ed55d19fe526",
+      "title": "Energy management system based on wireless sensor networks and power line communications",
+      "handle": "123456789/146",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "8e724a00-5414-40ad-97b6-5569cb3fd59e",
+      "title": "Rise of the Online GIG Economy – An Opportunity for the Development of the Developing Economies",
+      "handle": "123456789/251",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "90f4a2a9-eb0c-4467-83cf-a66fa7055a4a",
+      "title": "Prime numbers",
+      "handle": "123456789/99",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "92e76390-548d-4a90-9d40-41a0b1fe0c57",
+      "title": "Social Data Analytics for Enhancing the Collaborative Economy",
+      "handle": "123456789/192",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "other-oa",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "96b40a40-f236-4594-829e-95a4a2b9171b",
+      "title": "Mathematical Statistics with Examples in R",
+      "handle": "123456789/131",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "9a39d918-57e1-46e7-a5c2-65e4cf5a02a7",
+      "title": "The Future of Web Crowdfunding: An Ethereum Blockchain Approach",
+      "handle": "123456789/224",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "9a8ebc25-fab1-47d8-8be4-d605eba45933",
+      "title": "The Role of Human Error in Cybersecurity Threats – Minimizing Risks in Information Systems",
+      "handle": "123456789/176",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "9bd1fda0-119c-4e4b-a844-cd8f004d5d60",
+      "title": "Exact solution of an inverse problem for affine images of IFS attractors",
+      "handle": "123456789/77",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by-nc-nd",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "2026 The Author(s)",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by-nc-nd/4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "9f61002b-be14-450f-96ae-1521eaa0e3e9",
+      "title": "Creative Aging Through Using Digital Technology",
+      "handle": "123456789/218",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "9f9b701e-7c8c-4d4d-ac59-16f434fa8096",
+      "title": "Generative Artificial Intelligence as a Tool for the Preservation and Interpretation of Linguistic Heritage (in Macedonian)",
+      "handle": "123456789/165",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "a39bf6e0-d311-47ad-80bd-16e9d366ab03",
+      "title": "A novel model-driven deterministic approach to wind power imputation",
+      "handle": "123456789/87",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-017",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-012",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 2
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 3
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-004",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 4
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "a4d03e87-85ed-4a36-aee7-c4934906ef83",
+      "title": "A Mathematical Concept in Lens-Based Media: Revisiting the Golden Ratio",
+      "handle": "123456789/156",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "a7273ee3-e97d-4c73-a41a-d8edb359836e",
+      "title": "Artificial Bee Colony algorithm applied in optimization problems",
+      "handle": "123456789/270",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Conference paper",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "aa3f0e0c-3bf2-43c5-8992-950c26cbdcff",
+      "title": "Extraction of anglicisms from a corpus of Macedonian magazine texts",
+      "handle": "123456789/84",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "aa7928b2-9ac7-49e1-9c4f-d23fa9e7a903",
+      "title": "AI-driven Chatbot in E-Commerce",
+      "handle": "123456789/121",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ab0183f5-6761-47e8-ba25-36cbbcf8969d",
+      "title": "The Republic of Macedonia's Research Ranking Platform for Academic Staff and Universities",
+      "handle": "123456789/249",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by-nc/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ac2cc497-3c64-4c08-84a8-17e6ffae27fc",
+      "title": "Chain Separatedness In A Family Coverings Space",
+      "handle": "123456789/122",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ac5c2939-dd21-4734-9df7-dea4c7f940b8",
+      "title": "Emerging Computer Technologies",
+      "handle": "123456789/220",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "addc4a59-851e-4dfa-95cb-223fb3098f4f",
+      "title": "Intelligent Real-Time Face Mask and Temperature Recognition Using Deep Learning on Raspberry Pi",
+      "handle": "123456789/155",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ade587a0-3c6f-4733-adc0-de11739f5e56",
+      "title": "How Data Engineering and Big Data Analytics Can Contribute into Introducing Intelligence in Business: A Case Study",
+      "handle": "123456789/108",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b16b8e62-4021-4b85-b389-068adc8588db",
+      "title": "Revolutionising the Document Workflow Using Blockchain in Banking Sector",
+      "handle": "123456789/83",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b2bc928f-0ae1-4661-8b67-caa9d3518e44",
+      "title": "Influence of the Online Freelancing to the Labor Market",
+      "handle": "123456789/95",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b65f0ff4-1b08-49c1-8c00-2ddac5e4e8d7",
+      "title": "Blockchain-enhanced hydrogen fuel production and distribution for sustainable energy management",
+      "handle": "123456789/86",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b6727fcf-a60b-4ccc-9786-434e316a3b43",
+      "title": "Silver Economy as an Opportunity for SME Growth",
+      "handle": "123456789/152",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by-nc",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b780af11-d4d5-4bb0-9a6f-6410bee89061",
+      "title": "Threats Targeting Children on Online Social Networks",
+      "handle": "123456789/239",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b7a9f055-dec3-4cb2-b3f2-765f7e944275",
+      "title": "Counting lines and 2D figures – part 1 (in Macedonian)",
+      "handle": "123456789/105",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b7c1f6f5-8b0a-47be-b50b-606a51f8c161",
+      "title": "Croatia, North Macedonia and Mauritius – Industrial Symbiosis barriers comparison",
+      "handle": "123456789/149",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b8da56ac-34b6-49a1-8000-bfc5cf879963",
+      "title": "Emergency online learning during the first Covid-19 period: students' perspectives",
+      "handle": "123456789/243",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by-nc-nd/3.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "b9cadbcb-208d-49f6-94ea-fe07bb4bf282",
+      "title": "Blockchain-based prosumer incentivization for peak mitigation through temporal aggregation and contextual clustering",
+      "handle": "123456789/89",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "http://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "bfbe869c-b472-4d47-a5da-0fa7f48e25f1",
+      "title": "Modeling in Social Systems meets Artificial Intelligence",
+      "handle": "123456789/207",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "c3855e4a-295a-4350-8a8f-ccb220309d7f",
+      "title": "From Bias to Fairness: Challenges in Artificial Intelligence Systems through a Social Systems Lens",
+      "handle": "123456789/267",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "c6874d70-4b6d-4c9d-8758-2eda1e74ef2e",
+      "title": "The Entrepreneurial Learning in North Macedonia",
+      "handle": "123456789/112",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "c74d4f78-a5a6-4a74-8fa5-562afacb0ba0",
+      "title": "Jonathan Livingston Seagull by Richard Bach – a Meeting between Literature and the Principles of Gestalt Therapy (in Macedonian)",
+      "handle": "123456789/111",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "c7baa924-e66c-4335-b51e-c20ba9cf7a66",
+      "title": "Beyond Single-Label Classification: Enhancing Radiological Diagnostics for Thoracic Diseases with Azure AutoML",
+      "handle": "123456789/206",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ca2394bb-57e4-4327-8c50-3c282d786a45",
+      "title": "Overview and performance analysis of the latest supercomputer",
+      "handle": "123456789/110",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ca4cb015-e2c2-49e8-8f6c-431af1d9aaac",
+      "title": "Design of the Functional Entities of the BloHeS System",
+      "handle": "123456789/119",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "cc0a8cbf-644b-44db-9da1-e91b8eb8b4f0",
+      "title": "Guided analytics software for smart aggregation, cognition, and interactive visualisation",
+      "handle": "123456789/147",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ccf4c78b-b25c-42f3-980b-d16b1716bddf",
+      "title": "Blockchain-Integrated Chatbots and IoT: Transforming Food Delivery",
+      "handle": "123456789/242",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ce4ab225-9d94-46d2-baed-91bb6f750102",
+      "title": "Overview of Memory-Efficient Architectures for Deep Learning in Real-Time Systems",
+      "handle": "123456789/241",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "cff98fe5-764c-425f-a4ae-69053c0626a3",
+      "title": "Trading Application Based on Blockchain Technology",
+      "handle": "123456789/81",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d3873a72-cc11-41fc-8dcb-90f24ca3127d",
+      "title": "Artificial Intelligence Based Model in the Provision of Financial Services",
+      "handle": "123456789/96",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d3f0a038-9933-4018-a89a-99d27c650f1f",
+      "title": "Quantum AI for Ethical Decision-Making in Medical Education",
+      "handle": "123456789/177",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d55040ce-8140-4f8f-b46e-ae723f2eafcf",
+      "title": "Binary number system and binary coding",
+      "handle": "123456789/101",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d7061c89-0318-461c-800d-03b94065c98e",
+      "title": "Log Analysis with Hadoop MapReduce",
+      "handle": "123456789/71",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d8f340da-fc7c-4472-b84c-79e61b1a2c1b",
+      "title": "BloHeS Consensus Mechanism – Introduction and Performance Evaluation",
+      "handle": "123456789/174",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d90f78b4-1ecb-4bb2-b340-7326de0cc494",
+      "title": "Social Media Use by Businesses in Europe",
+      "handle": "123456789/160",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d914c9b6-36a8-4730-a7de-95557804b417",
+      "title": "Media literacy in education – A Western Balkans perspective",
+      "handle": "123456789/225",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "d9326245-87f3-492f-ad7a-650e1fbed9f6",
+      "title": "Students' evaluation of online assessment practices in the Covid-19 online teaching period: In Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+      "handle": "123456789/72",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "da1190ab-5602-4052-896c-ddf1f8cba1a3",
+      "title": "Brain tumor classification via UNet architecture of CNN technique",
+      "handle": "123456789/144",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "dbeb3759-8836-4940-83be-6d01876e60d4",
+      "title": "Information Theory for Medical Data Fusion",
+      "handle": "123456789/126",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "dd0163f7-6b72-483f-9368-718e28676550",
+      "title": "Tools for Analytics and Cognition for Crowd Journalism Application",
+      "handle": "123456789/196",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "de976151-21ef-474e-8e0f-49d4f1bcbc02",
+      "title": "MOGPlay: A Decentralized Crowd Journalism Application for Democratic News Production",
+      "handle": "123456789/161",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "other-oa",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "df3d8705-c505-4115-a48e-219a383e6568",
+      "title": "Improving Operational Efficiency with an Automated Invoicing System",
+      "handle": "123456789/236",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "e14fc338-9768-4994-8c73-37bdfab65f89",
+      "title": "Approaching Forensic Analysis in Cyberspace",
+      "handle": "123456789/212",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "e17524f8-ad15-4477-8571-e913aa9286e9",
+      "title": "Cloud-Based AI Surveillance for Motion Detection and Facial Recognition",
+      "handle": "123456789/178",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "e307251a-801c-44cb-8657-7a7f78dc82cb",
+      "title": "Efficient Automated Software Testing Strategies and Methods",
+      "handle": "123456789/123",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "e5189bc1-06bf-4bc9-9a4a-ab38a997f1fc",
+      "title": "Autumn Mathematical School 2020: Lectures for VIII and IX grade primary school and high school students (in Macedonian)",
+      "handle": "123456789/253",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ebf283a3-e127-41da-80ab-234813dc1aaa",
+      "title": "Method For Solving System Of Linear Equations mxn, m=1, 2, 3; Based On Its Geometrical Interpretations",
+      "handle": "123456789/92",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ec9c6b94-e463-4493-9b1c-20902f91cbe1",
+      "title": "From Earthquakes to Age Quakes: Promoting the Silver Economy and Gearing Toward a Sustainable Aging Population in Mauritius",
+      "handle": "123456789/215",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ef4af6f2-a20a-4cdc-99b3-adc4abc11bf9",
+      "title": "Blockchain as a Service – an overview of AWS and its BaaS",
+      "handle": "123456789/187",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "efc8cba5-1cff-41ff-8550-9908474c9808",
+      "title": "New Literature, or the Literature of Our Time (in Macedonian)",
+      "handle": "123456789/257",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "f07a94b2-d958-415e-8a11-f7617b54b707",
+      "title": "Diophantine equations (in Macedonian)",
+      "handle": "123456789/107",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "f3dfc719-25c6-498f-909f-1d746ac2833c",
+      "title": "Comparative analysis of students' views of online learning in the first and second Covid-19 semesters: Examples from Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+      "handle": "123456789/188",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "f4e518b1-2f84-4141-8aef-8a43ec91e1ae",
+      "title": "Design and evaluation of a portable ESP8266-based IoT tool for Wi-Fi signal monitoring",
+      "handle": "123456789/179",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "f5a4be64-d0f9-42a6-9b54-691e4b16a1ef",
+      "title": "A Secure and Effective Solution for Electronic Health Records with Hyperledger Fabric Blockchain",
+      "handle": "123456789/185",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "f98022b7-4934-47ca-b2e3-1f9748f067e0",
+      "title": "Leveraging Customer Value: Custom CLV Calculator for Enhanced Market Insights",
+      "handle": "123456789/150",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "CC BY-NC 4.0",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by-nc/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Conference paper",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "fa66cb88-bc6a-4660-ad26-25b68b847b24",
+      "title": "Design and Deployment of Custom GPT Solutions Using Azure OpenAI Service",
+      "handle": "123456789/235",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "fb1c7b3f-5677-48cf-8b9c-e5e6c61c4544",
+      "title": "Blockchain Empowering Web 3.0: Decentralized Trust and Secure Transactions for the Future Internet",
+      "handle": "123456789/183",
+      "metadata": {
+        "dc.rights.uri": [
+          {
+            "value": "https://doi.org/10.15223/policy-029",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          },
+          {
+            "value": "https://doi.org/10.15223/policy-037",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 1
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "fd56e5d0-fb4f-4124-ae2d-1a0d1b48c89e",
+      "title": "Silver Economy",
+      "handle": "123456789/216",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Book chapter",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "fec417f8-f2a7-4ab5-8191-6d7a4dcb0aed",
+      "title": "Fill in words, fill in numbers",
+      "handle": "123456789/106",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ff43a3d2-8294-4248-9b3d-929ae26add71",
+      "title": "Comparative analysis of the impact of China's cultural diplomacy in the Western Balkans",
+      "handle": "123456789/213",
+      "metadata": {
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ff6b005c-79e1-44d8-b4b7-f059f0a41499",
+      "title": "Impact of COVID-19 on the Macedonian E-Pharmacy Market with Survey Analysis",
+      "handle": "123456789/78",
+      "metadata": {
+        "dc.rights.license": [
+          {
+            "value": "cc-by-nc-nd",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.rights.uri": [
+          {
+            "value": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ],
+        "dc.type": [
+          {
+            "value": "Article",
+            "language": "en_US",
+            "authority": null,
+            "confidence": -1,
+            "place": 0
+          }
+        ]
+      }
+    }
+  ]
+}

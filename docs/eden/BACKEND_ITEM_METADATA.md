@@ -35,7 +35,7 @@ The detailed type rules are in [../EDEN_METADATA_MAPPING.md](../EDEN_METADATA_MA
 
 ## Decisions that cannot be made in code
 
-- Whether UIST owns a registered Handle prefix and how existing local identifiers will be migrated.
+- How existing local identifiers will be migrated to the supplied registered prefix `20.500.15029`; prefix selection is recorded in [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md), while global resolution is still unverified.
 - Whether UIST mints DOIs itself or only records publisher-issued DOIs.
 - Whether a repository-wide default licence or access statement exists.
 - Which submission types and controlled terms UIST officially supports.
