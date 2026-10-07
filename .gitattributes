@@ -20,3 +20,48 @@ docs/lint/**/*.md eol=lf
 
 # EDEN harvester reports are raw generated evidence; do not whitespace-diff them.
 docs/eden/evidence/**/*.report.html -diff eol=lf
+
+# Exclude local research, governance, handoffs, datasets, and generated evidence
+# from Git release source archives. New local documentation is excluded by default.
+# Keep the upstream DSpace configuration and lint documentation in releases.
+docs/** export-ignore
+docs/Configuration.md -export-ignore
+docs/lint -export-ignore
+docs/lint/** -export-ignore
+
+# Local EDEN readiness tools and policy generation use research sources above.
+# The generated user-facing policy implementation under src/ stays in releases.
+scripts/eden-* export-ignore
+scripts/eden_* export-ignore
+scripts/build-repository-policies.mjs export-ignore
+tools/eden-readiness/** export-ignore
+
+# Test suites, fixtures, helpers, and test runner configuration.
+*.spec.* export-ignore
+*.test.* export-ignore
+*.cy.* export-ignore
+*.mock.ts export-ignore
+*.mock.model.ts export-ignore
+*.mocks.ts export-ignore
+*.stub.ts export-ignore
+**/testing/** export-ignore
+**/test/** export-ignore
+**/__tests__/** export-ignore
+**/__mocks__/** export-ignore
+cypress/** export-ignore
+cypress.config.ts export-ignore
+karma.conf.js export-ignore
+tsconfig.spec.json export-ignore
+webpack/webpack.test.ts export-ignore
+src/test.ts export-ignore
+src/environments/environment.test.ts export-ignore
+src/app/shared/test-module.ts export-ignore
+lint/jasmine.json export-ignore
+scripts/test-* export-ignore
+scripts/test_* export-ignore
+scripts/dataset-submission-smoke.py export-ignore
+
+# These mock implementations are imported by application/SSR code.
+src/app/core/testing/angulartics-provider.service.mock.ts -export-ignore
+src/app/core/testing/angulartics2.service.mock.ts -export-ignore
+src/app/core/dspace-rest/mocks/response-map.mock.ts -export-ignore
