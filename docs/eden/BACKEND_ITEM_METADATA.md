@@ -35,7 +35,7 @@ The detailed type rules are in [../EDEN_METADATA_MAPPING.md](../EDEN_METADATA_MA
 
 ## Decisions that cannot be made in code
 
-- How existing local identifiers will be migrated to the supplied registered prefix `20.500.15029`; prefix selection is recorded in [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md), while global resolution is still unverified.
+- Confirm complete legacy-identifier migration and redirect coverage for registered prefix `20.500.15029`. The production service is live and global resolution of `20.500.15029/261` was verified on 2026-10-06; see [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md). That sample does not establish the full migration history or authorize another migration.
 - Whether UIST mints DOIs itself or only records publisher-issued DOIs.
 - Whether a repository-wide default licence or access statement exists.
 - Which submission types and controlled terms UIST officially supports.

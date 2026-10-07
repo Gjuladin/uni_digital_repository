@@ -28,6 +28,11 @@ ssr:
 
 info:
   enableCOARNotifySupport: false
+  # Publish the simplified UIST pages requested by the repository operator.
+  # This controls public pages, not deposit approval workflows or registry claims.
+  repositoryPolicyPublication:
+    enabled: true
+    version: '2026-10-06-simple'
 
 fallbackLanguage: en
 
@@ -51,6 +56,8 @@ harvesting:
       # countryCode: { enabled: false, value: '' }
     # Governance and registry claims are intentionally omitted until approved.
     # Optional claims use { enabled: true, value: ... } and are omitted otherwise.
+    # These machine-readable claims are separate from the bundled public pages.
+    # Enable actual public policy URLs after deploying and verifying the pages.
     # contactEmail: { enabled: false, value: '' }
     # licenseUrl: { enabled: false, value: '' }
     # accessRightsUrl: { enabled: false, value: '' }

@@ -1,0 +1,32 @@
+{
+  "review_date": "2026-10-05",
+  "evidence_label": "Verified local",
+  "findings": [
+    {
+      "handle": "123456789/203",
+      "stage": "metadata_file_mismatch",
+      "finding": "The attached Analysis of Gender Differences in COVID-19 PDF identifies Izabela Mitreska, Oliver Simonoski and Rasim Salkoski (UIST). Stored authors/DOI10.1016/j.maturitas.2022.03.004 instead identify Paschou et al., Gender differences in COVID-19, Maturitas2022, verified through Crossref. Record combines different works; reconcile identity before any dataset preparation."
+    },
+    {
+      "handle": "123456789/216",
+      "stage": "metadata_file_mismatch",
+      "finding": "The attached Silver Economy PDF is the2025 Barković Bojanić/Erceg/Damoska Sekuloska co-published monograph. Stored DOI10.1007/978-3-030-22009-9_302192 resolves in Crossref to a2021 book chapter titled Silver Economy. Same title alone is insufficient association; do not assign this chapter DOI to the2025 book."
+    },
+    {
+      "handle": "123456789/223",
+      "stage": "file_missing_or_access_unknown",
+      "finding": "The attached9781003314851_previewpdf.pdf is a61-page book preview, not the full edited volume. The Legendre Neural Network chapter is listed in contents (PDF8) and bibliography (PDF37); its full chapter body/methods/results are absent. Earlier batch summary overclaimed full-volume inspection; source study remains unverified."
+    },
+    {
+      "handle": "123456789/224",
+      "stage": "file_missing_or_access_unknown",
+      "finding": "The attached9781003314851_previewpdf.pdf is a61-page book preview. The Future of Web Crowdfunding chapter is listed in contents (PDF10) and bibliography (PDF60), but the chapter body/evaluation files are absent. Earlier batch summary overclaimed full-volume inspection; intended publication methods/data remain unverified."
+    },
+    {
+      "handle": "123456789/89",
+      "stage": "metadata_file_mismatch",
+      "finding": "The attached PDF is the separate hydrogen-fuel blockchain study (also item86), not the prosumer peak-mitigation publication named by item89. Attached-file inspection establishes the mismatch only; intended paper and its data remain unresolved."
+    }
+  ],
+  "limits": "Read-only public/local checks. No source record or identifier was edited. Intended-source/content completion remains pending."
+}

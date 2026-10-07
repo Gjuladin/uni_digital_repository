@@ -48,6 +48,12 @@
       </p>
       <nav [attr.aria-label]="'footer.uist.policies' | translate">
         <ul class="footer-info">
+          @if (showRepositoryInformation) {
+            <li><a class="footer-action" routerLink="/info/repository-policies">{{ 'footer.link.repository-policies' | translate }}</a></li>
+            <li><a class="footer-action" routerLink="/info/accessibility-statement">{{ 'footer.link.accessibility-statement' | translate }}</a></li>
+            <li><a class="footer-action" routerLink="/info/privacy">{{ 'footer.link.privacy-notice' | translate }}</a></li>
+            <li><a class="footer-action" routerLink="/info/contact">{{ 'footer.link.contact' | translate }}</a></li>
+          }
           @if (showCookieSettings) {
             <li>
               <button class="footer-action" type="button" (click)="openCookieSettings()">
@@ -61,6 +67,9 @@
           }
           @if (showEndUserAgreement) {
             <li><a class="footer-action" routerLink="/info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate }}</a></li>
+          }
+          @if (showRepositoryPolicies && !showRepositoryInformation) {
+            <li><a class="footer-action" routerLink="/info/repository-policies">{{ 'footer.link.repository-policies' | translate }}</a></li>
           }
           @if (showSendFeedback$ | async) {
             <li><a class="footer-action" routerLink="/info/feedback">{{ 'footer.link.feedback' | translate }}</a></li>

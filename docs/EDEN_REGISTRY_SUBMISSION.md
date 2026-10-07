@@ -1,72 +1,39 @@
-# EDEN registry submission record
+# UIST registry preparation record
 
-This file tracks the approval-gated re3data and FAIRsharing registrations for the UIST Digital Repository. It must never be used to invent policy, certification, identifier, or licensing claims.
+The rector accepted the four-page DABAR-based policy pack, version `2026-10-06-simple`, as reported by the user on 6 October 2026. The policy/contact/language/metadata decisions below are accepted. This is a preparation record; production verification, exact submission payloads and registry editorial outcomes remain separate work.
 
-The work is separated by category in [eden/README.md](eden/README.md). In particular, institutional approvals and the Handle-prefix decision are tracked in [eden/UIST_DECISIONS.md](eden/UIST_DECISIONS.md), policy drafting in [eden/POLICIES_AND_GOVERNANCE.md](eden/POLICIES_AND_GOVERNANCE.md), and external registry actions in [eden/REGISTRIES.md](eden/REGISTRIES.md).
+Use [the current pack](eden/rector_review_2026-10/dabar_simple_2026-10-06/README.md), [institutional decision register](eden/UIST_DECISIONS.md) and [registry handoff](eden/REGISTRIES.md). Earlier September observations are dated evidence, not the current approval state.
 
-## Publicly observed technical identity (not publication approval)
+## Accepted values and remaining evidence
 
-- The public repository URL is `https://repository.uist.edu.mk/` and the public institution URL is `https://uist.edu.mk/`.
-- The current UI displays the candidate names “UIST Digital Repository” and “University of Information Science and Technology St. Paul the Apostle”. UIST must approve the official registry wording.
-- The REST API identifies the deployed software as DSpace. Reconfirm the exact deployed version before submission.
-- Country/address, contact, official language, description, subjects/content classifications, policies, licences, certifications, and PID capabilities are not approved for external publication by this document.
-
-## Interface status observed on 2026-09-14
-
-- Public and responding: DSpace REST API (`/server/api`), OAI-PMH Identify (`/server/oai/request`), OpenSearch description (`/server/opensearch/service`), Atom/RSS searches (`/server/opensearch/search`), and sitemap (`/sitemap_index.xml`).
-- Implemented and verified only in the local stack: linked item JSON-LD, repository JSON-LD (`/.well-known/repository.jsonld`), FAIRiCat (`/.well-known/api-catalog`), and `/home/robots.txt`.
-- The public well-known documents and `/home/robots.txt` currently return 404. The public landing HTML still advertises the invalid `/server/opensearch/search/service` URL. These are deployment blockers, not registry-ready facts.
-
-## Approval blockers
-
-- Confirm the production contact address that may be published by registries.
-- Supply approved deposit, access, preservation, curation, privacy, and takedown policy URLs.
-- Confirm whether a repository-wide licence exists; item licences remain item-specific by default.
-- UIST prefix `20.500.15029` was supplied on 2026-10-01 (reference `HNRT-185049`) and confirmed in the public naming-authority record. Complete server activation, approve the suffix and legacy-identifier migration strategy, and verify global item resolution before claiming operational Handle PID support. See [eden/HANDLE_ACTIVATION.md](eden/HANDLE_ACTIVATION.md). The DSpace example prefix `123456789` must not be claimed as UIST PID support.
-- Confirm DOI registration and resolution before claiming DOI minting support.
-- Supply evidence for any repository certification claim.
-- Confirm authoritative research-area/subject classifications.
-
-## re3data draft record
-
-| Field | Draft value | Status |
+| Field | Current value or rule | Remaining check |
 | --- | --- | --- |
-| Repository name | Candidate: UIST Digital Repository | UIST approval required |
-| Repository URL | `https://repository.uist.edu.mk/` | Publicly observed; approve for registry publication |
-| Institution | Candidate wording from current UI | UIST approval required |
-| Institution country/address | Unknown for publication purposes | UIST approval required |
-| Repository language | Unknown for registry publication purposes | UIST approval required |
-| Repository software | DSpace; exact production version to recheck | Publicly observed technical fact; verify before submission |
-| Content types | Unknown | Awaiting approved submission vocabulary/classification |
-| API | DSpace REST API | Publicly responding; recheck after deployment |
-| OAI-PMH | `https://repository.uist.edu.mk/server/oai/request` | Publicly responding; recheck enabled formats before submission |
-| OpenSearch | `https://repository.uist.edu.mk/server/opensearch/service` | Publicly responding, but current landing-page discovery is wrong until deployment |
-| PID systems | Unknown | Blocked on Handle-prefix and DOI audit |
-| Repository contact | Unknown | `contact@uist.edu.mk` is configured but not approved for registry publication |
-| Subjects | Unknown | Awaiting approved research-area classification |
-| Policies | Unknown | No approved policy URLs supplied |
-| Repository licence | Unknown | Do not infer from item-level licences |
-| Certifications | Unknown | No evidence supplied |
+| Repository name and homepage | UIST Digital Repository; `https://repository.uist.edu.mk/` | Verify the final public page and payload |
+| Operator | University of Information Science and Technology St Paul the Apostle in Ohrid | Use the institution wording in the accepted policy |
+| Country and address | North Macedonia; Partizanska bb, 6000 Ohrid | Use the accepted Contact/Privacy details |
+| Languages | Principal publication languages Macedonian and English; current interface English | Report actual item and interface languages accurately |
+| Eligible depositors | UIST researchers, staff and students authorised by account/collection permissions | Verify direct publication in the target collection |
+| Policy scope | Research data, supporting documentation, software, publications and theses | Report actual holdings and map to registry vocabulary; scope alone is not dataset evidence |
+| Description | Accepted policy explains UIST's preservation and sharing purpose | Prepare the final description from the accepted scope and actual research-data evidence |
+| Repository contact | Repository administrator named on `/info/contact`; university contact for privacy/takedown | Use the maintained accepted Contact page |
+| Public policy | `/info/repository-policies` | Deploy and verify HTTPS before supplying the live URL |
+| Other public pages | `/info/accessibility-statement`, `/info/privacy`, `/info/contact` | Deploy and verify their links and current content |
+| Metadata licence | CC0 1.0 for public descriptive metadata | Verify published statement and public exports; no blanket file licence |
+| File/data licence | Item-specific licence or rights statement | Use actual dataset permissions and licence URLs |
+| Research areas | Based on actual service and holdings | Final registry vocabulary mapping remains to be prepared |
+| Software/interfaces | DSpace; documented REST, OAI-PMH and other verified services | Recheck deployed version and enabled formats; do not infer DataCite OAI from local code |
+| Identifiers | Handle prefix `20.500.15029`; sample resolution verified 6 October 2026 | See [Handle evidence](eden/HANDLE_ACTIVATION.md); no UIST DOI minting claim |
+| Certification | None evidenced | Omit unsupported claims |
+| Research-data evidence | Three validated local packages are retained in the backlog | Local preparation is not a publicly deposited dataset; supply genuine public evidence |
 
-## FAIRsharing draft record
+The administrator authorises accounts and provides technical support; there is no required administrator acceptance or scientific peer review of every deposit. Depositors remain responsible for content, metadata, source authority and file rights. No external partner deposit programme or designated preservation partner is included.
 
-| Field | Draft value | Status |
-| --- | --- | --- |
-| Resource name | Candidate: UIST Digital Repository | UIST approval required |
-| Resource type | Candidate: Repository | UIST approval and FAIRsharing classification required |
-| Homepage | `https://repository.uist.edu.mk/` | Publicly observed; approve for registry publication |
-| Organization | Candidate wording from current UI | UIST approval required |
-| Country/address | Unknown for publication purposes | UIST approval required |
-| Description | Unknown | Awaiting approved institutional wording; do not reuse inferred content classifications |
-| Interfaces | REST, OAI-PMH, OpenSearch, Atom, RSS, sitemap; local Signposting/FAIRiCat implementation | Deploy and re-probe before submission |
-| Metadata formats | Dublin Core and DataCite XML; schema.org JSON-LD | Verify enabled OAI crosswalk list before submission |
-| Contact | Unknown | Awaiting approval |
-| Subject tags | Unknown | Awaiting approved vocabulary terms |
-| Persistent identifiers | Unknown | Awaiting Handle/DOI audit |
-| Policies/licence/certification | Unknown | Awaiting approved evidence |
+## Registry status and next actions
 
-These are evidence checklists, not complete registry drafts. Unresolved values are deliberately recorded as `Unknown`; no record is submission-ready until the approval and deployment blockers are cleared.
+No re3data submission or acceptance is evidenced by this policy work. Prepare the exact payload using the accepted values and verified public evidence, obtain final submission authorisation, then follow editorial review. A mandatory re3data account was not established by the retained research.
 
-## Submission gate
+FAIRsharing record [9313](https://fairsharing.org/9313) already exists and is under curator review according to the project record. Inspect and update that entry through its authorised maintainer; do not create a duplicate. Account/contact custody, final payload authorisation, curator outcomes and EDEN propagation remain separate from policy acceptance.
 
-Prepare both records from the verified values above, present the exact payloads for user approval, then use user-provided registry accounts to submit them. Completion requires the public records to resolve through the EDEN harvester; preparing this file alone does not change either registry's “No record” result.
+## Earlier technical observations
+
+The 14 September 2026 check recorded responding REST/OAI/OpenSearch/feed/sitemap endpoints and missing public well-known documents. The EDEN index records later discovery results; use [eden/README.md](eden/README.md) and dated evidence rather than treating the September snapshot as current. Recheck public routes and metadata after deploying these accepted policies.

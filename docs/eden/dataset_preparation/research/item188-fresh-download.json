@@ -1,0 +1,13 @@
+{
+  "evidence_label": "Verified public",
+  "observation_date": "2026-10-04",
+  "observed_at": "2026-10-04T23:28:25.347205+02:00",
+  "environment": "Production anonymous GET; local validation",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a7204655-13be-4f28-9803-8f7711764d12/content",
+  "status": 200,
+  "bytes": 1431546,
+  "md5": "93e31bd5eeec211c28950fecea0a0b7f",
+  "rest_md5": "93e31bd5eeec211c28950fecea0a0b7f",
+  "sha256": "2c124fe8d8305f7126a5e5df2c42b1bae3a80fa9925cf7ab9a54ba6e990cef4f",
+  "limitation": "File bytes and fixity checked. Value checks recorded separately."
+}

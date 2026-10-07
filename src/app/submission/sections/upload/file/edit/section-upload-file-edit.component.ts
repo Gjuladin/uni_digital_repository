@@ -335,15 +335,20 @@ implements OnInit, OnDestroy {
       this.submissionService.getSubmissionScope(),
     );
     formModel.push(new DynamicFormGroupModel(metadataGroupModelConfig, BITSTREAM_METADATA_FORM_GROUP_LAYOUT));
-    const accessConditionTypeModelConfig = Object.assign({}, BITSTREAM_FORM_ACCESS_CONDITION_TYPE_CONFIG);
+    const accessConditionTypeModelConfig = Object.assign({}, BITSTREAM_FORM_ACCESS_CONDITION_TYPE_CONFIG, {
+      label: this.translateService.instant(BITSTREAM_FORM_ACCESS_CONDITION_TYPE_CONFIG.label),
+      hint: this.translateService.instant(BITSTREAM_FORM_ACCESS_CONDITION_TYPE_CONFIG.hint),
+    });
     const accessConditionsArrayConfig = Object.assign({}, BITSTREAM_ACCESS_CONDITIONS_FORM_ARRAY_CONFIG);
     const accessConditionTypeOptions = [];
 
     if (this.collectionPolicyType === POLICY_DEFAULT_WITH_LIST) {
       for (const accessCondition of this.availableAccessConditionOptions) {
+        const labelKey = `submission.sections.upload.access-condition.${accessCondition.name}`;
+        const translatedLabel = this.translateService.instant(labelKey);
         accessConditionTypeOptions.push(
           {
-            label: accessCondition.name,
+            label: translatedLabel === labelKey ? accessCondition.name : translatedLabel,
             value: accessCondition.name,
           },
         );
@@ -440,25 +445,34 @@ implements OnInit, OnDestroy {
       mergeMap((formData: any) => {
         this.uploadService.updatePrimaryBitstreamOperation(this.pathCombiner.getPath('primary'), this.isPrimary, formData.primary[0], this.fileId);
 
-        const mediaTypeValue = this.retrieveValueFromField(formData.mediaType) ?? formData.mediaType;
-        if (isNotEmpty(mediaTypeValue) && mediaTypeValue !== 'neither') {
-          this.operationsBuilder.add(this.pathCombiner.getPath([...pathFragment, 'metadata/dc.type']), [{ value: mediaTypeValue }], true);
-        } else {
-          this.operationsBuilder.remove(this.pathCombiner.getPath([...pathFragment, 'metadata/dc.type']));
+        // Only configured fields may be patched by this upload step.
+        if (this.formMetadata.includes('dc.type')) {
+          const mediaTypeValue = this.retrieveValueFromField(formData.mediaType) ?? formData.mediaType;
+          if (isNotEmpty(mediaTypeValue) && mediaTypeValue !== 'neither') {
+            this.operationsBuilder.add(this.pathCombiner.getPath([...pathFragment, 'metadata/dc.type']), [{ value: mediaTypeValue }], true);
+          } else {
+            this.operationsBuilder.remove(this.pathCombiner.getPath([...pathFragment, 'metadata/dc.type']));
+          }
         }
 
-        const audioTranscriptValue = this.retrieveValueFromField(formData.audioTranscript) ?? formData.audioTranscript;
-        if (isNotEmpty(audioTranscriptValue)) {
-          this.operationsBuilder.add(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.transcript']), [{ value: audioTranscriptValue }], true);
-        } else {
-          this.operationsBuilder.remove(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.transcript']));
+        // Only configured fields may be patched by this upload step.
+        if (this.formMetadata.includes('dspace.bitstream.transcript')) {
+          const audioTranscriptValue = this.retrieveValueFromField(formData.audioTranscript) ?? formData.audioTranscript;
+          if (isNotEmpty(audioTranscriptValue)) {
+            this.operationsBuilder.add(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.transcript']), [{ value: audioTranscriptValue }], true);
+          } else {
+            this.operationsBuilder.remove(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.transcript']));
+          }
         }
 
-        const videoDescriptionValue = this.retrieveValueFromField(formData.videoDescription) ?? formData.videoDescription;
-        if (isNotEmpty(videoDescriptionValue)) {
-          this.operationsBuilder.add(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.textalternative']), [{ value: videoDescriptionValue }], true);
-        } else {
-          this.operationsBuilder.remove(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.textalternative']));
+        // Only configured fields may be patched by this upload step.
+        if (this.formMetadata.includes('dspace.bitstream.textalternative')) {
+          const videoDescriptionValue = this.retrieveValueFromField(formData.videoDescription) ?? formData.videoDescription;
+          if (isNotEmpty(videoDescriptionValue)) {
+            this.operationsBuilder.add(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.textalternative']), [{ value: videoDescriptionValue }], true);
+          } else {
+            this.operationsBuilder.remove(this.pathCombiner.getPath([...pathFragment, 'metadata/dspace.bitstream.textalternative']));
+          }
         }
 
         // collect bitstream metadata

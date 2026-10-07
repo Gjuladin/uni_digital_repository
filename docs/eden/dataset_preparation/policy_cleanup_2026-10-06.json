@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-06",
+  "source_chat": "Prepare UIST dataset backlog",
+  "removed_controls": [
+    "custom RequiredClaimAction and test",
+    "custom repository review workflow/group definitions",
+    "activation patch/example and sole-depositor/reviewer handoff",
+    "old generators writing Angular policy content",
+    "administrator approval and assigned reviewer requirements in current backlog",
+    "unused institutional decision-reference config field"
+  ],
+  "csv_sha256_unchanged": {
+    "packages/6c5118cb-7261-455c-929d-4ddbd6912728/v1.0/dataset/fdi_unemployment_published_regression.csv": "80aad177d741df26be4372909202dc77adbccacb6e0688883b148eff20c0dc5d",
+    "packages/f3dfc719-25c6-498f-909f-1d746ac2833c/v1.0/dataset/online_learning_published_aggregates_v1.csv": "cf35ab34496b4622d1711237df9fb2723aae296b4e49215e6b7836a7b0a57734",
+    "packages/0de15561-ad68-4141-aa70-7268c6fcbe10/v1.0/dataset/crowdsourcing_published_aggregates_v1.csv": "2aa80086f23b24673a50c2fc15335b6730bbfa2c0ce94c01f88b37379caf1563"
+  },
+  "coverage_unchanged": {
+    "publications": 165,
+    "current_batch_reports": 165,
+    "substantive_reviews_complete": 89,
+    "substantive_reviews_remaining": 76,
+    "local_prepared_packages": 3,
+    "unsent_request_drafts": 111,
+    "public_deposits_by_this_work": 0,
+    "definition": "Complete = actual publication content examined for association, methods/data, rights/access and UIST relationship. A metadata/file listing or unavailable-source outcome does not count as substantive content completion."
+  },
+  "backend_workflow_config": "Both XML files exactly match original Git HEAD",
+  "policy_pages": "Current four pages and one-row footer retained",
+  "production_changes": false,
+  "validation": {
+    "packages_passed": 3,
+    "csv_bytes_unchanged": true,
+    "inventory_counts_unchanged": true,
+    "typescript": "passed",
+    "eslint": "passed",
+    "publication_tests": 6,
+    "generated_page_content": "synchronised"
+  },
+  "research_cleanup": {
+    "date": "2026-10-06",
+    "removed_untracked_files": 820,
+    "removed_bytes": 36502375,
+    "recovery_archive": "/Users/samil/.codex/backups/uist-research-cleanup-2026-10-06.zip",
+    "review_storage": "All 165 complete reviews remain in inventory/publications.json under last_integrated_review",
+    "request_storage": "All 111 unsent drafts retained verbatim in requests/DRAFTS.md",
+    "untracked_before": 1044,
+    "untracked_after": 225,
+    "all_package_and_policy_files_unchanged": true,
+    "all_reviews_and_requests_preserved": true,
+    "current_markdown_links_valid": true,
+    "queue_coverage_unchanged": true
+  }
+}

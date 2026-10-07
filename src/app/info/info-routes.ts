@@ -11,6 +11,7 @@ import {
   END_USER_AGREEMENT_PATH,
   FEEDBACK_PATH,
   PRIVACY_PATH,
+  REPOSITORY_POLICIES_PATH,
 } from '@dspace/core/router/info-routing-paths';
 import { hasValue } from '@dspace/shared/utils/empty.util';
 
@@ -20,9 +21,41 @@ import { ThemedEndUserAgreementComponent } from './end-user-agreement/themed-end
 import { ThemedFeedbackComponent } from './feedback/themed-feedback.component';
 import { NotifyInfoComponent } from './notify-info/notify-info.component';
 import { ThemedPrivacyComponent } from './privacy/themed-privacy.component';
+import { RepositoryPoliciesComponent } from './repository-policies/repository-policies.component';
+import { repositoryPoliciesGuard } from './repository-policies/repository-policies.guard';
+import { RepositoryPolicyPageComponent } from './repository-policies/repository-policy-page.component';
+import { repositoryPolicyPublicationGuard } from './repository-policies/repository-policy-publication.guard';
 
 
 export const ROUTES: Routes = [
+  ...[
+    { path: REPOSITORY_POLICIES_PATH, title: 'info.repository-policies.title', breadcrumbKey: 'info.repository-policies' },
+    { path: 'accessibility-statement', title: 'footer.link.accessibility-statement', breadcrumbKey: 'info.accessibility-statement' },
+    { path: PRIVACY_PATH, title: 'footer.link.privacy-notice', breadcrumbKey: 'info.repository-privacy' },
+    { path: 'contact', title: 'footer.link.contact', breadcrumbKey: 'info.repository-contact' },
+  ].map(({ path, title, breadcrumbKey }) => ({
+    path,
+    component: RepositoryPolicyPageComponent,
+    canMatch: [repositoryPolicyPublicationGuard],
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { policyId: path, title, breadcrumbKey },
+  })),
+  ...[
+    { path: 'metadata-curation', fragment: 'metadata-reuse-and-curation' },
+    { path: 'preservation', fragment: 'retention-and-service-continuity' },
+  ].map(({ path, fragment }) => ({
+    path,
+    pathMatch: 'full' as const,
+    canMatch: [repositoryPolicyPublicationGuard],
+    redirectTo: `${REPOSITORY_POLICIES_PATH}#${fragment}`,
+  })),
+  {
+    path: REPOSITORY_POLICIES_PATH,
+    component: RepositoryPoliciesComponent,
+    canActivate: [repositoryPoliciesGuard],
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'info.repository-policies.title', breadcrumbKey: 'info.repository-policies' },
+  },
   {
     path: FEEDBACK_PATH,
     component: ThemedFeedbackComponent,

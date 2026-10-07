@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://repository.uist.edu.mk/server/api",
+    "status": 200,
+    "bytes": 9743,
+    "observed_at": "2026-10-04T23:09:16.708894+02:00"
+  },
+  {
+    "url": "https://repository.uist.edu.mk/server/api/discover",
+    "status": 200,
+    "bytes": 385,
+    "observed_at": "2026-10-04T23:09:16.768951+02:00"
+  },
+  {
+    "url": "https://repository.uist.edu.mk/server/api/discover/search",
+    "status": 200,
+    "bytes": 7718,
+    "observed_at": "2026-10-04T23:09:16.821856+02:00"
+  },
+  {
+    "url": "https://repository.uist.edu.mk/server/api/discover/search/objects?size=100",
+    "status": 200,
+    "bytes": 877251,
+    "observed_at": "2026-10-04T23:09:22.122707+02:00"
+  },
+  {
+    "url": "https://repository.uist.edu.mk/server/api/discover/search/objects?page=1&size=100",
+    "status": 200,
+    "bytes": 807818,
+    "observed_at": "2026-10-04T23:09:27.406302+02:00"
+  }
+]

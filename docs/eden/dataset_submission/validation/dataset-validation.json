@@ -1,0 +1,159 @@
+{
+  "environment": "http://localhost:8080/server",
+  "synthetic": true,
+  "collection": "640760c1-a696-496e-bb81-928c06ede4a0",
+  "item": "3c221b31-c047-4cdd-a45c-4a124b9e3845",
+  "policy_version": "2026-10-06-simple",
+  "checks": {
+    "metadata_saved": true,
+    "incomplete_submission_rejected": 422,
+    "no_data_file_rejected": 422,
+    "multiple_file_uploads": 5,
+    "direct_publication_by_nonadministrator": 201,
+    "public_archived_record": true,
+    "metadata_persistence": [
+      "dc.contributor.author",
+      "dc.date.accessioned",
+      "dc.date.created",
+      "dc.date.issued",
+      "dc.description",
+      "dc.description.abstract",
+      "dc.identifier.uri",
+      "dc.language.iso",
+      "dc.relation.isreferencedby",
+      "dc.relation.references",
+      "dc.rights",
+      "dc.rights.uri",
+      "dc.subject",
+      "dc.title",
+      "dc.type",
+      "dcterms.accessRights",
+      "dspace.entity.type",
+      "local.creator.affiliation",
+      "local.dataset.methods",
+      "local.dataset.version"
+    ],
+    "dataset_entity_type": "Dataset",
+    "assigned_handle": "20.500.15029/31",
+    "no_automatic_cc0_file_licence": true,
+    "anonymous_file_access_and_checksums": {
+      "data.csv": {
+        "uuid": "bddabb4f-96bd-4870-bc25-93b013d2a953",
+        "anonymous_content_status": 200,
+        "access_status": {
+          "status": "open.access",
+          "embargoDate": null,
+          "type": "accessStatus",
+          "_links": {
+            "self": {
+              "href": "http://localhost:8080/server/api/core/bitstreams/bddabb4f-96bd-4870-bc25-93b013d2a953/accessStatus"
+            }
+          }
+        },
+        "rights_persisted": true
+      },
+      "README.md": {
+        "uuid": "694cfaed-aed0-4528-b7b5-b11db995b0f5",
+        "anonymous_content_status": 200,
+        "access_status": {
+          "status": "open.access",
+          "embargoDate": null,
+          "type": "accessStatus",
+          "_links": {
+            "self": {
+              "href": "http://localhost:8080/server/api/core/bitstreams/694cfaed-aed0-4528-b7b5-b11db995b0f5/accessStatus"
+            }
+          }
+        },
+        "rights_persisted": true
+      },
+      "DATA_DICTIONARY.md": {
+        "uuid": "73d19532-09ac-44f4-bd39-1035f9ab5016",
+        "anonymous_content_status": 200,
+        "access_status": {
+          "status": "open.access",
+          "embargoDate": null,
+          "type": "accessStatus",
+          "_links": {
+            "self": {
+              "href": "http://localhost:8080/server/api/core/bitstreams/73d19532-09ac-44f4-bd39-1035f9ab5016/accessStatus"
+            }
+          }
+        },
+        "rights_persisted": true
+      },
+      "restricted.txt": {
+        "uuid": "13b96295-b695-40c2-8ca2-01437abd9148",
+        "anonymous_content_status": 401,
+        "access_status": {
+          "status": "restricted",
+          "embargoDate": null,
+          "type": "accessStatus",
+          "_links": {
+            "self": {
+              "href": "http://localhost:8080/server/api/core/bitstreams/13b96295-b695-40c2-8ca2-01437abd9148/accessStatus"
+            }
+          }
+        },
+        "rights_persisted": true
+      },
+      "embargo.txt": {
+        "uuid": "dfe232cd-f061-482e-a0a0-bedc338d7589",
+        "anonymous_content_status": 401,
+        "access_status": {
+          "status": "embargo",
+          "embargoDate": "2026-11-05",
+          "type": "accessStatus",
+          "_links": {
+            "self": {
+              "href": "http://localhost:8080/server/api/core/bitstreams/dfe232cd-f061-482e-a0a0-bedc338d7589/accessStatus"
+            }
+          }
+        },
+        "rights_persisted": true
+      }
+    },
+    "no_collection_review_groups": true,
+    "depositor_cannot_submit_elsewhere": 403,
+    "anonymous_cannot_submit": 401,
+    "oai_identifier": "oai:localhost:20.500.15029/31",
+    "oai_oai_dc_facts_preserved": true,
+    "oai_dim_facts_preserved": true,
+    "backend_jsonld_facts_preserved": true,
+    "discovery_indexed": true,
+    "feed_rss_record_present": true,
+    "feed_atom_record_present": true,
+    "expired_embargo_releases_file": true,
+    "future_embargo_restored_denies_file": 401
+  },
+  "browser_submission": {
+    "item": "8f918807-9b35-4f6a-89c6-55d98d118fd3",
+    "handle": "20.500.15029/32",
+    "title": "SYNTHETIC UI TEST \u2014 data deposit (not research)",
+    "nonadministrator_ui_direct_publication": true,
+    "native_file_editor_saved_description_and_rights": true,
+    "friendly_native_access_choices": true,
+    "files": {
+      "data.csv": {
+        "anonymous_status": 200,
+        "sha256_matches": true
+      },
+      "README.md": {
+        "anonymous_status": 200,
+        "sha256_matches": true
+      },
+      "DATA_DICTIONARY.md": {
+        "anonymous_status": 200,
+        "sha256_matches": true
+      }
+    }
+  },
+  "builds_and_tests": {
+    "backend_server_boot": "passed",
+    "frontend_app_typescript": "passed",
+    "frontend_browser_and_ssr_production": "passed",
+    "angular_focused_tests": 76,
+    "backend_oai_focused_tests": 8,
+    "git_diff_check_both_workspaces": "passed"
+  }
+}

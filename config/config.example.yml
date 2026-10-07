@@ -280,6 +280,8 @@ harvesting:
       url: ''
       # countryCode: { enabled: false, value: '' }
     # Optional claims are emitted only when both enabled and non-empty.
+    # Enabled public HTTPS policy URLs also appear at /info/repository-policies
+    # and expose its footer link. Publish approved documents before enabling them.
     # contactEmail: { enabled: false, value: '' }
     # licenseUrl: { enabled: false, value: '' }
     # accessRightsUrl: { enabled: false, value: '' }
@@ -477,6 +479,11 @@ info:
   enableCOARNotifySupport: true
   # Whether to show the cookie consent popup and the cookie settings footer link or not.
   enableCookieConsentPopup: true
+  # Optional institution-specific public page bundle. Disabled unless configured.
+  # repositoryPolicyPublication:
+  #   enabled: true
+  #   version: '2026-10-06-simple'
+  #   effectiveDate: '2026-10-06' # include only the actual institutional effective date
 
 # Whether to enable Markdown (https://commonmark.org/) and MathJax (https://www.mathjax.org/)
 # display in supported metadata fields. By default, only dc.description.abstract is supported.

@@ -53,6 +53,19 @@ describe('UIST HomePageComponent', () => {
     expect(router.navigate).not.toHaveBeenCalled();
   });
 
+  it('includes research-data collections alongside publication categories', () => {
+    const collections = [
+      { name: 'Impact Factor Articles', uuid: 'impact' },
+      { name: 'Research Data', uuid: 'data' },
+      { name: 'Computing datasets', uuid: 'computing', firstMetadataValue: () => 'Dataset' },
+    ] as Collection[];
+
+    const cards = (component as any).buildCategoryCards(collections);
+
+    expect(cards.map((card) => card.uuid)).toEqual(['data', 'impact', 'computing']);
+    expect(cards.find((card) => card.uuid === 'data').iconClass).toBe('fas fa-database');
+  });
+
   it('orders matching category collections by the approved homepage order', () => {
     const collections = [
       { name: 'Additional Publications', uuid: 'additional' },

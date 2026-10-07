@@ -1,0 +1,24 @@
+{
+  "title": "Published regression aggregates: FDI inflow and unemployment in former Yugoslav republics",
+  "description": "Attributed extraction of the six country rows and reported regression statistics in Table 1 of the linked 2024 Balkan JETSS article. Not the underlying country-year observations or a replication dataset.",
+  "type": "Dataset (derived published aggregate)",
+  "stage": "prepared_needs_deposit",
+  "version": "1.0",
+  "creator": null,
+  "compiler": null,
+  "identifier": null,
+  "date": null,
+  "rights": "Proposed CC BY-NC 4.0 pending item-specific rights review",
+  "relation_isDerivedFrom": "https://doi.org/10.31410/balkans.jetss.2024.7.1.11-20",
+  "source_repository_item": "https://repository.uist.edu.mk/items/6c5118cb-7261-455c-929d-4ddbd6912728",
+  "source_table": "Table 1, printed page 15 (PDF page 5)",
+  "observation_period": "1990-2021 (as reported by source; raw observations not included)",
+  "access": "Pending review; local preparation only",
+  "source_creators": [
+    "Dijana Capeska Bogatinoska",
+    "Jovanka Damoska Sekuloska",
+    "Angela Oncheva"
+  ],
+  "source_title_as_printed": "Relationship between FDI Inflow and Unemployment in the Case of the Former Yugoslav Republics",
+  "rights_uri_proposal": "https://creativecommons.org/licenses/by-nc/4.0/"
+}

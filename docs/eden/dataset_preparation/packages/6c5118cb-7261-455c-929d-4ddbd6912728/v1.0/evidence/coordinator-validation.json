@@ -1,0 +1,410 @@
+{
+  "evidence_label": "Verified local",
+  "review_date": "2026-10-05",
+  "source_observation_date": "2026-10-04",
+  "environment": "Local inspection of anonymous public source PDF",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a6ec257d-3777-41e0-9c31-9cc63d4f3602/content",
+  "source_md5": "b43c56f70ab4928ba96dc012309a45eb",
+  "source_sha256": "a95eae406137adb7ffb0a2a4ee39d06050b12f3227c6147781f5b7fb1621fbd3",
+  "source_title": "Relationship between FDI Inflow and Unemployment in the Case of the Former Yugoslav Republics",
+  "title_difference": "Repository title includes Rate; source title and OAI alternative omit it. Same authors/DOI; title variant retained as metadata correction proposal, not unrelated-file mismatch.",
+  "source_authors": [
+    "Dijana Capeska Bogatinoska",
+    "Jovanka Damoska Sekuloska",
+    "Angela Oncheva"
+  ],
+  "uist_relationship": "All three authors list UIST affiliations on PDF page1. This does not establish deposit authority.",
+  "source_doi": "10.31410/Balkans.JETSS.2024.7.1.11-20",
+  "source_rights": "CC BY-NC4.0 on PDF page1; package rights decision remains pending",
+  "visually_checked_pages": [
+    5
+  ],
+  "association_rights_context_pages": [
+    1
+  ],
+  "rows": 6,
+  "numeric_cells": 42,
+  "checks": [
+    {
+      "country": "N. Macedonia",
+      "field": "intercept",
+      "expected_source_value": "33.904878",
+      "actual_csv_value": "33.904878",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "N. Macedonia",
+      "field": "fdi_slope",
+      "expected_source_value": "-0.012844",
+      "actual_csv_value": "-0.012844",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "N. Macedonia",
+      "field": "r_squared",
+      "expected_source_value": "0.1615",
+      "actual_csv_value": "0.1615",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "N. Macedonia",
+      "field": "adjusted_r_squared",
+      "expected_source_value": "0.1279",
+      "actual_csv_value": "0.1279",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "N. Macedonia",
+      "field": "correlation_r",
+      "expected_source_value": "-0.401853",
+      "actual_csv_value": "-0.401853",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "N. Macedonia",
+      "field": "p_value",
+      "expected_source_value": "0.03773",
+      "actual_csv_value": "0.03773",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "N. Macedonia",
+      "field": "f_test",
+      "expected_source_value": "9.564833",
+      "actual_csv_value": "9.564833",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "intercept",
+      "expected_source_value": "7.2534170",
+      "actual_csv_value": "7.2534170",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "fdi_slope",
+      "expected_source_value": "-0.000697",
+      "actual_csv_value": "-0.000697",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "r_squared",
+      "expected_source_value": "0.0713",
+      "actual_csv_value": "0.0713",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "adjusted_r_squared",
+      "expected_source_value": "0.03927",
+      "actual_csv_value": "0.03927",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "correlation_r",
+      "expected_source_value": "-0.267018",
+      "actual_csv_value": "-0.267018",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "p_value",
+      "expected_source_value": "0.1465",
+      "actual_csv_value": "0.1465",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Slovenia",
+      "field": "f_test",
+      "expected_source_value": "6.829826",
+      "actual_csv_value": "6.829826",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "intercept",
+      "expected_source_value": "12.08",
+      "actual_csv_value": "12.08",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "fdi_slope",
+      "expected_source_value": "-0.000078",
+      "actual_csv_value": "-0.000078",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "r_squared",
+      "expected_source_value": "0.001156",
+      "actual_csv_value": "0.001156",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "adjusted_r_squared",
+      "expected_source_value": "-0.03452",
+      "actual_csv_value": "-0.03452",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "correlation_r",
+      "expected_source_value": "-0.034005",
+      "actual_csv_value": "-0.034005",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "p_value",
+      "expected_source_value": "0.8584",
+      "actual_csv_value": "0.8584",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Croatia",
+      "field": "f_test",
+      "expected_source_value": "5.144272",
+      "actual_csv_value": "5.144272",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "intercept",
+      "expected_source_value": "15.93",
+      "actual_csv_value": "15.93",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "fdi_slope",
+      "expected_source_value": "0.000032",
+      "actual_csv_value": "0.000032",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "r_squared",
+      "expected_source_value": "0.0001589",
+      "actual_csv_value": "0.0001589",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "adjusted_r_squared",
+      "expected_source_value": "-0.04331",
+      "actual_csv_value": "-0.04331",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "correlation_r",
+      "expected_source_value": "0.012607",
+      "actual_csv_value": "0.012607",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "p_value",
+      "expected_source_value": "0.9523",
+      "actual_csv_value": "0.9523",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Serbia",
+      "field": "f_test",
+      "expected_source_value": "6.702362",
+      "actual_csv_value": "6.702362",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "intercept",
+      "expected_source_value": "24.625198",
+      "actual_csv_value": "24.625198",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "fdi_slope",
+      "expected_source_value": "-0.007091",
+      "actual_csv_value": "-0.007091",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "r_squared",
+      "expected_source_value": "0.2206",
+      "actual_csv_value": "0.2206",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "adjusted_r_squared",
+      "expected_source_value": "0.1773",
+      "actual_csv_value": "0.1773",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "correlation_r",
+      "expected_source_value": "-0.469702",
+      "actual_csv_value": "-0.469702",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "p_value",
+      "expected_source_value": "0.03666",
+      "actual_csv_value": "0.03666",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "Montenegro",
+      "field": "f_test",
+      "expected_source_value": "2.279017",
+      "actual_csv_value": "2.279017",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "intercept",
+      "expected_source_value": "24.578010",
+      "actual_csv_value": "24.578010",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "fdi_slope",
+      "expected_source_value": "0.001048",
+      "actual_csv_value": "0.001048",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "r_squared",
+      "expected_source_value": "0.006036",
+      "actual_csv_value": "0.006036",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "adjusted_r_squared",
+      "expected_source_value": "-0.03914",
+      "actual_csv_value": "-0.03914",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "correlation_r",
+      "expected_source_value": "0.077689",
+      "actual_csv_value": "0.077689",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "p_value",
+      "expected_source_value": "0.7182",
+      "actual_csv_value": "0.7182",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    },
+    {
+      "country": "B&H",
+      "field": "f_test",
+      "expected_source_value": "1.820535",
+      "actual_csv_value": "1.820535",
+      "matches": true,
+      "source_pdf_page": 5,
+      "source_printed_page": 15
+    }
+  ],
+  "raw_country_year_observations_included": false,
+  "compiler_depositor": null,
+  "limits": "Table transcription only; no scientific/statistical recomputation, source-year observations or author endorsement. Source regression inconsistencies are preserved."
+}

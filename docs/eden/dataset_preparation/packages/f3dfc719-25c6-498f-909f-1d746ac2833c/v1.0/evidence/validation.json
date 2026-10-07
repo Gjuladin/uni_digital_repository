@@ -1,0 +1,85 @@
+{
+  "status": "Verified local",
+  "observation_date": "2026-10-04",
+  "rows": 22,
+  "columns": 12,
+  "unique_indicator_period_keys": true,
+  "source_text_checks": [
+    {
+      "indicator": "internet_access",
+      "source_pdf_page": 5,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "device_access",
+      "source_pdf_page": 5,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "motivation",
+      "source_pdf_page": 5,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "concentration",
+      "source_pdf_page": 5,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "self_organisation",
+      "source_pdf_page": 5,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "class_overload",
+      "source_pdf_page": 6,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "institution_organisation",
+      "source_pdf_page": 6,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "institution_support",
+      "source_pdf_page": 6,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "teacher_support",
+      "source_pdf_page": 6,
+      "published_pair_matches": true
+    },
+    {
+      "indicator": "computer_advanced",
+      "source_pdf_page": 7,
+      "published_values_match": true,
+      "period_assignment": "Checked visually and against section 3.5 prose"
+    },
+    {
+      "indicator": "computer_intermediate",
+      "source_pdf_page": 7,
+      "published_values_match": true,
+      "period_assignment": "Checked visually and against section 3.5 prose"
+    }
+  ],
+  "source_sample_totals_match": true,
+  "source_download_md5_matches_rest": true,
+  "source_pdf_sha256_matches_manifest": true,
+  "source_pages_visually_reviewed": [
+    1,
+    5,
+    6,
+    7,
+    9
+  ],
+  "csv_visual_review": "csv-visual-check.png",
+  "no_imputed_values_or_reconstructed_individuals": true,
+  "production_deposit_or_policy_compliance_verified": false,
+  "local_preview_links_verified": 7,
+  "package_checksums_verified": true,
+  "zip_matches_package": true,
+  "html_visual_review": "proposed-item-preview.png",
+  "canonical_evidence_root": "/Users/samil/uni_digital_repository/docs/eden/evidence/2026-10-04-item-188-dataset-example",
+  "copy_status": "Data bytes preserved from canonical reviewed package; evidence paths adapted to staging."
+}

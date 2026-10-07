@@ -1,0 +1,218 @@
+{
+  "batch": "batch-1",
+  "observation_date": "2026-10-04",
+  "environment": "Production; anonymous GET; read-only",
+  "source_cache": "/tmp/uist-dataset-sources/batch1",
+  "repository_pdf_checksums": {
+    "d7061c89-0318-461c-800d-03b94065c98e": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/d7061c89-0318-461c-800d-03b94065c98e.pdf",
+      "sha256": "e681fcd90383c19cad6b20f377f7d50f27a4c50949040ddd5dad9a1707eefe68",
+      "bytes": 599107
+    },
+    "b16b8e62-4021-4b85-b389-068adc8588db": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/b16b8e62-4021-4b85-b389-068adc8588db.pdf",
+      "sha256": "9598eec74a9ebf7ba88b2cfaec502552ef84d8743e10aebf5200e061f2ecf07c",
+      "bytes": 404246
+    },
+    "b65f0ff4-1b08-49c1-8c00-2ddac5e4e8d7": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/b65f0ff4-1b08-49c1-8c00-2ddac5e4e8d7.pdf",
+      "sha256": "09bfc719bd6e08b49fc261f113e5182b4efec36a483c408c024f27fb5987324c",
+      "bytes": 1706081
+    },
+    "df3d8705-c505-4115-a48e-219a383e6568": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/df3d8705-c505-4115-a48e-219a383e6568.pdf",
+      "sha256": "8c1ec6ab045e4cba2d8bc26d6667a9139021da9649cd74e1d9b263609cd1eb86",
+      "bytes": 1345611
+    },
+    "ca4cb015-e2c2-49e8-8f6c-431af1d9aaac": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/ca4cb015-e2c2-49e8-8f6c-431af1d9aaac.pdf",
+      "sha256": "98468b0d5ee47093c99f8d51778497a2382c201697312509291daf6fa134f385",
+      "bytes": 933445
+    },
+    "9a39d918-57e1-46e7-a5c2-65e4cf5a02a7": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/9a39d918-57e1-46e7-a5c2-65e4cf5a02a7.pdf",
+      "sha256": "477593455d3677c7663f3641c3c3f1e26832c127ba9e7b583d1d767c63c1cf11",
+      "bytes": 4203858
+    },
+    "cff98fe5-764c-425f-a4ae-69053c0626a3": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/cff98fe5-764c-425f-a4ae-69053c0626a3.pdf",
+      "sha256": "d099f8109201d48252de521eda5857d992712fb6f68b8f9d71bfecffe80bfb41",
+      "bytes": 1072776
+    },
+    "9bd1fda0-119c-4e4b-a844-cd8f004d5d60": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/9bd1fda0-119c-4e4b-a844-cd8f004d5d60.pdf",
+      "sha256": "2ebb0935ccdd072714269fda64fd96a206290e40d3cb071d82f8e7ce75d74ae2",
+      "bytes": 1600238
+    },
+    "d9326245-87f3-492f-ad7a-650e1fbed9f6": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/d9326245-87f3-492f-ad7a-650e1fbed9f6.pdf",
+      "sha256": "040fe6eb6688ba03fedc3b0e96a1c93e96b8468850f15daba36b0a59b0f44d33",
+      "bytes": 243500
+    },
+    "83ce4623-64ec-4a55-8181-75ac93e1070e": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/83ce4623-64ec-4a55-8181-75ac93e1070e.pdf",
+      "sha256": "ac40054d21311701083bfc94d5b45ab94a116978231f91a742eb48baa2496455",
+      "bytes": 580134
+    },
+    "25f107a4-3557-4a56-8196-9604bda488f1": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/25f107a4-3557-4a56-8196-9604bda488f1.pdf",
+      "sha256": "caaa0cf4ea33f18d2e6cdf7977aad0019d84a6d762bed995f973c8b2d1039368",
+      "bytes": 228805
+    },
+    "ebf283a3-e127-41da-80ab-234813dc1aaa": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/ebf283a3-e127-41da-80ab-234813dc1aaa.pdf",
+      "sha256": "50e7abb5ec23e6a0d77fe90877b6d4792ec5653a056fb5dfde849346f3335ee5",
+      "bytes": 367042
+    },
+    "59cbd8f6-ec3d-4da1-b249-dc5a68c95994": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/59cbd8f6-ec3d-4da1-b249-dc5a68c95994.pdf",
+      "sha256": "d0570d230e05575e10694ddc5726e84bee5bd0276670d5359bae881f679252c6",
+      "bytes": 398124
+    },
+    "29da5c97-2d8f-4623-b3a6-f16d3e9a542a": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/29da5c97-2d8f-4623-b3a6-f16d3e9a542a.pdf",
+      "sha256": "477593455d3677c7663f3641c3c3f1e26832c127ba9e7b583d1d767c63c1cf11",
+      "bytes": 4203858
+    },
+    "48cab29c-0b80-4ed8-981b-d23d515cd975": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/48cab29c-0b80-4ed8-981b-d23d515cd975.pdf",
+      "sha256": "6cd0345d56ab42a797951d4e4b2426358bc70f02bf231b59d43b096ad9f8590c",
+      "bytes": 4096086
+    },
+    "6525ffc9-69f5-4548-be3e-303701d6d496": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/6525ffc9-69f5-4548-be3e-303701d6d496.pdf",
+      "sha256": "d308926db6200b3b982a58546c95cb7138bf8654dc4fef4f6feb52d31734103e",
+      "bytes": 735068
+    },
+    "85dbaec4-1297-40c6-befc-1e89a79e1bb2": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/85dbaec4-1297-40c6-befc-1e89a79e1bb2.pdf",
+      "sha256": "9e9b7eadb89d02192fe6f2d46dfc4d325c9c2da460d4331e1f2606c8deda39e5",
+      "bytes": 775058
+    },
+    "0842a16b-7db8-448c-a3db-ea05139632f4": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/0842a16b-7db8-448c-a3db-ea05139632f4.pdf",
+      "sha256": "ad732d6b72636074fd6ee15f411da177858f65f273ffbff1802eb6502f1f0623",
+      "bytes": 5696013
+    },
+    "04639f58-c974-4c9e-af40-2c2df6373f40": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/04639f58-c974-4c9e-af40-2c2df6373f40.pdf",
+      "sha256": "3f53453610244a60c49da1476a34aa1934a2c89b6532e4fd7d98eede12b4ce80",
+      "bytes": 1183952
+    },
+    "ce4ab225-9d94-46d2-baed-91bb6f750102": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/ce4ab225-9d94-46d2-baed-91bb6f750102.pdf",
+      "sha256": "33387426bb93f541c156551391b3778b454b6df572f1fd42f4cb485b1694b464",
+      "bytes": 3282114
+    },
+    "75b7b217-9a18-494c-83df-24ae774e44ff": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/75b7b217-9a18-494c-83df-24ae774e44ff.pdf",
+      "sha256": "fd6efa7dd9750170266c6b70a52a9f53df62f68123e25d635ad366b9ee4b2eae",
+      "bytes": 27592439
+    },
+    "dbeb3759-8836-4940-83be-6d01876e60d4": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/dbeb3759-8836-4940-83be-6d01876e60d4.pdf",
+      "sha256": "6b7f90645845009f0fd2e07ad9dd396bdd1f1b943c69b38d394163a782709803",
+      "bytes": 1030466
+    },
+    "2e7bcb01-16c7-49b4-b1a9-135054ea6694": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/2e7bcb01-16c7-49b4-b1a9-135054ea6694.pdf",
+      "sha256": "f33baf9be25a30f33622e21a508bd4256cdba0cdd2b9ccf3bcf21b6eb6e9e1b6",
+      "bytes": 1496615
+    },
+    "83dac700-830a-4106-b976-189efe84b6ad": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/83dac700-830a-4106-b976-189efe84b6ad.pdf",
+      "sha256": "de5c03f2b7bc814814d1675ef03dd4c0f024f0c4ff218fdcdad47d2063770f88",
+      "bytes": 930967
+    },
+    "c3855e4a-295a-4350-8a8f-ccb220309d7f": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/c3855e4a-295a-4350-8a8f-ccb220309d7f.pdf",
+      "sha256": "514ade26026f1426b00cb034f5cfd6b2eefe10b1456732d4b994c8d4a0938aac",
+      "bytes": 8277689
+    },
+    "0f2955ca-d086-4cd2-b337-965d2525cba0": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/0f2955ca-d086-4cd2-b337-965d2525cba0.pdf",
+      "sha256": "2e34d00c43dda856f24d47f1f4edecf77566a7d5f1939ad55457fa1dacbb6b2e",
+      "bytes": 2032846
+    },
+    "06bab468-de51-4a2c-bcb5-efa665020690": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/06bab468-de51-4a2c-bcb5-efa665020690.pdf",
+      "sha256": "32a1f60ca549aeea764f2df1e1df4b25523d6e051cae6dd03ab63e6c0c5f61da",
+      "bytes": 1107777
+    },
+    "85eafa57-e0e6-4ad3-9192-53e4a448ac89": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/85eafa57-e0e6-4ad3-9192-53e4a448ac89.pdf",
+      "sha256": "5a7768baaebd35b55ce5d1d01d9c4c37f97b0317edc818ed57d039767a255e83",
+      "bytes": 9211414
+    },
+    "ac5c2939-dd21-4734-9df7-dea4c7f940b8": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/ac5c2939-dd21-4734-9df7-dea4c7f940b8.pdf",
+      "sha256": "b17e08c26735d6a81a65ef3dad04f950f082c185f7fa0414f156cad715ec87de",
+      "bytes": 4394576
+    },
+    "5da9ad7f-c2bf-4c24-8dfa-faa35d61b201": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/5da9ad7f-c2bf-4c24-8dfa-faa35d61b201.pdf",
+      "sha256": "9378938e45449a8ba06f800ac83e597f415f148cb5b4ac92c6deedeac4f51868",
+      "bytes": 1776595
+    },
+    "466dbbda-7a32-489d-84fa-6dedf62e4390": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/466dbbda-7a32-489d-84fa-6dedf62e4390.pdf",
+      "sha256": "ada3ea035fb4e17e39042012259c38bf726b4de6a400d708f942a75ff8085672",
+      "bytes": 297218
+    },
+    "6a02ca7b-fe45-42fb-b760-492a7ba85529": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/6a02ca7b-fe45-42fb-b760-492a7ba85529.pdf",
+      "sha256": "21a855078aaee88634376f526b797a8a8ef54bca12a69ce257a9afc83e437cda",
+      "bytes": 3595040
+    },
+    "111fd06c-d435-47b0-9553-f852c5d081ab": {
+      "path": "/tmp/uist-dataset-sources/batch1/pdfs/111fd06c-d435-47b0-9553-f852c5d081ab.pdf",
+      "sha256": "1daa7a34fd8c60de7b9fecdfb15032057a81a97ea901c7b6a16f9cb2d091a1aa",
+      "bytes": 1945640
+    },
+    "5d709176-0d1e-4b5e-b9be-27faadd6e16c": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/5d709176-0d1e-4b5e-b9be-27faadd6e16c.pdf",
+      "sha256": "3138a0131b6991073b7d4f78c418d225ea06952893d138d51b31c465eaa716e0",
+      "bytes": 304331
+    },
+    "5f8b9675-216a-4104-ae1c-ae3b63b94eec": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/5f8b9675-216a-4104-ae1c-ae3b63b94eec.pdf",
+      "sha256": "d4c241c600c77f25ea88cceba7aa6efe423938b3e429393faaea8c1738927d9a",
+      "bytes": 320447
+    },
+    "5a7485a1-0378-48d1-921a-937a75f577c4": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/5a7485a1-0378-48d1-921a-937a75f577c4.pdf",
+      "sha256": "0adaef114c5c872be38c5e1d3859b3b68e837cf8fd22cbd29cc2016e2ce62426",
+      "bytes": 3325965
+    },
+    "69095693-290d-4ca9-8e84-8b97ff8d2d94": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/69095693-290d-4ca9-8e84-8b97ff8d2d94.pdf",
+      "sha256": "179662a03b2a62b1616d8a38e9cc868aeb92c8ac24e25ccaeccb24185fdcbc33",
+      "bytes": 47159
+    },
+    "d3f0a038-9933-4018-a89a-99d27c650f1f": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/d3f0a038-9933-4018-a89a-99d27c650f1f.pdf",
+      "sha256": "503a83c63a7d2b349a88b0304366efcdb5f08a3fd408301e76ab7a787c10e6f8",
+      "bytes": 313209
+    },
+    "9a8ebc25-fab1-47d8-8be4-d605eba45933": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/9a8ebc25-fab1-47d8-8be4-d605eba45933.pdf",
+      "sha256": "8da9b125f65d60082e7afc28bb60163e554b35defa7b5ed1f82062dae4869a96",
+      "bytes": 322995
+    },
+    "dd0163f7-6b72-483f-9368-718e28676550": {
+      "path": "/tmp/uist-dataset-sources/batch1/external/dd0163f7-6b72-483f-9368-718e28676550.pdf",
+      "sha256": "74bdd162ce45fc691d5c27de9e011686406b69ebce414d04e6fc2621aead3555",
+      "bytes": 311471
+    }
+  },
+  "external_source_urls": {
+    "5f8b9675-216a-4104-ae1c-ae3b63b94eec": "https://link.springer.com/content/pdf/10.1007/978-3-032-07373-0_39.pdf",
+    "5d709176-0d1e-4b5e-b9be-27faadd6e16c": "https://link.springer.com/content/pdf/10.1007/978-3-032-07370-9_33.pdf",
+    "69095693-290d-4ca9-8e84-8b97ff8d2d94": "http://xplorestaging.ieee.org/ielx8/11151840/11151851/11151964.pdf?arnumber=11151964",
+    "5a7485a1-0378-48d1-921a-937a75f577c4": "https://www.jait.us/articles/2026/JAIT-V17N8-1442.pdf",
+    "d3f0a038-9933-4018-a89a-99d27c650f1f": "https://link.springer.com/content/pdf/10.1007/978-3-032-13883-5_16.pdf",
+    "9a8ebc25-fab1-47d8-8be4-d605eba45933": "https://link.springer.com/content/pdf/10.1007/978-3-032-07373-0_42.pdf",
+    "dd0163f7-6b72-483f-9368-718e28676550": "https://link.springer.com/content/pdf/10.1007/978-3-031-06374-9_16.pdf"
+  },
+  "notes": "Temporary source cache only; review JSONs retain minimal source locators and SHA-256 values. No bulk archives or private material downloaded."
+}

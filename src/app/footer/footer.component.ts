@@ -13,6 +13,7 @@ import {
   APP_CONFIG,
   AppConfig,
 } from '@dspace/config/app-config.interface';
+import { getRepositoryPolicyLinks } from '@dspace/config/repository-policy-links.util';
 import { NotifyInfoService } from '@dspace/core/coar-notify/notify-info/notify-info.service';
 import { OrejimeService } from '@dspace/core/cookies/orejime.service';
 import { AuthorizationDataService } from '@dspace/core/data/feature-authorization/authorization-data.service';
@@ -29,6 +30,7 @@ import {
   take,
 } from 'rxjs';
 
+import { areRepositoryPoliciesPublished } from '../info/repository-policies/repository-policy-publication.util';
 import { MarkdownViewerComponent } from '../shared/markdown-viewer/markdown-viewer.component';
 
 @Component({
@@ -53,6 +55,8 @@ export class FooterComponent implements OnInit {
   showCookieSettings = false;
   showPrivacyPolicy: boolean;
   showEndUserAgreement: boolean;
+  showRepositoryPolicies = false;
+  showRepositoryInformation = false;
   showSendFeedback$: Observable<boolean>;
   coarLdnEnabled$: Observable<boolean>;
   footerMetadataValue$: Observable<string>;
@@ -69,8 +73,10 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.showCookieSettings = this.appConfig.info.enableCookieConsentPopup;
-    this.showPrivacyPolicy = this.appConfig.info.enablePrivacyStatement;
-    this.showEndUserAgreement = this.appConfig.info.enableEndUserAgreement;
+    this.showRepositoryInformation = areRepositoryPoliciesPublished(this.appConfig.info);
+    this.showPrivacyPolicy = this.appConfig.info.enablePrivacyStatement && !this.showRepositoryInformation;
+    this.showEndUserAgreement = this.appConfig.info.enableEndUserAgreement && !this.showRepositoryInformation;
+    this.showRepositoryPolicies = this.showRepositoryInformation || getRepositoryPolicyLinks(this.appConfig.harvesting).length > 0;
     this.coarLdnEnabled$ = this.appConfig.info.enableCOARNotifySupport ? this.notifyInfoService.isCoarConfigEnabled() : of(false);
     this.showSendFeedback$ = this.authorizationService.isAuthorized(FeatureID.CanSendFeedback);
     this.showTopFooter = this.appConfig.homePage.showTopFooter;

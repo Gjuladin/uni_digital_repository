@@ -1,3 +1,6 @@
+@if (repositoryPolicyHtml) {
+  <article [innerHTML]="repositoryPolicyHtml"></article>
+} @else {
 <h1>{{ 'info.end-user-agreement.head' | translate }}</h1>
 
 @if (userAgreementText$ | async; as text) {
@@ -97,4 +100,5 @@
   <p>{{ 'legal.end-user-agreement.miscellaneous.content' | translate }}</p>
 
   <p><a class="link-contrast" [routerLink]="'.'" fragment="ref-a" id="comment-a">{{ 'legal.end-user-agreement.intellectual-property.footnote' | translate }}</a>&nbsp;{{ 'legal.end-user-agreement.dspace.prefix' | translate }} <a class="link-contrast" [href]="'legal.end-user-agreement.dspace.license-url' | translate" target="_blank" rel="noopener noreferrer">{{ 'legal.end-user-agreement.dspace.license-url' | translate }}</a></p>
+}
 }

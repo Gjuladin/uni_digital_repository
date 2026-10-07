@@ -1,0 +1,192 @@
+{
+  "packages": 3,
+  "passed": 3,
+  "reports": [
+    {
+      "package_path": "packages/0de15561-ad68-4141-aa70-7268c6fcbe10/v1.0",
+      "evidence_label": "Verified local",
+      "observation_date": "2026-10-06",
+      "stage": "prepared_needs_deposit",
+      "csv": [
+        {
+          "file": "crowdsourcing_published_aggregates_v1.csv",
+          "rows": 166,
+          "columns": 10,
+          "exact_duplicate_rows": 0
+        }
+      ],
+      "checksum_checks": [
+        {
+          "file": "dataset/DATA_DICTIONARY.md",
+          "sha256": "f19505681c20a06c9c05d3ea09fe956f3ae62ead2a4410da8a8069175886d46f",
+          "matches": true
+        },
+        {
+          "file": "dataset/LICENSE.md",
+          "sha256": "bfe0243f5517460ef2edd03c9776072012b651e45696a6e1229f0f4299a81e5d",
+          "matches": true
+        },
+        {
+          "file": "dataset/README.md",
+          "sha256": "1b1bd5f46616b01fe7b4ed97acf16d318ab465a4be2d13c2e53ec17e7e930b70",
+          "matches": true
+        },
+        {
+          "file": "dataset/crowdsourcing_published_aggregates_v1.csv",
+          "sha256": "2aa80086f23b24673a50c2fc15335b6730bbfa2c0ce94c01f88b37379caf1563",
+          "matches": true
+        }
+      ],
+      "zip_checks": [
+        {
+          "file": "dataset/DATA_DICTIONARY.md",
+          "matches": true
+        },
+        {
+          "file": "dataset/LICENSE.md",
+          "matches": true
+        },
+        {
+          "file": "dataset/README.md",
+          "matches": true
+        },
+        {
+          "file": "dataset/SHA256SUMS.txt",
+          "matches": true
+        },
+        {
+          "file": "dataset/crowdsourcing_published_aggregates_v1.csv",
+          "matches": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "passed": true,
+      "limitation": "Structural/fixity checks only. Every extracted value requires source association and textual/visual verification in each package evidence; institutional/rights/privacy gates remain pending."
+    },
+    {
+      "package_path": "packages/6c5118cb-7261-455c-929d-4ddbd6912728/v1.0",
+      "evidence_label": "Verified local",
+      "observation_date": "2026-10-06",
+      "stage": "prepared_needs_deposit",
+      "csv": [
+        {
+          "file": "fdi_unemployment_published_regression.csv",
+          "rows": 6,
+          "columns": 8,
+          "exact_duplicate_rows": 0
+        }
+      ],
+      "checksum_checks": [
+        {
+          "file": "dataset/DATA_DICTIONARY.md",
+          "sha256": "8df8f9da3b5c46ff03e01a16e6fc5355ac061fe93aecd96359c52c21b34f5287",
+          "matches": true
+        },
+        {
+          "file": "dataset/LICENSE.md",
+          "sha256": "9ae6dd8fa61917c4666a741c27ea3d8c2abce7d8b378c7818d8cee2f8e4d083b",
+          "matches": true
+        },
+        {
+          "file": "dataset/README.md",
+          "sha256": "673c92e7294e933cba156abb5fd6a623136517a70e4f234e5dbd5fca5feaba4d",
+          "matches": true
+        },
+        {
+          "file": "dataset/fdi_unemployment_published_regression.csv",
+          "sha256": "80aad177d741df26be4372909202dc77adbccacb6e0688883b148eff20c0dc5d",
+          "matches": true
+        }
+      ],
+      "zip_checks": [
+        {
+          "file": "dataset/DATA_DICTIONARY.md",
+          "matches": true
+        },
+        {
+          "file": "dataset/LICENSE.md",
+          "matches": true
+        },
+        {
+          "file": "dataset/README.md",
+          "matches": true
+        },
+        {
+          "file": "dataset/SHA256SUMS.txt",
+          "matches": true
+        },
+        {
+          "file": "dataset/fdi_unemployment_published_regression.csv",
+          "matches": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "passed": true,
+      "limitation": "Structural/fixity checks only. Every extracted value requires source association and textual/visual verification in each package evidence; institutional/rights/privacy gates remain pending."
+    },
+    {
+      "package_path": "packages/f3dfc719-25c6-498f-909f-1d746ac2833c/v1.0",
+      "evidence_label": "Verified local",
+      "observation_date": "2026-10-06",
+      "stage": "prepared_needs_deposit",
+      "csv": [
+        {
+          "file": "online_learning_published_aggregates_v1.csv",
+          "rows": 22,
+          "columns": 12,
+          "exact_duplicate_rows": 0
+        }
+      ],
+      "checksum_checks": [
+        {
+          "file": "dataset/DATA_DICTIONARY.md",
+          "sha256": "683d136d136ce83fd7e41218b3a7f04b3bd5436c429ddf428882082197c425a3",
+          "matches": true
+        },
+        {
+          "file": "dataset/LICENSE.md",
+          "sha256": "3b53df64daf67e230641e11f2aca6fef2a10e4e6cfb770047547e453838f8236",
+          "matches": true
+        },
+        {
+          "file": "dataset/README.md",
+          "sha256": "ad70bfc5a68b22455026edeb6f6e869db7af824a0709d4635ff17b765e3aad78",
+          "matches": true
+        },
+        {
+          "file": "dataset/online_learning_published_aggregates_v1.csv",
+          "sha256": "cf35ab34496b4622d1711237df9fb2723aae296b4e49215e6b7836a7b0a57734",
+          "matches": true
+        }
+      ],
+      "zip_checks": [
+        {
+          "file": "online_learning_published_aggregates_v1/DATA_DICTIONARY.md",
+          "matches": true
+        },
+        {
+          "file": "online_learning_published_aggregates_v1/LICENSE.md",
+          "matches": true
+        },
+        {
+          "file": "online_learning_published_aggregates_v1/README.md",
+          "matches": true
+        },
+        {
+          "file": "online_learning_published_aggregates_v1/SHA256SUMS.txt",
+          "matches": true
+        },
+        {
+          "file": "online_learning_published_aggregates_v1/online_learning_published_aggregates_v1.csv",
+          "matches": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "passed": true,
+      "limitation": "Structural/fixity checks only. Every extracted value requires source association and textual/visual verification in each package evidence; institutional/rights/privacy gates remain pending."
+    }
+  ]
+}

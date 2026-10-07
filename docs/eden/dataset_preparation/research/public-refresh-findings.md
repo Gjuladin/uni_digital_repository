@@ -1,0 +1,17 @@
+> Historical investigation from 4 October 2026. Its policy and assigned-reviewer assumptions have been superseded by the four-page pack accepted by the rector (reported 6 October 2026); use [the current workflow](../WORKFLOW.md) for release responsibilities. Source observations below remain historical evidence.
+
+# Public refresh findings — 4 October 2026
+
+**Verified public.** Anonymous GET traversal refreshed 165 items, 11 collections and five communities across both returned Discovery pages. OAI Identify's actual baseURL and both ListRecords pages (returned resumption token) yielded the same 165 Handles. Every current item bundle and bitstream `next` link was followed; there were no file-inventory interface errors. The live `/.well-known/api-catalog` was saved. See `inventory/coverage-refresh-2026-10-04.json` and `inventory/public-request-log-refresh-2026-10-04.json` for source URLs, timestamps and fingerprints.
+
+**Verified public.** Current ORIGINAL file UUID/MD5 sets match the saved earlier census for all 165 items. This comparison establishes unchanged public file metadata, not source-content suitability. Only 84 records list public ORIGINAL files; the other 81 require related-source inspection or an availability request. A thumbnail is not a source dataset.
+
+**Verified public.** REST/OAI title, creator and type comparison found 16 literal differences: 14 contain residual entity escapes (`&apos;` or `&amp;`) after XML parsing; items 231 and 214 additionally export alternative titles through OAI Dublin Core. Alternative-title mapping is not itself a wrong-file finding. The residual escapes require a separately authorised metadata-export fix. Raw comparisons are in `research/interface-reconciliation.json`; no production records or code were changed by this finding.
+
+**Verified public / Unknown.** Six groups share ORIGINAL file MD5 values. Whole journal/proceedings files may legitimately cover multiple records. Items 217 and 246 share a mathematics PDF filename/fingerprint despite different publication subjects; content inspection decides the mismatch. Shared fingerprints alone do not establish one. An earlier item 89 hold is retained pending its review.
+
+**Verified public.** agent-browser checked the repository homepage and publication pages 188 and 246. Item 188 displays the matching source title, four stored authors, DOI link `10.14705/rpnet.2022.61.1451`, PDF link and CC BY 4.0 link. Item 246 displays the mathematical title, authors Durmishi/Misajleski/Velkoska, DOI `10.46793/kgjmat2307.1075d` and its PDF link. Snapshots/screenshots are under `research/`. The page checks do not establish a public dataset deposit or agreement acceptance. All UI operations were read-only.
+
+**Institutional decision required.** The saved policy text remains a draft. Its scope includes research data and researcher/delegate deposits; it does not explicitly approve repository-created aggregate compilations. Package acceptance requires a named accountable compiler/depositor, authority, agreement version/date acceptance, reviewer decision and item-specific rights/access decisions. Source-study authors must not be assigned responsibility for a compilation without evidence.
+
+**Unknown.** No new administrator confirmations, researcher permissions, policy adoption, review assignments or authorised public dataset deposits were obtained. Exact content-review completion is reported separately from census coverage.

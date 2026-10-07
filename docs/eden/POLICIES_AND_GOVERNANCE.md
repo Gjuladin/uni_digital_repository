@@ -1,33 +1,20 @@
-# Policies and governance required from UIST
+# Current UIST repository policies
 
-The development team can supply page templates and machine-readable links, but UIST must define, approve, own, and maintain the policy content. Existing general university terms should only be reused when UIST confirms that they govern this repository.
+The rector accepted the four-page policy pack, version `2026-10-06-simple`, as reported by the user on 6 October 2026. Use the [accepted pack](rector_review_2026-10/dabar_simple_2026-10-06/README.md) and its four page sources. Policy approval is complete. The date records when acceptance was reported; no formal effective date or decision number has been supplied.
 
-## Policy set
+## Accepted pages and scope
 
-| Policy | Questions UIST must settle | EDEN/registry use |
+| Page | Implemented route | Coverage |
 | --- | --- | --- |
-| Deposit policy | Who may deposit, accepted content, required metadata/files, moderation, depositor warranties, rights checks, and refusal criteria? | Terms of deposit; repository policy. |
-| Access policy | What is openly accessible, what may be restricted, who authorizes restrictions, and how are embargoes handled? | Terms of access; access rights. |
-| Preservation policy | Preservation commitment, supported formats, fixity/backups, migrations, retention period, and responsibilities. | Preservation claim; repository policy. |
-| Curation policy | Review level, metadata enhancement, file validation, version handling, and service expectations. | Curation level. |
-| Metadata policy | Who may reuse metadata and under what licence; required fields and vocabularies. | Metadata reuse and format claims. |
-| Content/data licence policy | Whether there is any default licence and how depositors select item-specific licences. | Dataset-use licence and registry licence fields. |
-| Takedown policy | Copyright/privacy complaint channel, assessment, temporary suppression, appeal, and retained tombstone metadata. | Governance evidence and public trust. |
-| Withdrawal/versioning policy | When items may be withdrawn, corrected, replaced, or versioned and how persistent identifiers behave. | PID and curation claims. |
-| Privacy policy | Personal data processed by the repository, lawful basis, logs/accounts, retention, processors, and contact rights. | Public policy and registry link where accepted. |
-| Terms of use | Permitted site/API use, user responsibilities, disclaimers, and relationship to the general End User Agreement. | Terms of access/use. |
-| PID policy | Identifier assignment, persistence commitment, ownership, updates, tombstones, and succession. | Handle/DOI registry claims. |
-| Certification policy/decision | Whether UIST will pursue CoreTrustSeal or another relevant certification and who owns the evidence process. | Certificate/seal/standard field. |
+| Repository policies | `/info/repository-policies` | UIST content and deposit eligibility, direct publication by authorised users, access and item-specific file rights, CC0 metadata, curation, identifiers, retention and continuity |
+| Accessibility statement | `/info/accessibility-statement` | Accessibility aims, assistance and reporting; no measured conformance claim |
+| Privacy notice | `/info/privacy` | Linked institutional privacy policy, repository supplement, corrections, takedown and review |
+| Contact | `/info/contact` | Repository administrator and university enquiry channels |
 
-## Publication requirements
+The repository administrator authorises accounts and collection deposit permissions and provides technical support. Authorised depositors publish directly and remain responsible for content, metadata, rights and access choices. No routine administrator acceptance or scientific peer review is required. Principal publication languages are Macedonian and English. Public descriptive metadata uses CC0 1.0; files retain their individual rights. No external partner deposit programme or designated preservation partner is included.
 
-Each approved policy needs:
+## Remaining implementation work
 
-- a stable public HTTPS URL under a UIST-controlled domain;
-- a title, owner, approval date, effective date, and review date;
-- version history and an archival strategy for replaced versions;
-- contact details for questions or complaints;
-- English text and any additional language version UIST requires;
-- confirmation that the wording applies specifically to the repository.
+Deploy and verify the four public HTTPS pages and footer links. Keep collection workflows consistent with direct deposit and verify anonymous access to the public pages. Verify actual hosting, account/log handling, backup and recovery arrangements separately; acceptance of the wording does not establish runtime controls. Maintain versions and current contact details, and record any formal effective date when supplied. A Macedonian translation has not been prepared by this work.
 
-The frontend `harvesting` configuration must enable a policy link only after its URL is public and approved. A blank or draft URL remains unpublished.
+Enable machine-readable policy links only after their destinations are verified publicly. Public descriptive metadata CC0 must not be presented as a blanket licence for deposited files. The six original long drafts and older comparative research are historical material; their proposed approval steps and operational commitments do not govern the accepted pack.

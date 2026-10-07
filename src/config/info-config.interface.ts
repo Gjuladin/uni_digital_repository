@@ -5,4 +5,10 @@ export interface InfoConfig extends Config {
   enablePrivacyStatement?: boolean;
   enableCOARNotifySupport?: boolean;
   enableCookieConsentPopup?: boolean;
+  /** Explicit activation of the bundled repository pages. */
+  repositoryPolicyPublication?: {
+    enabled: boolean;
+    version: string;
+    effectiveDate?: string;
+  };
 }

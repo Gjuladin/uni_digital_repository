@@ -1,0 +1,168 @@
+{
+  "status": "Local proposal; not submitted, accepted or published",
+  "prepared_date": "2026-10-04",
+  "proposed_record": {
+    "title": "Published aggregate survey results on students' online learning, 2020–2021 — data extracted from Hatipoğlu et al. (2022)",
+    "type": "Dataset",
+    "collection": {
+      "suggestion": "UIST Research Data",
+      "status": "Institutional decision required; no existing collection asserted"
+    },
+    "version": "1.0",
+    "compilation_date": "2026-10-04",
+    "date_issued": null,
+    "landing_url": null,
+    "identifier": null,
+    "creator": null,
+    "depositor": null,
+    "compiler_requirement": "Record the responsible human compiler/depositor; do not represent source authors as approving this compilation.",
+    "source_creators": [
+      {
+        "name": "Çiler Hatipoğlu",
+        "orcid": "https://orcid.org/0000-0002-7171-1673",
+        "affiliation_at_publication": "Middle East Technical University, Ankara, Türkiye",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      },
+      {
+        "name": "Elżbieta Gajek",
+        "orcid": "https://orcid.org/0000-0003-2971-8334",
+        "affiliation_at_publication": "University of Warsaw, Warsaw, Poland",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      },
+      {
+        "name": "Nihada Delibegović Džanić",
+        "orcid": "https://orcid.org/0000-0002-8241-6338",
+        "affiliation_at_publication": "University of Tuzla, Tuzla, Bosnia and Herzegovina",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      },
+      {
+        "name": "Lina Milosevska",
+        "orcid": "https://orcid.org/0000-0003-3856-5448",
+        "affiliation_at_publication": "University of Information Science and Technology “St. Paul the Apostle”, Ohrid, Republic of North Macedonia",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      }
+    ],
+    "description": "Partial machine-readable extraction of published survey percentages: nine difficulty indicators and two computer-literacy categories in two collection periods. Twenty-two observations, combined across four countries. Source sample totals: 216 and 214; item denominators are not established. No respondent-level data or reconstructed counts.",
+    "language": "en",
+    "subjects": [
+      "online learning",
+      "COVID-19",
+      "university students",
+      "survey aggregates",
+      "computer literacy"
+    ],
+    "geographic_scope": [
+      "Türkiye",
+      "Poland",
+      "North Macedonia",
+      "Bosnia and Herzegovina"
+    ],
+    "collection_windows": [
+      {
+        "period": "FP",
+        "window": "May–June 2020",
+        "sample_total": 216
+      },
+      {
+        "period": "SP",
+        "window": "December 2020–January 2021",
+        "sample_total": 214
+      }
+    ],
+    "rights": {
+      "proposed_license": "https://creativecommons.org/licenses/by/4.0/",
+      "source_license_status": "Verified public",
+      "package_release_status": "Institutional decision required"
+    },
+    "access": {
+      "proposed": "Open download; no registration or embargo",
+      "production_verified": false
+    },
+    "relation": {
+      "type": "IsDerivedFrom",
+      "url": "https://doi.org/10.14705/rpnet.2022.61.1451"
+    },
+    "related_source_record": "https://repository.uist.edu.mk/items/f3dfc719-25c6-498f-909f-1d746ac2833c",
+    "files": [
+      {
+        "name": "DATA_DICTIONARY.md",
+        "bytes": 1792,
+        "media_type": "text/markdown",
+        "sha256": "683d136d136ce83fd7e41218b3a7f04b3bd5436c429ddf428882082197c425a3",
+        "status": "Verified local"
+      },
+      {
+        "name": "LICENSE.md",
+        "bytes": 1720,
+        "media_type": "text/markdown",
+        "sha256": "3b53df64daf67e230641e11f2aca6fef2a10e4e6cfb770047547e453838f8236",
+        "status": "Verified local"
+      },
+      {
+        "name": "README.md",
+        "bytes": 5910,
+        "media_type": "text/markdown",
+        "sha256": "473fac42d87c89b052ebf8783b6820b92da9e2723f661905080fbef926856d31",
+        "status": "Verified local"
+      },
+      {
+        "name": "online_learning_published_aggregates_v1.csv",
+        "bytes": 4669,
+        "media_type": "text/csv",
+        "sha256": "cf35ab34496b4622d1711237df9fb2723aae296b4e49215e6b7836a7b0a57734",
+        "status": "Verified local"
+      }
+    ],
+    "funding": {
+      "value": null,
+      "status": "Unknown; do not invent a funder"
+    }
+  },
+  "proposed_publication_enrichment": {
+    "uuid": "f3dfc719-25c6-498f-909f-1d746ac2833c",
+    "retain_type": "Book chapter",
+    "retain_files_and_rights": true,
+    "source_verified_creators": [
+      {
+        "name": "Çiler Hatipoğlu",
+        "orcid": "https://orcid.org/0000-0002-7171-1673",
+        "affiliation_at_publication": "Middle East Technical University, Ankara, Türkiye",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      },
+      {
+        "name": "Elżbieta Gajek",
+        "orcid": "https://orcid.org/0000-0003-2971-8334",
+        "affiliation_at_publication": "University of Warsaw, Warsaw, Poland",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      },
+      {
+        "name": "Nihada Delibegović Džanić",
+        "orcid": "https://orcid.org/0000-0002-8241-6338",
+        "affiliation_at_publication": "University of Tuzla, Tuzla, Bosnia and Herzegovina",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      },
+      {
+        "name": "Lina Milosevska",
+        "orcid": "https://orcid.org/0000-0003-3856-5448",
+        "affiliation_at_publication": "University of Information Science and Technology “St. Paul the Apostle”, Ohrid, Republic of North Macedonia",
+        "role": "Source study author",
+        "evidence_status": "Verified public"
+      }
+    ],
+    "related_dataset_url": null,
+    "instruction": "Add a data link only after a separate dataset is accepted and its landing URL exists."
+  },
+  "before_release": [
+    "Record responsible authorised compiler/depositor and normal DSpace deposit acceptance",
+    "Responsible authorised depositor confirms scope, attribution, source rights and access",
+    "Adopt applicable policies; confirm operational obligations",
+    "Publish with a separate identifier, then verify anonymous files and metadata exports"
+  ]
+}

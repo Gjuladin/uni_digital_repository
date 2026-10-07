@@ -21,6 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
 
 import { environment } from '../../environments/environment.test';
+import { REPOSITORY_POLICY_VERSION } from '../info/repository-policies/repository-policy-documents';
 import { FooterComponent } from './footer.component';
 
 let comp: FooterComponent;
@@ -102,6 +103,25 @@ describe('Footer component', () => {
   it('should set showEndUserAgreement to the value of environment.info.enableEndUserAgreement', () => {
     comp.ngOnInit();
     expect(comp.showEndUserAgreement).toBe(environment.info.enableEndUserAgreement);
+  });
+
+  it('shows the four repository pages instead of duplicate boilerplate links when enabled', () => {
+    (comp as any).appConfig = {
+      ...environment,
+      info: {
+        ...environment.info,
+        repositoryPolicyPublication: { enabled: true, version: REPOSITORY_POLICY_VERSION },
+      },
+    };
+    fixture.detectChanges();
+    const element: HTMLElement = fixture.nativeElement;
+    for (const path of ['repository-policies', 'accessibility-statement', 'privacy', 'contact']) {
+      expect(element.querySelector(`a[routerLink="/info/${path}"]`)).toBeTruthy();
+    }
+    expect(comp.showPrivacyPolicy).toBeFalse();
+    expect(comp.showEndUserAgreement).toBeFalse();
+    expect(element.querySelector('a[routerLink="info/end-user-agreement"]')).toBeNull();
+    expect(element.querySelector('a[routerLink="info/accessibility"]')).toBeTruthy();
   });
 
   describe('openCookieSettings', () => {

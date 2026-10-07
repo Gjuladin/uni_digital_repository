@@ -1,0 +1,23 @@
+{
+  "uuid": "ca2394bb-57e4-4327-8c50-3c282d786a45",
+  "handle": "123456789/110",
+  "title": "Overview and performance analysis of the latest supercomputer",
+  "review_date": "2026-10-05",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/b80fd378-bd61-4402-83fb-7d446cd4efe3/content",
+  "source_md5": "f4c7958f22fa04755d466d1c74675d46",
+  "source_sha256": "5a7768baaebd35b55ce5d1d01d9c4c37f97b0317edc818ed57d039767a255e83",
+  "source_pdf": "/tmp/uist-dataset-sources/batch1/pdfs/85eafa57-e0e6-4ad3-9192-53e4a448ac89.pdf",
+  "page_count": 57,
+  "candidate_title_pages": [
+    53,
+    50,
+    51
+  ],
+  "download_or_reuse": {
+    "method": "reuse_byte_identical_local_source",
+    "path": "/tmp/uist-dataset-sources/batch1/pdfs/85eafa57-e0e6-4ad3-9192-53e4a448ac89.pdf",
+    "md5": "f4c7958f22fa04755d466d1c74675d46",
+    "limitation": "Earlier anonymous download; this step verifies local bytes, not a new public request."
+  },
+  "limitation": "Candidate location/extraction only; coordinator must inspect content and association before completing review."
+}

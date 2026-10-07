@@ -29,12 +29,32 @@
         <ds-media-viewer [item]="object"></ds-media-viewer>
       </div>
     }
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.type']"
+      [label]="'dataset.page.type'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['local.dataset.version']"
+      [label]="'dataset.page.version'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['local.creator.affiliation']"
+      [label]="'dataset.page.affiliations'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.date.created']"
+      [label]="'dataset.page.created'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.language.iso']"
+      [label]="'dataset.page.language'">
+    </ds-generic-item-page-field>
     <ds-item-page-date-field [item]="object"></ds-item-page-date-field>
     <ds-metadata-representation-list class="ds-item-page-mixed-author-field"
                                      [parentItem]="object"
                                      [itemType]="'Person'"
                                      [metadataFields]="['dc.contributor.author', 'dc.creator']"
-                                     [label]="'item.page.authors' | translate">
+                                     [label]="'dataset.page.creators' | translate">
     </ds-metadata-representation-list>
   </div>
   <div class="col-12 col-md-7">
@@ -53,10 +73,16 @@
       [relationType]="'isPublicationOfDataset'"
       [label]="'item.page.publications' | translate">
     </ds-related-items>
-    <ds-item-page-abstract-field [item]="object"></ds-item-page-abstract-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['local.dataset.methods']"
+      [label]="'dataset.page.methods'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.description.abstract']" [label]="'dataset.page.description'">
+    </ds-generic-item-page-field>
     <ds-generic-item-page-field [item]="object"
                                 [fields]="['dc.description']"
-                                [label]="'dataset.page.description'">
+                                [label]="'dataset.page.scope'">
     </ds-generic-item-page-field>
 
     <ds-generic-item-page-field [item]="object"
@@ -70,7 +96,27 @@
     </ds-generic-item-page-field>
     <ds-item-page-uri-field [item]="object"
                             [fields]="['dc.identifier.uri']"
-                            [label]="'item.page.uri'">
+                            [label]="'dataset.page.identifier'">
+    </ds-item-page-uri-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.rights', 'dc.rights.license']"
+      [label]="'dataset.page.rights'">
+    </ds-generic-item-page-field>
+    <ds-item-page-uri-field [item]="object"
+      [fields]="['dc.rights.uri']"
+      [label]="'dataset.page.licence-uri'">
+    </ds-item-page-uri-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dcterms.accessRights']"
+      [label]="'dataset.page.access'">
+    </ds-generic-item-page-field>
+    <ds-item-page-uri-field [item]="object"
+      [fields]="['dc.relation.isreferencedby']"
+      [label]="'dataset.page.publications'">
+    </ds-item-page-uri-field>
+    <ds-item-page-uri-field [item]="object"
+      [fields]="['dc.relation.references']"
+      [label]="'dataset.page.sources'">
     </ds-item-page-uri-field>
     <ds-item-page-collections [item]="object"></ds-item-page-collections>
     <ds-item-page-uri-field [item]="object"
@@ -101,7 +147,7 @@
     </div>
   </div>
   <div class="col-12">
-    <ds-extended-file-section [item]="object">
+    <ds-extended-file-section [item]="object" [label]="'dataset.page.files'">
     </ds-extended-file-section>
   </div>
 </div>

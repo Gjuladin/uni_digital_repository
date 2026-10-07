@@ -1,29 +1,29 @@
 # Decisions and information required from UIST
 
-This is the institutional decision register. These items cannot be finalized solely by changing application code. Candidate facts must not be published as approved registry or policy claims until UIST confirms them.
+This register distinguishes accepted policy decisions from remaining implementation and registry details. The rector accepted the four-page pack, version `2026-10-06-simple`, as reported by the user on 6 October 2026. Its wording supplies the accepted repository name, operator, contacts, scope, languages and metadata/file-rights rules. Unknown operational or registry values still require evidence.
 
 ## Priority decisions
 
 | ID | UIST decision or information | Why it is needed | Current position |
 | --- | --- | --- | --- |
-| UIST-01 | Confirm the official public repository name | Keeps the website, JSON-LD, OAI-PMH, re3data, and FAIRsharing consistent. | Candidate: **UIST Digital Repository**. |
-| UIST-02 | Approve the repository description | Required for public structured metadata and registries. | A working description exists but requires institutional approval. |
-| UIST-03 | Approve the institution's public legal and postal address | Needed for publisher/organisation metadata and registry records where requested. | Candidate from the UIST website: Partizanska bb, 6000 Ohrid, North Macedonia; verify spelling and preferred postal form. |
-| UIST-04 | Nominate a public repository contact | Registries need an accountable maintained contact, preferably a role mailbox. | `contact@uist.edu.mk` and `+389 46 511 000` are public university contacts, not yet approved as repository contacts. |
+| UIST-01 | Confirm the official public repository name | Keeps the website, JSON-LD, OAI-PMH, re3data, and FAIRsharing consistent. | Accepted policy name: **UIST Digital Repository**. |
+| UIST-02 | Approve the repository description | Required for public structured metadata and registries. | The accepted policy describes UIST preservation and sharing of research data and scholarly outputs. Prepare the final registry description from this scope and genuine public research-data evidence. |
+| UIST-03 | Approve the institution's public legal and postal address | Needed for publisher/organisation metadata and registry records where requested. | Accepted Contact/Privacy details: Partizanska bb, 6000 Ohrid, North Macedonia. |
+| UIST-04 | Nominate a public repository contact | Registries need an accountable maintained contact, preferably a role mailbox. | The rector accepted the current Contact page, as reported by the user on 6 October 2026: Pavel Taskov (`pavel.taskov@uist.edu.mk`) for repository administration; `contact@uist.edu.mk` for university/privacy/takedown enquiries. |
 | UIST-05 | Approve repository research areas and vocabulary | Required for accurate discovery and registry subject classification. | Candidate areas from the assessment: Computer Science, Information Science, Engineering, and Technologies. |
-| UIST-06 | Confirm repository and content languages | Distinguishes the English interface from item languages such as Macedonian. | Candidate repository language: English; item languages remain record-specific. |
-| UIST-07 | Approve supported content/submission types | Ensures forms, stored `dc.type`, schema.org output, and registry content types agree. | Current mapping covers Dataset, Article, Book, Chapter, Report, Software, Thesis, and fallback work. |
-| UIST-08 | Decide and approve repository policies | Required for deposit, access, preservation, curation, privacy, takedown, and registry claims. | Tracked in [POLICIES_AND_GOVERNANCE.md](POLICIES_AND_GOVERNANCE.md). |
-| UIST-09 | Decide whether a repository-wide licence exists | An item licence must not be misrepresented as a site-wide licence. | Unknown; item-level licences remain authoritative. |
+| UIST-06 | Confirm repository and content languages | Distinguishes the English interface from item languages such as Macedonian. | Accepted policy scope: principal publication languages Macedonian and English; the current interface is English and item languages remain record-specific. |
+| UIST-07 | Approve supported content/submission types | Ensures forms, stored `dc.type`, schema.org output, and registry content types agree. | Accepted content scope: research data, supporting documentation, software, publications and theses. Verify form/type mappings and describe actual holdings using registry vocabulary. |
+| UIST-08 | Decide and approve repository policies | Required for deposit, access, preservation, curation, privacy, takedown, and registry claims. | The rector accepted the four-page DABAR-based pack, version `2026-10-06-simple`, as reported by the user on 6 October 2026. See [current pack](rector_review_2026-10/dabar_simple_2026-10-06/README.md). No formal effective date or decision number was supplied. |
+| UIST-09 | Decide whether a repository-wide licence exists | An item licence must not be misrepresented as a site-wide licence. | Accepted policy: public descriptive metadata uses CC0 1.0; deposited files retain item-specific licences or rights statements. |
 | UIST-10 | Identify any certification, seal, or formal standard | re3data must not contain unsupported certification claims. | None currently evidenced. |
-| UIST-11 | Name the institutional owners of re3data and FAIRsharing accounts | Registry accounts should remain controlled by UIST, not by an individual developer. | Accounts and authorized submitters are not yet supplied. |
+| UIST-11 | Name the institutional owners of re3data and FAIRsharing accounts | Registry accounts should remain controlled by UIST, not by an individual developer. | FAIRsharing record 9313 exists under review; confirm its maintained account/contact and authorised updater. The re3data submitter and final payload remain to be identified; no mandatory re3data account is established by the retained research. |
 | UIST-12 | Authorize and schedule the production deployment | Local implementation cannot affect the public EDEN result until it is deployed. | Hosting access and release window are pending. |
 
 ## Handle prefix decision
 
-Update 2026-10-01: the user supplied registered UIST prefix **`20.500.15029`** and reference **`HNRT-185049`**, and instructed development to use it. The public naming-authority record `0.NA/20.500.15029` confirms a UIST Digital Repository Handle Server at `79.125.183.22`, TCP/UDP `2641` and HTTP `8000`, with registration timestamps dated 2026-09-30. Backend source configuration now uses the supplied prefix and HTTPS Handle resolver URLs. This resolves the prefix-selection question; it does not establish successful item resolution, migration approval, or service operation. See [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md) for activation and migration details.
+Update 2026-10-01: the user supplied registered UIST prefix **`20.500.15029`** and reference **`HNRT-185049`**, and instructed development to use it. The public naming-authority record `0.NA/20.500.15029` confirms a UIST Digital Repository Handle Server at `79.125.183.22`, TCP/UDP `2641` and HTTP `8000`, with registration timestamps dated 2026-09-30. Backend source configuration now uses the supplied prefix and HTTPS Handle resolver URLs. Update 2026-10-06: the production service is live with the same prefix as the local declaration, and [20.500.15029/261](https://hdl.handle.net/20.500.15029/261) resolves globally to the correct public item. Prefix selection and sample-level resolution are established. Complete migration/redirect coverage and operational resilience require separate evidence. See [HANDLE_ACTIVATION.md](HANDLE_ACTIVATION.md) for the current status and verification evidence.
 
-The live-looking local identifier `123456789/261` uses:
+The historical local identifier `123456789/261` used:
 
 - prefix: `123456789`
 - suffix: `261`
@@ -47,7 +47,7 @@ The following migration and operational decisions remain:
 
 Examples of real prefixes used elsewhere include legacy prefixes such as MIT `1721.1`, WHO `10665`, World Bank `10986`, NTU `10356`, and University of Pretoria `2263`, and newer prefixes such as OAPEN `20.500.12657`.
 
-A directly relevant North Macedonian example is Ss. Cyril and Methodius University in Skopje (UKIM), which uses the registered prefix `20.500.12188`. Its community Handle [`20.500.12188/1`](https://hdl.handle.net/20.500.12188/1) resolves globally to the UKIM repository. This shows the expected behavior UIST should achieve, but the UKIM prefix belongs to UKIM and must not be reused by UIST.
+A directly relevant North Macedonian example is Ss. Cyril and Methodius University in Skopje (UKIM), which uses the registered prefix `20.500.12188`. Its community Handle [`20.500.12188/1`](https://hdl.handle.net/20.500.12188/1) resolves globally to the UKIM repository. UIST now demonstrates that resolver behavior with its own `20.500.15029/261` sample. The UKIM prefix belongs to UKIM and must not be reused by UIST.
 
 ## DOI decision
 

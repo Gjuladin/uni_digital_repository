@@ -1,0 +1,3984 @@
+[
+  {
+    "uuid": "a4d03e87-85ed-4a36-aee7-c4934906ef83",
+    "handle": "123456789/156",
+    "title": "A Mathematical Concept in Lens-Based Media: Revisiting the Golden Ratio",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "2023-Siedlce-Hadzieva-Bakreski-published-with-cover-page.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/49eee6ff-edd3-4157-865f-61aa659daccc/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "49936eb06a8cd93acc0f2d69dadc226d4a3cf62303c11c4a013de1b5923269a9",
+        "source_pdf_pages": 19,
+        "exact_normalized_title_candidate_pages": [
+          2
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "E. Hadzieva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Bakreski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "25f107a4-3557-4a56-8196-9604bda488f1",
+    "handle": "123456789/219",
+    "title": "A review of the definitions of the term 'mathematics'",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "paper-Chlewiska2022-4 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/15365f2e-4130-484e-89e3-faa5e9ac2b33/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "caaa0cf4ea33f18d2e6cdf7977aad0019d84a6d762bed995f973c8b2d1039368",
+        "source_pdf_pages": 15,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "E. Hadzieva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "75b7b217-9a18-494c-83df-24ae774e44ff",
+    "handle": "123456789/268",
+    "title": "Activation functions' impact on regularization of deep neural networks application in atomic simulations",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "ciit-2022-proceedings.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a648bd85-8d5b-456f-a2f1-0bb700d76dc0/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "fd6efa7dd9750170266c6b70a52a9f53df62f68123e25d635ad366b9ee4b2eae",
+        "source_pdf_pages": 175,
+        "exact_normalized_title_candidate_pages": [
+          10,
+          114
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Lj. Sandjakoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Madevska Bogdanova",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "30f4effe-91e5-42b0-a201-8cc9350155dd",
+    "handle": "123456789/217",
+    "title": "Adoption and Exploitation of Online Banking Services by the Elderly",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "kjmn81p1075-1086.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/f4cc4c8d-9581-4d0f-a043-71f6a2a7054f/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "ad60301cdbd50dddd64539de9589b2916b2a8bfc1dd075010f94e67fa72f022b",
+        "source_pdf_pages": 12,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "I. Candric Dankos",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "aa7928b2-9ac7-49e1-9c4f-d23fa9e7a903",
+    "handle": "123456789/121",
+    "title": "AI-driven Chatbot in E-Commerce",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal-of-UIST-Vol-5.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/c06a37c0-cc23-4cc1-8c41-6eee1866059d/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "36356fe8025574c800b7a87696ec20544b67adcbcba2e2f18ef1f1c50d9f5d56",
+        "source_pdf_pages": 46,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          35
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "S. Baloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "59cbd8f6-ec3d-4da1-b249-dc5a68c95994",
+    "handle": "123456789/203",
+    "title": "Analysis of Gender Differences in COVID-19",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "analysis-of-gender-differences-in-covid-19.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/e60e8e00-0198-401b-902f-2213b901fff6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "d0570d230e05575e10694ddc5726e84bee5bd0276670d5359bae881f679252c6",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "S. A. Paschou",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "T. Psaltopoulou",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "P. Halvatsiotis",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Raptis",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "C. V. Vlachopoulos",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M.-A. Dimopoulos",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1016/j.maturitas.2022.03.004",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "6a02ca7b-fe45-42fb-b760-492a7ba85529",
+    "handle": "123456789/79",
+    "title": "ARTICONF decentralized social media platform for democratic crowd journalism",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "s13278-023-01110-y.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/48e32861-92e7-4d18-ba00-6e32fe14f660/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "21a855078aaee88634376f526b797a8a8ef54bca12a69ce257a9afc83e437cda",
+        "source_pdf_pages": 23,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "I. R. Lima",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Filipe",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "C. Marinho",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Ulisses",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Chakravorty",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Saurabh",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Z. Zhao",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Xin",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Prodan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1007/s13278-023-01110-y",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "504d7663-9a73-4e05-ade4-fab8ba970266",
+    "handle": "123456789/250",
+    "title": "Automated classification of fish using machine learning and pattern recognition",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "SARJournalJune2022_111_115.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/2bea5564-e54d-4b5b-a54f-184063a5b3a7/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "b7ee2f7f22a7d5e7ae4fed548f516e18019bf5d5a68d290921df134448d34a06",
+        "source_pdf_pages": 5,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Sefidanoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "F. Halili",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "B. R. Velkovska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Z. Kaević",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.18421/sar52-07",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "e5189bc1-06bf-4bc9-9a4a-ab38a997f1fc",
+    "handle": "123456789/253",
+    "title": "Autumn Mathematical School 2020: Lectures for VIII and IX grade primary school and high school students (in Macedonian)",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "EMS2020-kn2-original.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/2d73ac82-8534-4ad9-830b-8f8030db4386/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "e1a9f96a32fc964d244200b4b5c8f615633af41a43a043ab2359e659d45a708c",
+        "source_pdf_pages": 6,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "B. Nachevska-Nastovska",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Hadzieva",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "S. Gegovska-Zajkova",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Markoska",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "K. Hadzi-Velkova Saneva",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "83ce4623-64ec-4a55-8181-75ac93e1070e",
+    "handle": "123456789/180",
+    "title": "AWS-Based Chatbot and IoT Framework in Healthcare",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "LIMEN.2024.167.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a6c14b57-6a45-4ef4-ae4a-c28dc59d734b/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "ac40054d21311701083bfc94d5b45ab94a116978231f91a742eb48baa2496455",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          5,
+          7,
+          9
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "K. Chakarovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.31410/limen.2024.167",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "06bab468-de51-4a2c-bcb5-efa665020690",
+    "handle": "123456789/93",
+    "title": "Block MedCare: Advancing healthcare through blockchain integration",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "13524ijci05.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/cdbea617-f2c2-4321-b6f2-4615eadf7ee9/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "32a1f60ca549aeea764f2df1e1df4b25523d6e051cae6dd03ab63e6c0c5f61da",
+        "source_pdf_pages": 22,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "O. Simonoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Capeska Bogatinoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.5121/ijci.2024.130505",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "8d281344-0ce0-4d5f-909e-6223451fd54d",
+    "handle": "123456789/76",
+    "title": "Blockchain Technology toward Creating a Smart Local Food Supply Chain",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "computers-11-00095-v2 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/96b17c8a-b131-46f9-bf86-6362afc772b6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "4ae658535c5acec79d7ac04d19a5b16c66c194377d2795f5be32a93c541150cf",
+        "source_pdf_pages": 17,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.3390/computers11060095",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b9cadbcb-208d-49f6-94ea-fe07bb4bf282",
+    "handle": "123456789/89",
+    "title": "Blockchain-based prosumer incentivization for peak mitigation through temporal aggregation and contextual clustering",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "1-s2.0-S2096720924000423-main.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/27595822-cb3c-4ba9-b0e5-3ab8c6906e35/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "09bfc719bd6e08b49fc261f113e5182b4efec36a483c408c024f27fb5987324c",
+        "source_pdf_pages": 11,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "N. Karandikar",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Abhishek",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Saurabh",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Z. Zhao",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Lercher",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Prodan",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "C. Rong",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Chakravorty",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1016/j.bcra.2021.100016",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b65f0ff4-1b08-49c1-8c00-2ddac5e4e8d7",
+    "handle": "123456789/86",
+    "title": "Blockchain-enhanced hydrogen fuel production and distribution for sustainable energy management",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "1-s2.0-S2096720924000423-main.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/26b7c193-806e-4d2e-a99e-e0ff6cdf9d3e/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "09bfc719bd6e08b49fc261f113e5182b4efec36a483c408c024f27fb5987324c",
+        "source_pdf_pages": 11,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Y. Madhwal",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Y. Yanovich",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Coveri",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1016/j.bcra.2024.100229",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "6b2dbac0-4e8c-4a78-bc79-fe65a9739489",
+    "handle": "123456789/182",
+    "title": "Blockchain-Integrated Chatbot",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "ICICT-2024-Vol-5.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/60b7aa02-20cf-4951-9436-a3a392f2a484/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "4eb8fb26d8d1211ba4a7f9f3b27a3893c6d56018cb844851c90425ae37199e2f",
+        "source_pdf_pages": 670,
+        "exact_normalized_title_candidate_pages": [
+          10,
+          265,
+          266,
+          267,
+          269,
+          271,
+          272,
+          273
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1007/978-981-97-3289-0_21",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ccf4c78b-b25c-42f3-980b-d16b1716bddf",
+    "handle": "123456789/242",
+    "title": "Blockchain-Integrated Chatbots and IoT: Transforming Food Delivery",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "engproc-70-00015-v2 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/fe90214f-8fac-4216-8cc0-1b53d370c88a/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "c40cebd342fb686b07a5705613238a3350efa4a3c7116d5813f97e75e51dd178",
+        "source_pdf_pages": 11,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.3390/engproc2024070015",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "04639f58-c974-4c9e-af40-2c2df6373f40",
+    "handle": "123456789/94",
+    "title": "BlockMedCare: Advancing healthcare through blockchain integration with AI and IoT",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "16624ijnsa04.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/83ef8c10-3c8a-46e1-8bfc-ef0603ff7955/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "3f53453610244a60c49da1476a34aa1934a2c89b6532e4fd7d98eede12b4ce80",
+        "source_pdf_pages": 21,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "O. Simonoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Capeska Bogatinoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.5121/ijnsa.2024.16604",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "83dac700-830a-4106-b976-189efe84b6ad",
+    "handle": "123456789/265",
+    "title": "Chain connected set in a space",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "04_CHAIN-CONNECTED-SET-IN-A-SPACE-Z.-Misajleski-A.-Velkoska-E.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/77bff00d-54a1-4879-96c9-e8d30ea9b257/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "de5c03f2b7bc814814d1675ef03dd4c0f024f0c4ff218fdcdad47d2063770f88",
+        "source_pdf_pages": 8,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Z. Misajleski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "B. Durmishi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ac2cc497-3c64-4c08-84a8-17e6ffae27fc",
+    "handle": "123456789/122",
+    "title": "Chain Separatedness In A Family Coverings Space",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "mat-bilten-misajleski-at-al-2023-47-no2.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/67d3f4d6-c8ba-4dd3-8e01-084c455727fe/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "2ebe39c570d5cab792ec28f75ec96162509995b7b5d2164ed6fa35255c310109",
+        "source_pdf_pages": 8,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Z. Misajleski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Durmishi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.37560/matbil23472105m",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "627141af-74cc-477d-8925-c5ee3b773608",
+    "handle": "123456789/115",
+    "title": "Comparative Analysis of Large Language Models: On-Premise Architectures vs. Cloud-Based Deployments",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal-of-UIST-Vol-5_2_2025.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/25a7c35b-beda-49c9-be51-3528bf0476d2/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "c94106ef9c8b5aa0cb025cdd039b4139251e679fcacf2cc4fe075bf7c4abdba5",
+        "source_pdf_pages": 59,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          48
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "S. Trajanoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "f3dfc719-25c6-498f-909f-1d746ac2833c",
+    "handle": "123456789/188",
+    "title": "Comparative analysis of students' views of online learning in the first and second Covid-19 semesters: Examples from Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "1451.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a7204655-13be-4f28-9803-8f7711764d12/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "2c124fe8d8305f7126a5e5df2c42b1bae3a80fa9925cf7ab9a54ba6e990cef4f",
+        "source_pdf_pages": 9,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Ç. Hatipoğlu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "L. Milosevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.14705/rpnet.2022.61.1451",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "1c712ee3-1c93-4509-9068-f5fa40a27295",
+    "handle": "123456789/266",
+    "title": "Computational Photography Assessment: A Framework for Image Quality and Composition Analysis",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "ciit-2025-proceedings.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/203d15ea-b128-46cb-aa68-e50cdd60cd0f/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "4866b617db34d1963aa77f5896d001282662756800fb7fa177cb40cb07735110",
+        "source_pdf_pages": 396,
+        "exact_normalized_title_candidate_pages": [
+          15,
+          238
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "V. Cvetanoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Lj. Sandjakoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Salkoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b7c1f6f5-8b0a-47be-b50b-606a51f8c161",
+    "handle": "123456789/149",
+    "title": "Croatia, North Macedonia and Mauritius – Industrial Symbiosis barriers comparison",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "PROCEDEINGS-2-REV02.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/3520365a-e445-4e97-a66b-3a448eaaadf0/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "e5de326d7609b46e0c72657609f7ad5510b6caea39362f5c201d39428458cd87",
+        "source_pdf_pages": 150,
+        "exact_normalized_title_candidate_pages": [
+          5,
+          7
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "0de15561-ad68-4141-aa70-7268c6fcbe10",
+    "handle": "123456789/244",
+    "title": "Crowdsourcing and language learning habits and practices in Turkey, Bosnia and Herzegovina, the Republic of North Macedonia and Poland in the pre-pandemic and pandemic periods",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Hatipoglu+et+al.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/dd287688-8f9c-4792-aaf3-aa15e2a2fd0e/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "e061629b4eaf448f67a098f101bb2f123566b9e234152ec0bee597509b77d6de",
+        "source_pdf_pages": 52,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Ç. Hatipoğlu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "L. Miloshevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.4312/slo2.0.2022.2.132-183",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "6525ffc9-69f5-4548-be3e-303701d6d496",
+    "handle": "123456789/245",
+    "title": "Crowdsourcing for language learning in Turkey, Bosnia and Herzegovina, Republic of North Macedonia and Poland",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "106-121+Miloshevska.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/7539d191-4576-493b-8e17-f624b6a6c09a/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "d308926db6200b3b982a58546c95cb7138bf8654dc4fef4f6feb52d31734103e",
+        "source_pdf_pages": 16,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "L. Miloshevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Ç. Hatipoğlu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "f4e518b1-2f84-4141-8aef-8a43ec91e1ae",
+    "handle": "123456789/179",
+    "title": "Design and evaluation of a portable ESP8266-based IoT tool for Wi-Fi signal monitoring",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Proceedings of IAC in Prague 2025.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a8119ba6-4528-43d5-a9a6-57f850462a90/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "654e80c6410945ae906dacbe8096976104f3fff4b24ff58fc76707def7951576",
+        "source_pdf_pages": 325,
+        "exact_normalized_title_candidate_pages": [
+          296
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "B. Zdraveski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ca4cb015-e2c2-49e8-8f6c-431af1d9aaac",
+    "handle": "123456789/119",
+    "title": "Design of the Functional Entities of the BloHeS System",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "document (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/2ff580a2-b971-4cc2-9c2c-7d4795209950/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "98468b0d5ee47093c99f8d51778497a2382c201697312509291daf6fa134f385",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          5,
+          7,
+          9
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Karamačoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "L. Gavrilovska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.51466/jeeit2271194033k",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "e307251a-801c-44cb-8657-7a7f78dc82cb",
+    "handle": "123456789/123",
+    "title": "Efficient Automated Software Testing Strategies and Methods",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal-of-UIST-Vol-5 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/891a4838-f8d6-4ab0-8929-478a311a0ffe/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "36356fe8025574c800b7a87696ec20544b67adcbcba2e2f18ef1f1c50d9f5d56",
+        "source_pdf_pages": 46,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          5
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Grabuloski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Salkoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Bronja",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Salkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b8da56ac-34b6-49a1-8000-bfc5cf879963",
+    "handle": "123456789/243",
+    "title": "Emergency online learning during the first Covid-19 period: students' perspectives",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "10555-–Volume8_Issue_2_02_paper.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/48953543-78eb-4482-8c52-49c1fab27202/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "2db0b76f45a38162516d0eef366045ebacaefa7e21d41db124a0321c3d2a313a",
+        "source_pdf_pages": 34,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "L. Miloshevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Ç. Hatipoğlu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.2478/exell-2021-0002",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ac5c2939-dd21-4734-9df7-dea4c7f940b8",
+    "handle": "123456789/220",
+    "title": "Emerging Computer Technologies",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Emerging_Computer_Technologies.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/7d86e1b5-3ff6-4955-b152-ba5d0bbd8ddc/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "b17e08c26735d6a81a65ef3dad04f950f082c185f7fa0414f156cad715ec87de",
+        "source_pdf_pages": 76,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          4,
+          10,
+          26,
+          40,
+          50,
+          62
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Damar",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "O. Aydin",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "G. Risteski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Chathurika",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "B. Ali",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "6c5f8306-ce15-4214-b0f2-6902979de7fe",
+    "handle": "123456789/226",
+    "title": "Enhancing educational technology in lectures for school students with learning disabilities: A comprehensive analysis",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "s42979-024-03049-z (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/199cb488-d854-411a-a06e-c37ecbe99870/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "63a5f780089dc78c186bdf849a683d034cdd1a4a76a474e9f865f89682b70e05",
+        "source_pdf_pages": 17,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "B. Adjiovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Capeska Bogatinoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Ismajloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Malekian",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1007/s42979-024-03049-z",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "7b9fb629-8a9b-482d-b121-88b0779e4b53",
+    "handle": "123456789/248",
+    "title": "Enhancing Language Models with Retrieval-Augmented Generation: A Comparative Study on Performance",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "a445109-1192.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/e09d4633-64ce-4e43-8423-a4b5afe6e3b2/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "23c4d17464a13af0b199bad1cae04d674ae549ca5d816d8aeb923c639e544561",
+        "source_pdf_pages": 26,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Grabuloski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Sefidanoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.37394/23209.2025.22.23",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "9bd1fda0-119c-4e4b-a844-cd8f004d5d60",
+    "handle": "123456789/77",
+    "title": "Exact solution of an inverse problem for affine images of IFS attractors",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "s13663-026-00834-8 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/62e8145c-a092-4f86-8304-921ce6b53af4/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "2ebb0935ccdd072714269fda64fd96a206290e40d3cb071d82f8e7ce75d74ae2",
+        "source_pdf_pages": 14,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "E. Hadzieva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1186/s13663-026-00834-8",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "4adb050e-75b4-4a47-9d29-17c107ca8de0",
+    "handle": "123456789/232",
+    "title": "Examining the software piracy problem through the case of the Macedonian economy",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "8.EXAMINING_THE_SOFTWARE_PIRACY_PROBLEM_THROUGH_THE_CASE_OF_THE_MACEDONIAN_ECONOMY.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/bb02f3c1-89bd-404a-b595-946cf36526e6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "c362e57dbb6aef3ca12fa5930b6db7029a15e00910ad417caff1926dcc79d65e",
+        "source_pdf_pages": 14,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Petkovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "aa3f0e0c-3bf2-43c5-8992-950c26cbdcff",
+    "handle": "123456789/84",
+    "title": "Extraction of anglicisms from a corpus of Macedonian magazine texts",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "esnbu.25.1.8.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/2927f201-4c53-4951-af81-398dbac6213e/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "a72c232347bdea9b4a1ae8aa0611106ea97be2691c35443cf5486238ecb64db9",
+        "source_pdf_pages": 19,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "L. Miloshevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.33919/esnbu.25.1.8",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "2e7bcb01-16c7-49b4-b1a9-135054ea6694",
+    "handle": "123456789/82",
+    "title": "Fast Decoding of Images with Cryptcodes for Burst Channels",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Fast_Decoding_of_Images_With_Cryptcodes_for_Burst_Channels.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/2825fd2e-43d1-417a-9a64-abe94c83258b/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "f33baf9be25a30f33622e21a508bd4256cdba0cdd2b9ccf3bcf21b6eb6e9e1b6",
+        "source_pdf_pages": 7,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Popovska-Mitrovikj",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Bakeva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1109/access.2023.3278051",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "c3855e4a-295a-4350-8a8f-ccb220309d7f",
+    "handle": "123456789/267",
+    "title": "From Bias to Fairness: Challenges in Artificial Intelligence Systems through a Social Systems Lens",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "ciit-2024-proceedings.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/6f9f44e8-d25f-437b-9d59-5a20e022946c/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "514ade26026f1426b00cb034f5cfd6b2eefe10b1456732d4b994c8d4a0938aac",
+        "source_pdf_pages": 341,
+        "exact_normalized_title_candidate_pages": [
+          8,
+          51
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "K. Sandjakoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Lj. G. Sandjakoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "264457d4-bb01-48f9-95a9-b0ddfb4aae04",
+    "handle": "123456789/120",
+    "title": "Gamification of NFT collections: Virtual NFT gallery",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "2023GamificationofNFTcollectionsVirtualNFTgallery (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/14b20f68-b6a0-432a-94b2-0280e2e821c1/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "34edc1b4412c7a396c2129cf69750ed49732d62109d5fbdda8ecceb7cdc36d2c",
+        "source_pdf_pages": 6,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Iloski",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Karamachoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.13140/rg.2.2.31468.58245",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "53e6c9c8-9fdd-4e52-b509-6436b060ab10",
+    "handle": "123456789/85",
+    "title": "Has online learning changed the way we study? Student evaluation of teachers' pedagogical skills during the first COVID-19 period and potential change in their learning habits",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Delibegovic_Hatipoglu_Miloshevska_Gajek.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a7fcc4e7-8911-4880-84ca-9c51a209aebf/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "39ae3713a7dadb3e7f4f9b8fd5f627c70a99fa83630d7ba8ceb61c220e8b1658",
+        "source_pdf_pages": 25,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Ç. Hatipoğlu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "L. Miloshevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.31902/fll.45.2023.6",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ade587a0-3c6f-4733-adc0-de11739f5e56",
+    "handle": "123456789/108",
+    "title": "How Data Engineering and Big Data Analytics Can Contribute into Introducing Intelligence in Business: A Case Study",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "biljanazlatanovska,+6.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/1f14cdea-5622-474b-b50a-a0c33c0da00d/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "d6067b90b6a8b5f4629f8564d94f5bcecb277af11a6b383412bd7865d9d0c988",
+        "source_pdf_pages": 16,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "O. Petan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Lj. Sandjakoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.46763/bjami21310059h",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "49ada9af-ec07-4051-941c-9dfac65e542c",
+    "handle": "123456789/240",
+    "title": "Human Rights AI Assistants: Empowering Global Citizens in the Digital Age",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "1.fehmi.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/cb5b35b9-1e94-4c13-ad06-9919ee84e157/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "1207c4e5503cc704d52308e508ee6fcf1ba397e313a53ffdd5a310f481b46581",
+        "source_pdf_pages": 20,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Karadimche",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "F. Skender",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Ilovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.55843/ivisum251029k",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "24fcf719-f02f-43aa-96e0-ccef5fe253ae",
+    "handle": "123456789/252",
+    "title": "Identification of technical and non-technical barriers related to the implementation of Industrial Symbiosis",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "D1.2Final (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/28b084f7-721c-4eb2-b39f-5c57e5bc1202/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "829027646cd59457ac9cf7b4e3a7b87886c886dd3560e0d2ef40ceea961d4b31",
+        "source_pdf_pages": 59,
+        "exact_normalized_title_candidate_pages": [
+          25,
+          57
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "LIAISE WG1 & WG2",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.13140/rg.2.2.14572.42885",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ff6b005c-79e1-44d8-b4b7-f059f0a41499",
+    "handle": "123456789/78",
+    "title": "Impact of COVID-19 on the Macedonian E-Pharmacy Market with Survey Analysis",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "TEMJournalAugust2025_2174_2183.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/6083a63c-6b9c-4b3b-9ecf-989768941396/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "8bb33bfc87d9a5e40080b338c323a792e08ab32232482c323b3df5081c48e6c7",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "V. Grujoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.18421/tem143-23",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "df3d8705-c505-4115-a48e-219a383e6568",
+    "handle": "123456789/236",
+    "title": "Improving Operational Efficiency with an Automated Invoicing System",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "a36fe-017(2025).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/cd75f586-627f-4e0f-a8bc-ce58eda13932/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "8c1ec6ab045e4cba2d8bc26d6667a9139021da9649cd74e1d9b263609cd1eb86",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "F. Milosheski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.37394/232032.2025.3.18",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "6b6f7368-7535-4a7a-a6a6-7b43daa60109",
+    "handle": "123456789/230",
+    "title": "Industry Symbiosis – Literature Review and Situation in North Macedonia",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "ErcegDamoskaSekuloskaBokovska-Industrysymbiosis.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/d08546f1-e5db-4a96-a5c9-44ddc7e3a5e6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "02bbdab53eb6baaadd3f29ab12eafdbbf652a1ebea3a55ea958f9efec5ddd253",
+        "source_pdf_pages": 21,
+        "exact_normalized_title_candidate_pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Boskevska",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b2bc928f-0ae1-4661-8b67-caa9d3518e44",
+    "handle": "123456789/95",
+    "title": "Influence of the Online Freelancing to the Labor Market",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "6.-87-102-from-ED-year-25-no-3-2022-v.1-8.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/1dae3575-df42-4c5b-b08f-93f4fe43b975/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "c77f3209756e894d4ca227c7eb6e0e5555880d8e89c87d0898bb17b3fcdf89e3",
+        "source_pdf_pages": 16,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.55302/ed22243087ds",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "dbeb3759-8836-4940-83be-6d01876e60d4",
+    "handle": "123456789/126",
+    "title": "Information Theory for Medical Data Fusion",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "i4-2026-2-46 Information Theory for Medical Data Fusion.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/b4e7c5d7-dbcf-4baa-a903-a0710f440ea6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "6b7f90645845009f0fd2e07ad9dd396bdd1f1b943c69b38d394163a782709803",
+        "source_pdf_pages": 5,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Punceva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "2c28a17f-245f-451f-bc0f-b068334a38ff",
+    "handle": "123456789/151",
+    "title": "Innovative Data-Driven Email Campaign Strategies with Salesforce Marketing Cloud",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "LIMEN_2024-Proceedings-WEB.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/75ebb984-4386-484d-b46d-6be51fb57b2b/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "a0dcc3ad882ad5954a58de034869b6a79d824211731b6a706aabcc52e277452c",
+        "source_pdf_pages": 1114,
+        "exact_normalized_title_candidate_pages": [
+          10,
+          177,
+          179,
+          181,
+          183,
+          185
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "B. Chauleva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.31410/limen.2024.149",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "466dbbda-7a32-489d-84fa-6dedf62e4390",
+    "handle": "123456789/233",
+    "title": "Introductory survey on challenges encountered by university teachers in online teaching of STEM subjects during COVID-19 lockdown",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "0703+-+Elena+Hadzieva.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/ec8754e1-7168-4577-9530-41fea59ca2bf/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "ada3ea035fb4e17e39042012259c38bf726b4de6a400d708f942a75ff8085672",
+        "source_pdf_pages": 11,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "E. Hadzieva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Guncaga",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "S. C. Bose",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "K. S. Ivanoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.37441/cejer/2021/3/3/9601",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "c74d4f78-a5a6-4a74-8fa5-562afacb0ba0",
+    "handle": "123456789/111",
+    "title": "Jonathan Livingston Seagull by Richard Bach – a Meeting between Literature and the Principles of Gestalt Therapy (in Macedonian)",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "spektar_85.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/371cfd78-917e-4ea4-954e-9ad8c09d4792/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "664a61a6c84ab1ed17d4b3eaa96e630288f687a2beeb115945ac0d87db3dbc6d",
+        "source_pdf_pages": 317,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Ismajloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Ilovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "29da5c97-2d8f-4623-b3a6-f16d3e9a542a",
+    "handle": "123456789/223",
+    "title": "Legendre Neural Network Method for Solving Nonlinear Singular Systems",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "9781003314851_previewpdf.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/2b369c73-e863-4ef8-bfc5-2fa61107f27c/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "477593455d3677c7663f3641c3c3f1e26832c127ba9e7b583d1d767c63c1cf11",
+        "source_pdf_pages": 61,
+        "exact_normalized_title_candidate_pages": [
+          8,
+          37
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Veerasamy",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "S. C. B. Jaganathan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "C. Dhasarathan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Mubarakali",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Ramasamy",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Kalpana",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1201/9781003314851-4",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "d7061c89-0318-461c-800d-03b94065c98e",
+    "handle": "123456789/71",
+    "title": "Log Analysis with Hadoop MapReduce",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Log Analysis with Hadoop MapReduce[#980060]-1913723.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/ccb00df7-b456-47cd-bfa6-ebb8c3461d63/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "e681fcd90383c19cad6b20f377f7d50f27a4c50949040ddd5dad9a1707eefe68",
+        "source_pdf_pages": 5,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "G. Risteski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Chathurika",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "B. Ali",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "48cab29c-0b80-4ed8-981b-d23d515cd975",
+    "handle": "123456789/109",
+    "title": "Mathematical modelling of scalability and performance testing methods for evaluating server capabilities",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal-of-UIST-Vol-4_.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/1eabdcee-6dd0-4c23-b0a9-17abe6c09a23/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "6cd0345d56ab42a797951d4e4b2426358bc70f02bf231b59d43b096ad9f8590c",
+        "source_pdf_pages": 61,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          48
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "D. Runchevski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Rushiti",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "96b40a40-f236-4594-829e-95a4a2b9171b",
+    "handle": "123456789/131",
+    "title": "Mathematical Statistics with Examples in R",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Mathematical-Statistics-with-examples-in-R.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/18f97bf5-44c4-4e50-a97a-4cbba40f2475/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "d7f78b659586eb9e1f5e2900429f44d5234b2fde38d601ad9ede2bc8bf159279",
+        "source_pdf_pages": 333,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          4,
+          5,
+          11,
+          333
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Lj. Sandjakoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "d914c9b6-36a8-4730-a7de-95557804b417",
+    "handle": "123456789/225",
+    "title": "Media literacy in education – A Western Balkans perspective",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Combating-Disinformation-in-the-Western-Balkans-Young-Leaders-Perspective.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/e326f963-7389-4382-abdf-96e925047d58/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "107e07eecc6f9dbfe5d809884dacfed0153acb347bf639ac01905a6865d867ae",
+        "source_pdf_pages": 31,
+        "exact_normalized_title_candidate_pages": [
+          12
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "O. Memisevic",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Perovic",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "G. Shibakovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Kastrati",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Kepi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ebf283a3-e127-41da-80ab-234813dc1aaa",
+    "handle": "123456789/92",
+    "title": "Method For Solving System Of Linear Equations mxn, m=1, 2, 3; Based On Its Geometrical Interpretations",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "pedagogy_2s_24_zoran-misajleski.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/e895babc-d801-40e7-98a3-b0cb0a2000b0/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "50e7abb5ec23e6a0d77fe90877b6d4792ec5653a056fb5dfde849346f3335ee5",
+        "source_pdf_pages": 15,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Z. Misajleski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Velinov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.53656/ped2024-2s.09",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "bfbe869c-b472-4d47-a5da-0fa7f48e25f1",
+    "handle": "123456789/207",
+    "title": "Modeling in Social Systems meets Artificial Intelligence",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Proceedings_AIIT2023.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/efa25ed2-124d-488f-855a-b537ae3c0f57/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "7919704c44ad7bfee554f5fb8a0a4bad07dcb3b2de052eb76560d370cca8ed62",
+        "source_pdf_pages": 412,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "K. Sandjakoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Lj. G. Sandjakoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "58472283-6486-4c1e-9eac-e91e97e35da0",
+    "handle": "123456789/118",
+    "title": "Modern Threats in Online Social Networks, Privacy Solutions offered by OSN Providers and Commercial Solutions",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal_of_UIST_Vol3 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/04890b1c-7aa5-4e78-91c1-251f74f050e9/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "5a7768baaebd35b55ce5d1d01d9c4c37f97b0317edc818ed57d039767a255e83",
+        "source_pdf_pages": 56,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          37
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Bukalevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "85eafa57-e0e6-4ad3-9192-53e4a448ac89",
+    "handle": "123456789/117",
+    "title": "Non-Fungible Token Model for Wildlife Conservation",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal_of_UIST_Vol3 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/12bf2a96-067a-444d-adcc-63aa6a3bb681/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "5a7768baaebd35b55ce5d1d01d9c4c37f97b0317edc818ed57d039767a255e83",
+        "source_pdf_pages": 36,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          15
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "N. Skenderov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimche",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "5da9ad7f-c2bf-4c24-8dfa-faa35d61b201",
+    "handle": "123456789/128",
+    "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "introduction-to-programming-by-examples.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/f9f0c3ad-c62f-4798-a8ed-9d2841ab1266/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "9378938e45449a8ba06f800ac83e597f415f148cb5b4ac92c6deedeac4f51868",
+        "source_pdf_pages": 224,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Tuntev",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "0f2955ca-d086-4cd2-b337-965d2525cba0",
+    "handle": "123456789/228",
+    "title": "Optimizing customer journey through advanced analytics techniques over Google Analytics 4 data in Google BigQuery",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "a665105-032(2024) (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/60e3a7cf-169d-4c77-a70e-a894b90aea03/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "2e34d00c43dda856f24d47f1f4edecf77566a7d5f1939ad55457fa1dacbb6b2e",
+        "source_pdf_pages": 11,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "B. Chauleva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Capeska Bogatinoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.37394/23205.2024.23.33",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ca2394bb-57e4-4327-8c50-3c282d786a45",
+    "handle": "123456789/110",
+    "title": "Overview and performance analysis of the latest supercomputer",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal_of_UIST_Vol3.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/b80fd378-bd61-4402-83fb-7d446cd4efe3/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "5a7768baaebd35b55ce5d1d01d9c4c37f97b0317edc818ed57d039767a255e83",
+        "source_pdf_pages": 56,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "T. Saferi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "F. Doko",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ce4ab225-9d94-46d2-baed-91bb6f750102",
+    "handle": "123456789/241",
+    "title": "Overview of Memory-Efficient Architectures for Deep Learning in Real-Time Systems",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "engproc-104-00077 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/df3069a9-95ad-44a2-892c-7c98289e50e9/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "33387426bb93f541c156551391b3778b454b6df572f1fd42f4cb485b1694b464",
+        "source_pdf_pages": 13,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "B. Demir",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.3390/engproc2025104077",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "0d5b45cf-5ec7-4e29-8584-35af6a7be586",
+    "handle": "123456789/261",
+    "title": "Privacy Risks and Security Threats in Online Social Networks",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "CIIT_2022_28.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/24174820-203a-4774-a4d1-0413e887ce9a/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "72e86876e2ec4c6515ccd20babbfb07aacdc0b9623053e3a8535dd0af01d06eb",
+        "source_pdf_pages": 4,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "M. Bukalevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.54985/peeref.2502a8332756",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "6c5118cb-7261-455c-929d-4ddbd6912728",
+    "handle": "123456789/231",
+    "title": "Relationship between FDI Inflow and Unemployment Rate in the Case of the Former Yugoslav Republics",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Balkans.JETSS.2024.7.1.11-20 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/a6ec257d-3777-41e0-9c31-9cc63d4f3602/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "a95eae406137adb7ffb0a2a4ee39d06050b12f3227c6147781f5b7fb1621fbd3",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "D. Capeska Bogatinoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Oncheva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.31410/balkans.jetss.2024.7.1.11-20",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b16b8e62-4021-4b85-b389-068adc8588db",
+    "handle": "123456789/83",
+    "title": "Revolutionising the Document Workflow Using Blockchain in Banking Sector",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "0353-36702401107D.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/15b64ae7-eb56-446c-9372-f2709d97f60e/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "9598eec74a9ebf7ba88b2cfaec502552ef84d8743e10aebf5200e061f2ecf07c",
+        "source_pdf_pages": 17,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "E. Domazet",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "G. Merdzan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Cvetkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Mechkaroska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "S. Serdaroglu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "B. Sucubasi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.2298/fuee2401107d",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "8e724a00-5414-40ad-97b6-5569cb3fd59e",
+    "handle": "123456789/251",
+    "title": "Rise of the Online GIG Economy – An Opportunity for the Development of the Developing Economies",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "admin,+european_economies_after_covid19.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/0012236a-af22-47ff-aabb-42feefda2abb/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "909c8aa6695644d7f98d1a0eef5a2249a07558b0ec6421b671abbe2da1058fcb",
+        "source_pdf_pages": 146,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          8
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "fd56e5d0-fb4f-4124-ae2d-1a0d1b48c89e",
+    "handle": "123456789/216",
+    "title": "Silver Economy",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Silver-Economy_Ivana-Barkovic-Bojanic_Aleksandar-Erceg_Jovanka-Damoska-Sekuloska.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/e2fb160f-504e-477e-927a-e7ba7812d32b/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "a8c600febeb12253aad5993ba6f249e6eec49c3e4e276d05d09e33a41d3a109c",
+        "source_pdf_pages": 181,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          4,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23,
+          25,
+          26,
+          27,
+          29,
+          30,
+          31,
+          33,
+          35,
+          36,
+          37,
+          38,
+          39,
+          43,
+          45,
+          47,
+          49,
+          51,
+          53,
+          55,
+          57,
+          59,
+          61,
+          63,
+          65,
+          69,
+          71,
+          73,
+          75,
+          77,
+          79,
+          81,
+          83,
+          85,
+          86,
+          89,
+          91,
+          93,
+          95,
+          97,
+          99,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          171,
+          173,
+          174,
+          175,
+          178,
+          179,
+          180,
+          181
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "I. Barkovic Bojanic",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1007/978-3-030-22009-9_302192",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b6727fcf-a60b-4ccc-9786-434e316a3b43",
+    "handle": "123456789/152",
+    "title": "Silver Economy as an Opportunity for SME Growth",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "ERAZ_2024-Proceedings-WEB.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/4b8fa626-a097-4e11-bc70-9a51694ed3b6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "ce904e73659856d06f74312cbd1add1d64ba2ba0b73d54508256ab7ef671316a",
+        "source_pdf_pages": 808,
+        "exact_normalized_title_candidate_pages": [
+          7,
+          43,
+          45,
+          47,
+          49,
+          51
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.31410/eraz.2024.19",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "85dbaec4-1297-40c6-befc-1e89a79e1bb2",
+    "handle": "123456789/229",
+    "title": "Silver entrepreneurship: A golden opportunity for ageing society",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "EBR+24-01-Barkovic.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/d11c85ce-1ca7-4c9a-8f15-e049cf3e1cf6/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "9e9b7eadb89d02192fe6f2d46dfc4d325c9c2da460d4331e1f2606c8deda39e5",
+        "source_pdf_pages": 31,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          4
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "I. Barković Bojanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Erceg",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.18559/ebr.2024.1.1068",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "2a227fa0-1c57-4cdf-8c6e-38df5b22021b",
+    "handle": "123456789/116",
+    "title": "Single-Label COVID-19 Lung Disease Classification",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Journal-of-UIST-Vol-4_ (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/fd981b33-c5d3-4761-924e-adffa431f070/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "6cd0345d56ab42a797951d4e4b2426358bc70f02bf231b59d43b096ad9f8590c",
+        "source_pdf_pages": 61,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          5
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "O. Petan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimche",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Hadley",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "d90f78b4-1ecb-4bb2-b340-7326de0cc494",
+    "handle": "123456789/160",
+    "title": "Social Media Use by Businesses in Europe",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "final_web_proceedings.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/48885653-de8e-4e63-8bf3-2ef4cb65e237/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "387400718e17ca516150d6f87ce28de6579f4f0adb776167a91d384b880368ac",
+        "source_pdf_pages": 319,
+        "exact_normalized_title_candidate_pages": [
+          10,
+          166,
+          168,
+          170,
+          172,
+          174,
+          176
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Hristov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "1c4558e6-7945-4690-a691-b18dca60cdf8",
+    "handle": "123456789/189",
+    "title": "Student evaluation of teachers' pedagogical skills during the first COVID-19 period",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "1319.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/46208546-5cfd-45ea-af0e-e7d66c0784cb/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "8f808fd6049cb28e5ac905964ef7af99ccecdf852c6e9d36d3955a0c9e5179a1",
+        "source_pdf_pages": 8,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Ç. Hatipoğlu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "L. Milosewska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.14705/rpnet.2021.54.1319",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "d9326245-87f3-492f-ad7a-650e1fbed9f6",
+    "handle": "123456789/72",
+    "title": "Students' evaluation of online assessment practices in the Covid-19 online teaching period: In Turkiye, Poland, Republic of North Macedonia, and Bosnia and Herzegovina",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "9-38+Delibegović+Džanić,+Gajek,+Ciler,+Milosevska+Pannoniana+VII+.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/347058dd-005c-47a9-8384-7866679fd60b/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "040fe6eb6688ba03fedc3b0e96a1c93e96b8468850f15daba36b0a59b0f44d33",
+        "source_pdf_pages": 30,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23,
+          25,
+          27,
+          29
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "N. Delibegović Džanić",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Gajek",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "H. Çiler",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "L. Milosevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.32903/p.7.1.1",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "0842a16b-7db8-448c-a3db-ea05139632f4",
+    "handle": "123456789/80",
+    "title": "The ARTICONF Approach to Decentralized Car-Sharing",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "1-s2.0-S2096720921000087-main.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/28b9d872-d80c-400b-9eca-00a43efd9af9/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "ad732d6b72636074fd6ee15f411da177858f65f273ffbff1802eb6502f1f0623",
+        "source_pdf_pages": 16,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "N. Saurabh",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "C. Rubia",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Palanisamy",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "S. Koulouzis",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Sefidanoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Chakravorty",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Z. Zhao",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Prodan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1016/j.bcra.2021.100013",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "c6874d70-4b6d-4c9d-8758-2eda1e74ef2e",
+    "handle": "123456789/112",
+    "title": "The Entrepreneurial Learning in North Macedonia",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "document.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/3c73c0db-a3c4-4fb3-b784-f9f4526c37e0/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "834d81eae15ada49f243627896d35c62dfbc89d90e7dd01be5728ed946cb952b",
+        "source_pdf_pages": 13,
+        "exact_normalized_title_candidate_pages": [
+          4,
+          5
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "Lj. Topuzoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Ismajloska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.20544/teacher.25.02",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "9a39d918-57e1-46e7-a5c2-65e4cf5a02a7",
+    "handle": "123456789/224",
+    "title": "The Future of Web Crowdfunding: An Ethereum Blockchain Approach",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "9781003314851_previewpdf.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/73bac5de-edd4-433f-9fe1-c209618cc167/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "477593455d3677c7663f3641c3c3f1e26832c127ba9e7b583d1d767c63c1cf11",
+        "source_pdf_pages": 61,
+        "exact_normalized_title_candidate_pages": [
+          10,
+          60
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "S. C. B. Jaganathan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Veerasamy",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Mubarakali",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "C. Dhasarathan",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "V. Ramasamy",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "R. Kalpana",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1201/9781003314851-25",
+            "literal_normalized_doi_found": false
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "ab0183f5-6761-47e8-ba25-36cbbcf8969d",
+    "handle": "123456789/249",
+    "title": "The Republic of Macedonia's Research Ranking Platform for Academic Staff and Universities",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "SARJournalMarch2024_3_11.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/fb05b6b4-2b5f-4784-ae4c-87e97ac8c9be/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "d5feec2a8346efa0d90af3168ebd3d7411943591c85408e43080eba381f5936b",
+        "source_pdf_pages": 9,
+        "exact_normalized_title_candidate_pages": [],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Rushiti",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Luma",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Y. Januzaj",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Aliu",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "H. Snopçe",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Sefidanoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Trpkoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.18421/sar71-01",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "5356e81d-d18f-4fcb-84cd-37541b116f88",
+    "handle": "123456789/97",
+    "title": "The role of modern tools for electronic communication vis-a-vis violation of labor rights – international and Macedonian perspective",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "36.pdf.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/453e1469-bbfc-491e-bff1-2104af6d53a8/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "5503b7fd0e3e979a12e5b037adc94d2aaee000bbda20915c2937b3fb58c4692c",
+        "source_pdf_pages": 10,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Petkovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "I. Bimbilovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Damoska Sekuloska",
+            "surname_token_found": false,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "b780af11-d4d5-4bb0-9a6f-6410bee89061",
+    "handle": "123456789/239",
+    "title": "Threats Targeting Children on Online Social Networks",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "a085110-003(2O23).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/7bb07c66-caaf-4141-bdab-ca41d36b60f4/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "6261447eae11b2519dfc70b38bfebae33d73d4f6e98568aca4a4370237907022",
+        "source_pdf_pages": 7,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Karadimce",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Bukalevska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.37394/232010.2023.20.4",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "8a402628-0f1f-41ee-8ba4-9eed5d2316bb",
+    "handle": "123456789/246",
+    "title": "Totally weakly chain separated sets in a topological space",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "kjmn81p1075-1086 (1).pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/6a784b4c-9d08-485f-8bd3-b06c1e503fbc/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "ad60301cdbd50dddd64539de9589b2916b2a8bfc1dd075010f94e67fa72f022b",
+        "source_pdf_pages": 12,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "E. Durmishi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Z. Misajleski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.46793/kgjmat2307.1075d",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "cff98fe5-764c-425f-a4ae-69053c0626a3",
+    "handle": "123456789/81",
+    "title": "Trading Application Based on Blockchain Technology",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Trading blockchain.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/14260446-5ddf-4815-ac85-944128607969/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "d099f8109201d48252de521eda5857d992712fb6f68b8f9d71bfecffe80bfb41",
+        "source_pdf_pages": 5,
+        "exact_normalized_title_candidate_pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "J. Kanevche",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "J. Karamachoski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "M. Puncheva",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "N. Marina",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.31803/tg-20210429130302",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "111fd06c-d435-47b0-9553-f852c5d081ab",
+    "handle": "123456789/214",
+    "title": "Virtual Reality, Real Emergency: Integrating AR/VR in Computing and Medical Crisis Management",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "9781003564904_previewpdf.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/d33d6083-8c38-4141-9e9d-d9191a0584c7/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "1daa7a34fd8c60de7b9fecdfb15032057a81a97ea901c7b6a16f9cb2d091a1aa",
+        "source_pdf_pages": 42,
+        "exact_normalized_title_candidate_pages": [
+          2,
+          4
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "A. Dhaka",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "F. Nait-Abdesselam",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Nandal",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Capeska Bogatinoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "P. S. Rathore",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. K. Sharma",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "D. Zubov",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.1201/9781003564904",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  },
+  {
+    "uuid": "14f19184-a1f4-4c81-9bd9-36efffcd2b85",
+    "handle": "123456789/247",
+    "title": "Weakly chain separated sets in a topological space",
+    "review_date": "2026-10-05",
+    "evidence_label": "Verified local",
+    "files": [
+      {
+        "source_file": "Mathematica-Montisnigri-52-1.pdf",
+        "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/e42e03c5-84cd-4452-a952-94b453ae42f9/content",
+        "source_pdf_cached": true,
+        "source_md5_matches_rest": true,
+        "source_sha256": "aaa0874f659ea285ac401530202ea2c5798c68db1d5935f7475c98a98bf683b9",
+        "source_pdf_pages": 12,
+        "exact_normalized_title_candidate_pages": [
+          1
+        ],
+        "author_token_checks": [
+          {
+            "stored_name": "N. Shekutkovski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "Z. Misajleski",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "A. Velkoska",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          },
+          {
+            "stored_name": "E. Durmishi",
+            "surname_token_found": true,
+            "limits": "Token occurrence may be in references/other contributions; exact authorship requires contextual source review."
+          }
+        ],
+        "doi_literal_checks": [
+          {
+            "stored_doi": "10.20948/mathmontis-2021-52-1",
+            "literal_normalized_doi_found": true
+          }
+        ],
+        "limits": "Text screening is evidence of literal correspondence only, not standalone author/title/DOI verification or reuse authority. Translation/title variants and previews require contextual inspection."
+      }
+    ]
+  }
+]

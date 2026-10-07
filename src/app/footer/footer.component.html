@@ -61,7 +61,13 @@
         <a class="text-white"
         href="https://www.lyrasis.org/" role="link" tabindex="0">{{ 'footer.link.lyrasis' | translate}}</a>
       </p>
-      <ul class="footer-info list-unstyled d-flex justify-content-center mb-0">
+      <ul class="footer-info list-unstyled d-flex flex-wrap justify-content-center mb-0">
+        @if (showRepositoryInformation) {
+          <li><a class="btn text-white" routerLink="/info/repository-policies">{{ 'footer.link.repository-policies' | translate }}</a></li>
+          <li><a class="btn text-white" routerLink="/info/accessibility-statement">{{ 'footer.link.accessibility-statement' | translate }}</a></li>
+          <li><a class="btn text-white" routerLink="/info/privacy">{{ 'footer.link.privacy-notice' | translate }}</a></li>
+          <li><a class="btn text-white" routerLink="/info/contact">{{ 'footer.link.contact' | translate }}</a></li>
+        }
         @if (showCookieSettings) {
         <li>
           <button class="btn btn-link text-white" type="button" (click)="openCookieSettings()" role="button" tabindex="0">
@@ -83,6 +89,11 @@
           <li>
             <a class="btn text-white"
             routerLink="info/end-user-agreement" role="link" tabindex="0">{{ 'footer.link.end-user-agreement' | translate}}</a>
+          </li>
+        }
+        @if (showRepositoryPolicies && !showRepositoryInformation) {
+          <li>
+            <a class="btn text-white" routerLink="/info/repository-policies">{{ 'footer.link.repository-policies' | translate }}</a>
           </li>
         }
         @if (showSendFeedback$ | async) {

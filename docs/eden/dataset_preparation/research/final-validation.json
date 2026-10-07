@@ -1,0 +1,28 @@
+{
+  "review_date": "2026-10-05",
+  "evidence_label": "Verified local",
+  "inventory_unique_records": 165,
+  "review_reports": 165,
+  "substantive_complete": 89,
+  "remaining_incomplete": 76,
+  "unsent_requests": 111,
+  "packages": 3,
+  "all_json_parse": true,
+  "stage_counts_sum_matches": true,
+  "preview_link_checks": [
+    {
+      "preview": "packages/6c5118cb-7261-455c-929d-4ddbd6912728/v1.0/preview.html",
+      "missing_local_links": []
+    },
+    {
+      "preview": "packages/f3dfc719-25c6-498f-909f-1d746ac2833c/v1.0/preview.html",
+      "missing_local_links": []
+    },
+    {
+      "preview": "packages/0de15561-ad68-4141-aa70-7268c6fcbe10/v1.0/preview.html",
+      "missing_local_links": []
+    }
+  ],
+  "public_deposits_by_this_work": 0,
+  "limits": "Technical source/transcription/fixity checks do not clear institutional, scientific, rights, privacy or depositor gates."
+}

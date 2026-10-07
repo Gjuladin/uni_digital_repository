@@ -1,5 +1,7 @@
 # UIST re3data registration readiness review
 
+> This review records observations from 30 September 2026. Update 6 October: the rector accepted the [four-page policy pack](eden/rector_review_2026-10/dabar_simple_2026-10-06/README.md), including UIST scope, operator, contacts, languages and CC0 metadata. Earlier calls below to approve those rules describe the pre-acceptance state. Production policy publication and genuine research-data evidence still need verification; use [the current registry record](EDEN_REGISTRY_SUBMISSION.md).
+
 Reviewed: **30 September 2026**. Repository: <https://repository.uist.edu.mk/>.
 
 ## Assessment
@@ -28,7 +30,7 @@ Anonymous GET requests to the production website and API on the review date esta
 - DSpace API reports **DSpace 10.0** and the name **UIST Digital Repository**.
 - Both Discovery pages returned 181 objects, of which **165 were items**. Item types: 120 Articles, 5 Conference papers, 8 Books, 29 Book chapters, 1 Technical Report, and 2 Conference abstracts.
 - **116 items** had no value in the checked rights/licence fields: `dc.rights`, `dc.rights.uri`, `dcterms.license`, and `dc.rights.license`. This is a metadata check, not a determination of their legal rights.
-- All 165 lacked `dcterms.accessRights`; all used local Handle values beginning `123456789/`. Global Handle ownership/resolution was not re-audited here.
+- On the 2026-09-30 review date, all 165 lacked `dcterms.accessRights` and used local Handle values beginning `123456789/`. This is a historical snapshot. Update 2026-10-06: production uses registered prefix `20.500.15029` for the verified sample, and [20.500.15029/261](https://hdl.handle.net/20.500.15029/261) resolves globally to the correct public item; see [current Handle evidence](eden/HANDLE_ACTIVATION.md). Full migration coverage was not re-audited.
 - OAI-PMH `ListMetadataFormats` advertised **only `oai_dc`**. Do not describe DataCite XML as an enabled OAI format without additional verification. A different endpoint exposing DataCite is a separate claim.
 - [Privacy](https://repository.uist.edu.mk/info/privacy) and [End User Agreement](https://repository.uist.edu.mk/info/end-user-agreement) pages both responded successfully; both display an update date of 4 May 2023.
 

@@ -1,0 +1,27 @@
+{
+  "uuid": "2c28a17f-245f-451f-bc0f-b068334a38ff",
+  "handle": "123456789/151",
+  "title": "Innovative Data-Driven Email Campaign Strategies with Salesforce Marketing Cloud",
+  "review_date": "2026-10-05",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/75ebb984-4386-484d-b46d-6be51fb57b2b/content",
+  "source_md5": "4bf7604b73a8f72a871ff71abb4f9bc2",
+  "source_sha256": "a0dcc3ad882ad5954a58de034869b6a79d824211731b6a706aabcc52e277452c",
+  "source_pdf": "/tmp/uist-dataset-sources/coordinator/2c28a17f-245f-451f-bc0f-b068334a38ff.pdf",
+  "page_count": 1115,
+  "candidate_title_pages": [
+    10,
+    177,
+    179,
+    181,
+    183,
+    185
+  ],
+  "download_or_reuse": {
+    "url": "https://repository.uist.edu.mk/server/api/core/bitstreams/75ebb984-4386-484d-b46d-6be51fb57b2b/content",
+    "status": 200,
+    "observed_at": "2026-10-05T05:59:41.315940+02:00",
+    "bytes": 57412526,
+    "environment": "Anonymous GET; production read-only"
+  },
+  "limitation": "Candidate location/extraction only; coordinator must inspect content and association before completing review."
+}

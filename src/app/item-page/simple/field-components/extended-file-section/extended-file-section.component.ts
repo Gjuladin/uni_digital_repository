@@ -26,6 +26,7 @@ import {
 } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
+import { MetadataUriValuesComponent } from '../../../field-components/metadata-uri-values/metadata-uri-values.component';
 import { ThemedFileDownloadLinkComponent } from '../../../../shared/file-download-link/themed-file-download-link.component';
 import { PaginationComponent } from '../../../../shared/pagination/pagination.component';
 import { FileSizePipe } from '../../../../shared/utils/file-size-pipe';
@@ -36,6 +37,7 @@ import { VarDirective } from '../../../../shared/utils/var.directive';
   imports: [
     AsyncPipe,
     FileSizePipe,
+    MetadataUriValuesComponent,
     PaginationComponent,
     ThemedFileDownloadLinkComponent,
     TranslateModule,

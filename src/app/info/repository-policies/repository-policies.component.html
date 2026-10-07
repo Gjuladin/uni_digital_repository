@@ -1,0 +1,15 @@
+<div class="container py-4">
+  <h1>{{ 'info.repository-policies.title' | translate }}</h1>
+  <p>{{ 'info.repository-policies.description' | translate }}</p>
+  <ul>
+    @for (policy of policyLinks; track policy.url) {
+      <li class="mb-2">
+        <a [href]="policy.url">
+          @for (labelKey of policy.labelKeys; track labelKey) {
+            {{ labelKey | translate }}@if (!$last) {; }
+          }
+        </a>
+      </li>
+    }
+  </ul>
+</div>

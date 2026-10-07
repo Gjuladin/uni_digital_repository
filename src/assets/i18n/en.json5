@@ -1,4 +1,21 @@
 {
+  "dataset.page.creators": "Creators / compilers",
+  "dataset.page.description": "Dataset description",
+  "dataset.page.identifier": "Assigned Handle",
+  "dataset.page.type": "Output type",
+  "dataset.page.version": "Dataset version",
+  "dataset.page.methods": "Methods",
+  "dataset.page.scope": "Scope and limitations",
+  "dataset.page.affiliations": "Creator affiliations",
+  "dataset.page.publications": "Related publications",
+  "dataset.page.sources": "Source material",
+  "dataset.page.access": "File access conditions",
+  "dataset.page.files": "Data files and documentation",
+  "dataset.page.rights": "Dataset / file rights",
+  "dataset.page.licence-uri": "Licence URL",
+  "dataset.page.language": "Language",
+  "dataset.page.created": "Creation / compilation date",
+
   "401.help": "You're not authorized to access this page. You can use the button below to get back to the home page.",
 
   "401.link.home-page": "Take me to the home page",
@@ -2101,6 +2118,40 @@
 
   "footer.link.end-user-agreement": "End User Agreement",
 
+  "footer.link.repository-policies": "Repository policies",
+
+  "footer.link.accessibility-statement": "Accessibility statement",
+
+  "footer.link.privacy-notice": "Privacy notice",
+
+  "footer.link.contact": "Contact",
+
+  "info.repository-policies.effective": "Effective {{ date }}",
+
+  "info.repository-policies.breadcrumbs": "Repository policies",
+
+  "info.accessibility-statement.breadcrumbs": "Accessibility statement",
+
+  "info.repository-privacy.breadcrumbs": "Privacy notice",
+
+  "info.repository-contact.breadcrumbs": "Contact",
+
+  "info.repository-policies": "Repository policies",
+
+  "info.repository-policies.title": "Repository policies",
+
+  "info.repository-policies.description": "Repository policies and information about access, deposit, stewardship and reuse.",
+
+  "info.repository-policies.access": "Access conditions",
+
+  "info.repository-policies.deposit": "Deposit policy",
+
+  "info.repository-policies.curation": "Curation policy",
+
+  "info.repository-policies.preservation": "Preservation policy",
+
+  "info.repository-policies.licensing": "Licensing and reuse",
+
   "footer.link.feedback": "Send Feedback",
 
   "footer.link.coar-notify-support": "COAR Notify",
@@ -2650,7 +2701,7 @@
 
   "home.uist.title": "UIST Digital Repository",
 
-  "home.uist.description": "Discover and preserve publications, theses, conference papers, and project outputs from UIST \"St. Paul the Apostle\" in Ohrid, North Macedonia.",
+  "home.uist.description": "Discover and preserve research datasets, publications, theses, conference papers, and project outputs from UIST \"St. Paul the Apostle\" in Ohrid, North Macedonia.",
 
   "home.uist.search.aria-label": "Search the repository",
 
@@ -2660,15 +2711,15 @@
 
   "home.uist.search.field.title": "Title",
 
-  "home.uist.search.field.author": "Author",
+  "home.uist.search.field.author": "Creator / author",
 
-  "home.uist.search.field.abstract": "Abstract",
+  "home.uist.search.field.abstract": "Description / abstract",
 
   "home.uist.search.field.year": "Year",
 
   "home.uist.search.term.label": "Search term",
 
-  "home.uist.search.placeholder": "Search publications, theses, authors...",
+  "home.uist.search.placeholder": "Search research datasets, publications, theses, creators...",
 
   "home.uist.search.placeholder.by": "Search by {{ field }}...",
 
@@ -2678,13 +2729,13 @@
 
   "home.uist.collections.heading": "Browse by Category",
 
-  "home.uist.collections.description": "Explore curated collections of academic research and scholarly publications",
+  "home.uist.collections.description": "Explore collections of research datasets and scholarly publications",
 
   "home.uist.news.eyebrow": "Open scholarship at UIST",
 
   "home.uist.news.title": "Research across computing, engineering, and the digital society",
 
-  "home.uist.news.description": "Browse UIST publications and theses in computer science and engineering, artificial intelligence and robotics, data science, communication networks and cybersecurity, visualization and multimedia, and digital business.",
+  "home.uist.news.description": "Browse UIST research datasets, publications and theses in computer science and engineering, artificial intelligence and robotics, data science, communication networks and cybersecurity, visualization and multimedia, and digital business.",
 
   "home.default.title": "DSpace 9",
 
@@ -5060,7 +5111,7 @@
 
   "repository.address.street": "Partizanska bb",
 
-  "repository.description": "Open access scholarly works, publications, theses, conference papers, and research outputs from UIST \"St. Paul the Apostle\" in Ohrid.",
+  "repository.description": "Research datasets, scholarly works, publications, theses, conference papers, and research outputs from UIST \"St. Paul the Apostle\" in Ohrid.",
 
   "repository.institution": "University of Information Science and Technology \"St. Paul the Apostle\"",
 
@@ -6318,6 +6369,10 @@
 
   "submission.sections.upload.file.edit.form.video-description.hint": "Provide a description for video content.",
 
+  "submission.sections.upload.access-condition.openaccess": "Open access",
+  "submission.sections.upload.access-condition.embargo": "Embargo (public from the access start date)",
+  "submission.sections.upload.access-condition.administrator": "Restricted (repository administrators only)",
+  "submission.sections.upload.access-condition.lease": "Open access for a limited period",
   "submission.sections.upload.form.access-condition-label": "Access condition type",
 
   "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the bitstream once the item is deposited",

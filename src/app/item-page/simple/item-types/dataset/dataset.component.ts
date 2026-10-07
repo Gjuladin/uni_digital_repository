@@ -13,7 +13,6 @@ import { CollectionsComponent } from '../../../field-components/collections/coll
 import { ThemedMediaViewerComponent } from '../../../media-viewer/themed-media-viewer.component';
 import { MiradorViewerComponent } from '../../../mirador-viewer/mirador-viewer.component';
 import { ExtendedFileSectionComponent } from '../../field-components/extended-file-section/extended-file-section.component';
-import { ItemPageAbstractFieldComponent } from '../../field-components/specific-field/abstract/item-page-abstract-field.component';
 import { ItemPageDateFieldComponent } from '../../field-components/specific-field/date/item-page-date-field.component';
 import { GenericItemPageFieldComponent } from '../../field-components/specific-field/generic/generic-item-page-field.component';
 import { GeospatialItemPageFieldComponent } from '../../field-components/specific-field/geospatial/geospatial-item-page-field.component';
@@ -37,7 +36,6 @@ import { ItemComponent } from '../shared/item.component';
     ExtendedFileSectionComponent,
     GenericItemPageFieldComponent,
     GeospatialItemPageFieldComponent,
-    ItemPageAbstractFieldComponent,
     ItemPageDateFieldComponent,
     ItemPageUriFieldComponent,
     MetadataFieldWrapperComponent,

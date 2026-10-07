@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="static/style.xsl"?><OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2026-10-06T20:02:30Z</responseDate><request verb="GetRecord" identifier="oai:localhost:20.500.15029/31" metadataPrefix="oai_dc">http://localhost:8080/server/oai/request</request><GetRecord><record><header><identifier>oai:localhost:20.500.15029/31</identifier><datestamp>2026-10-06T19:52:16Z</datestamp><setSpec>com_123456789_7</setSpec><setSpec>col_20.500.15029_30</setSpec></header><metadata><oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:doc="http://www.lyncode.com/xoai" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+   <dc:title>SYNTHETIC TEST DATASET — UIST submission validation (not research)</dc:title>
+   <dc:creator>Synthetic Test Compiler</dc:creator>
+   <dc:description>Dataset version: 1.0-test</dc:description>
+   <dc:description>Methods: Generate integers 1, 2, 3 and square each integer; synthetic test only.</dc:description>
+   <dc:description>Creator affiliation: Synthetic Test Compiler — local validation only</dc:description>
+   <dc:rights>Mixed: data.csv, README.md and DATA_DICTIONARY.md are open; restricted.txt is administrator-only; embargo.txt is embargoed until 2026-11-05.</dc:rights>
+   <dc:subject>synthetic workflow validation</dc:subject>
+   <dc:description>Three fabricated rows. No scientific validity, original participant data, or source-study claims.</dc:description>
+   <dc:description>Synthetic generated values solely for local workflow testing. No real participants or published study data.</dc:description>
+   <dc:date>2026-10-06T19:52:16Z</dc:date>
+   <dc:date>2026-10-06</dc:date>
+   <dc:date>2026-10-06</dc:date>
+   <dc:type>Dataset</dc:type>
+   <dc:identifier>https://hdl.handle.net/20.500.15029/31</dc:identifier>
+   <dc:language>en</dc:language>
+   <dc:relation>https://example.org/synthetic-publication</dc:relation>
+   <dc:relation>https://example.org/synthetic-source</dc:relation>
+   <dc:rights>Synthetic test files may be reused for testing. No licence or rights claim applies to real dataset packages.</dc:rights>
+   <dc:rights>https://example.org/synthetic-test-terms</dc:rights>
+   <dc:format>text/csv</dc:format>
+   <dc:format>application/octet-stream</dc:format>
+   <dc:format>application/octet-stream</dc:format>
+   <dc:format>text/plain</dc:format>
+   <dc:format>text/plain</dc:format>
+</oai_dc:dc>
+</metadata></record></GetRecord></OAI-PMH>

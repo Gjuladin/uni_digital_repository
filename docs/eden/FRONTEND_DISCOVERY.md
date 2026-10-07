@@ -11,7 +11,7 @@ These changes are controlled by the development team and do not require UIST to 
 | Link lifecycle | Generated discovery links are deduplicated and removed correctly during navigation and component destruction. |
 | Repository JSON-LD | A `DataCatalog` is the primary graph node, with the university represented separately as its publisher/provider. |
 | EDEN meta tags | Emits exact repository `title`, `description`, `publisher`, `language`, and `type` meta names. |
-| Repository identity | Emits the stable repository URL/identifier, configured languages, configured subjects, and enabled verified services. Country/address details remain omitted until explicitly approved. |
+| Repository identity | Emits the stable repository URL/identifier, configured languages, configured subjects, and enabled verified services. The accepted Contact/Privacy pages now supply country/address details; optional machine-readable claims still depend on their configured enable switches and verified public evidence. |
 | Linked repository metadata | Serves `/.well-known/repository.jsonld` as `application/ld+json` and advertises it with `rel="describedby"`. |
 | FAIRiCat | Serves `/.well-known/api-catalog` as RFC 9264 linkset JSON and advertises it with `rel="api-catalog"`. |
 | Verified service catalog | Lists REST, OAI-PMH, OpenSearch, Atom, RSS, sitemap, and Signposting; disabled IIIF, LDN, and SWORD services are not claimed. |
@@ -35,4 +35,4 @@ These changes are controlled by the development team and do not require UIST to 
 2. Confirm that both `/` and `/home` produce the same repository `DataCatalog` and service set in production.
 3. Re-run EDEN against both public URLs and preserve the raw reports.
 
-Values such as an approved contact, research-area vocabulary, policy URLs, or a registry identifier are not frontend defects. They remain disabled until the corresponding UIST decision is recorded.
+The rector has accepted the policy pack, including its contacts, languages and CC0 metadata rule. Machine-readable claims still require correct configuration and publicly verified destinations. Research-area vocabulary and registry identifiers must reflect the actual service and registry status; see [UIST_DECISIONS.md](UIST_DECISIONS.md).

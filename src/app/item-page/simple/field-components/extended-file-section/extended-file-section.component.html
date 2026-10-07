@@ -29,7 +29,17 @@
               @for (file of bitstreamsRD?.payload?.page; track file) {
                 <div class="row file-section-entry mx-0">
                   <div class="col-6">
-                    <span [innerHTML]="dsoNameService.getName(file)"></span>
+                    <span [innerText]="dsoNameService.getName(file)"></span>
+                    @if (file.firstMetadataValue('dc.description'); as description) {
+                      <p class="small mb-1">{{ description }}</p>
+                    }
+                    @if (file.firstMetadataValue('dc.rights'); as rights) {
+                      <p class="small mb-1">{{ 'dataset.page.rights' | translate }}: {{ rights }}</p>
+                    }
+                    @if (file.hasMetadata('dc.rights.uri')) {
+                      <ds-metadata-uri-values [mdValues]="file.allMetadata(['dc.rights.uri'])"
+                        [label]="'dataset.page.licence-uri'"></ds-metadata-uri-values>
+                    }
                   </div>
                   <div class="col-3">
                     <span>{{ (bitstreamFormatDataService.findByBitstream(file) | async).payload?.shortDescription }}</span>

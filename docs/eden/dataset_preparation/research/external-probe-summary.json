@@ -1,0 +1,2751 @@
+{
+  "records": 81,
+  "results": [
+    {
+      "uuid": "6b1c6990-cf14-4de1-a299-0c63a24c2274",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "60d679e5-4324-4014-bc4a-4be0785f53c6",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "66249070-ecff-4870-903c-d538f4d2924e",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "7c65360b-b048-441d-9741-f9621da5ec6e",
+      "statuses": [
+        403
+      ]
+    },
+    {
+      "uuid": "a39bf6e0-d311-47ad-80bd-16e9d366ab03",
+      "statuses": [
+        200
+      ]
+    },
+    {
+      "uuid": "f5a4be64-d0f9-42a6-9b54-691e4b16a1ef",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "1a7a96fe-154c-4c7f-b828-10aeea991944",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "5f8b9675-216a-4104-ae1c-ae3b63b94eec",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "4c62662e-8d77-4300-a11c-df5f3124bb64",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "29e4f012-3b4e-4410-86d7-aac9aef6a915",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "e14fc338-9768-4994-8c73-37bdfab65f89",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "46b12844-23b8-4846-a5b9-9ca23a5560ff",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "a7273ee3-e97d-4c73-a41a-d8edb359836e",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "d3873a72-cc11-41fc-8dcb-90f24ca3127d",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "5d709176-0d1e-4b5e-b9be-27faadd6e16c",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "c7baa924-e66c-4335-b51e-c20ba9cf7a66",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "d55040ce-8140-4f8f-b46e-ae723f2eafcf",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "ef4af6f2-a20a-4cdc-99b3-adc4abc11bf9",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "fb1c7b3f-5677-48cf-8b9c-e5e6c61c4544",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "2d029eea-2e72-47ce-9a65-21d488078e3a",
+      "statuses": [
+        403
+      ]
+    },
+    {
+      "uuid": "d8f340da-fc7c-4472-b84c-79e61b1a2c1b",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "da1190ab-5602-4052-896c-ddf1f8cba1a3",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "e17524f8-ad15-4477-8571-e913aa9286e9",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "3da93b20-75cd-44b5-b660-68f487b70d94",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "ff43a3d2-8294-4248-9b3d-929ae26add71",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "680df514-dc0d-49ce-a3ff-2eab7775e3f2",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "b7a9f055-dec3-4cb2-b3f2-765f7e944275",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "21a00376-7b8c-45cb-93dd-52529c41d170",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "7f00318d-00fe-44ed-bbd7-81b5da200592",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "9f61002b-be14-450f-96ae-1521eaa0e3e9",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "1d292464-ef3b-4d33-91fc-8782511c1f8c",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "23579bdf-1638-4dce-b150-305ba725060e",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "fa66cb88-bc6a-4660-ad26-25b68b847b24",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "19d122ca-5d66-44be-a856-8787d8e013c5",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "f07a94b2-d958-415e-8a11-f7617b54b707",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "42830e57-016f-41b1-bf20-108fdf3b9a16",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "27adaa13-5fde-4873-b3f6-adc0b92a3077",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "8e32dd9c-9760-4f10-98d8-ed55d19fe526",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "69095693-290d-4ca9-8e84-8b97ff8d2d94",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "01e87839-86a8-44e4-9b70-90ef0d2bc4d4",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "fec417f8-f2a7-4ab5-8191-6d7a4dcb0aed",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "1f007eb9-28f7-41a9-b30c-b61250c959b1",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "ec9c6b94-e463-4493-9b1c-20902f91cbe1",
+      "statuses": [
+        405
+      ]
+    },
+    {
+      "uuid": "9f9b701e-7c8c-4d4d-ac59-16f434fa8096",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "cc0a8cbf-644b-44db-9da1-e91b8eb8b4f0",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "5a7485a1-0378-48d1-921a-937a75f577c4",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "00c41c3b-d7b4-4228-aba4-b76d0f788e98",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "addc4a59-851e-4dfa-95cb-223fb3098f4f",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "3924ba55-ecb9-4e23-aec0-256292cd9b36",
+      "statuses": [
+        403
+      ]
+    },
+    {
+      "uuid": "33616f34-bc3b-489c-b753-9be20c0cd71e",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "f98022b7-4934-47ca-b2e3-1f9748f067e0",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "5e83edcd-54ad-4aae-bead-55ff03dd71fa",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "561dbf2a-b107-4bc0-afae-b2fe38f59660",
+      "statuses": [
+        200
+      ]
+    },
+    {
+      "uuid": "3c88fece-82c9-47e7-8229-84422c8a4010",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "434439e7-54dd-48ca-acca-66a0a55a74d2",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "6b80fb34-e4b2-4b55-9b30-5bd6ec195878",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "de976151-21ef-474e-8e0f-49d4f1bcbc02",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "56757898-a7aa-4562-91f5-7293d7a3fb44",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "efc8cba5-1cff-41ff-8550-9908474c9808",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "64cad131-2784-4db3-9234-0654a28305ef",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "3735d95f-9d71-45b5-b4d3-93c4237f28cd",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "2c8ae4b2-4b02-4d97-a2bd-c67e0679c7ed",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "6a0a61a7-18c4-4d82-a21d-24bc83b5742e",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "37eaec26-f258-40a9-b908-a4046c327f10",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "90f4a2a9-eb0c-4467-83cf-a66fa7055a4a",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "d3f0a038-9933-4018-a89a-99d27c650f1f",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "4d36d41a-991d-4029-85bd-d79ea516bbdd",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "54e99eae-758b-40c7-9d83-7be56a3f7fc0",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "791a12b7-615b-438a-947f-323b12d4bc90",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "7352c3f1-d4c6-4dcc-98dc-830c7c6819db",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "92e76390-548d-4a90-9d40-41a0b1fe0c57",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "1a2d44be-6f4e-4fb3-85c2-71769dbd21cf",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "238334fd-c1c9-4783-90cf-83d7a9a5329b",
+      "statuses": [
+        202
+      ]
+    },
+    {
+      "uuid": "239adaab-76f7-4fc9-b7d0-fc2797697fa5",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "594ee453-6a86-4941-a318-5488a6613258",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "9a8ebc25-fab1-47d8-8be4-d605eba45933",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "dd0163f7-6b72-483f-9368-718e28676550",
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "uuid": "094031a8-1a9d-4ae9-a82f-654f6aebe570",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "8019c134-6e01-45aa-b9f9-adc894b06320",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "3000a329-5e2e-4578-abb7-0655f6e690e7",
+      "statuses": [
+        null
+      ]
+    },
+    {
+      "uuid": "5f844c5b-29b7-4add-964e-500d6e7f75cb",
+      "statuses": [
+        null
+      ]
+    }
+  ],
+  "limits": "Availability only. Content suitability remains the individual review responsibility.",
+  "observations": {
+    "00c41c3b-d7b4-4228-aba4-b76d0f788e98": {
+      "uuid": "00c41c3b-d7b4-4228-aba4-b76d0f788e98",
+      "handle": "123456789/260",
+      "title": "I set out as a woman, I returned as a human being (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "01e87839-86a8-44e4-9b70-90ef0d2bc4d4": {
+      "uuid": "01e87839-86a8-44e4-9b70-90ef0d2bc4d4",
+      "handle": "123456789/209",
+      "title": "Evaluation and Results of Research Ranking Platform for Academic Staff and Universities in the Republic of Macedonia",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/hora61326.2024.10550767",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:46.868342+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/10550767/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "094031a8-1a9d-4ae9-a82f-654f6aebe570": {
+      "uuid": "094031a8-1a9d-4ae9-a82f-654f6aebe570",
+      "handle": "123456789/190",
+      "title": "Trade-offs between Anonymity and Performance in Mix Networks",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "19d122ca-5d66-44be-a856-8787d8e013c5": {
+      "uuid": "19d122ca-5d66-44be-a856-8787d8e013c5",
+      "handle": "123456789/195",
+      "title": "Design and Development of the Robot for Aquatic Debris Using a Smartphone",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-981-15-9651-3_4",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:43.480086+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-15-9651-3_4?error=cookies_not_supported&code=5d5e76fa-b3b0-4b2a-ae8f-02d90a7c5a26",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 309252,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "aeee974bee5c92fee9e89ba064974762f697f1e593fec8f9edce647c18acfab1",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-981-15-9651-3_4.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-981-15-9651-3_4.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:45.067310+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-15-9651-3_4?error=cookies_not_supported&code=5a1b414d-62fe-48c9-9b6f-c24c81a9e6d5",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-981-15-9651-3_4.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:28.898101+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-15-9651-3_4?error=cookies_not_supported&code=7f481080-924a-470e-b04a-c50d864f1d9e",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "1a2d44be-6f4e-4fb3-85c2-71769dbd21cf": {
+      "uuid": "1a2d44be-6f4e-4fb3-85c2-71769dbd21cf",
+      "handle": "123456789/202",
+      "title": "Surface Sampling, Vertex Manipulation and Surface Generation Based on WebGL Technologies",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/ismsit58785.2023.10304951",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:55.592017+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/10304951/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "1a7a96fe-154c-4c7f-b828-10aeea991944": {
+      "uuid": "1a7a96fe-154c-4c7f-b828-10aeea991944",
+      "handle": "123456789/137",
+      "title": "A teacher-centered mobile application for screening learning disabilities to support inclusive education",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/mipro70003.2026.11591884",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.547172+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/11591884/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "1d292464-ef3b-4d33-91fc-8782511c1f8c": {
+      "uuid": "1d292464-ef3b-4d33-91fc-8782511c1f8c",
+      "handle": "123456789/221",
+      "title": "Cryptocoding Based on Quasigroups",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-50125-8",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:42.902914+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/book/10.1007/978-3-031-50125-8?error=cookies_not_supported&code=bc164138-ba4c-4021-9577-fbb9b8f36358",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 279520,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "aee8089cec19f598213569a2875e05adc4d4db1d87019ee67a418b5cb9f0d0f8",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-50125-8.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:44.508068+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/book/10.1007/978-3-031-50125-8?error=cookies_not_supported&code=489c0037-50f4-45a4-b338-ac1fa21c6083",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "1f007eb9-28f7-41a9-b30c-b61250c959b1": {
+      "uuid": "1f007eb9-28f7-41a9-b30c-b61250c959b1",
+      "handle": "123456789/114",
+      "title": "Film as an attitude toward culture: David Fincher's adaptation of 'Fight Club' by Chuck Palahniuk (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "21a00376-7b8c-45cb-93dd-52529c41d170": {
+      "uuid": "21a00376-7b8c-45cb-93dd-52529c41d170",
+      "handle": "123456789/104",
+      "title": "Counting lines and 2D figures – part 2 (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "23579bdf-1638-4dce-b150-305ba725060e": {
+      "uuid": "23579bdf-1638-4dce-b150-305ba725060e",
+      "handle": "123456789/167",
+      "title": "Democratizing IVDR Technology: Low-Cost Real-Time Driver Feedback Using Consumer Hardware",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/icai67591.2025.11324523",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:43.124495+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/11324523/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "238334fd-c1c9-4783-90cf-83d7a9a5329b": {
+      "uuid": "238334fd-c1c9-4783-90cf-83d7a9a5329b",
+      "handle": "123456789/175",
+      "title": "Tendermint Performance with Large Transactions: The Healthcare System Scenario",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/balkancom53780.2021.9593267",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:55.842025+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9593267/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "239adaab-76f7-4fc9-b7d0-fc2797697fa5": {
+      "uuid": "239adaab-76f7-4fc9-b7d0-fc2797697fa5",
+      "handle": "123456789/258",
+      "title": "The COST Network and Its Significance for the Digitalization of Culture (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "27adaa13-5fde-4873-b3f6-adc0b92a3077": {
+      "uuid": "27adaa13-5fde-4873-b3f6-adc0b92a3077",
+      "handle": "123456789/193",
+      "title": "Electronic health records system for efficient healthcare services",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-030-73909-6_38",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:46.103362+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-030-73909-6_38?error=cookies_not_supported&code=f9e8eb46-ccf2-49e3-aa79-a0136cd4e729",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 294241,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "51e7a3938df1e5232979fe5ff46dcd2f387e2d732584fa3d5686b2d4004b76f5",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-030-73909-6_38.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-030-73909-6_38.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:47.811220+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-030-73909-6_38?error=cookies_not_supported&code=36dd8e4a-6bff-42be-8625-359b31d8f2f6",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-030-73909-6_38.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:30.808426+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-030-73909-6_38?error=cookies_not_supported&code=db1cedc7-2eeb-47b1-b853-17d3e0555929",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "29e4f012-3b4e-4410-86d7-aac9aef6a915": {
+      "uuid": "29e4f012-3b4e-4410-86d7-aac9aef6a915",
+      "handle": "123456789/210",
+      "title": "An automated ranking model of higher education institutions and academic staff in the Republic of Macedonia",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "2c8ae4b2-4b02-4d97-a2bd-c67e0679c7ed": {
+      "uuid": "2c8ae4b2-4b02-4d97-a2bd-c67e0679c7ed",
+      "handle": "123456789/129",
+      "title": "Object-Oriented Programming Through Practice: A Collection of Problems in Java with Solutions (2nd ed.)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "2d029eea-2e72-47ce-9a65-21d488078e3a": {
+      "uuid": "2d029eea-2e72-47ce-9a65-21d488078e3a",
+      "handle": "123456789/222",
+      "title": "Blockchain network with artificial intelligence – DeFi affair management",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1049/pbse016e_ch11",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:39.221414+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 403,
+          "final_url": "https://digital-library.theiet.org/content/books/10.1049/pbse016e_ch11",
+          "error": "HTTP Error 403: Forbidden"
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "3000a329-5e2e-4578-abb7-0655f6e690e7": {
+      "uuid": "3000a329-5e2e-4578-abb7-0655f6e690e7",
+      "handle": "123456789/136",
+      "title": "Urbana chitanka: Voved vo gragansko obrazovanie za mladi (Urban reader: Introduction to civic education for youth) (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "33616f34-bc3b-489c-b753-9be20c0cd71e": {
+      "uuid": "33616f34-bc3b-489c-b753-9be20c0cd71e",
+      "handle": "123456789/262",
+      "title": "LEO-Based Direct-to-Cell Communication as an Emerging Paradigm in Next-Generation Wireless Networks",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "3735d95f-9d71-45b5-b4d3-93c4237f28cd": {
+      "uuid": "3735d95f-9d71-45b5-b4d3-93c4237f28cd",
+      "handle": "123456789/208",
+      "title": "Novel Methodology for Improving the Generalization Capability of Chemo-Informatics Deep Learning Models",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-22792-9_13",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:51.150266+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-22792-9_13?error=cookies_not_supported&code=fde6162a-dd6e-4083-b762-cb6fae1a488e",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 313497,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "4bfe8b939c5aaa5ed368d04fb6be4cb4bc4cf3e4a96091885cb6b0436c1b5658",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-22792-9_13.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-22792-9_13.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:52.962358+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-22792-9_13?error=cookies_not_supported&code=cc9a23f8-78fd-4025-86f4-c174beff2088",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-22792-9_13.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:33.004654+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-22792-9_13?error=cookies_not_supported&code=f8bb31ed-85df-4eb6-a53d-8e9ff1b8b4cc",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "37eaec26-f258-40a9-b908-a4046c327f10": {
+      "uuid": "37eaec26-f258-40a9-b908-a4046c327f10",
+      "handle": "123456789/186",
+      "title": "Overview of Blockchain and Cloud Computing Services Integration",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/telfor56187.2022.9983759",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:54.466361+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9983759/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "3924ba55-ecb9-4e23-aec0-256292cd9b36": {
+      "uuid": "3924ba55-ecb9-4e23-aec0-256292cd9b36",
+      "handle": "123456789/184",
+      "title": "IoT and IoT Blockchain Market Analyses and Benefits in Europe",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1063/5.0196006",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:48.988606+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 403,
+          "final_url": "https://pubs.aip.org/aip/acp/article-lookup/doi/10.1063/5.0196006",
+          "error": "HTTP Error 403: Forbidden"
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "3c88fece-82c9-47e7-8229-84422c8a4010": {
+      "uuid": "3c88fece-82c9-47e7-8229-84422c8a4010",
+      "handle": "123456789/100",
+      "title": "Mathematics in Everyday Life",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "3da93b20-75cd-44b5-b660-68f487b70d94": {
+      "uuid": "3da93b20-75cd-44b5-b660-68f487b70d94",
+      "handle": "123456789/102",
+      "title": "Commutative, Associative and Distributive Law (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "42830e57-016f-41b1-bf20-108fdf3b9a16": {
+      "uuid": "42830e57-016f-41b1-bf20-108fdf3b9a16",
+      "handle": "123456789/162",
+      "title": "EHR system tracks prisoner's data across countries to monitor COVID-19 in U.S. State and Federal Prisons",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/icict55905.2022.00011",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:45.841987+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9845003/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "434439e7-54dd-48ca-acca-66a0a55a74d2": {
+      "uuid": "434439e7-54dd-48ca-acca-66a0a55a74d2",
+      "handle": "123456789/157",
+      "title": "Matrix Profile based Anomaly Detection in Streaming Gait Data for Fall Prevention",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/iwssip58668.2023.10180243",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:49.926464+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/10180243/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "46b12844-23b8-4846-a5b9-9ca23a5560ff": {
+      "uuid": "46b12844-23b8-4846-a5b9-9ca23a5560ff",
+      "handle": "123456789/181",
+      "title": "Architectural Scalability of Conversational Chatbot: The Case of ChatGPT",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-53960-2_5",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.876852+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-53960-2_5?error=cookies_not_supported&code=3a421db1-1463-4c1c-8ac0-945242a819b2",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 320442,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "4a1a006bccf5784a4fc005302572df8e7b024a076ec13bea2a3c3e6bbc966ee5",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-53960-2_5.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-53960-2_5.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:37.417019+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-53960-2_5?error=cookies_not_supported&code=f9447f01-12b8-4c96-9e0c-e99eb6f9cab1",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-53960-2_5.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:26.602352+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-53960-2_5?error=cookies_not_supported&code=dc8a17d3-72ee-41ee-a0c8-57949798f17d",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "4c62662e-8d77-4300-a11c-df5f3124bb64": {
+      "uuid": "4c62662e-8d77-4300-a11c-df5f3124bb64",
+      "handle": "123456789/256",
+      "title": "Alienation in Everyday Life: Applying Gestalt Theory and Methodology to 'Never Let Me Go' by Kazuo Ishiguro (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "4d36d41a-991d-4029-85bd-d79ea516bbdd": {
+      "uuid": "4d36d41a-991d-4029-85bd-d79ea516bbdd",
+      "handle": "123456789/259",
+      "title": "Review of the novel 'The Northwestern Wind' by Zdenko Basic (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "54e99eae-758b-40c7-9d83-7be56a3f7fc0": {
+      "uuid": "54e99eae-758b-40c7-9d83-7be56a3f7fc0",
+      "handle": "123456789/73",
+      "title": "Secondary Structure Prediction of RNA using Convolutional Neural Networks",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1504/ijspr.2021.10041211",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:54.751305+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://www.inderscience.com/storage/f734825109612111.pdf",
+          "content_type": "application/pdf",
+          "content_length": "819899",
+          "body_not_read": true
+        },
+        {
+          "url": "https://www.inderscience.com/storage/f101113498127256.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:32:00.552625+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://www.inderscience.com/storage/f101113498127256.pdf",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://www.inderscience.com/storage/f734825109612111.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:35.243804+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://www.inderscience.com/storage/f734825109612111.pdf",
+          "content_type": "text/html; charset=UTF-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "561dbf2a-b107-4bc0-afae-b2fe38f59660": {
+      "uuid": "561dbf2a-b107-4bc0-afae-b2fe38f59660",
+      "handle": "123456789/125",
+      "title": "Machine Vision and AI-based Detection Systems in Industrial Applications",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://journal.uist.edu.mk/wp-content/uploads/2024/03/Journal-of-UIST-Vol-4_.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:49.703904+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://journal.uist.edu.mk/wp-content/uploads/2024/03/Journal-of-UIST-Vol-4_.pdf",
+          "content_type": "application/pdf",
+          "content_length": "4096086",
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "56757898-a7aa-4562-91f5-7293d7a3fb44": {
+      "uuid": "56757898-a7aa-4562-91f5-7293d7a3fb44",
+      "handle": "123456789/98",
+      "title": "Monte Carlo Calculations Supporting Automatic Verification",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.30534/ijacst/2025/021462025",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:50.418179+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "http://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "content_type": "application/pdf",
+          "content_length": "419041",
+          "body_not_read": true
+        },
+        {
+          "url": "https://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:51.400601+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "content_type": "application/pdf",
+          "content_length": "419041",
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "http://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:32.478889+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "http://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "content_type": "application/pdf",
+          "bytes": 419041,
+          "sha256": "acf2855c3f43d8b1e6d022117ae65fe8f225823254d5c048ac3bc0b85ee35327",
+          "local_pdf": "/tmp/uist-dataset-sources/coordinator/external/56757898-a7aa-4562-91f5-7293d7a3fb44.pdf",
+          "local_text": "/tmp/uist-dataset-sources/coordinator/external/56757898-a7aa-4562-91f5-7293d7a3fb44.txt"
+        },
+        {
+          "url": "https://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:33.903348+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://www.warse.org/IJACST/static/pdf/file/ijacst021462025.pdf",
+          "content_type": "application/pdf",
+          "bytes": 419041,
+          "sha256": "acf2855c3f43d8b1e6d022117ae65fe8f225823254d5c048ac3bc0b85ee35327",
+          "local_pdf": "/tmp/uist-dataset-sources/coordinator/external/56757898-a7aa-4562-91f5-7293d7a3fb44.pdf",
+          "local_text": "/tmp/uist-dataset-sources/coordinator/external/56757898-a7aa-4562-91f5-7293d7a3fb44.txt"
+        }
+      ]
+    },
+    "594ee453-6a86-4941-a318-5488a6613258": {
+      "uuid": "594ee453-6a86-4941-a318-5488a6613258",
+      "handle": "123456789/69",
+      "title": "The Gig Economy and Employment Creation in the Digital Era: Exploring the Opportunities and Facilitating Conditions for Policy Considerations",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.26341/issn.2241-4010-2026-3a-4-L02192",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:56.045666+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://sdct-journal.com/index.php/2015-10-18-22-23-19/2026-volume-3-a/738-the-gig-economy-and-employment-creation-in-the-digital-era-exploring-the-opportunities-and-facilitating-conditions-for-policy-considerations",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 33044,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "5cd8947696b922af95d2b7f28129b0f08a0e7b7dda82ee423ed7a381b2a37df8",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://sdct-journal.com/images/Issues/2026_3a/4.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:56.923536+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://sdct-journal.com/images/Issues/2026_3a/4.pdf",
+          "content_type": "application/pdf",
+          "content_length": "902441",
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://sdct-journal.com/images/Issues/2026_3a/4.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:35.417406+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://sdct-journal.com/images/Issues/2026_3a/4.pdf",
+          "content_type": "application/pdf",
+          "bytes": 902441,
+          "sha256": "951aa929f1808b38c21989695dca43331cb92fa65e46296d072efda9b91fc55f",
+          "local_pdf": "/tmp/uist-dataset-sources/coordinator/external/594ee453-6a86-4941-a318-5488a6613258.pdf",
+          "local_text": "/tmp/uist-dataset-sources/coordinator/external/594ee453-6a86-4941-a318-5488a6613258.txt"
+        }
+      ]
+    },
+    "5a7485a1-0378-48d1-921a-937a75f577c4": {
+      "uuid": "5a7485a1-0378-48d1-921a-937a75f577c4",
+      "handle": "123456789/74",
+      "title": "High-Performance Divide-and-conquer Algorithms: A Comprehensive Framework with Recursive Parallel Decomposition and Hardware-aware Optimization",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.12720/jait.17.8.1442-1455",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:47.220647+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://www.jait.us/show-273-1923-1.html",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 24251,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "b0aa7aaa6c42d0cdcd65eb734e5f6f2b7910c79448f14a605f2fd3c18c92e303",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": [
+            "https://creativecommons.org/licenses/by/4.0/"
+          ]
+        },
+        {
+          "url": "https://www.jait.us/articles/2026/JAIT-V17N8-1442.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:48.282192+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://www.jait.us/articles/2026/JAIT-V17N8-1442.pdf",
+          "content_type": "application/pdf",
+          "content_length": "3325965",
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "5d709176-0d1e-4b5e-b9be-27faadd6e16c": {
+      "uuid": "5d709176-0d1e-4b5e-b9be-27faadd6e16c",
+      "handle": "123456789/172",
+      "title": "Augmented Reality Tourist Guide for Cultural Heritage Sites: A Low-Cost Prototype Implementation for Ohrid, North Macedonia",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-032-07370-9_33",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:38.702693+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-07370-9_33?error=cookies_not_supported&code=d86cc799-6133-4013-a0cd-a5e8b5389373",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 304331,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "06f7fef12802317be860b67d6d225d6da6d59c6c24285e301ceaf700db5503b3",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-032-07370-9_33.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-032-07370-9_33.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:39.970470+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-07370-9_33?error=cookies_not_supported&code=c53dabae-86d6-4474-b926-ca72db63f74e",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "5e83edcd-54ad-4aae-bead-55ff03dd71fa": {
+      "uuid": "5e83edcd-54ad-4aae-bead-55ff03dd71fa",
+      "handle": "123456789/75",
+      "title": "Low-Cost Arduino Environmental Monitoring: Structured vs. Unstructured Data Formats",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "5f844c5b-29b7-4add-964e-500d6e7f75cb": {
+      "uuid": "5f844c5b-29b7-4add-964e-500d6e7f75cb",
+      "handle": "123456789/263",
+      "title": "What makes anglicisms survive? A corpus-based study of patterns of conventionalization, institutionalization and lexicalization",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "5f8b9675-216a-4104-ae1c-ae3b63b94eec": {
+      "uuid": "5f8b9675-216a-4104-ae1c-ae3b63b94eec",
+      "handle": "123456789/158",
+      "title": "AI-Driven Smart Drying: Enhancing Efficiency in Transformer Production Systems",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-032-07373-0_39",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.809602+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-07373-0_39?error=cookies_not_supported&code=e2c1b5ed-5158-4924-82f5-3e40b835e153",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 320447,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "34ec556e35fbf89c7e468c7896c9c40a8b7d0f36a4eb9d6494968ac90847a82e",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-032-07373-0_39.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-032-07373-0_39.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:37.219062+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-07373-0_39?error=cookies_not_supported&code=8ecbf2f6-cef4-47a6-a030-93b4269a1afb",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "60d679e5-4324-4014-bc4a-4be0785f53c6": {
+      "uuid": "60d679e5-4324-4014-bc4a-4be0785f53c6",
+      "handle": "123456789/166",
+      "title": "A Comparative Analysis of Informed and Uninformed Search Algorithms for the 8-Puzzle Problem with a Novel Hybrid Approach",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/icai67591.2025.11325086",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.199999+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/11325086/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "64cad131-2784-4db3-9234-0654a28305ef": {
+      "uuid": "64cad131-2784-4db3-9234-0654a28305ef",
+      "handle": "123456789/194",
+      "title": "Normalized Comparison Method for Finding the Most Efficient DSS Code",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-030-70572-5_16",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:50.529077+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-030-70572-5_16?error=cookies_not_supported&code=dfe401e2-d231-4c69-a5c8-7e03aef52e25",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 306123,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "3a82e1c70beddbf80c49a5d1f30b863b4a83a8f0f9456f909dfd54b624e9f298",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-030-70572-5_16.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-030-70572-5_16.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:52.360934+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-030-70572-5_16?error=cookies_not_supported&code=3e7beca8-c31d-477c-a3b4-6cba2b65d941",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-030-70572-5_16.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:32.871371+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-030-70572-5_16?error=cookies_not_supported&code=0728ce1e-1e20-402a-a87d-991f88cceddf",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "66249070-ecff-4870-903c-d538f4d2924e": {
+      "uuid": "66249070-ecff-4870-903c-d538f4d2924e",
+      "handle": "123456789/103",
+      "title": "A few exercises for Square (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "680df514-dc0d-49ce-a3ff-2eab7775e3f2": {
+      "uuid": "680df514-dc0d-49ce-a3ff-2eab7775e3f2",
+      "handle": "123456789/138",
+      "title": "Coordinated Multi-View Visual Analytics for AWS VPC Flow Log Analysis",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/infoteh68759.2026.11477686",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:41.886907+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/11477686/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "69095693-290d-4ca9-8e84-8b97ff8d2d94": {
+      "uuid": "69095693-290d-4ca9-8e84-8b97ff8d2d94",
+      "handle": "123456789/201",
+      "title": "Enhancing Facial Recognition Through 3D Depth Map Optimization",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/iwssip66997.2025.11151964",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:46.594762+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/11151964/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "6a0a61a7-18c4-4d82-a21d-24bc83b5742e": {
+      "uuid": "6a0a61a7-18c4-4d82-a21d-24bc83b5742e",
+      "handle": "123456789/191",
+      "title": "Optimizing Anonymity and Performance in a Mix Network",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-08147-7_4",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:51.928218+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-08147-7_4?error=cookies_not_supported&code=9732f47d-76bc-4414-b0bf-121138c98872",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 296745,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "1670a91b6f74854c40640f42c1107ae580db6ab12c7bf8b99f3f464c8da8c96d",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-08147-7_4.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-08147-7_4.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:53.506666+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-08147-7_4?error=cookies_not_supported&code=f7404d06-8b19-4ad5-b771-87911b11f3a6",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-08147-7_4.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:34.981330+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-08147-7_4?error=cookies_not_supported&code=661b5ab6-88d4-4aa6-a282-7085afb5b6e4",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "6b1c6990-cf14-4de1-a299-0c63a24c2274": {
+      "uuid": "6b1c6990-cf14-4de1-a299-0c63a24c2274",
+      "handle": "123456789/269",
+      "title": "[Abstract only – paper title not specified]",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "6b80fb34-e4b2-4b55-9b30-5bd6ec195878": {
+      "uuid": "6b80fb34-e4b2-4b55-9b30-5bd6ec195878",
+      "handle": "123456789/211",
+      "title": "Metaverse: clash of the worlds and the birth of a new hybrid reality",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "7352c3f1-d4c6-4dcc-98dc-830c7c6819db": {
+      "uuid": "7352c3f1-d4c6-4dcc-98dc-830c7c6819db",
+      "handle": "123456789/153",
+      "title": "Smart Villages – Examples from Croatia and Macedonia",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "791a12b7-615b-438a-947f-323b12d4bc90": {
+      "uuid": "791a12b7-615b-438a-947f-323b12d4bc90",
+      "handle": "123456789/154",
+      "title": "Sensor system for real-time water quality monitoring",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.23919/mipro57284.2023.10159855",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:55.164307+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/10159855/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "7c65360b-b048-441d-9741-f9621da5ec6e": {
+      "uuid": "7c65360b-b048-441d-9741-f9621da5ec6e",
+      "handle": "123456789/88",
+      "title": "A Hybrid Machine Learning Approach of Fuzzy-rough-k-nearest Neighbor, Latent Semantic Analysis, and Ranker Search for Efficient Disease Diagnosis",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.3233/jifs-211820",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.200234+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 403,
+          "final_url": "https://journals.sagepub.com/doi/full/10.3233/JIFS-211820",
+          "error": "HTTP Error 403: Forbidden"
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "7f00318d-00fe-44ed-bbd7-81b5da200592": {
+      "uuid": "7f00318d-00fe-44ed-bbd7-81b5da200592",
+      "handle": "123456789/143",
+      "title": "COVID-19 Pandemic Management: A Cloud-Based Electronic Health Record System",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-83207-9_1",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:42.074376+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-83207-9_1?error=cookies_not_supported&code=58e3199b-b314-4498-b539-c1254bd71a8f",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 308907,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "eb476c299c1dfba0613b2450a923690599b2a660a075e7da54bd5521fb96f205",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-83207-9_1.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-83207-9_1.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:43.647342+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-83207-9_1?error=cookies_not_supported&code=51926dbe-487f-4118-8e8d-fb6342f65a6d",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-83207-9_1.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:28.824835+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-83207-9_1?error=cookies_not_supported&code=20f55f56-7031-47e2-914c-3ffb538f919f",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "8019c134-6e01-45aa-b9f9-adc894b06320": {
+      "uuid": "8019c134-6e01-45aa-b9f9-adc894b06320",
+      "handle": "123456789/113",
+      "title": "Universal ethics, culture, ethical education and global processes (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "8e32dd9c-9760-4f10-98d8-ed55d19fe526": {
+      "uuid": "8e32dd9c-9760-4f10-98d8-ed55d19fe526",
+      "handle": "123456789/146",
+      "title": "Energy management system based on wireless sensor networks and power line communications",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/icai55857.2022.9960097",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:46.334014+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9960097/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "90f4a2a9-eb0c-4467-83cf-a66fa7055a4a": {
+      "uuid": "90f4a2a9-eb0c-4467-83cf-a66fa7055a4a",
+      "handle": "123456789/99",
+      "title": "Prime numbers",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "92e76390-548d-4a90-9d40-41a0b1fe0c57": {
+      "uuid": "92e76390-548d-4a90-9d40-41a0b1fe0c57",
+      "handle": "123456789/192",
+      "title": "Social Data Analytics for Enhancing the Collaborative Economy",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/ismsit52890.2021.9604730",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:55.333890+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9604730/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "9a8ebc25-fab1-47d8-8be4-d605eba45933": {
+      "uuid": "9a8ebc25-fab1-47d8-8be4-d605eba45933",
+      "handle": "123456789/176",
+      "title": "The Role of Human Error in Cybersecurity Threats – Minimizing Risks in Information Systems",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-032-07373-0_42",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:57.129781+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-07373-0_42?error=cookies_not_supported&code=e9636f77-0623-4a91-a8ba-3923681a9869",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 322995,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "ebc0466b41dc13f993e06c44d5ef8a9797d83627262ded018a78124905564a4b",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-032-07373-0_42.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-032-07373-0_42.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:58.393467+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-07373-0_42?error=cookies_not_supported&code=92e9d093-c917-4e55-888b-7a6fa99ac65c",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "9f61002b-be14-450f-96ae-1521eaa0e3e9": {
+      "uuid": "9f61002b-be14-450f-96ae-1521eaa0e3e9",
+      "handle": "123456789/218",
+      "title": "Creative Aging Through Using Digital Technology",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "9f9b701e-7c8c-4d4d-ac59-16f434fa8096": {
+      "uuid": "9f9b701e-7c8c-4d4d-ac59-16f434fa8096",
+      "handle": "123456789/165",
+      "title": "Generative Artificial Intelligence as a Tool for the Preservation and Interpretation of Linguistic Heritage (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "a39bf6e0-d311-47ad-80bd-16e9d366ab03": {
+      "uuid": "a39bf6e0-d311-47ad-80bd-16e9d366ab03",
+      "handle": "123456789/87",
+      "title": "A novel model-driven deterministic approach to wind power imputation",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1016/j.suscom.2022.100818",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.200294+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S2210537922001494",
+          "content_type": "text/html;charset=UTF-8",
+          "content_length": "2683",
+          "inspected_bytes": 2683,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "8dfe79ce90a2a0e2b51adfe4f8f606173a645cd6182a88f8efdbd5065c1d943a",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "a7273ee3-e97d-4c73-a41a-d8edb359836e": {
+      "uuid": "a7273ee3-e97d-4c73-a41a-d8edb359836e",
+      "handle": "123456789/270",
+      "title": "Artificial Bee Colony algorithm applied in optimization problems",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "addc4a59-851e-4dfa-95cb-223fb3098f4f": {
+      "uuid": "addc4a59-851e-4dfa-95cb-223fb3098f4f",
+      "handle": "123456789/155",
+      "title": "Intelligent Real-Time Face Mask and Temperature Recognition Using Deep Learning on Raspberry Pi",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/icai55857.2022.9960126",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:48.807207+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9960126/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "b7a9f055-dec3-4cb2-b3f2-765f7e944275": {
+      "uuid": "b7a9f055-dec3-4cb2-b3f2-765f7e944275",
+      "handle": "123456789/105",
+      "title": "Counting lines and 2D figures – part 1 (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "c7baa924-e66c-4335-b51e-c20ba9cf7a66": {
+      "uuid": "c7baa924-e66c-4335-b51e-c20ba9cf7a66",
+      "handle": "123456789/206",
+      "title": "Beyond Single-Label Classification: Enhancing Radiological Diagnostics for Thoracic Diseases with Azure AutoML",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "cc0a8cbf-644b-44db-9da1-e91b8eb8b4f0": {
+      "uuid": "cc0a8cbf-644b-44db-9da1-e91b8eb8b4f0",
+      "handle": "123456789/147",
+      "title": "Guided analytics software for smart aggregation, cognition, and interactive visualisation",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-981-15-6067-5_59",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:47.112414+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-15-6067-5_59?error=cookies_not_supported&code=3e4ba3c7-4a6a-4049-927d-6dae88cf427e",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 301831,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "adda87898a110a4d83c290106f7a0e6cc673584a055a88ed6ffcf4837ea648f0",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-981-15-6067-5_59.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-981-15-6067-5_59.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:48.726018+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-15-6067-5_59?error=cookies_not_supported&code=f956ab30-697e-4f2a-8479-3338c7b37ff4",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-981-15-6067-5_59.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:30.812618+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-15-6067-5_59?error=cookies_not_supported&code=ef32c650-9eb2-4a4b-adb9-afe242f3ce2a",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "d3873a72-cc11-41fc-8dcb-90f24ca3127d": {
+      "uuid": "d3873a72-cc11-41fc-8dcb-90f24ca3127d",
+      "handle": "123456789/96",
+      "title": "Artificial Intelligence Based Model in the Provision of Financial Services",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "d3f0a038-9933-4018-a89a-99d27c650f1f": {
+      "uuid": "d3f0a038-9933-4018-a89a-99d27c650f1f",
+      "handle": "123456789/177",
+      "title": "Quantum AI for Ethical Decision-Making in Medical Education",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-032-13883-5_16",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:54.631949+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-13883-5_16?error=cookies_not_supported&code=7de3ee41-3575-45a4-978a-fe1f1c6338fa",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 313209,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "50cfff4f9987703616d91d76a510a9758dbd139b6a4b7ec9ad7f13294e27e425",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-032-13883-5_16.pdf"
+          ],
+          "rights_and_data_hint_urls": [
+            "https://doi.org/10.5281/zenodo.2562111"
+          ]
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-032-13883-5_16.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:56.043512+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-032-13883-5_16?error=cookies_not_supported&code=500f1499-ba7a-4f1f-ac63-c6d9771052ce",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "d55040ce-8140-4f8f-b46e-ae723f2eafcf": {
+      "uuid": "d55040ce-8140-4f8f-b46e-ae723f2eafcf",
+      "handle": "123456789/101",
+      "title": "Binary number system and binary coding",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "d8f340da-fc7c-4472-b84c-79e61b1a2c1b": {
+      "uuid": "d8f340da-fc7c-4472-b84c-79e61b1a2c1b",
+      "handle": "123456789/174",
+      "title": "BloHeS Consensus Mechanism – Introduction and Performance Evaluation",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-15101-9_6",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:39.484393+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-15101-9_6?error=cookies_not_supported&code=1256feeb-5cb7-4c9b-bd31-0855e22df87f",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 297231,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "7f028bbba75eb93c2726d1fad54d5a29318b382dacf2883297ccaa32c54e3009",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-15101-9_6.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-15101-9_6.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:41.174806+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-15101-9_6?error=cookies_not_supported&code=e389ee51-b1d6-4ed7-aa83-908f60a34f05",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-15101-9_6.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:26.602288+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-15101-9_6?error=cookies_not_supported&code=70a32925-2ca7-4711-8515-143e4fdfc8af",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "da1190ab-5602-4052-896c-ddf1f8cba1a3": {
+      "uuid": "da1190ab-5602-4052-896c-ddf1f8cba1a3",
+      "handle": "123456789/144",
+      "title": "Brain tumor classification via UNet architecture of CNN technique",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-15784-4_2",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:39.500983+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-15784-4_2?error=cookies_not_supported&code=006b7d58-f35a-47e2-ae8f-0fe41a7844ec",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 348629,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "7a7029977e3546de26033fc693717b7b6df1e17322a1dfd7df56cee5939abad2",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-15784-4_2.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-15784-4_2.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:41.135293+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-15784-4_2?error=cookies_not_supported&code=32c3d024-04e8-4457-86a2-88b5218b0478",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-15784-4_2.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:28.612184+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-15784-4_2?error=cookies_not_supported&code=e0282452-e151-4cd0-9163-635436e06797",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "dd0163f7-6b72-483f-9368-718e28676550": {
+      "uuid": "dd0163f7-6b72-483f-9368-718e28676550",
+      "handle": "123456789/196",
+      "title": "Tools for Analytics and Cognition for Crowd Journalism Application",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-3-031-06374-9_16",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:58.072922+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-06374-9_16?error=cookies_not_supported&code=c814e9d5-e8a0-4052-a870-45ddcdbe3547",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 311471,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "abe64b2f7e81040d0db1f1fb1710faa6f26e0e0bec5de68c83155803205f20f9",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-3-031-06374-9_16.pdf"
+          ],
+          "rights_and_data_hint_urls": [
+            "https://doi.org/10.5281/ZENODO.3679385"
+          ]
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-06374-9_16.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:59.293396+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-3-031-06374-9_16?error=cookies_not_supported&code=9e7bb25e-e9d0-4e2b-b023-3b23730f3f89",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "de976151-21ef-474e-8e0f-49d4f1bcbc02": {
+      "uuid": "de976151-21ef-474e-8e0f-49d4f1bcbc02",
+      "handle": "123456789/161",
+      "title": "MOGPlay: A Decentralized Crowd Journalism Application for Democratic News Production",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/asonam55673.2022.10068697",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:50.263666+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/10068697/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "e14fc338-9768-4994-8c73-37bdfab65f89": {
+      "uuid": "e14fc338-9768-4994-8c73-37bdfab65f89",
+      "handle": "123456789/212",
+      "title": "Approaching Forensic Analysis in Cyberspace",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "e17524f8-ad15-4477-8571-e913aa9286e9": {
+      "uuid": "e17524f8-ad15-4477-8571-e913aa9286e9",
+      "handle": "123456789/178",
+      "title": "Cloud-Based AI Surveillance for Motion Detection and Facial Recognition",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/aicconf64766.2025.11064180",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:41.678761+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/11064180/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "ec9c6b94-e463-4493-9b1c-20902f91cbe1": {
+      "uuid": "ec9c6b94-e463-4493-9b1c-20902f91cbe1",
+      "handle": "123456789/215",
+      "title": "From Earthquakes to Age Quakes: Promoting the Silver Economy and Gearing Toward a Sustainable Aging Population in Mauritius",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://www.ceeol.com/content-files/document-1411673.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:46.944278+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 405,
+          "final_url": "https://www.ceeol.com/content-files/document-1411673.pdf",
+          "error": "HTTP Error 405: Method Not Allowed"
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "ef4af6f2-a20a-4cdc-99b3-adc4abc11bf9": {
+      "uuid": "ef4af6f2-a20a-4cdc-99b3-adc4abc11bf9",
+      "handle": "123456789/187",
+      "title": "Blockchain as a Service – an overview of AWS and its BaaS",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/telfor56187.2022.9983746",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:38.856111+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/9983746/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "efc8cba5-1cff-41ff-8550-9908474c9808": {
+      "uuid": "efc8cba5-1cff-41ff-8550-9908474c9808",
+      "handle": "123456789/257",
+      "title": "New Literature, or the Literature of Our Time (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "f07a94b2-d958-415e-8a11-f7617b54b707": {
+      "uuid": "f07a94b2-d958-415e-8a11-f7617b54b707",
+      "handle": "123456789/107",
+      "title": "Diophantine equations (in Macedonian)",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "f5a4be64-d0f9-42a6-9b54-691e4b16a1ef": {
+      "uuid": "f5a4be64-d0f9-42a6-9b54-691e4b16a1ef",
+      "handle": "123456789/185",
+      "title": "A Secure and Effective Solution for Electronic Health Records with Hyperledger Fabric Blockchain",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1007/978-981-99-3243-6_40",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:35.393139+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-99-3243-6_40?error=cookies_not_supported&code=31f478ad-19fd-452b-a30a-995a1e783fe3",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "inspected_bytes": 299727,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "10dfb33137898e3adc57a704652d3cf7cab55185a2969c8a4b9c3a8991587c06",
+          "advertised_pdf_urls": [
+            "https://link.springer.com/content/pdf/10.1007/978-981-99-3243-6_40.pdf"
+          ],
+          "rights_and_data_hint_urls": []
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-981-99-3243-6_40.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:36.812944+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-99-3243-6_40?error=cookies_not_supported&code=5a6f813a-ba75-4650-818b-3e981e3c5f05",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/978-981-99-3243-6_40.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:26.602034+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://link.springer.com/chapter/10.1007/978-981-99-3243-6_40?error=cookies_not_supported&code=6b09e39b-62b1-47df-9f54-9dae4e4b47b6",
+          "content_type": "text/html; charset=utf-8",
+          "limitation": "Response is not an accessible PDF or exceeds representative-source limit; content not substantively inspected."
+        }
+      ]
+    },
+    "f98022b7-4934-47ca-b2e3-1f9748f067e0": {
+      "uuid": "f98022b7-4934-47ca-b2e3-1f9748f067e0",
+      "handle": "123456789/150",
+      "title": "Leveraging Customer Value: Custom CLV Calculator for Enhanced Market Insights",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.31410/eraz.2025.597",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:49.344590+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://eraz-conference.com/wp-content/uploads/2026/08/ERAZ.2025.597.pdf",
+          "content_type": "application/pdf",
+          "content_length": "954263",
+          "body_not_read": true
+        },
+        {
+          "url": "https://eraz-conference.com/wp-content/uploads/2026/08/ERAZ.2025.597.pdf",
+          "method": "HEAD",
+          "observed_at": "2026-10-04T23:31:50.946187+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 200,
+          "final_url": "https://eraz-conference.com/wp-content/uploads/2026/08/ERAZ.2025.597.pdf",
+          "content_type": "application/pdf",
+          "content_length": "954263",
+          "body_not_read": true
+        }
+      ],
+      "substantive_review_complete": false,
+      "advertised_pdf_retrieval_attempts": [
+        {
+          "url": "https://eraz-conference.com/wp-content/uploads/2026/08/ERAZ.2025.597.pdf",
+          "method": "GET",
+          "evidence_label": "Verified public",
+          "observed_at": "2026-10-05T06:04:30.904077+02:00",
+          "environment": "Production/publisher; anonymous GET; read-only",
+          "status": 200,
+          "final_url": "https://eraz-conference.com/wp-content/uploads/2026/08/ERAZ.2025.597.pdf",
+          "content_type": "application/pdf",
+          "bytes": 954263,
+          "sha256": "dadf1f20b0d0161d4394dc636e6ba87d7f6faffb1bf22e2365a0815f19b38963",
+          "local_pdf": "/tmp/uist-dataset-sources/coordinator/external/f98022b7-4934-47ca-b2e3-1f9748f067e0.pdf",
+          "local_text": "/tmp/uist-dataset-sources/coordinator/external/f98022b7-4934-47ca-b2e3-1f9748f067e0.txt"
+        }
+      ]
+    },
+    "fa66cb88-bc6a-4660-ad26-25b68b847b24": {
+      "uuid": "fa66cb88-bc6a-4660-ad26-25b68b847b24",
+      "handle": "123456789/235",
+      "title": "Design and Deployment of Custom GPT Solutions Using Azure OpenAI Service",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "fb1c7b3f-5677-48cf-8b9c-e5e6c61c4544": {
+      "uuid": "fb1c7b3f-5677-48cf-8b9c-e5e6c61c4544",
+      "handle": "123456789/183",
+      "title": "Blockchain Empowering Web 3.0: Decentralized Trust and Secure Transactions for the Future Internet",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "url": "https://doi.org/10.1109/telfor59449.2023.10372778",
+          "method": "GET",
+          "observed_at": "2026-10-04T23:31:39.199981+02:00",
+          "evidence_label": "Verified public",
+          "environment": "Anonymous public availability probe; read-only",
+          "limits": "An HTTP success/metadata page is not a substantive source inspection, valid supplement or reuse permission.",
+          "status": 202,
+          "final_url": "https://ieeexplore.ieee.org/document/10372778/",
+          "content_type": "text/html; charset=UTF-8",
+          "content_length": "0",
+          "inspected_bytes": 0,
+          "truncated": false,
+          "sha256_of_inspected_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "advertised_pdf_urls": [],
+          "rights_and_data_hint_urls": []
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "fec417f8-f2a7-4ab5-8191-6d7a4dcb0aed": {
+      "uuid": "fec417f8-f2a7-4ab5-8191-6d7a4dcb0aed",
+      "handle": "123456789/106",
+      "title": "Fill in words, fill in numbers",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    },
+    "ff43a3d2-8294-4248-9b3d-929ae26add71": {
+      "uuid": "ff43a3d2-8294-4248-9b3d-929ae26add71",
+      "handle": "123456789/213",
+      "title": "Comparative analysis of the impact of China's cultural diplomacy in the Western Balkans",
+      "observation_date": "2026-10-04",
+      "attempts": [
+        {
+          "evidence_label": "Unknown",
+          "observation_date": "2026-10-04",
+          "environment": "Local review of refreshed public metadata",
+          "reason": "No DOI or non-image related-source URL advertised; requires title/source identification or researcher request. No URL invented."
+        }
+      ],
+      "substantive_review_complete": false
+    }
+  },
+  "storage_note": "Per-publication probe details consolidated on 6 October 2026; availability remains separate from content inspection."
+}

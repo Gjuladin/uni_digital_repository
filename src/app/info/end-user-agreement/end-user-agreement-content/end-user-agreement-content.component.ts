@@ -1,10 +1,15 @@
 import { AsyncPipe } from '@angular/common';
 import {
   Component,
+  Inject,
   OnDestroy,
   OnInit,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {
+  APP_CONFIG,
+  AppConfig,
+} from '@dspace/config/app-config.interface';
 import { SiteDataService } from '@dspace/core/data/site-data.service';
 import { LocaleService } from '@dspace/core/locale/locale.service';
 import { MetadatumViewModel } from '@dspace/core/shared/metadata.models';
@@ -16,6 +21,9 @@ import {
   Subscription,
 } from 'rxjs';
 import { MarkdownViewerComponent } from 'src/app/shared/markdown-viewer/markdown-viewer.component';
+
+import { REPOSITORY_POLICY_DOCUMENTS } from '../../repository-policies/repository-policy-documents';
+import { areRepositoryPoliciesPublished } from '../../repository-policies/repository-policy-publication.util';
 
 @Component({
   selector: 'ds-end-user-agreement-content',
@@ -40,10 +48,15 @@ export class EndUserAgreementContentComponent implements OnInit, OnDestroy {
   userAgreementText$: BehaviorSubject<string | null> = new BehaviorSubject(null);
 
   fallbackText = 'info.end-user-agreement.content.fallback';
+  readonly repositoryPolicyHtml: string;
 
   constructor(private siteService: SiteDataService,
               private localeService: LocaleService,
+              @Inject(APP_CONFIG) config: AppConfig,
   ) {
+    if (areRepositoryPoliciesPublished(config.info)) {
+      this.repositoryPolicyHtml = REPOSITORY_POLICY_DOCUMENTS['repository-policies'].html;
+    }
   }
 
   /**
@@ -57,6 +70,9 @@ export class EndUserAgreementContentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (this.repositoryPolicyHtml) {
+      return;
+    }
     this.subs.push(
       combineLatest([this.siteService.find(), this.localeService.getCurrentLanguageCode()]).subscribe(([site, langCode]) => {
         const fallbackLangCode = 'en';

@@ -38,7 +38,10 @@ import {
   DynamicSelectModel,
 } from '@ng-dynamic-forms/core';
 import { provideMockStore } from '@ngrx/store/testing';
-import { TranslateModule } from '@ngx-translate/core';
+import {
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { of } from 'rxjs';
 
@@ -249,6 +252,28 @@ describe('SubmissionSectionUploadFileEditComponent test suite', () => {
       expect(endDateModel.max).toEqual(maxEndDate);
     });
 
+    it('should show translated access choices while preserving policy names and custom choices', () => {
+      const translations = {
+        'submission.sections.upload.form.access-condition-label': 'Access condition type',
+        'submission.sections.upload.form.access-condition-hint': 'Choose file access',
+        'submission.sections.upload.access-condition.openaccess': 'Open access',
+        'submission.sections.upload.access-condition.embargo': 'Embargo',
+      };
+      spyOn(TestBed.inject(TranslateService), 'instant').and.callFake((key: string) => translations[key] ?? key);
+      comp.availableAccessConditionOptions = [
+        ...availableAccessConditionOptions,
+        { name: 'Custom policy', hasStartDate: false, hasEndDate: false },
+      ];
+      comp.fileData = fileData;
+      comp.formModel = compAsAny.buildFileEditForm();
+      const model: DynamicSelectModel<string> = formbuilderService.findById('name', comp.formModel, 0);
+      expect(model.label).toBe('Access condition type');
+      expect(model.hint).toBe('Choose file access');
+      expect(model.options.find((option) => option.value === 'openaccess').label).toBe('Open access');
+      expect(model.options.find((option) => option.value === 'embargo').label).toBe('Embargo');
+      expect(model.options.find((option) => option.value === 'Custom policy').label).toBe('Custom policy');
+    });
+
     it('should call setOptions method onChange', () => {
       const dynamicFormControlChangeEvent: DynamicFormControlEvent = {
         $event: new Event('change'),
@@ -303,6 +328,7 @@ describe('SubmissionSectionUploadFileEditComponent test suite', () => {
     });
 
     it('should save Bitstream File data properly when form is valid', fakeAsync(() => {
+      comp.formMetadata = [...formMetadataMock, 'dc.type', 'dspace.bitstream.transcript', 'dspace.bitstream.textalternative'];
       compAsAny.formRef = { formGroup: null };
       compAsAny.fileData = fileData;
       compAsAny.pathCombiner = pathCombiner;
@@ -413,7 +439,29 @@ describe('SubmissionSectionUploadFileEditComponent test suite', () => {
 
     }));
 
+    it('should save dataset file metadata without patching absent audiovisual fields', fakeAsync(() => {
+      compAsAny.formRef = { formGroup: null };
+      comp.fileData = fileData;
+      compAsAny.pathCombiner = pathCombiner;
+      comp.formMetadata = ['dc.title', 'dc.description', 'dc.rights', 'dc.rights.uri'];
+      formService.getFormData.and.returnValue(of(mockFileFormData));
+      operationsBuilder.remove.calls.reset();
+      operationsService.jsonPatchByResourceID.and.returnValue(of([{
+        ...mockSubmissionObject,
+        sections: { upload: { primary: null, files: mockUploadFiles } },
+      }]));
+      comp.saveBitstreamData();
+      tick();
+      for (const field of ['dc.type', 'dspace.bitstream.transcript', 'dspace.bitstream.textalternative']) {
+        expect(operationsBuilder.remove).not.toHaveBeenCalledWith(
+          pathCombiner.getPath(['files', fileIndex, `metadata/${field}`]),
+        );
+      }
+      expect(uploadService.updateFileData).toHaveBeenCalled();
+    }));
+
     it('should remove audio transcript and video description when empty', fakeAsync(() => {
+      comp.formMetadata = [...formMetadataMock, 'dc.type', 'dspace.bitstream.transcript', 'dspace.bitstream.textalternative'];
       compAsAny.formRef = { formGroup: null };
       compAsAny.fileData = fileData;
       compAsAny.pathCombiner = pathCombiner;

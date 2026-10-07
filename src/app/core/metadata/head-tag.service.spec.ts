@@ -16,6 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   Observable,
   of,
+  Subject,
 } from 'rxjs';
 
 import { DSONameService } from '../breadcrumbs/dso-name.service';
@@ -26,6 +27,7 @@ import { RootDataService } from '../data/root-data.service';
 import { HardRedirectService } from '../services/hard-redirect.service';
 import { Bitstream } from '../shared/bitstream.model';
 import { Bundle } from '../shared/bundle.model';
+import { Collection } from '../shared/collection.model';
 import { Item } from '../shared/item.model';
 import { MetadataValue } from '../shared/metadata.models';
 import {
@@ -239,6 +241,77 @@ describe('HeadTagService', () => {
     });
   }));
 
+  it('normalizes language labels and prefers the ISO field', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.language': [{ value: 'mk' }] as MetadataValue[],
+        'dc.language.iso': [{ value: 'English' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_language',
+      content: 'en',
+    });
+    const jsonLd = JSON.parse(
+      document.querySelector('script[data-uist-seo-jsonld]').textContent,
+    );
+    expect(jsonLd['@graph'][0].inLanguage).toBe('en');
+  }));
+
+  it('exposes explicit journal and conference citation metadata', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.type': [{ value: 'Article' }] as MetadataValue[],
+        'dc.relation.ispartof': [
+          { value: 'International Journal of Security &amp; Research' },
+        ] as MetadataValue[],
+        'dc.relation.conference': [
+          { value: '2024 International Congress on Human-Computer Interaction' },
+        ] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_journal_title',
+      content: 'International Journal of Security & Research',
+    });
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_conference',
+      content: '2024 International Congress on Human-Computer Interaction',
+    });
+  }));
+
+  it('does not label a book or conference venue as a journal', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.type': [{ value: 'Book chapter' }] as MetadataValue[],
+        'dc.relation.ispartof': [
+          { value: 'A book title' },
+        ] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).not.toHaveBeenCalledWith(
+      jasmine.objectContaining({ name: 'citation_journal_title' }),
+    );
+  }));
+
   it('items page should set meta tags as published Thesis', fakeAsync(() => {
     (headTagService as any).processRouteChange({
       data: {
@@ -275,6 +348,89 @@ describe('HeadTagService', () => {
     expect(meta.addTag).toHaveBeenCalledWith({
       name: 'citation_technical_report_institution',
       content: 'Mock Publisher',
+    });
+  }));
+
+  it('normalizes slash-separated issued dates for citation consumers', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.date.issued': [{ value: '2021/06/30' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_publication_date',
+      content: '2021-06-30',
+    });
+    const jsonLd = JSON.parse(
+      document.querySelector('script[data-uist-seo-jsonld]').textContent,
+    );
+    expect(jsonLd['@graph'][0].datePublished).toBe('2021-06-30');
+  }));
+
+  it('leaves an impossible slash date unchanged instead of normalizing it', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.date.issued': [{ value: '2021/02/30' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_publication_date',
+      content: '2021/02/30',
+    });
+  }));
+
+  it('does not infer publication timing from lifecycle or copyright dates', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.date.issued': [],
+        'dc.date.copyright': [{ value: '2020' }] as MetadataValue[],
+        'dc.date.available': [{ value: '2021-01-01' }] as MetadataValue[],
+        'dc.date.accessioned': [{ value: '2021-01-02' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).not.toHaveBeenCalledWith(
+      jasmine.objectContaining({ name: 'citation_publication_date' }),
+    );
+    const jsonLd = JSON.parse(
+      document.querySelector('script[data-uist-seo-jsonld]').textContent,
+    );
+    expect(jsonLd['@graph'][0].datePublished).toBeUndefined();
+  }));
+
+  it('prefers issued date over copyright date for publication metadata', fakeAsync(() => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.date.copyright': [{ value: '2020' }] as MetadataValue[],
+        'dc.date.issued': [{ value: '2021' }] as MetadataValue[],
+      },
+    }) as Item;
+    (headTagService as any).processRouteChange({
+      data: { value: { dso: createSuccessfulRemoteDataObject(item) } },
+    });
+    tick();
+
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'citation_publication_date',
+      content: '2021',
     });
   }));
 
@@ -382,9 +538,8 @@ describe('HeadTagService', () => {
         ?.getAttribute('href'),
     ).toBe('https://repository.uist.edu.mk/server/opensearch/service');
     expect(
-      document.querySelectorAll(
-        "link[data-uist-harvesting][rel='alternate']",
-      ).length,
+      document.querySelectorAll("link[data-uist-harvesting][rel='alternate']")
+        .length,
     ).toBe(2);
     expect(meta.addTag).not.toHaveBeenCalledWith(
       jasmine.objectContaining({ name: 'license' }),
@@ -457,6 +612,32 @@ describe('HeadTagService', () => {
     expect(
       document.querySelector("link[rel='canonical']")?.getAttribute('href'),
     ).toBe('https://repository.uist.edu.mk/handle/123456789/78');
+  }));
+
+  it('does not rebase an external publisher Handle path onto the repository', fakeAsync(() => {
+    (headTagService as any).processRouteChange({
+      data: {
+        value: {
+          dso: createSuccessfulRemoteDataObject(
+            mockUri(
+              ItemMock,
+              'https://publisher.example.org/handle/123456789/78',
+            ),
+          ),
+        },
+      },
+    });
+    tick();
+
+    const expected =
+      'https://repository.uist.edu.mk/items/0ec7ff22-f211-40ab-a69e-c819b0b1f357';
+    expect(
+      document.querySelector("link[rel='canonical']")?.getAttribute('href'),
+    ).toBe(expected);
+    const jsonLd = JSON.parse(
+      document.querySelector('script[data-uist-seo-jsonld]').textContent,
+    );
+    expect(jsonLd['@graph'][0]['@id']).toBe(expected);
   }));
 
   it('should use an explicitly configured staging HTTPS URL', fakeAsync(() => {
@@ -556,6 +737,186 @@ describe('HeadTagService', () => {
     });
     expect(JSON.stringify(jsonLd)).not.toContain('localhost');
   }));
+
+  describe('item structured metadata quality', () => {
+    function renderItem(metadata: Record<string, MetadataValue[]>): any {
+      const item = Object.assign(new Item(), {
+        uuid: 'quality-item',
+        metadata,
+      });
+      (headTagService as any).processRouteChange({
+        data: {
+          value: {
+            dso: createSuccessfulRemoteDataObject(item),
+          },
+        },
+      });
+      return JSON.parse(
+        document.querySelector('script[data-uist-seo-jsonld]').textContent,
+      )['@graph'][0];
+    }
+
+    it('exports dataset version, methods, related publication and source without file licence defaults', () => {
+      const item = renderItem({
+        'dc.type': [{ value: 'Dataset' }] as MetadataValue[],
+        'local.dataset.version': [{ value: '1.0-test' }] as MetadataValue[],
+        'local.dataset.methods': [{ value: 'Compile published aggregates.' }] as MetadataValue[],
+        'dc.relation.isreferencedby': [{ value: 'https://example.org/publication' }] as MetadataValue[],
+        'dc.relation.references': [{ value: 'https://example.org/source' }] as MetadataValue[],
+        'dcterms.accessRights': [{ value: 'Mixed file access; embargo ends 2026-11-05.' }] as MetadataValue[],
+      });
+      expect(item['@type']).toBe('Dataset');
+      expect(item.version).toBe('1.0-test');
+      expect(item.measurementTechnique).toBe('Compile published aggregates.');
+      expect(item.subjectOf).toEqual(['https://example.org/publication']);
+      expect(item.isBasedOn).toEqual(['https://example.org/source']);
+      expect(item.conditionsOfAccess).toContain('2026-11-05');
+      expect(item.license).toBeUndefined();
+    });
+
+    it('omits unknown dataset version and methods', () => {
+      const item = renderItem({ 'dc.type': [{ value: 'Dataset' }] as MetadataValue[] });
+      expect(item.version).toBeUndefined();
+      expect(item.measurementTechnique).toBeUndefined();
+      expect(item.subjectOf).toBeUndefined();
+      expect(item.isBasedOn).toBeUndefined();
+    });
+
+    it('keeps the full abstract in JSON-LD, without truncating it for previews', () => {
+      const abstract = 'A detailed research abstract. '.repeat(20);
+      expect(
+        renderItem({
+          'dc.description.abstract': [{ value: abstract }] as MetadataValue[],
+        }).description,
+      ).toBe(abstract.trim());
+    });
+
+    it('omits absent item descriptions instead of describing the repository', () => {
+      expect(renderItem({}).description).toBeUndefined();
+    });
+
+    it('deduplicates normalized DOI identifiers', () => {
+      const item = renderItem({
+        'dc.identifier.doi': [
+          { value: '10.1234/example' },
+          { value: 'https://doi.org/10.1234/example' },
+        ] as MetadataValue[],
+      });
+      expect(item.identifier).toEqual(['https://doi.org/10.1234/example']);
+      expect(item.sameAs).toEqual(['https://doi.org/10.1234/example']);
+    });
+
+    it('keeps qualified OpenAlex identifiers and canonicalizes bare Handles', () => {
+      const item = renderItem({
+        'dc.identifier.handle': [
+          { value: '20.500.15029/94' },
+        ] as MetadataValue[],
+        'dc.identifier.openalex': [
+          { value: 'https://openalex.org/W4405082019' },
+        ] as MetadataValue[],
+      });
+      expect(item.identifier).toEqual([
+        'https://hdl.handle.net/20.500.15029/94',
+        'https://openalex.org/W4405082019',
+      ]);
+      expect(item.sameAs).toEqual(['https://openalex.org/W4405082019']);
+    });
+
+    it('preserves a textual license when no license URI is available', () => {
+      const item = renderItem({
+        'dc.rights.license': [{ value: 'CC BY-NC 4.0' }] as MetadataValue[],
+      });
+      expect(item.license).toBe('CC BY-NC 4.0');
+      expect(item.copyrightNotice).toBeUndefined();
+    });
+
+    it('uses an explicit license URI ahead of a textual license value', () => {
+      const item = renderItem({
+        'dc.rights.license': [{ value: 'cc-by' }] as MetadataValue[],
+        'dc.rights.uri': [
+          { value: 'https://creativecommons.org/licenses/by/4.0/' },
+        ] as MetadataValue[],
+      });
+      expect(item.license).toBe('https://creativecommons.org/licenses/by/4.0/');
+    });
+
+    it('retains a generic rights URL as a license for legacy records', () => {
+      const item = renderItem({
+        'dc.rights': [
+          { value: 'https://creativecommons.org/licenses/by/4.0/' },
+        ] as MetadataValue[],
+      });
+      expect(item.license).toBe('https://creativecommons.org/licenses/by/4.0/');
+    });
+
+    it('keeps a copyright notice beside an explicit license URI', () => {
+      const item = renderItem({
+        'dc.rights.uri': [
+          { value: 'https://creativecommons.org/licenses/by/4.0/' },
+        ] as MetadataValue[],
+        'dc.rights': [{ value: '2023 The Author(s)' }] as MetadataValue[],
+      });
+      expect(item.license).toBe('https://creativecommons.org/licenses/by/4.0/');
+      expect(item.copyrightNotice).toBe('2023 The Author(s)');
+    });
+
+    it('decodes encoded markup as text and keeps JSON-LD script-safe', () => {
+      const item = renderItem({
+        'dc.description.abstract': [
+          {
+            value: '&lt;em&gt;A &amp; B&lt;/em&gt; &lt;/script&gt;',
+          },
+        ] as MetadataValue[],
+      });
+      expect(item.description).toBe('<em>A & B</em> </script>');
+      expect(
+        document.querySelector('script[data-uist-seo-jsonld]').textContent,
+      ).toContain('\\u003c/script>');
+    });
+
+    it('does not turn publication venue metadata into a repository collection', () => {
+      expect(
+        renderItem({
+          'dc.relation.ispartof': [
+            { value: 'Journal of Testing' },
+          ] as MetadataValue[],
+        }).isPartOf,
+      ).toBeUndefined();
+    });
+
+    it('uses the resolved owning collection rather than a journal name', () => {
+      const collection = Object.assign(new Collection(), { uuid: 'collection-id' });
+      (dsoNameService.getName as jasmine.Spy).and.returnValue('Research articles');
+      const item = Object.assign(new Item(), {
+        uuid: 'quality-item',
+        metadata: { 'dc.relation.ispartof': [{ value: 'A journal' }] },
+        owningCollection: createSuccessfulRemoteDataObject$(collection),
+      });
+      (headTagService as any).processRouteChange({ data: { value: {
+        dso: createSuccessfulRemoteDataObject(item),
+      } } });
+      const graph = JSON.parse(document.querySelector('script[data-uist-seo-jsonld]').textContent)['@graph'];
+      expect(graph[0].isPartOf).toEqual({
+        '@type': 'DataCatalog',
+        '@id': 'https://repository.uist.edu.mk/collections/collection-id',
+        name: 'Research articles',
+      });
+    });
+
+    it('ignores an old collection response after navigation', () => {
+      const pending = new Subject<RemoteData<Collection>>();
+      const oldItem = Object.assign(new Item(), {
+        uuid: 'old-item', metadata: {}, owningCollection: pending,
+      });
+      (headTagService as any).processRouteChange({ data: { value: {
+        dso: createSuccessfulRemoteDataObject(oldItem),
+      } } });
+      renderItem({});
+      pending.next(createSuccessfulRemoteDataObject(Object.assign(new Collection(), { uuid: 'old-collection' })));
+      expect(JSON.parse(document.querySelector('script[data-uist-seo-jsonld]').textContent)['@graph'][0].isPartOf)
+        .toBeUndefined();
+    });
+  });
 
   describe(`listenForRouteChange`, () => {
     it(`should call processRouteChange`, fakeAsync(() => {

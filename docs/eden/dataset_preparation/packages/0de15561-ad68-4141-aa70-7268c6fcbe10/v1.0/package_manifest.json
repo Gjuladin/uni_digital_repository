@@ -1,0 +1,51 @@
+{
+  "source_uuid": "0de15561-ad68-4141-aa70-7268c6fcbe10",
+  "version": "1.0",
+  "stage": "prepared_needs_deposit",
+  "dataset_kind": "Partial derived compilation of published aggregate table values",
+  "prepared_date": "2026-10-04",
+  "source_publication_url": "https://repository.uist.edu.mk/items/0de15561-ad68-4141-aa70-7268c6fcbe10",
+  "source_doi": "10.4312/slo2.0.2022.2.132-183",
+  "compiler": null,
+  "depositor": null,
+  "identifier": null,
+  "files": [
+    {
+      "name": "dataset/DATA_DICTIONARY.md",
+      "sha256": "f19505681c20a06c9c05d3ea09fe956f3ae62ead2a4410da8a8069175886d46f",
+      "bytes": 1316
+    },
+    {
+      "name": "dataset/LICENSE.md",
+      "sha256": "bfe0243f5517460ef2edd03c9776072012b651e45696a6e1229f0f4299a81e5d",
+      "bytes": 1431
+    },
+    {
+      "name": "dataset/README.md",
+      "sha256": "1b1bd5f46616b01fe7b4ed97acf16d318ab465a4be2d13c2e53ec17e7e930b70",
+      "bytes": 2920
+    },
+    {
+      "name": "dataset/SHA256SUMS.txt",
+      "sha256": "efb5770a96259fbbb0ceebf03ea8723eed18f9de5f05643b18a2b894d23158c8",
+      "bytes": 346
+    },
+    {
+      "name": "dataset/crowdsourcing_published_aggregates_v1.csv",
+      "sha256": "2aa80086f23b24673a50c2fc15335b6730bbfa2c0ce94c01f88b37379caf1563",
+      "bytes": 10721
+    }
+  ],
+  "rows": 166,
+  "columns": 10,
+  "published_dataset_url": null,
+  "coordinator_review_date": "2026-10-05",
+  "source_rights": "CC BY-SA 4.0, source PDF page1; pending item-specific review",
+  "checks": {
+    "review_package_sha256": "627855367c2e680c9e84cd6616dcd22f3105635a72c878e3149e58682e7b9b30",
+    "source_validation_evidence": "evidence/coordinator-validation.json",
+    "preview_evidence": "evidence/local-preview.png"
+  },
+  "deposit_model": "Authorised institutional depositor publishes directly; no administrator sign-off",
+  "policy_cleanup_date": "2026-10-06"
+}

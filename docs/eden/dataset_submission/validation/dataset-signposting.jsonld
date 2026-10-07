@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "http://localhost:4000/entities/dataset/3c221b31-c047-4cdd-a45c-4a124b9e3845",
+  "name": "SYNTHETIC TEST DATASET \u2014 UIST submission validation (not research)",
+  "headline": "SYNTHETIC TEST DATASET \u2014 UIST submission validation (not research)",
+  "description": "Synthetic generated values solely for local workflow testing. No real participants or published study data.",
+  "url": "http://localhost:4000/entities/dataset/3c221b31-c047-4cdd-a45c-4a124b9e3845",
+  "author": [
+    {
+      "name": "Synthetic Test Compiler",
+      "@type": "Person"
+    }
+  ],
+  "version": "1.0-test",
+  "measurementTechnique": "Generate integers 1, 2, 3 and square each integer; synthetic test only.",
+  "subjectOf": [
+    "https://example.org/synthetic-publication"
+  ],
+  "isBasedOn": [
+    "https://example.org/synthetic-source"
+  ],
+  "datePublished": "2026-10-06",
+  "dateCreated": "2026-10-06",
+  "inLanguage": "en",
+  "keywords": [
+    "synthetic workflow validation"
+  ],
+  "provider": {
+    "@id": "http://localhost:4000/#repository"
+  },
+  "identifier": [
+    "https://hdl.handle.net/20.500.15029/31"
+  ],
+  "license": "https://example.org/synthetic-test-terms",
+  "copyrightNotice": "Synthetic test files may be reused for testing. No licence or rights claim applies to real dataset packages.",
+  "conditionsOfAccess": "Mixed: data.csv, README.md and DATA_DICTIONARY.md are open; restricted.txt is administrator-only; embargo.txt is embargoed until 2026-11-05.",
+  "isPartOf": {
+    "@type": "DataCatalog",
+    "@id": "http://localhost:4000/collections/640760c1-a696-496e-bb81-928c06ede4a0",
+    "name": "Research Data"
+  }
+}

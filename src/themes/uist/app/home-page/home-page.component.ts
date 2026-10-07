@@ -66,6 +66,7 @@ export class HomePageComponent extends BaseComponent implements OnInit {
   categoryCollections$!: Observable<HomeCategoryCard[]>;
 
   private readonly preferredCategoryOrder = [
+    'Research Data',
     'Impact Factor Articles',
     'Indexed Journal Articles',
     'International Editorial Journals',
@@ -136,7 +137,7 @@ export class HomePageComponent extends BaseComponent implements OnInit {
     const order = new Map(this.preferredCategoryOrder.map((name, index) => [this.normalizeCategoryName(name), index]));
 
     return collections
-      .filter((collection: Collection) => order.has(this.normalizeCategoryName(this.getCollectionName(collection))))
+      .filter((collection: Collection) => order.has(this.normalizeCategoryName(this.getCollectionName(collection))) || collection.firstMetadataValue?.('dspace.entity.type') === 'Dataset')
       .sort((left: Collection, right: Collection) =>
         (order.get(this.normalizeCategoryName(this.getCollectionName(left))) ?? Number.MAX_SAFE_INTEGER) -
         (order.get(this.normalizeCategoryName(this.getCollectionName(right))) ?? Number.MAX_SAFE_INTEGER),
@@ -149,6 +150,10 @@ export class HomePageComponent extends BaseComponent implements OnInit {
 
   private getIconClassForCollectionName(name: string): string {
     const normalizedName = this.normalizeCategoryName(name);
+
+    if (normalizedName.includes('research data') || normalizedName.includes('dataset')) {
+      return 'fas fa-database';
+    }
 
     if (normalizedName.includes('impact factor')) {
       return 'fas fa-chart-line';

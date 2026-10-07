@@ -1,0 +1,10 @@
+{
+  "observation_date": "2026-10-04",
+  "environment": "Production; anonymous; read-only",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/dd287688-8f9c-4792-aaf3-aa15e2a2fd0e/content",
+  "name": "Hatipoglu+et+al.pdf",
+  "rest_md5": "0ff200e62d7a9d61a8f71901e8400ab3",
+  "local_sha256": "e061629b4eaf448f67a098f101bb2f123566b9e234152ec0bee597509b77d6de",
+  "source_pdf_pages_visually_checked": [12, 13, 14, 17],
+  "limits": "Original questionnaire responses, codebook and supplement were not attached to the UIST item."
+}

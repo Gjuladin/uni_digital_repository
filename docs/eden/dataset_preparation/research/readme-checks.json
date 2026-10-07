@@ -1,0 +1,20 @@
+[
+  {
+    "name": "maryland-readme",
+    "url": "https://api.drum.lib.umd.edu/server/api/core/bitstreams/7f12a6f3-ea4c-4281-ad70-013d2ebdcf98/content",
+    "error": "'utf-8' codec can't decode byte 0xd0 in position 475: invalid continuation byte",
+    "evidence_label": "Unknown"
+  },
+  {
+    "name": "cornell-readme",
+    "url": "https://ecommons.cornell.edu/server/api/core/bitstreams/a85dde1d-615b-4b19-bf49-83a995873473/content",
+    "status": 200,
+    "bytes": 10945,
+    "evidence_label": "Verified public",
+    "observation_date": "2026-10-04",
+    "minimal_excerpts": [
+      "This dataset is licensed under Creative Commons License: Attribution 4.0 International (CC BY 4.0) (https://creativecommons.org/licenses/by/4.0/legalcode)."
+    ],
+    "limit": "Small README only; data archive not inspected, depositor/reviewer audit not publicly verified"
+  }
+]

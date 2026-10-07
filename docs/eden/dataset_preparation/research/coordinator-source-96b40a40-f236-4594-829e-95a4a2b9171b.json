@@ -1,0 +1,27 @@
+{
+  "uuid": "96b40a40-f236-4594-829e-95a4a2b9171b",
+  "handle": "123456789/131",
+  "title": "Mathematical Statistics with Examples in R",
+  "review_date": "2026-10-05",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/18f97bf5-44c4-4e50-a97a-4cbba40f2475/content",
+  "source_md5": "f48ec5ec70229b232587eaf3d58b105f",
+  "source_sha256": "d7f78b659586eb9e1f5e2900429f44d5234b2fde38d601ad9ede2bc8bf159279",
+  "source_pdf": "/tmp/uist-dataset-sources/coordinator/96b40a40-f236-4594-829e-95a4a2b9171b.pdf",
+  "page_count": 334,
+  "candidate_title_pages": [
+    1,
+    2,
+    4,
+    5,
+    11,
+    333
+  ],
+  "download_or_reuse": {
+    "url": "https://repository.uist.edu.mk/server/api/core/bitstreams/18f97bf5-44c4-4e50-a97a-4cbba40f2475/content",
+    "status": 200,
+    "observed_at": "2026-10-05T05:59:57.790410+02:00",
+    "bytes": 3638387,
+    "environment": "Anonymous GET; production read-only"
+  },
+  "limitation": "Candidate location/extraction only; coordinator must inspect content and association before completing review."
+}

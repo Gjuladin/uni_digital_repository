@@ -1,0 +1,28 @@
+{
+  "uuid": "d90f78b4-1ecb-4bb2-b340-7326de0cc494",
+  "handle": "123456789/160",
+  "title": "Social Media Use by Businesses in Europe",
+  "review_date": "2026-10-05",
+  "source_url": "https://repository.uist.edu.mk/server/api/core/bitstreams/48885653-de8e-4e63-8bf3-2ef4cb65e237/content",
+  "source_md5": "d073f038e17ae9389290e4dd187e1945",
+  "source_sha256": "387400718e17ca516150d6f87ce28de6579f4f0adb776167a91d384b880368ac",
+  "source_pdf": "/tmp/uist-dataset-sources/coordinator/d90f78b4-1ecb-4bb2-b340-7326de0cc494.pdf",
+  "page_count": 320,
+  "candidate_title_pages": [
+    10,
+    166,
+    168,
+    170,
+    172,
+    174,
+    176
+  ],
+  "download_or_reuse": {
+    "url": "https://repository.uist.edu.mk/server/api/core/bitstreams/48885653-de8e-4e63-8bf3-2ef4cb65e237/content",
+    "status": 200,
+    "observed_at": "2026-10-05T06:00:08.656477+02:00",
+    "bytes": 9270210,
+    "environment": "Anonymous GET; production read-only"
+  },
+  "limitation": "Candidate location/extraction only; coordinator must inspect content and association before completing review."
+}

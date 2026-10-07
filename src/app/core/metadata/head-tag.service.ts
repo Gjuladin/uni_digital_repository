@@ -47,8 +47,10 @@ import {
   mergeMap,
   switchMap,
   take,
+  takeUntil,
 } from 'rxjs/operators';
 
+import { normalizeLanguageCode } from '../../shared/utils/normalize-language-code-utils';
 import { DSONameService } from '../breadcrumbs/dso-name.service';
 import { coreSelector } from '../core.selectors';
 import { CoreState } from '../core-state.model';
@@ -64,6 +66,7 @@ import { Bitstream } from '../shared/bitstream.model';
 import { getDownloadableBitstream } from '../shared/bitstream.operators';
 import { BitstreamFormat } from '../shared/bitstream-format.model';
 import { Bundle } from '../shared/bundle.model';
+import { Collection } from '../shared/collection.model';
 import { DSpaceObject } from '../shared/dspace-object.model';
 import { followLink } from '../shared/follow-link-config.model';
 import { Item } from '../shared/item.model';
@@ -119,6 +122,7 @@ export class HeadTagService {
 
   private currentObject: BehaviorSubject<DSpaceObject> =
     new BehaviorSubject<DSpaceObject>(undefined);
+  private owningCollection: Collection | undefined;
 
   /**
    * When generating the citation_pdf_url meta tag for Items with more than one Bitstream (and no primary Bitstream),
@@ -172,6 +176,7 @@ export class HeadTagService {
     this.clearMetaTags();
     this.clearRepositoryDiscoveryLinks();
     this.currentObject.next(undefined);
+    this.owningCollection = undefined;
 
     if (
       hasValue(routeInfo.data.value.dso) &&
@@ -179,6 +184,25 @@ export class HeadTagService {
     ) {
       this.currentObject.next(routeInfo.data.value.dso.payload);
       this.setDSOMetaTags();
+      const item = this.currentObject.value;
+      if (item instanceof Item && item.owningCollection) {
+        item.owningCollection
+          .pipe(
+            getFirstCompletedRemoteData(),
+            takeUntil(this.currentObject.pipe(filter((current) => current !== item))),
+          )
+          .subscribe((rd) => {
+            // Ignore responses from an item that is no longer displayed.
+            if (
+              this.currentObject.value === item &&
+              rd.hasSucceeded &&
+              rd.payload
+            ) {
+              this.owningCollection = rd.payload;
+              this.setJsonLdTags();
+            }
+          });
+      }
     } else {
       this.setDefaultMetaTags();
     }
@@ -238,6 +262,8 @@ export class HeadTagService {
 
     this.setCitationLanguageTag();
     this.setCitationKeywordsTag();
+    this.setCitationJournalTitleTag();
+    this.setCitationConferenceTag();
 
     // Dublin Core tags are intentionally emitted as repeated values. This
     // keeps the conventional HTML representation aligned with JSON-LD and
@@ -253,11 +279,9 @@ export class HeadTagService {
       this.setCitationDissertationNameTag();
     }
 
-    // this.setCitationJournalTitleTag();
-    // this.setCitationVolumeTag();
-    // this.setCitationIssueTag();
-    // this.setCitationFirstPageTag();
-    // this.setCitationLastPageTag();
+    // Journal and conference values are emitted only when the corresponding
+    // source fields exist. Volume/issue/page fields are intentionally left
+    // absent until UIST records expose dedicated metadata for them.
     // this.setCitationPMIDTag();
 
     // this.setCitationFullTextTag();
@@ -510,8 +534,32 @@ export class HeadTagService {
    * Add <meta name="citation_language" ... >  to the <head>
    */
   protected setCitationLanguageTag(): void {
-    const value = this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']);
+    const value = this.getNormalizedLanguage();
     this.addMetaTag('citation_language', value);
+  }
+
+  /**
+   * Add the journal title used by scholarly citation consumers when an item
+   * explicitly declares itself as an article and provides a venue.
+   *
+   * `dc.relation.ispartof` is also used for books and conference proceedings,
+   * so emitting it unconditionally as a journal would misrepresent those
+   * records.
+   */
+  protected setCitationJournalTitleTag(): void {
+    if (this.hasType('article')) {
+      const value = this.getMetaTagValue('dc.relation.ispartof');
+      this.addMetaTag('citation_journal_title', this.stripHtml(value));
+    }
+  }
+
+  /**
+   * Add an explicitly supplied conference title without attempting to parse
+   * free-form citation strings into volume, issue, or page values.
+   */
+  protected setCitationConferenceTag(): void {
+    const value = this.getMetaTagValue('dc.relation.conference');
+    this.addMetaTag('citation_conference', this.stripHtml(value));
   }
 
   /**
@@ -554,11 +602,16 @@ export class HeadTagService {
       ['DC.type', ['dc.type']],
       ['DC.language', ['dc.language', 'dc.language.iso']],
       ['DC.subject', ['dc.subject']],
-      ['DC.rights', ['dc.rights']],
       [
         'DC.identifier',
-        ['dc.identifier.doi', 'dc.identifier.handle', 'dc.identifier.uri'],
+        [
+          'dc.identifier.doi',
+          'dc.identifier.handle',
+          'dc.identifier.uri',
+          'dc.identifier.openalex',
+        ],
       ],
+      ['DC.rights', ['dc.rights', 'dc.rights.license', 'dc.rights.uri']],
     ];
     mappings.forEach(([name, keys]) => {
       const values = this.getMetaTagValues(keys);
@@ -836,7 +889,12 @@ export class HeadTagService {
         // A repository Handle path remains stable across UUID routes and
         // environments. Rebase only that path onto the configured public
         // origin; never adopt an external publisher identifier as canonical.
-        if (/^\/handle\/[^/]+\/[^/]+\/?$/.test(persistedIdentifier.pathname)) {
+        if (
+          persistedIdentifier.origin === new URL(publicBaseUrl).origin &&
+          !persistedIdentifier.username &&
+          !persistedIdentifier.password &&
+          /^\/handle\/[^/]+\/[^/]+\/?$/.test(persistedIdentifier.pathname)
+        ) {
           return new URLCombiner(
             publicBaseUrl,
             persistedIdentifier.pathname,
@@ -861,12 +919,22 @@ export class HeadTagService {
   }
 
   protected getPublicationDate(): string {
-    return this.getFirstMetaTagValue([
-      'dc.date.copyright',
-      'dc.date.issued',
-      'dc.date.available',
-      'dc.date.accessioned',
-    ]);
+    const value = this.getMetaTagValue('dc.date.issued');
+    // A small number of public records use the otherwise equivalent
+    // YYYY/MM/DD form. Schema.org and citation metadata require the ISO
+    // separator, so normalize this known lexical variant while preserving
+    // partial dates (YYYY or YYYY-MM) and date-times as supplied.
+    const match = /^(\d{4})\/(\d{2})\/(\d{2})$/.exec(value || '');
+    if (!match) {
+      return value;
+    }
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
+    return year > 0 && month >= 1 && month <= 12 && day >= 1 && day <= daysInMonth
+      ? `${match[1]}-${match[2]}-${match[3]}`
+      : value;
   }
 
   protected getOrganizationJsonLd(): Record<string, unknown> {
@@ -919,7 +987,7 @@ export class HeadTagService {
       this.getFirstMetaTagValue(['dc.title']) ||
         this.dsoNameService.getName(this.currentObject.getValue()),
     );
-    const description = this.truncateDescription(
+    const description = this.stripHtml(
       this.getFirstMetaTagValue(['dc.description.abstract', 'dc.description']),
     );
     const creators = this.getMetaTagValues([
@@ -932,13 +1000,16 @@ export class HeadTagService {
     }));
 
     const publisherName = this.getMetaTagValue('dc.publisher');
-    const rights = this.getFirstMetaTagValue(['dc.rights.uri', 'dc.rights']);
+    const rightsUri = this.getFirstMetaTagValue(['dc.rights.uri']);
+    const rightsText = this.getFirstMetaTagValue(['dc.rights']);
+    const licenseText = this.getFirstMetaTagValue(['dc.rights.license']);
     const identifiers = this.getMetaTagValues([
       'dc.identifier.doi',
       'dc.identifier.handle',
       'dc.identifier.uri',
       'dc.identifier.isbn',
       'dc.identifier.issn',
+      'dc.identifier.openalex',
     ])
       .map((value) => this.normaliseSchemaIdentifier(value))
       .filter(hasValue);
@@ -952,10 +1023,14 @@ export class HeadTagService {
       url: canonicalUrl,
       author: creators,
       datePublished: this.getPublicationDate(),
+      version: this.getMetaTagValue('local.dataset.version'),
+      measurementTechnique: this.getMetaTagValue('local.dataset.methods'),
+      subjectOf: this.getMetaTagValues(['dc.relation.isreferencedby']).map(value => this.stripHtml(value)),
+      isBasedOn: this.getMetaTagValues(['dc.relation.references']).map(value => this.stripHtml(value)),
       keywords: this.getMetaTagValues(['dc.subject']).map((value: string) =>
         this.stripHtml(value),
       ),
-      inLanguage: this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']),
+      inLanguage: this.getNormalizedLanguage(),
       publisher: publisherName
         ? {
           '@type': 'Organization',
@@ -965,16 +1040,36 @@ export class HeadTagService {
       provider: {
         '@id': `${publicBaseUrl.replace(/\/$/, '')}/#repository`,
       },
-      identifier: identifiers,
-      sameAs: this.getMetaTagValues(['dc.identifier.doi'])
-        .map((value) => this.normaliseIdentifier(value))
-        .filter(
-          (value): value is string =>
-            hasValue(value) && value.startsWith('https://doi.org/'),
+      identifier: [...new Set(identifiers)],
+      sameAs: [
+        ...new Set(
+          this.getMetaTagValues(['dc.identifier.doi', 'dc.identifier.openalex'])
+            .map((value) => this.normaliseIdentifier(value))
+            .filter(
+              (value): value is string =>
+                hasValue(value) &&
+                (value.startsWith('https://doi.org/') ||
+                  value.startsWith('https://openalex.org/')),
+            ),
         ),
-      license: this.isAbsoluteUrl(rights) ? rights : undefined,
-      copyrightNotice: this.isAbsoluteUrl(rights) ? undefined : rights,
-      conditionsOfAccess: this.getMetaTagValue('dc.rights.accessRights'),
+      ],
+      // Keep an explicit URI as-is. If only a textual licence is available,
+      // preserve that source claim as schema.org Text instead of inventing a
+      // Creative Commons URL or silently dropping it.
+      license: this.isAbsoluteUrl(rightsUri)
+        ? rightsUri
+        : this.isAbsoluteUrl(licenseText)
+          ? licenseText
+          : this.isAbsoluteUrl(rightsText)
+            ? rightsText
+            : licenseText || undefined,
+      copyrightNotice: !this.isAbsoluteUrl(rightsText)
+        ? rightsText || undefined
+        : undefined,
+      conditionsOfAccess: this.getFirstMetaTagValue([
+        'dcterms.accessRights',
+        'dc.rights.accessRights',
+      ]),
       isPartOf: this.getOwningCollectionJsonLd(),
     });
   }
@@ -995,7 +1090,7 @@ export class HeadTagService {
     if (/(^|\s)(book|monograph)(\s|$)/.test(type)) {
       return 'Book';
     }
-    if (/(thesis|dissertation)/.test(type)) {
+    if (/(thesis|dissertation|academic work)/.test(type)) {
       return 'Thesis';
     }
     if (/(report|technical report|working paper)/.test(type)) {
@@ -1005,7 +1100,9 @@ export class HeadTagService {
       return 'SoftwareSourceCode';
     }
     if (
-      /(article|journal|conference|proceedings|paper|publication)/.test(type)
+      /(article|journal|conference|proceedings|paper|publication|preprint)/.test(
+        type,
+      )
     ) {
       return 'ScholarlyArticle';
     }
@@ -1013,18 +1110,14 @@ export class HeadTagService {
   }
 
   protected getOwningCollectionJsonLd(): Record<string, unknown> | undefined {
-    const item = this.currentObject.value as Item;
-    const collectionHref = item?._links?.owningCollection?.href;
-    const collectionName = this.getFirstMetaTagValue([
-      'dc.relation.ispartof',
-    ]);
-    if (!collectionHref && !collectionName) {
+    const collection = this.owningCollection;
+    if (!collection?.uuid) {
       return undefined;
     }
     return this.removeEmptyJsonLdValues({
       '@type': 'DataCatalog',
-      '@id': collectionHref,
-      name: collectionName,
+      '@id': `${this.getPublicBaseUrl().replace(/\/$/, '')}/collections/${collection.uuid}`,
+      name: this.dsoNameService.getName(collection),
     });
   }
 
@@ -1039,9 +1132,48 @@ export class HeadTagService {
     if (/^10\.\d{4,9}\//.test(trimmed)) {
       return `https://doi.org/${trimmed}`;
     }
+    if (/^\d+(?:\.\d+)+\/.+/.test(trimmed)) {
+      return `https://hdl.handle.net/${trimmed}`;
+    }
+    if (/^https?:\/\/hdl\.handle\.net\//i.test(trimmed)) {
+      return `https://hdl.handle.net/${trimmed.replace(/^https?:\/\/hdl\.handle\.net\//i, '')}`;
+    }
     return this.isAbsoluteUrl(trimmed) && !this.isPrivateUrl(trimmed)
       ? trimmed
       : undefined;
+  }
+
+  protected getNormalizedLanguage(): string | undefined {
+    const value = this.getFirstMetaTagValue(['dc.language.iso', 'dc.language']);
+    const normalized = normalizeLanguageCode(value?.trim());
+    if (!normalized) {
+      return undefined;
+    }
+    switch (normalized.toLowerCase()) {
+      case 'english':
+      case 'eng':
+        return 'en';
+      case 'macedonian':
+      case 'mkd':
+        return 'mk';
+      case 'albanian':
+      case 'sqi':
+        return 'sq';
+      case 'german':
+      case 'deu':
+        return 'de';
+      case 'french':
+      case 'fra':
+        return 'fr';
+      case 'italian':
+      case 'ita':
+        return 'it';
+      case 'spanish':
+      case 'spa':
+        return 'es';
+      default:
+        return normalized;
+    }
   }
 
   protected normaliseSchemaIdentifier(value: string): string | undefined {
@@ -1051,6 +1183,7 @@ export class HeadTagService {
     }
     return /^doi:\s*/i.test(trimmed) ||
       /^10\.\d{4,9}\//.test(trimmed) ||
+      /^\d+(?:\.\d+)+\/.+/.test(trimmed) ||
       this.isAbsoluteUrl(trimmed)
       ? this.normaliseIdentifier(trimmed)
       : trimmed;
@@ -1074,8 +1207,8 @@ export class HeadTagService {
       const parsed = new URL(value);
       return Boolean(
         parsed.username ||
-          parsed.password ||
-          !getSafePublicBaseUrl(parsed.origin),
+        parsed.password ||
+        !getSafePublicBaseUrl(parsed.origin),
       );
     } catch {
       return true;
@@ -1100,7 +1233,10 @@ export class HeadTagService {
 
   protected truncateDescription(value: string): string {
     const strippedValue = this.stripHtml(
-      value || this.getRepositoryDescription(),
+      value ||
+        (this.currentObject.value instanceof Item
+          ? ''
+          : this.getRepositoryDescription()),
     )
       .replace(/\s+/g, ' ')
       .trim();
@@ -1126,7 +1262,16 @@ export class HeadTagService {
   }
 
   protected stripHtml(value: string): string {
-    return (value || '').replace(/<[^>]+>/g, '').trim();
+    const stripped = (value || '').replace(/<[^>]+>/g, '').trim();
+    if (!stripped || !this.document?.createElementNS) {
+      return stripped;
+    }
+    const decoder = this.document.createElementNS(
+      'http://www.w3.org/1999/xhtml',
+      'textarea',
+    ) as HTMLTextAreaElement;
+    decoder.innerHTML = stripped;
+    return (decoder.value || decoder.textContent || '').trim();
   }
 
   protected addMetaTag(name: string, content: string): void {
