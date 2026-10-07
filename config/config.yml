@@ -53,19 +53,22 @@ harvesting:
       id: https://uist.edu.mk/#organization
       name: University of Information Science and Technology "St. Paul the Apostle"
       url: https://uist.edu.mk/
-      # countryCode: { enabled: false, value: '' }
-    # Governance and registry claims are intentionally omitted until approved.
-    # Optional claims use { enabled: true, value: ... } and are omitted otherwise.
-    # These machine-readable claims are separate from the bundled public pages.
-    # Enable actual public policy URLs after deploying and verifying the pages.
-    # contactEmail: { enabled: false, value: '' }
-    # licenseUrl: { enabled: false, value: '' }
-    # accessRightsUrl: { enabled: false, value: '' }
-    # depositPolicyUrl: { enabled: false, value: '' }
-    # preservationPolicyUrl: { enabled: false, value: '' }
-    # curationPolicyUrl: { enabled: false, value: '' }
-    # re3dataId: { enabled: false, value: '' }
-    # fairsharingId: { enabled: false, value: '' }
+      countryCode: { enabled: true, value: 'MK' }
+    # Accepted policies and contact were verified publicly on 7 October 2026.
+    # The consolidated policy covers deposit, access, curation and preservation.
+    # Its reuse terms distinguish CC0 descriptive metadata from file-specific rights.
+    contactEmail: { enabled: true, value: 'pavel.taskov@uist.edu.mk' }
+    licenseUrl: { enabled: true, value: 'https://repository.uist.edu.mk/info/repository-policies' }
+    accessRightsUrl: { enabled: true, value: 'https://repository.uist.edu.mk/info/repository-policies' }
+    depositPolicyUrl: { enabled: true, value: 'https://repository.uist.edu.mk/info/repository-policies' }
+    preservationPolicyUrl: { enabled: true, value: 'https://repository.uist.edu.mk/info/repository-policies' }
+    curationPolicyUrl: { enabled: true, value: 'https://repository.uist.edu.mk/info/repository-policies' }
+    # Enabled empty claims are omitted from exports until an identifier is supplied.
+    # Populate re3dataId with the actual entry URL after registration.
+    re3dataId: { enabled: true, value: '' }
+    # Candidate FAIRsharing record 9313 is recorded as awaiting curator review.
+    # Its public page did not identify UIST on recheck; populate after verification.
+    fairsharingId: { enabled: true, value: '' }
   services:
     rest: true
     oaiPmh: true
