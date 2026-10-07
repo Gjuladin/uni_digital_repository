@@ -2180,7 +2180,7 @@
 
   "footer.uist.copyright": "© {{ year }} UIST",
 
-  "footer.uist.description": "Research, theses, publications, project outputs, and institutional collections from UIST.",
+  "footer.uist.description": "Research datasets and supporting documentation, publications, theses and other scholarly outputs from UIST.",
 
   "footer.uist.address": "Partizanska bb, 6000 Ohrid, North Macedonia",
 
@@ -2701,7 +2701,7 @@
 
   "home.uist.title": "UIST Digital Repository",
 
-  "home.uist.description": "Discover and preserve research datasets, publications, theses, conference papers, and project outputs from UIST \"St. Paul the Apostle\" in Ohrid, North Macedonia.",
+  "home.uist.description": "UIST's institutional repository supports the preservation and sharing of research datasets and supporting documentation, alongside publications, theses and other scholarly outputs from Ohrid, North Macedonia.",
 
   "home.uist.search.aria-label": "Search the repository",
 
@@ -2719,7 +2719,7 @@
 
   "home.uist.search.term.label": "Search term",
 
-  "home.uist.search.placeholder": "Search research datasets, publications, theses, creators...",
+  "home.uist.search.placeholder": "Search datasets, publications, theses and creators...",
 
   "home.uist.search.placeholder.by": "Search by {{ field }}...",
 
@@ -2727,15 +2727,15 @@
 
   "home.uist.collections.label": "Collections",
 
-  "home.uist.collections.heading": "Browse by Category",
+  "home.uist.collections.heading": "Browse research data and scholarly outputs",
 
-  "home.uist.collections.description": "Explore collections of research datasets and scholarly publications",
+  "home.uist.collections.description": "Explore UIST collections of research datasets, supporting documentation, publications and theses.",
 
-  "home.uist.news.eyebrow": "Open scholarship at UIST",
+  "home.uist.news.eyebrow": "Research data and scholarship at UIST",
 
   "home.uist.news.title": "Research across computing, engineering, and the digital society",
 
-  "home.uist.news.description": "Browse UIST research datasets, publications and theses in computer science and engineering, artificial intelligence and robotics, data science, communication networks and cybersecurity, visualization and multimedia, and digital business.",
+  "home.uist.news.description": "UIST researchers, staff and students with authorised accounts can deposit research datasets, documentation and scholarly outputs. Browse the public catalogue without an account. File access and reuse follow the conditions and rights stated on each record. Research areas include computing, engineering, artificial intelligence, data science, cybersecurity, multimedia and digital business.",
 
   "home.default.title": "DSpace 9",
 
@@ -5111,7 +5111,7 @@
 
   "repository.address.street": "Partizanska bb",
 
-  "repository.description": "Research datasets, scholarly works, publications, theses, conference papers, and research outputs from UIST \"St. Paul the Apostle\" in Ohrid.",
+  "repository.description": "UIST's institutional repository supports the preservation and sharing of research datasets and supporting documentation, alongside publications, theses and other scholarly outputs from Ohrid, North Macedonia.",
 
   "repository.institution": "University of Information Science and Technology \"St. Paul the Apostle\"",
 

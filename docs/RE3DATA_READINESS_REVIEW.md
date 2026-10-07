@@ -1,5 +1,7 @@
 # UIST re3data registration readiness review
 
+> Current local assessment, 7 October 2026: the dataset submission implementation now addresses the earlier technical workflow gap. Fresh local REST, file-access and OAI checks passed. Deployment, production Dataset collection setup and genuine public research-data evidence remain to be completed; see [the updated assessment](eden/dataset_submission/RE3DATA_ASSESSMENT_2026-10-07.md). The September findings below are historical observations.
+
 > This review records observations from 30 September 2026. Update 6 October: the rector accepted the [four-page policy pack](eden/rector_review_2026-10/dabar_simple_2026-10-06/README.md), including UIST scope, operator, contacts, languages and CC0 metadata. Earlier calls below to approve those rules describe the pre-acceptance state. Production policy publication and genuine research-data evidence still need verification; use [the current registry record](EDEN_REGISTRY_SUBMISSION.md).
 
 Reviewed: **30 September 2026**. Repository: <https://repository.uist.edu.mk/>.

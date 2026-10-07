@@ -45,7 +45,7 @@ harvesting:
   enabled: true
   repository:
     name: UIST Digital Repository
-    description: Institutional digital repository of the University of Information Science and Technology "St. Paul the Apostle".
+    description: UIST's institutional repository supports the preservation and sharing of research datasets and supporting documentation, alongside publications, theses and other scholarly outputs from Ohrid, North Macedonia.
     languages:
       - en
     subjects: []

@@ -1,0 +1,423 @@
+{
+  "checked_at_utc": "2026-10-07T08:47:39.692102+00:00",
+  "user_date": "2026-10-07",
+  "timezone": "Europe/Skopje",
+  "base_url": "https://repository.uist.edu.mk",
+  "read_only": true,
+  "authenticated": false,
+  "page_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": [
+        "UIST Repository :: Home"
+      ],
+      "cc0": false,
+      "research_datasets": false,
+      "policy_version": false
+    },
+    {
+      "path": "/info/repository-policies",
+      "status": 404,
+      "title": [
+        "UIST Repository :: Page not found"
+      ],
+      "cc0": false,
+      "research_datasets": false,
+      "policy_version": false
+    },
+    {
+      "path": "/info/contact",
+      "status": 404,
+      "title": [
+        "UIST Repository :: Page not found"
+      ],
+      "cc0": false,
+      "research_datasets": false,
+      "policy_version": false
+    },
+    {
+      "path": "/info/accessibility-statement",
+      "status": 404,
+      "title": [
+        "UIST Repository :: Page not found"
+      ],
+      "cc0": false,
+      "research_datasets": false,
+      "policy_version": false
+    },
+    {
+      "path": "/info/privacy",
+      "status": 200,
+      "title": [
+        "UIST Repository :: Privacy Statement"
+      ],
+      "cc0": false,
+      "research_datasets": false,
+      "policy_version": false
+    },
+    {
+      "path": "/info/end-user-agreement",
+      "status": 200,
+      "title": [
+        "UIST Repository :: End User Agreement"
+      ],
+      "cc0": false,
+      "research_datasets": false,
+      "policy_version": false
+    }
+  ],
+  "collections": {
+    "page": {
+      "size": 100,
+      "totalElements": 11,
+      "totalPages": 1,
+      "number": 0
+    },
+    "objects": [
+      {
+        "uuid": "570bc654-1413-4d80-bf92-e10b30c5c3c9",
+        "name": "Additional Publications",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "217aad7a-8ffb-437e-8a4a-fb564bf356e8",
+        "name": "Bachelor Theses",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "ae0eb3ed-14af-41b9-98a5-8b26420bf179",
+        "name": "EU OECD Journals",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "cce36bad-6df2-41c8-9959-4ebd95d739e5",
+        "name": "Impact Factor Articles",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "6ff56f8a-d42a-4bc3-84b7-a52f0717a8c6",
+        "name": "Indexed Journal Articles",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "73185a59-d5fb-4427-bab8-a077be1c5de0",
+        "name": "International Conference Papers",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "a9e1bc3c-a1a1-442a-95db-e69f06f682c6",
+        "name": "International Editorial Journals",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "8c2e3f2b-7e62-4b8f-816b-9e79c75ec06a",
+        "name": "Master Theses",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "1e45a38c-95b5-4bc7-bed0-9baa805df074",
+        "name": "Peer Reviewed Books",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "c31d6f7c-4800-4399-ac6e-93bc6ad6a1f5",
+        "name": "Professional Field Books",
+        "entity_types": [],
+        "submission_definition": []
+      },
+      {
+        "uuid": "a7b5e6ad-3437-48fd-a576-8858c7e41ef9",
+        "name": "Scientific Professional Journals",
+        "entity_types": [],
+        "submission_definition": []
+      }
+    ]
+  },
+  "entity_registry": {
+    "page": {
+      "size": 100,
+      "totalElements": 1,
+      "totalPages": 1,
+      "number": 0
+    },
+    "labels": [
+      "none"
+    ]
+  },
+  "metadata_fields": [
+    {
+      "field": "local.dataset.version",
+      "url": "https://repository.uist.edu.mk/server/api/core/metadatafields/search/byFieldName?exactName=local.dataset.version",
+      "status": 200,
+      "total_elements": 0,
+      "ids": []
+    },
+    {
+      "field": "local.dataset.methods",
+      "url": "https://repository.uist.edu.mk/server/api/core/metadatafields/search/byFieldName?exactName=local.dataset.methods",
+      "status": 200,
+      "total_elements": 0,
+      "ids": []
+    },
+    {
+      "field": "local.creator.affiliation",
+      "url": "https://repository.uist.edu.mk/server/api/core/metadatafields/search/byFieldName?exactName=local.creator.affiliation",
+      "status": 200,
+      "total_elements": 0,
+      "ids": []
+    },
+    {
+      "field": "dcterms.accessRights",
+      "url": "https://repository.uist.edu.mk/server/api/core/metadatafields/search/byFieldName?exactName=dcterms.accessRights",
+      "status": 200,
+      "total_elements": 1,
+      "ids": [
+        78
+      ]
+    },
+    {
+      "field": "dc.title",
+      "url": "https://repository.uist.edu.mk/server/api/core/metadatafields/search/byFieldName?exactName=dc.title",
+      "status": 200,
+      "total_elements": 1,
+      "ids": [
+        73
+      ]
+    }
+  ],
+  "discovery": {
+    "generatedAt": "2026-10-07T08:48:07.667Z",
+    "discovery": {
+      "pagesFetched": 2,
+      "reportedTotalElements": 181,
+      "objectCount": 181,
+      "rawItemCount": 165,
+      "uniqueItemCount": 165
+    },
+    "itemCount": 165,
+    "typeDistribution": {
+      "Article": 120,
+      "Book": 8,
+      "Book chapter": 29,
+      "Conference abstract": 2,
+      "Conference paper": 5,
+      "Technical Report": 1
+    }
+  },
+  "collection_licences": [
+    {
+      "collection": "Additional Publications",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/570bc654-1413-4d80-bf92-e10b30c5c3c9/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Bachelor Theses",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/217aad7a-8ffb-437e-8a4a-fb564bf356e8/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "EU OECD Journals",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/ae0eb3ed-14af-41b9-98a5-8b26420bf179/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Impact Factor Articles",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/cce36bad-6df2-41c8-9959-4ebd95d739e5/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Indexed Journal Articles",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/6ff56f8a-d42a-4bc3-84b7-a52f0717a8c6/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "International Conference Papers",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/73185a59-d5fb-4427-bab8-a077be1c5de0/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "International Editorial Journals",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/a9e1bc3c-a1a1-442a-95db-e69f06f682c6/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Master Theses",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/8c2e3f2b-7e62-4b8f-816b-9e79c75ec06a/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Peer Reviewed Books",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/1e45a38c-95b5-4bc7-bed0-9baa805df074/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Professional Field Books",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/c31d6f7c-4800-4399-ac6e-93bc6ad6a1f5/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    },
+    {
+      "collection": "Scientific Professional Journals",
+      "url": "https://repository.uist.edu.mk/server/api/core/collections/a7b5e6ad-3437-48fd-a576-8858c7e41ef9/license",
+      "status": 200,
+      "custom": false,
+      "cc0": false,
+      "recorded_access_terms": false
+    }
+  ],
+  "protected_endpoint_checks": [
+    {
+      "path": "/server/api/config/submissiondefinitions?size=100",
+      "status": 401
+    },
+    {
+      "path": "/server/api/config/submissionforms?size=100",
+      "status": 401
+    },
+    {
+      "path": "/server/api/config/submissionaccessoptions?size=100",
+      "status": 405
+    },
+    {
+      "path": "/server/api/config/submissionuploads?size=100",
+      "status": 401
+    },
+    {
+      "path": "/server/api/core/collections/570bc654-1413-4d80-bf92-e10b30c5c3c9/submittersGroup",
+      "status": 401
+    },
+    {
+      "path": "/server/api/core/collections/570bc654-1413-4d80-bf92-e10b30c5c3c9/workflowGroups/reviewer",
+      "status": 401
+    }
+  ],
+  "dim_schema": {
+    "url": "https://repository.uist.edu.mk/server/oai/static/dim.xsd",
+    "status": 404
+  },
+  "oai": {
+    "summary": {
+      "passed": 14,
+      "failed": 2
+    },
+    "facts": {
+      "formats": {
+        "oai_dc": {
+          "namespace": "http://www.openarchives.org/OAI/2.0/oai_dc/",
+          "schema": "http://www.openarchives.org/OAI/2.0/oai_dc.xsd"
+        }
+      },
+      "counts": {
+        "ListIdentifiers:oai_dc": 165,
+        "ListRecords:oai_dc": 165
+      },
+      "pagination": {
+        "ListIdentifiers:oai_dc": {
+          "pages": 2,
+          "complete": true,
+          "completeListSize": 165
+        },
+        "ListRecords:oai_dc": {
+          "pages": 2,
+          "complete": true,
+          "completeListSize": 165
+        }
+      },
+      "granularity": "YYYY-MM-DDThh:mm:ssZ",
+      "earliestDatestamp": "2026-10-07T08:48:33Z",
+      "sampleIdentifiers": [
+        "oai:repository.uist.edu.mk:20.500.15029/1234"
+      ]
+    },
+    "failures": [
+      {
+        "assertion": "Identify lower bound covers all oai_dc record datestamps",
+        "url": "https://repository.uist.edu.mk/server/oai/request",
+        "passed": false,
+        "expected": "earliestDatestamp <= oldest returned header",
+        "observed": {
+          "earliestDatestamp": "2026-10-07T08:48:33Z",
+          "oldestHeader": "2026-09-02T12:03:01+00:00"
+        }
+      },
+      {
+        "assertion": "GetRecord is an OAI response without unexpected protocol errors",
+        "url": "https://repository.uist.edu.mk/server/oai/request?verb=GetRecord&identifier=oai%3Arepository.uist.edu.mk%3A20.500.15029%2F1234&metadataPrefix=oai_dc",
+        "passed": false,
+        "expected": "HTTP 200, OAI-PMH namespace, no unexpected error",
+        "observed": {
+          "status": 200,
+          "root": "{http://www.openarchives.org/OAI/2.0/}OAI-PMH",
+          "errors": [
+            "idDoesNotExist"
+          ]
+        }
+      }
+    ],
+    "working_replacement_sample": {
+      "url": "https://repository.uist.edu.mk/server/oai/request?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:repository.uist.edu.mk:20.500.15029/93",
+      "status": 200,
+      "record_present": true,
+      "errors": []
+    }
+  },
+  "browser_checks": {
+    "homepage": "Rendered publication wording, nine publication category cards and old footer; no Research Data link.",
+    "repository_policies": "Rendered Page not found.",
+    "end_user_agreement": {
+      "old_personal_noncommercial_restriction": true,
+      "old_systematic_retrieval_restriction": true,
+      "cc0_metadata_statement": false
+    }
+  },
+  "source_review_corrections": [
+    "SubmissionConfigReader selects by collection submission-definition override, Handle mapping, entity type, community mapping and default, in that order. The Dataset entity selects the configured form; its Handle alone does not.",
+    "XOAI defaults to incremental import; import -c clears and rebuilds the derived Solr OAI index. The local release configuration uses Solr.",
+    "RegistryLoader skips existing fields but calls MetadataImporter with schema updates enabled; compare existing namespace before loading."
+  ],
+  "limits": [
+    "No production credentials used or requested.",
+    "No deposits, account/group changes, licence changes, schema initialisation, rebuilds, deployments or registry submissions performed.",
+    "Protected configuration/group requests cannot establish assignments or effective workflow.",
+    "Public holdings metadata does not prove that no supplementary data files exist."
+  ]
+}
