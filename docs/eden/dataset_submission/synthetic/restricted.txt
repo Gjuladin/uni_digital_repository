@@ -1,1 +1,0 @@
-SYNTHETIC administrator-only access test.

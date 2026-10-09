@@ -3,7 +3,7 @@ import path from 'node:path';
 import MarkdownIt from 'markdown-it';
 
 const root = process.cwd();
-const source = path.join(root, 'docs/eden/rector_review_2026-10/dabar_simple_2026-10-06/pages');
+const source = path.join(root, 'src/app/info/repository-policies/content');
 const entries = [
   ['repository-policies', '01_Repository_Policies', 'footer.link.repository-policies'],
   ['accessibility-statement', '02_Accessibility_Statement', 'footer.link.accessibility-statement'],

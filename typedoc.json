@@ -5,7 +5,7 @@
   "target": "ES5",
   "theme": "default",
   "name": "Angular 2 UI for DSpace",
-  "readme": "./README.md",
+  "readme": "none",
   "exclude": "**/*+(spec.ts|po.ts|index.ts|.json|.js|.config.ts|.aot.ts)",
   "excludeExternals": "true",
   "ignoreCompilerErrors": "true",

@@ -54,8 +54,12 @@
                                      [parentItem]="object"
                                      [itemType]="'Person'"
                                      [metadataFields]="['dc.contributor.author', 'dc.creator']"
-                                     [label]="'dataset.page.creators' | translate">
+                                     [label]="'item.page.authors' | translate">
     </ds-metadata-representation-list>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.contributor.other']"
+      [label]="'dataset.page.contributors'">
+    </ds-generic-item-page-field>
   </div>
   <div class="col-12 col-md-7">
     <ds-related-items
