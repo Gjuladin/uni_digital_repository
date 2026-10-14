@@ -2,7 +2,8 @@
   "dataset.page.creators": "Authors",
   "dataset.page.contributors": "Other contributors",
   "dataset.page.description": "Dataset description",
-  "dataset.page.identifier": "Assigned Handle",
+  "dataset.page.identifier": "Dataset links",
+  "dataset.page.handle": "Assigned Handle",
   "dataset.page.type": "Output type",
   "dataset.page.version": "Dataset version",
   "dataset.page.methods": "Methods",
@@ -6348,7 +6349,7 @@
 
   "submission.sections.upload.drop-message": "Drop files to attach them to the item",
 
-  "submission.sections.upload.edit.title": "Edit bitstream",
+  "submission.sections.upload.edit.title": "Edit file and access",
 
   "submission.sections.upload.file.edit.form.file-type.label": "Audio or video media type",
 
@@ -6376,7 +6377,7 @@
   "submission.sections.upload.access-condition.lease": "Open access for a limited period",
   "submission.sections.upload.form.access-condition-label": "Access condition type",
 
-  "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the bitstream once the item is deposited",
+  "submission.sections.upload.form.access-condition-hint": "Choose who can download this file after deposit. For an embargo, set Grant access from to the date the file should become public.",
 
   "submission.sections.upload.form.date-required": "Date is required.",
 
@@ -6386,7 +6387,7 @@
 
   "submission.sections.upload.form.from-label": "Grant access from",
 
-  "submission.sections.upload.form.from-hint": "Select the date from which the related access condition is applied",
+  "submission.sections.upload.form.from-hint": "For an embargo, this is the release date when the file becomes publicly accessible.",
 
   "submission.sections.upload.form.from-placeholder": "From",
 
@@ -6404,7 +6405,7 @@
 
   "submission.sections.upload.header.policy.default.withlist": "Please note that uploaded files in the {{collectionName}} collection will be accessible, in addition to what is explicitly decided for the single file, with the following group(s):",
 
-  "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
+  "submission.sections.upload.info": "After uploading, click the pencil icon beside each file to edit its description and available access conditions, including an embargo release date. <strong>You can upload additional files by dragging and dropping them anywhere on the page.</strong>",
 
   "submission.sections.upload.no-entry": "No",
 

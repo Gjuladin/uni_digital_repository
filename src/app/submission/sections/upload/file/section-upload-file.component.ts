@@ -369,6 +369,7 @@ export class SubmissionSectionUploadFileComponent implements OnChanges, OnInit, 
     activeModal.componentInstance.pathCombiner = this.pathCombiner;
     activeModal.componentInstance.submissionId = this.submissionId;
     activeModal.componentInstance.isPrimary = this.isPrimary;
+    activeModal.componentInstance.initializeForm();
   }
 
   togglePrimaryBitstream(event) {

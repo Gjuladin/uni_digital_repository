@@ -275,6 +275,14 @@ describe('SubmissionSectionUploadFileComponent', () => {
     });
 
     it('should open edit modal when edit button is clicked', () => {
+      const modalComponent: any = {
+        initializeForm: jasmine.createSpy('initializeForm').and.callFake(() => {
+          expect(modalComponent.fileData).toBe(fileData);
+          expect(modalComponent.configMetadataForm).toBe(comp.configMetadataForm);
+          expect(modalComponent.formId).toBe(comp.formId);
+        }),
+      };
+      spyOn(TestBed.inject(NgbModal), 'open').and.returnValue({ componentInstance: modalComponent } as any);
       spyOn(compAsAny, 'editBitstreamData').and.callThrough();
       comp.fileData = fileData;
 
@@ -286,6 +294,7 @@ describe('SubmissionSectionUploadFileComponent', () => {
       fixture.detectChanges();
 
       expect(compAsAny.editBitstreamData).toHaveBeenCalled();
+      expect(modalComponent.initializeForm).toHaveBeenCalledTimes(1);
     });
 
     it('should call downloadFile and open link in new tab', () => {

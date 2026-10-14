@@ -225,6 +225,24 @@ describe('SubmissionSectionUploadFileEditComponent test suite', () => {
       compAsAny = null;
     });
 
+    it('should build the modal form when file data arrives after ngOnInit', () => {
+      spyOn(compAsAny.cdr, 'detectChanges');
+      comp.ngOnInit();
+      expect(comp.formModel).toBeUndefined();
+
+      comp.fileData = fileData;
+      comp.formId = 'testFileForm';
+      comp.initializeForm();
+
+      expect(comp.formModel).toBeDefined();
+      expect(formbuilderService.findById('dc_title', comp.formModel)).toBeTruthy();
+      expect(formbuilderService.findById('name', comp.formModel, 0)).toBeTruthy();
+      expect(formbuilderService.findById('startDate', comp.formModel, 0)).toBeTruthy();
+      const formModel = comp.formModel;
+      comp.ngOnInit();
+      expect(comp.formModel).toBe(formModel);
+    });
+
     it('should init form model properly', () => {
       comp.fileData = fileData;
       comp.formId = 'testFileForm';

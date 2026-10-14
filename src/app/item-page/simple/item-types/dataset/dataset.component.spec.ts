@@ -31,7 +31,10 @@ import { RouteService } from '@dspace/core/services/route.service';
 import { Bitstream } from '@dspace/core/shared/bitstream.model';
 import { HALEndpointService } from '@dspace/core/shared/hal-endpoint.service';
 import { Item } from '@dspace/core/shared/item.model';
-import { MetadataMap } from '@dspace/core/shared/metadata.models';
+import {
+  MetadataMap,
+  MetadataValue,
+} from '@dspace/core/shared/metadata.models';
 import { UUIDService } from '@dspace/core/shared/uuid.service';
 import { WorkspaceitemDataService } from '@dspace/core/submission/workspaceitem-data.service';
 import { BrowseDefinitionDataServiceStub } from '@dspace/core/testing/browse-definition-data-service.stub';
@@ -137,7 +140,7 @@ describe('DatasetComponent', () => {
     }).overrideComponent(DatasetComponent, {
       add: { changeDetection: ChangeDetectionStrategy.Default },
       remove: {
-        imports: [ThemedResultsBackButtonComponent, MiradorViewerComponent, ThemedItemPageTitleFieldComponent, DsoEditMenuComponent, MetadataFieldWrapperComponent, ThemedThumbnailComponent, ThemedMediaViewerComponent, ExtendedFileSectionComponent, ItemPageDateFieldComponent, ThemedMetadataRepresentationListComponent, GenericItemPageFieldComponent, RelatedItemsComponent, ItemPageAbstractFieldComponent, ItemPageUriFieldComponent, CollectionsComponent, GeospatialItemPageFieldComponent],
+        imports: [ThemedResultsBackButtonComponent, MiradorViewerComponent, ThemedItemPageTitleFieldComponent, DsoEditMenuComponent, MetadataFieldWrapperComponent, ThemedThumbnailComponent, ThemedMediaViewerComponent, ExtendedFileSectionComponent, ItemPageDateFieldComponent, ThemedMetadataRepresentationListComponent, RelatedItemsComponent, ItemPageAbstractFieldComponent, ItemPageUriFieldComponent, CollectionsComponent, GeospatialItemPageFieldComponent],
       },
     });
   }));
@@ -167,8 +170,29 @@ describe('DatasetComponent', () => {
     });
 
     it('should contain a component to display the abstract', () => {
-      const fields = fixture.debugElement.queryAll(By.css('ds-item-page-abstract-field'));
-      expect(fields.length).toBeGreaterThanOrEqual(1);
+      comp.object = getItem({
+        'dc.description.abstract': [Object.assign(new MetadataValue(), { value: 'Dataset description for readers' })],
+      });
+      fixture.detectChanges();
+      expect(fixture.nativeElement.textContent).toContain('Dataset description for readers');
+    });
+
+    it('should display an existing dataset DOI separately from its repository Handle', () => {
+      comp.object = getItem({
+        'dc.identifier.doi': [Object.assign(new MetadataValue(), { value: '10.99999/synthetic-dataset-review' })],
+      });
+      fixture.detectChanges();
+      expect(fixture.nativeElement.textContent).toContain('10.99999/synthetic-dataset-review');
+    });
+
+    it('should show the assigned Handle when identifier metadata contains only an external URL', () => {
+      comp.object = Object.assign(getItem({
+        'dc.identifier.uri': [Object.assign(new MetadataValue(), { value: 'https://example.org/synthetic-dataset' })],
+      }), { handle: '20.500.15029/39' });
+      fixture.detectChanges();
+      const handle = fixture.debugElement.query(By.css('a[href="/handle/20.500.15029/39"]'));
+      expect(handle).toBeTruthy();
+      expect(handle.nativeElement.textContent).toContain('20.500.15029/39');
     });
 
     it('should contain a component to display the uri', () => {

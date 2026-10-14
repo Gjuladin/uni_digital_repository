@@ -16,6 +16,8 @@ parser.add_argument('--base-url', default='http://localhost:8080/server')
 parser.add_argument('--credentials', type=Path, required=True, help='Private JSON with admin_email/admin_password and synthetic depositor_email/depositor_password.')
 parser.add_argument('--work-dir', type=Path, default=Path('work/dataset-submission-smoke'))
 parser.add_argument('--parent-community', help='Local community UUID; otherwise use Supplementary Publications.')
+parser.add_argument('--collection-name', default='Research Data', help='Name of a new synthetic collection; existing collections are never adopted.')
+parser.add_argument('--prepare-only', action='store_true', help='Prepare a synthetic draft with files for browser checks without depositing it.')
 parser.add_argument('--check-exports', action='store_true', help='Also validate OAI/DIM, JSON-LD, discovery and feeds after running the OAI import.')
 args = parser.parse_args()
 BASE = args.base_url.rstrip('/')
@@ -47,11 +49,11 @@ admin=Client();admin.login(creds['admin_email'],creds['admin_password'])
 statepath=(WORK / 'dataset-local-state.json');state=json.loads(statepath.read_text()) if statepath.exists() else {}
 def save():statepath.write_text(json.dumps(state,indent=2))
 if 'collection' not in state:
- cs=admin.json('/api/core/collections?size=100')['_embedded']['collections'];matches=[c for c in cs if c['name']=='Research Data']
- if matches:raise RuntimeError('Existing Research Data collection: inspect before mutation; no automatic adoption.')
+ cs=admin.json('/api/core/collections?size=100')['_embedded']['collections'];matches=[c for c in cs if c['name']==args.collection_name]
+ if matches:raise RuntimeError('Existing collection: inspect before mutation; no automatic adoption.')
  communities=admin.json('/api/core/communities?size=100')['_embedded']['communities']
  community=next(c for c in communities if (c['uuid']==args.parent_community if args.parent_community else c['name']=='Supplementary Publications'))
- c=admin.post('/api/core/collections?parent='+community['uuid'],{'metadata':{'dc.title':md('Research Data'),'dc.description.abstract':md('UIST research datasets and supporting documentation. Local validation collection; no production changes.'),'dspace.entity.type':md('Dataset')}})
+ c=admin.post('/api/core/collections?parent='+community['uuid'],{'metadata':{'dc.title':md(args.collection_name),'dc.description.abstract':md('UIST research datasets and supporting documentation. Local validation collection; no production changes.'),'dspace.entity.type':md('Dataset')}})
  state['collection']=c['uuid'];state['collection_handle']=c['handle'];save()
 if 'depositor' not in state:
  p=admin.post('/api/eperson/epersons',{'email':creds['depositor_email'],'password':creds['depositor_password'],'canLogIn':True,'requireCertificate':False,'selfRegistered':False,'metadata':{'eperson.firstname':md('Synthetic dataset'),'eperson.lastname':md('Local test depositor')}})
@@ -63,7 +65,7 @@ if 'submitters' not in state:
 print('Synthetic local collection/depositor configured:',json.dumps(state))
 depositor=Client();depositor.login(creds['depositor_email'],creds['depositor_password'])
 if not state.get('published') and 'workspace' not in state:
- ws=depositor.json('/api/submission/workspaceitems/search/findBySubmitter?uuid='+state['depositor'])['_embedded'].get('workspaceitems',[])
+ ws=depositor.json('/api/submission/workspaceitems/search/findBySubmitter?uuid='+state['depositor']).get('_embedded',{}).get('workspaceitems',[])
  w=ws[0] if ws else depositor.call('POST','/api/submission/workspaceitems?owningCollection='+state['collection'],expect=(200,201),json={}).json()
  state['workspace']=w['id'];state['item']=depositor.json('/api/submission/workspaceitems/'+str(w['id'])+'/item')['uuid'];save()
 if not state.get('published'):print('Submission sections:',list(depositor.json('/api/submission/workspaceitems/'+str(state['workspace']))['sections']))
@@ -72,8 +74,9 @@ from datetime import datetime,timedelta,timezone
 import hashlib
 wpath='/api/submission/workspaceitems/'+str(state['workspace'])
 release=state.get('embargo_end') or (datetime.now(timezone.utc)+timedelta(days=30)).date().isoformat()
+state['embargo_end']=release;save()
 metadata={
-'datasetStep':{'dc.title':'SYNTHETIC TEST DATASET — UIST submission validation (not research)','dc.contributor.author':'Synthetic Test Compiler','local.creator.affiliation':'Synthetic Test Compiler — local validation only','dc.type':'Dataset','dc.date.issued':'2026-10-06','dc.date.created':'2026-10-06','dc.language.iso':'en','local.dataset.version':'1.0-test'},
+'datasetStep':{'dc.title':'SYNTHETIC TEST DATASET — UIST submission validation (not research)','dc.contributor.author':'Synthetic Test Compiler','dc.contributor.other':'A. Example (compiler)','local.creator.affiliation':'Synthetic Test Compiler — local validation only','dc.type':'Dataset','dc.date.issued':'2026-10-14','dc.date.created':'2026-10-14','dc.language.iso':'en','local.dataset.version':'1.0-test','dc.identifier.doi':'10.99999/synthetic-dataset-review','dc.identifier.uri':'https://example.org/synthetic-dataset','dc.identifier.citation':'Synthetic Test Compiler (2026). Synthetic dataset, version 1.0-test. Local validation only.'},
 'datasetDetails':{'dc.description.abstract':'Synthetic generated values solely for local workflow testing. No real participants or published study data.','local.dataset.methods':'Generate integers 1, 2, 3 and square each integer; synthetic test only.','dc.description':'Three fabricated rows. No scientific validity, original participant data, or source-study claims.','dc.subject':'synthetic workflow validation','dc.relation.isreferencedby':'https://example.org/synthetic-publication','dc.relation.references':'https://example.org/synthetic-source','dc.rights':'Synthetic test files may be reused for testing. No licence or rights claim applies to real dataset packages.','dc.rights.uri':'https://example.org/synthetic-test-terms','dcterms.accessRights':f'Mixed: data.csv, README.md and DATA_DICTIONARY.md are open; restricted.txt is administrator-only; embargo.txt is embargoed until {release}.'}}
 report=json.loads((WORK / 'dataset-validation.json').read_text()) if (WORK / 'dataset-validation.json').exists() else {'environment':BASE,'synthetic':True,'collection':state['collection'],'item':state['item'],'policy_version':'2026-10-06-simple','checks':{}}
 def check(name,result):
@@ -82,6 +85,7 @@ def check(name,result):
  print(name,':',result)
 if not state.get('published'):
  ops=[{'op':'add','path':f'/sections/{section}/{k}','value':md(v)} for section,fields in metadata.items() for k,v in fields.items()]
+ ops.append({'op':'add','path':'/sections/license/granted','value':False})
  depositor.patch(wpath,ops)
  check('metadata_saved',True)
  # All normal DSpace validation still applies; this is not a shortcut around submission.
@@ -104,6 +108,10 @@ if not state.get('published'):
   cond={'name':'administrator'} if name=='restricted.txt' else {'name':'embargo','startDate':release} if name=='embargo.txt' else {'name':'openaccess'}
   depositor.patch(wpath,[{'op':'add','path':f'/sections/datasetUpload/files/{i}/accessConditions','value':[cond]}, {'op':'add','path':f'/sections/datasetUpload/files/{i}/metadata/dc.description','value':md('Synthetic data' if name=='data.csv' else 'Synthetic supporting documentation / access test')},{'op':'add','path':f'/sections/datasetUpload/files/{i}/metadata/dc.rights','value':md('Reuse for synthetic testing only.')}])
  check('multiple_file_uploads',len(files))
+ if args.prepare_only:
+  depositor.patch(wpath,[{'op':'add','path':'/sections/license/granted','value':False}])
+  print('Prepared synthetic browser-test draft; not deposited:',state['workspace'])
+  raise SystemExit(0)
  r=depositor.call('POST','/api/workflow/workflowitems',expect=(201,204),data=BASE+wpath,headers={'Content-Type':'text/uri-list'})
  state['published']=True;state['embargo_end']=release;save()
  check('direct_publication_by_nonadministrator',r.status_code)
@@ -153,7 +161,7 @@ if args.check_exports:
      r=s.get(BASE+'/oai/request',params={'verb':'GetRecord','metadataPrefix':prefix,'identifier':identifier},timeout=60)
      (WORK / f'dataset-oai-{prefix}.xml').write_bytes(r.content);d=E.fromstring(r.content);errors=d.xpath('//oai:error',namespaces=ns);assert not errors,errors
      text=' '.join(d.itertext())
-     for value in ('Dataset','1.0-test','Generate integers','Three fabricated rows','https://example.org/synthetic-publication','https://example.org/synthetic-source','Synthetic test files','2026-11-05'):
+     for value in ('Dataset','1.0-test','Generate integers','Three fabricated rows','10.99999/synthetic-dataset-review','https://example.org/synthetic-dataset','Synthetic Test Compiler (2026)','https://example.org/synthetic-publication','https://example.org/synthetic-source','Synthetic test files',state['embargo_end']):
       assert value in text,(prefix,value)
      if prefix=='dim':
       assert d.xpath('//dim:field[@mdschema="local" and @element="dataset" and @qualifier="version"]/text()',namespaces=ns)==['1.0-test']
@@ -161,7 +169,8 @@ if args.check_exports:
     r=s.get(BASE+'/signposting/describedby-jsonld/'+state['item'],timeout=30);assert r.ok,r.status_code
     j=r.json();(WORK / 'dataset-signposting.jsonld').write_text(json.dumps(j,indent=2));print('signposting:',json.dumps(j,indent=2))
     assert j['@type']=='Dataset' and j['version']=='1.0-test' and 'Generate integers' in j['measurementTechnique']
-    assert j['conditionsOfAccess'].endswith('2026-11-05.')
+    assert 'https://doi.org/10.99999/synthetic-dataset-review' in j['sameAs']
+    assert j['conditionsOfAccess'].endswith(state['embargo_end']+'.')
     assert j['license']=='https://example.org/synthetic-test-terms'
     report['checks']['backend_jsonld_facts_preserved']=True
     # Check existing discovery and feed routes without inventing file content links.

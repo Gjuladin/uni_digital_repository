@@ -102,6 +102,15 @@
                             [fields]="['dc.identifier.uri']"
                             [label]="'dataset.page.identifier'">
     </ds-item-page-uri-field>
+    @if (object?.handle) {
+      <ds-metadata-field-wrapper [label]="'dataset.page.handle' | translate">
+        <a [routerLink]="'/handle/' + object.handle">{{ object.handle }}</a>
+      </ds-metadata-field-wrapper>
+    }
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.identifier.doi']"
+      [label]="'item.page.doi'">
+    </ds-generic-item-page-field>
     <ds-generic-item-page-field [item]="object"
       [fields]="['dc.rights', 'dc.rights.license']"
       [label]="'dataset.page.rights'">

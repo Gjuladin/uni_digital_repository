@@ -295,7 +295,15 @@ implements OnInit, OnDestroy {
    * Dispatch form model init
    */
   ngOnInit() {
-    if (this.fileData && this.formId) {
+    this.initializeForm();
+  }
+
+  /**
+   * Build the form after the modal caller supplies its file and configuration.
+   * NgbModal can initialise the component before componentInstance is populated.
+   */
+  public initializeForm(): void {
+    if (!this.formModel && this.fileData && this.formId && this.configMetadataForm) {
       this.formModel = this.buildFileEditForm();
       this.cdr.detectChanges();
     }
