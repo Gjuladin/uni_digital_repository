@@ -283,12 +283,20 @@ harvesting:
     # Enabled public HTTPS policy URLs also appear at /info/repository-policies
     # and expose its footer link. Publish approved documents before enabling them.
     # contactEmail: { enabled: false, value: '' }
+    # contactName: { enabled: false, value: '' }
+    # contactUrl: { enabled: false, value: '' }
     # licenseUrl: { enabled: false, value: '' }
     # accessRightsUrl: { enabled: false, value: '' }
     # depositPolicyUrl: { enabled: false, value: '' }
     # preservationPolicyUrl: { enabled: false, value: '' }
     # curationPolicyUrl: { enabled: false, value: '' }
+    # privacyPolicyUrl: { enabled: false, value: '' }
+    # establishedYear: { enabled: false, value: '' }
+    # fundingStatement: { enabled: false, value: '' }
+    # funderId: { enabled: false, value: '' }
     # re3dataId: { enabled: false, value: '' }
+    # DOI of the registry record, published as a reference describing the repository.
+    # re3dataDoi: { enabled: false, value: '' }
     # fairsharingId: { enabled: false, value: '' }
   services:
     rest: true

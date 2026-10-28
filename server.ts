@@ -59,11 +59,8 @@ import {
 } from './src/express.tokens';
 import { SsrExcludePatterns } from './src/config/ssr-config.interface';
 import { rewriteBitstreamDownloadPath } from './src/server/bitstream-download-proxy.util';
-import {
-  buildFairicatLinkset,
-  buildRepositoryGraph,
-  getSafePublicBaseUrl,
-} from './src/config/harvesting-metadata.util';
+import { getSafePublicBaseUrl } from './src/config/harvesting-metadata.util';
+import { registerRepositoryDiscovery } from './src/server/repository-discovery';
 
 /*
  * Set path for the browser application's dist folder
@@ -170,33 +167,7 @@ export function app() {
    * generated from public runtime configuration so local/staging deployments
    * never leak production URLs and disabled governance claims stay absent.
    */
-  server.get('/.well-known/repository.jsonld', (req, res) => {
-    const publicUiBaseUrl = getSafePublicBaseUrl(environment.ui.baseUrl);
-    if (!appConfig.harvesting?.enabled || !publicUiBaseUrl) {
-      res.sendStatus(404);
-      return;
-    }
-    res.setHeader('content-type', 'application/ld+json');
-    res.send(JSON.stringify(buildRepositoryGraph(
-      appConfig.harvesting,
-      publicUiBaseUrl,
-      environment.rest.baseUrl,
-    )));
-  });
-
-  server.get('/.well-known/api-catalog', (req, res) => {
-    const publicUiBaseUrl = getSafePublicBaseUrl(environment.ui.baseUrl);
-    if (!appConfig.harvesting?.enabled || !publicUiBaseUrl) {
-      res.sendStatus(404);
-      return;
-    }
-    res.setHeader('content-type', 'application/linkset+json');
-    res.send(JSON.stringify(buildFairicatLinkset(
-      appConfig.harvesting,
-      publicUiBaseUrl,
-      environment.rest.baseUrl,
-    )));
-  });
+  registerRepositoryDiscovery(server, appConfig.harvesting, environment.ui.baseUrl, environment.rest.baseUrl);
 
   /*
    * Set views folder path to directory where template files are stored

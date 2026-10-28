@@ -1,6 +1,9 @@
 /** A URI field must contain a complete HTTP(S) URL, never a rights narrative. */
 export function isLicenseUrl(value: string): boolean {
-  if (!value || /[\s<>"\\]/.test(value)) {
+  // URL() repairs missing/extra slashes. Require an explicit authority before
+  // parsing so the original metadata is safe to publish without repair.
+  const authority = value?.match(/^https?:\/\/([^/?#]+)/i)?.[1];
+  if (!authority || authority.includes('@') || /[\s<>"\\]/.test(value)) {
     return false;
   }
   try {

@@ -3,6 +3,7 @@ import {
   buildFairicatLinkset,
   buildRepositoryGraph,
   getHarvestingServices,
+  getRepositoryDiscoveryLinks,
 } from './harvesting-metadata.util';
 
 describe('harvesting metadata utilities', () => {
@@ -59,8 +60,8 @@ describe('harvesting metadata utilities', () => {
     expect(openSearch.metadataUrl).toBe(
       'https://repository.uist.edu.mk/server/opensearch/service?source=fairicat',
     );
-    expect(openSearch.mediaType).toBe('application/atom+xml');
-    expect(openSearch.metadataMediaType).toBe('application/opensearchdescription+xml');
+    expect(openSearch.endpointUrl).toBe('https://repository.uist.edu.mk/server/opensearch/service');
+    expect(openSearch.mediaType).toBe('application/opensearchdescription+xml');
   });
 
   it('omits services whose configured browser URL is private or insecure', () => {
@@ -109,14 +110,51 @@ describe('harvesting metadata utilities', () => {
       catalog.linkset.some((entry: any) => entry['service-meta']),
     ).toBeTrue();
     const openSearch = catalog.linkset.find((entry: any) =>
-      entry.anchor.endsWith('/opensearch/search'),
+      entry.anchor.endsWith('/opensearch/service'),
     );
     expect(openSearch['service-meta'][0].href).toContain('?source=fairicat');
     expect(openSearch['service-meta'][0].type).toBe('application/opensearchdescription+xml');
     const graph = buildRepositoryGraph(config, 'https://repository.uist.edu.mk',
       'https://repository.uist.edu.mk/server') as any;
     expect(graph['@graph'][0].service.find((service: any) => service.name === 'OpenSearch').encodingFormat)
-      .toBe('application/atom+xml');
+      .toBe('application/opensearchdescription+xml');
+    const rest = graph['@graph'][0].service.find((service: any) => service.type === 'REST');
+    expect(rest.endpointURL).toBe('https://repository.uist.edu.mk/server/api');
+    expect(graph['@context'][1].type).toBe('dct:type');
+  });
+
+  it('uses identical service URLs in discovery links and the API catalog, including a UI base path', () => {
+    const links = getRepositoryDiscoveryLinks(config, 'https://example.edu/repository/', 'https://example.edu/server');
+    expect(links[0].href).toBe('https://example.edu/repository/.well-known/repository.jsonld');
+    expect(links[1].href).toBe('https://example.edu/repository/api-catalog');
+    const services = getHarvestingServices(config, 'https://example.edu/repository/', 'https://example.edu/server');
+    for (const link of links.slice(2)) {
+      expect(services.some(service => service.endpointUrl === link.href && service.mediaType === link.type)).toBeTrue();
+    }
+    expect(getRepositoryDiscoveryLinks({ ...config, enabled: false }, 'https://example.edu', 'https://example.edu/server')).toEqual([]);
+  });
+
+  it('publishes only enabled contact details and independently linked privacy policy', () => {
+    const configured: HarvestingConfig = {
+      ...config,
+      repository: {
+        ...config.repository,
+        contactEmail: { enabled: true, value: 'admin@example.edu' },
+        contactName: { enabled: true, value: 'Repository administrator' },
+        contactUrl: { enabled: true, value: 'https://example.edu/info/contact' },
+        privacyPolicyUrl: { enabled: true, value: 'https://example.edu/info/privacy' },
+      },
+    };
+    const catalog = (buildRepositoryGraph(configured, 'https://example.edu', 'https://example.edu/server') as any)['@graph'][0];
+    expect(catalog.contactPoint).toEqual({ '@type': 'ContactPoint', email: 'admin@example.edu', name: 'Repository administrator', url: 'https://example.edu/info/contact' });
+    expect(catalog.publishingPrinciples).toEqual([jasmine.objectContaining({ '@id': 'https://example.edu/info/privacy', name: 'Privacy policy' })]);
+    configured.repository.contactName.enabled = false;
+    configured.repository.contactUrl.enabled = false;
+    configured.repository.privacyPolicyUrl.enabled = false;
+    const unpublished = (buildRepositoryGraph(configured, 'https://example.edu', 'https://example.edu/server') as any)['@graph'][0];
+    expect(unpublished.contactPoint.name).toBeUndefined();
+    expect(unpublished.contactPoint.url).toBeUndefined();
+    expect(unpublished.publishingPrinciples).toBeUndefined();
   });
 
   it('requires optional governance claims to be enabled and non-empty', () => {
@@ -133,6 +171,10 @@ describe('harvesting metadata utilities', () => {
         re3dataId: {
           enabled: true,
           value: 'https://www.re3data.org/repository/example',
+        },
+        re3dataDoi: {
+          enabled: true,
+          value: 'https://doi.org/10.17616/EXAMPLE',
         },
         fairsharingId: {
           enabled: false,
@@ -161,7 +203,16 @@ describe('harvesting metadata utilities', () => {
     expect(graph['@graph'][0].sameAs).toEqual([
       'https://www.re3data.org/repository/example',
     ]);
+    expect(graph['@graph'][0].subjectOf).toEqual(jasmine.objectContaining({
+      '@type': 'WebPage',
+      '@id': 'https://doi.org/10.17616/EXAMPLE',
+      identifier: 'https://doi.org/10.17616/EXAMPLE',
+    }));
     expect(graph['@graph'][1].address.addressCountry).toBe('MK');
+    gatedConfig.repository.re3dataDoi.enabled = false;
+    const withoutDoi = buildRepositoryGraph(gatedConfig, 'https://repository.uist.edu.mk',
+      'https://repository.uist.edu.mk/server') as any;
+    expect(withoutDoi['@graph'][0].subjectOf).toBeUndefined();
   });
 
   it('never publishes an item URL template as a repository service', () => {

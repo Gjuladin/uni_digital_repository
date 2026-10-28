@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "test:rest": "ts-node -r tsconfig-paths/register --project ./tsconfig.ts-node.json scripts/test-rest.ts",
+    "test:repository-discovery": "ts-node --project ./tsconfig.ts-node.json --compiler-options '{\"moduleResolution\":\"node\"}' scripts/test-repository-discovery.ts",
+    "test:eden-compatibility": "ts-node --project ./tsconfig.ts-node.json --compiler-options '{\"moduleResolution\":\"node\"}' scripts/test-eden-compatibility.ts",
     "start": "npm run start:prod",
     "start:dev": "cross-env NODE_ENV=development npm run serve --watch",
     "start:prod": "npm run build:prod && cross-env NODE_ENV=production npm run serve:ssr",

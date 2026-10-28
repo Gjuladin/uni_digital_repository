@@ -9,9 +9,18 @@ export interface HarvestingServiceDescription {
   name: string;
   endpointUrl: string;
   conformsTo: string;
+  type?: string;
+  discoveryRel?: 'alternate' | 'search' | 'sitemap';
   mediaType?: string;
   metadataMediaType?: string;
   metadataUrl?: string;
+}
+
+export interface RepositoryDiscoveryLink {
+  rel: string;
+  href: string;
+  type: string;
+  title: string;
 }
 
 function withoutTrailingSlash(value: string): string {
@@ -116,6 +125,7 @@ export function getHarvestingServices(
       ? {
         id: `${rest}/api`,
         name: 'DSpace REST API',
+        type: 'REST',
         endpointUrl: `${rest}/api`,
         conformsTo: 'https://github.com/DSpace/RestContract',
         mediaType: 'application/hal+json',
@@ -135,13 +145,13 @@ export function getHarvestingServices(
       : undefined,
     enabled.openSearch && rest
       ? {
-        id: `${rest}/opensearch/search`,
+        id: `${rest}/opensearch/service`,
         name: 'OpenSearch',
-        endpointUrl: `${rest}/opensearch/search`,
+        discoveryRel: 'search',
+        endpointUrl: `${rest}/opensearch/service`,
         conformsTo:
             'https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md',
-        mediaType: 'application/atom+xml',
-        metadataMediaType: 'application/opensearchdescription+xml',
+        mediaType: 'application/opensearchdescription+xml',
         // Keep this URL distinct from the HTML rel="search" URL. EDEN's
         // current link collector deduplicates by URL alone, so an identical
         // FAIRiCat service-meta link would overwrite the rel="search" entry.
@@ -150,18 +160,20 @@ export function getHarvestingServices(
       : undefined,
     enabled.feeds && rest
       ? {
-        id: `${rest}/opensearch/search?format=atom&query=*`,
+        id: `${rest}/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=%2A&rpp=10`,
         name: 'Sitewide Atom feed',
-        endpointUrl: `${rest}/opensearch/search?format=atom&query=*`,
+        discoveryRel: 'alternate',
+        endpointUrl: `${rest}/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=%2A&rpp=10`,
         conformsTo: 'https://www.ietf.org/rfc/rfc4287.txt',
         mediaType: 'application/atom+xml',
       }
       : undefined,
     enabled.feeds && rest
       ? {
-        id: `${rest}/opensearch/search?format=rss&query=*`,
+        id: `${rest}/opensearch/search?format=rss&sort=dc.date.accessioned&sort_direction=DESC&query=%2A&rpp=10`,
         name: 'Sitewide RSS feed',
-        endpointUrl: `${rest}/opensearch/search?format=rss&query=*`,
+        discoveryRel: 'alternate',
+        endpointUrl: `${rest}/opensearch/search?format=rss&sort=dc.date.accessioned&sort_direction=DESC&query=%2A&rpp=10`,
         conformsTo: 'https://www.rssboard.org/rss-specification',
         mediaType: 'application/rss+xml',
       }
@@ -170,6 +182,7 @@ export function getHarvestingServices(
       ? {
         id: `${ui}/sitemap_index.xml`,
         name: 'Repository sitemap',
+        discoveryRel: 'sitemap',
         endpointUrl: `${ui}/sitemap_index.xml`,
         conformsTo: 'https://www.sitemaps.org/protocol.html',
         mediaType: 'application/xml',
@@ -178,6 +191,40 @@ export function getHarvestingServices(
     // Signposting linksets belong to actual items. A {uuid} URL template is
     // not a resolvable service endpoint; item pages advertise their own links.
   ]);
+}
+
+/** Keep HTML, HTTP discovery and the catalog on the same public endpoint URLs. */
+export function getRepositoryDiscoveryLinks(
+  config: HarvestingConfig,
+  uiBaseUrl: string,
+  restBaseUrl: string,
+): RepositoryDiscoveryLink[] {
+  const ui = getSafePublicBaseUrl(uiBaseUrl);
+  if (!config?.enabled || !ui) {
+    return [];
+  }
+  const services = getHarvestingServices(config, ui, restBaseUrl);
+  return [
+    {
+      rel: 'describedby',
+      href: `${ui}/.well-known/repository.jsonld`,
+      type: 'application/ld+json',
+      title: `${config.repository.name} metadata`,
+    },
+    {
+      rel: 'api-catalog',
+      href: `${ui}/api-catalog`,
+      type: 'application/linkset+json',
+      title: `${config.repository.name} API catalog`,
+    },
+    ...services.filter(service => service.discoveryRel)
+      .map(service => ({
+        rel: service.discoveryRel,
+        href: service.endpointUrl,
+        type: service.mediaType,
+        title: service.name,
+      })),
+  ];
 }
 
 function getPolicyNodes(
@@ -189,6 +236,7 @@ function getPolicyNodes(
   );
   const curationPolicyUrl = getEnabledClaimValue(repository.curationPolicyUrl);
   const accessPolicyUrl = getEnabledClaimValue(repository.accessRightsUrl);
+  const privacyPolicyUrl = getEnabledClaimValue(repository.privacyPolicyUrl);
   return compact([
     depositPolicyUrl
       ? {
@@ -222,6 +270,14 @@ function getPolicyNodes(
         url: accessPolicyUrl,
       }
       : undefined,
+    privacyPolicyUrl
+      ? {
+        '@type': ['CreativeWork', 'DigitalDocument'],
+        '@id': privacyPolicyUrl,
+        name: 'Privacy policy',
+        url: privacyPolicyUrl,
+      }
+      : undefined,
   ]);
 }
 
@@ -239,10 +295,14 @@ export function buildRepositoryGraph(
   const services = getHarvestingServices(config, ui, restBaseUrl);
   const policies = getPolicyNodes(repository);
   const contactEmail = getEnabledClaimValue(repository.contactEmail);
+  const contactName = getEnabledClaimValue(repository.contactName);
+  const contactUrl = getEnabledClaimValue(repository.contactUrl);
   const licenseUrl = getEnabledClaimValue(repository.licenseUrl);
   const accessRightsUrl = getEnabledClaimValue(repository.accessRightsUrl);
+  const re3dataId = getEnabledClaimValue(repository.re3dataId);
+  const re3dataDoi = getEnabledClaimValue(repository.re3dataDoi);
   const registryIdentifiers = compact([
-    getEnabledClaimValue(repository.re3dataId),
+    re3dataId,
     getEnabledClaimValue(repository.fairsharingId),
   ]);
   const countryCode = getEnabledClaimValue(publisher.countryCode);
@@ -260,14 +320,19 @@ export function buildRepositoryGraph(
     inLanguage: repository.languages,
     dateCreated: /^\d{4}$/.test(establishedYear || '') ? establishedYear : undefined,
     creditText: fundingStatement,
-    funder: funderId ? { '@id': funderId } : undefined,
     keywords: repository.subjects.length > 0 ? repository.subjects : undefined,
+    // The existing EDEN graph expander only fully expands the first reference
+    // to a shared node. Resolve the publisher before funder/provider so its
+    // name and country remain available to the fixed repository extractor.
     publisher: { '@id': publisher.id },
     provider: { '@id': publisher.id },
-    contactPoint: contactEmail
+    funder: funderId ? { '@id': funderId } : undefined,
+    contactPoint: contactEmail || contactUrl
       ? {
         '@type': 'ContactPoint',
         email: contactEmail,
+        name: contactName,
+        url: contactUrl,
       }
       : undefined,
     license: licenseUrl,
@@ -276,10 +341,22 @@ export function buildRepositoryGraph(
     sameAs: registryIdentifiers.length > 0
       ? registryIdentifiers.filter((value) => /^https?:\/\//i.test(value))
       : undefined,
+    // This DOI identifies the registry's description of the repository.
+    // WebPage also keeps the fixed extractor from classifying it as a policy.
+    subjectOf: re3dataId && re3dataDoi
+      ? {
+        '@type': 'WebPage',
+        '@id': re3dataDoi,
+        name: `${repository.name}: re3data registry record`,
+        url: re3dataId,
+        identifier: re3dataDoi,
+      }
+      : undefined,
     service: services.map((service) => ({
       '@type': 'DataService',
       '@id': service.id,
       name: service.name,
+      type: service.type,
       url: service.endpointUrl,
       endpointURL: service.endpointUrl,
       endpointDescription: service.metadataUrl,
@@ -315,6 +392,7 @@ export function buildRepositoryGraph(
         endpointDescription: { '@id': 'dcat:endpointDescription', '@type': '@id' },
         conformsTo: { '@id': 'dct:conformsTo', '@type': '@id' },
         mediaType: 'dct:format',
+        type: 'dct:type',
       },
     ],
     '@graph': [catalog, organization],

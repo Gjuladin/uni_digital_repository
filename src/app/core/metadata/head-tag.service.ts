@@ -20,6 +20,7 @@ import {
 import {
   buildRepositoryGraph,
   getEnabledClaimValue,
+  getRepositoryDiscoveryLinks,
   getSafePublicBaseUrl,
 } from '@dspace/config/harvesting-metadata.util';
 import {
@@ -319,6 +320,7 @@ export class HeadTagService {
       this.addMetaTag('type', 'DataCatalog');
       this.addMetaTag('contact', getEnabledClaimValue(repository.contactEmail));
       this.addMetaTag('license', getEnabledClaimValue(repository.licenseUrl));
+      this.addMetaTag('keywords', repository.subjects.join(', '));
       this.setRepositoryDiscoveryLinks();
     }
     this.setCanonicalTag();
@@ -589,7 +591,7 @@ export class HeadTagService {
    * Add <meta name="citation_keywords" ... >  to the <head>
    */
   protected setCitationKeywordsTag(): void {
-    const value = this.getMetaTagValuesAndCombine('dc.subject');
+    const value = this.getItemSubjectValues().join('; ');
     this.addMetaTag('citation_keywords', value);
   }
 
@@ -602,7 +604,7 @@ export class HeadTagService {
       ['DC.date', ['dc.date.issued', 'dc.date.available']],
       ['DC.type', ['dc.type']],
       ['DC.language', ['dc.language', 'dc.language.iso']],
-      ['DC.subject', ['dc.subject']],
+      ['DC.subject', ['dc.subject', 'dc.subject.*']],
       [
         'DC.identifier',
         [
@@ -877,6 +879,11 @@ export class HeadTagService {
     return this.currentObject.value.allMetadataValues(keys);
   }
 
+  protected getItemSubjectValues(): string[] {
+    return [...new Set(this.getMetaTagValues(['dc.subject', 'dc.subject.*'])
+      .map(value => this.stripHtml(value).trim()).filter(Boolean))];
+  }
+
   protected getCanonicalUrl(): string | undefined {
     const publicBaseUrl = this.getPublicBaseUrl();
     if (!publicBaseUrl) {
@@ -941,7 +948,7 @@ export class HeadTagService {
   protected getOrganizationJsonLd(): Record<string, unknown> {
     return {
       '@type': 'CollegeOrUniversity',
-      '@id': `${this.getRepositoryUrl()}#organization`,
+      '@id': this.getPublisherId(),
       name: this.getInstitutionName(),
       alternateName: this.translate.instant('repository.alternate-name'),
       url: this.getRepositoryUrl(),
@@ -956,7 +963,7 @@ export class HeadTagService {
       name: this.getRepositoryName(),
       url: baseUrl,
       publisher: {
-        '@id': `${this.getRepositoryUrl()}#organization`,
+        '@id': this.getPublisherId(),
       },
       potentialAction: {
         '@type': 'SearchAction',
@@ -1028,9 +1035,7 @@ export class HeadTagService {
       measurementTechnique: this.getMetaTagValue('local.dataset.methods'),
       subjectOf: this.getMetaTagValues(['dc.relation.isreferencedby']).map(value => this.stripHtml(value)),
       isBasedOn: this.getMetaTagValues(['dc.relation.references']).map(value => this.stripHtml(value)),
-      keywords: this.getMetaTagValues(['dc.subject']).map((value: string) =>
-        this.stripHtml(value),
-      ),
+      keywords: this.getItemSubjectValues(),
       inLanguage: this.getNormalizedLanguage(),
       publisher: publisherName
         ? {
@@ -1235,19 +1240,28 @@ export class HeadTagService {
   }
 
   private getRepositoryName(): string {
-    return this.translate.instant(this.REPOSITORY_NAME_KEY);
+    return (this.appConfig.harvesting?.enabled && this.appConfig.harvesting.repository.name)
+      || this.translate.instant(this.REPOSITORY_NAME_KEY);
   }
 
   private getInstitutionName(): string {
-    return this.translate.instant(this.UIST_NAME_KEY);
+    return (this.appConfig.harvesting?.enabled && this.appConfig.harvesting.repository.publisher.name)
+      || this.translate.instant(this.UIST_NAME_KEY);
   }
 
   private getRepositoryUrl(): string {
-    return this.translate.instant(this.UIST_URL_KEY);
+    return (this.appConfig.harvesting?.enabled && this.appConfig.harvesting.repository.publisher.url)
+      || this.translate.instant(this.UIST_URL_KEY);
+  }
+
+  private getPublisherId(): string {
+    return (this.appConfig.harvesting?.enabled && this.appConfig.harvesting.repository.publisher.id)
+      || `${this.getRepositoryUrl()}#organization`;
   }
 
   private getRepositoryDescription(): string {
-    return this.translate.instant(this.UIST_DESCRIPTION_KEY);
+    return (this.appConfig.harvesting?.enabled && this.appConfig.harvesting.repository.description)
+      || this.translate.instant(this.UIST_DESCRIPTION_KEY);
   }
 
   protected stripHtml(value: string): string {
@@ -1298,40 +1312,12 @@ export class HeadTagService {
     if (!baseUrl || !this.appConfig.harvesting?.enabled) {
       return;
     }
-    const restBaseUrl = getSafePublicBaseUrl(this.appConfig.rest.baseUrl);
-    this.addHarvestingLinkTag(
-      'describedby',
-      new URL('/.well-known/repository.jsonld', baseUrl).toString(),
-      'application/ld+json',
-      'UIST repository metadata',
-    );
-    this.addHarvestingLinkTag(
-      'api-catalog',
-      new URL('/.well-known/api-catalog', baseUrl).toString(),
-      'application/linkset+json',
-      'UIST repository API catalog',
-    );
-    if (this.appConfig.harvesting.services.feeds && restBaseUrl) {
-      this.addHarvestingLinkTag(
-        'alternate',
-        `${restBaseUrl}/opensearch/search?format=atom&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10`,
-        'application/atom+xml',
-        'Sitewide Atom feed',
-      );
-      this.addHarvestingLinkTag(
-        'alternate',
-        `${restBaseUrl}/opensearch/search?format=rss&sort=dc.date.accessioned&sort_direction=DESC&query=*&rpp=10`,
-        'application/rss+xml',
-        'Sitewide RSS feed',
-      );
-    }
-    if (this.appConfig.harvesting.services.openSearch && restBaseUrl) {
-      this.addHarvestingLinkTag(
-        'search',
-        `${restBaseUrl}/opensearch/service`,
-        'application/opensearchdescription+xml',
-        this.getRepositoryName(),
-      );
+    for (const link of getRepositoryDiscoveryLinks(
+      this.appConfig.harvesting,
+      baseUrl,
+      this.appConfig.rest.baseUrl,
+    )) {
+      this.addHarvestingLinkTag(link.rel, link.href, link.type, link.title);
     }
   }
 

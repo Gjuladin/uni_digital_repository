@@ -14,6 +14,9 @@ npm-debug.log
 /dist/
 /coverage/
 
+# Local metadata research and audit captures
+/audits/
+
 .idea
 *.iml
 *.ngfactory.ts

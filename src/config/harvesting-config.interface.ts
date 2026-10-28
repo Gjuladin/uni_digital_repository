@@ -12,12 +12,16 @@ export interface HarvestingRepositoryConfig {
   subjects: string[];
   publisher: HarvestingPublisherConfig;
   contactEmail?: HarvestingOptionalClaim;
+  contactName?: HarvestingOptionalClaim;
+  contactUrl?: HarvestingOptionalClaim;
   licenseUrl?: HarvestingOptionalClaim;
   accessRightsUrl?: HarvestingOptionalClaim;
   depositPolicyUrl?: HarvestingOptionalClaim;
   preservationPolicyUrl?: HarvestingOptionalClaim;
   curationPolicyUrl?: HarvestingOptionalClaim;
+  privacyPolicyUrl?: HarvestingOptionalClaim;
   re3dataId?: HarvestingOptionalClaim;
+  re3dataDoi?: HarvestingOptionalClaim;
   fairsharingId?: HarvestingOptionalClaim;
   establishedYear?: HarvestingOptionalClaim;
   fundingStatement?: HarvestingOptionalClaim;

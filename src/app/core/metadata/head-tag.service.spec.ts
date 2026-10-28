@@ -124,7 +124,7 @@ describe('HeadTagService', () => {
           name: 'UIST Digital Repository',
           description: 'UIST research outputs',
           languages: ['en'],
-          subjects: [],
+          subjects: ['Computer science', 'Data science'],
           publisher: {
             id: 'https://uist.edu.mk/#organization',
             name: 'University of Information Science and Technology',
@@ -530,7 +530,19 @@ describe('HeadTagService', () => {
           "link[rel='api-catalog'][type='application/linkset+json']",
         )
         ?.getAttribute('href'),
-    ).toBe('https://repository.uist.edu.mk/.well-known/api-catalog');
+    ).toBe('https://repository.uist.edu.mk/api-catalog');
+    const website = jsonLd['@graph'].find((node: any) => node['@type'] === 'WebSite');
+    expect(website.name).toBe(appConfig.harvesting.repository.name);
+    expect(website.publisher['@id']).toBe(appConfig.harvesting.repository.publisher.id);
+    expect(jsonLd['@graph'].find((node: any) => node['@type'] === 'WebPage').description)
+      .toBe(appConfig.harvesting.repository.description);
+    expect(website.potentialAction.url).toBeUndefined();
+    expect(website.potentialAction.target)
+      .toBe('https://repository.uist.edu.mk/search?query={search_term_string}');
+    expect(meta.addTag).toHaveBeenCalledWith({
+      name: 'keywords',
+      content: 'Computer science, Data science',
+    });
     expect(
       document
         .querySelector(
@@ -549,6 +561,23 @@ describe('HeadTagService', () => {
       jasmine.objectContaining({ name: 'contact' }),
     );
   }));
+
+  it('preserves qualified item subjects in citation, Dublin Core and JSON-LD metadata', () => {
+    const item = Object.assign(new Item(), ItemMock, {
+      metadata: {
+        ...ItemMock.metadata,
+        'dc.subject': [{ value: 'Data science' }],
+        'dc.subject.other': [{ value: 'Online learning' }, { value: 'Data science' }],
+      },
+    }) as Item;
+    (headTagService as any).currentObject.next(item);
+    (headTagService as any).setCitationKeywordsTag();
+    (headTagService as any).setDublinCoreTags();
+
+    expect(meta.addTag).toHaveBeenCalledWith({ name: 'citation_keywords', content: 'Data science; Online learning' });
+    expect(meta.addTag).toHaveBeenCalledWith({ name: 'DC.subject', content: 'Online learning' });
+    expect((headTagService as any).getItemJsonLd().keywords).toEqual(['Data science', 'Online learning']);
+  });
 
   it('uses dspace.entity.type when detailed dc.type is absent', () => {
     const entityOnlyItem = Object.assign(new Item(), ItemMock, {
@@ -876,6 +905,35 @@ describe('HeadTagService', () => {
       const item = renderItem({ 'dc.rights.uri': [{ value: notice }] as MetadataValue[] });
       expect(item.license).toBeUndefined();
       expect(item.copyrightNotice).toBe(notice);
+    });
+
+    for (const malformedUri of [
+      'https:example.org/license',
+      'https:/example.org/license',
+      'https:///example.org/license',
+      'http:example.org/license',
+      'http:/example.org/license',
+      'https://@example.org/license',
+    ]) {
+      it(`preserves a malformed license authority as a notice: ${malformedUri}`, () => {
+        const item = renderItem({
+          'dc.rights.uri': [{ value: malformedUri }] as MetadataValue[],
+          'dc.rights': [{ value: 'Copyright the authors.' }] as MetadataValue[],
+        });
+        expect(item.license).toBeUndefined();
+        expect(item.copyrightNotice).toBe(`Copyright the authors.\n${malformedUri}`);
+      });
+    }
+
+    it('falls back to a textual license while preserving a malformed URI', () => {
+      const malformedUri = 'https:/example.org/license';
+      const item = renderItem({
+        'dc.rights.uri': [{ value: malformedUri }] as MetadataValue[],
+        'dc.rights.license': [{ value: 'cc-by' }] as MetadataValue[],
+        'dc.rights': [{ value: 'Copyright the authors.' }] as MetadataValue[],
+      });
+      expect(item.license).toBe('cc-by');
+      expect(item.copyrightNotice).toBe(`Copyright the authors.\n${malformedUri}`);
     });
 
     it('decodes encoded markup as text and keeps JSON-LD script-safe', () => {
