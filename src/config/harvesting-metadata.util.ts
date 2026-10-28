@@ -10,6 +10,7 @@ export interface HarvestingServiceDescription {
   endpointUrl: string;
   conformsTo: string;
   mediaType?: string;
+  metadataMediaType?: string;
   metadataUrl?: string;
 }
 
@@ -139,7 +140,8 @@ export function getHarvestingServices(
         endpointUrl: `${rest}/opensearch/search`,
         conformsTo:
             'https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md',
-        mediaType: 'application/opensearchdescription+xml',
+        mediaType: 'application/atom+xml',
+        metadataMediaType: 'application/opensearchdescription+xml',
         // Keep this URL distinct from the HTML rel="search" URL. EDEN's
         // current link collector deduplicates by URL alone, so an identical
         // FAIRiCat service-meta link would overwrite the rel="search" entry.
@@ -173,14 +175,8 @@ export function getHarvestingServices(
         mediaType: 'application/xml',
       }
       : undefined,
-    enabled.signposting && ui
-      ? {
-        id: `${ui}/signposting/links/{uuid}`,
-        name: 'Signposting item links',
-        endpointUrl: `${ui}/signposting/links/{uuid}`,
-        conformsTo: 'https://signposting.org/',
-      }
-      : undefined,
+    // Signposting linksets belong to actual items. A {uuid} URL template is
+    // not a resolvable service endpoint; item pages advertise their own links.
   ]);
 }
 
@@ -192,10 +188,11 @@ function getPolicyNodes(
     repository.preservationPolicyUrl,
   );
   const curationPolicyUrl = getEnabledClaimValue(repository.curationPolicyUrl);
+  const accessPolicyUrl = getEnabledClaimValue(repository.accessRightsUrl);
   return compact([
     depositPolicyUrl
       ? {
-        '@type': 'DigitalDocument',
+        '@type': ['CreativeWork', 'DigitalDocument'],
         '@id': depositPolicyUrl,
         name: 'Terms of deposit',
         url: depositPolicyUrl,
@@ -203,7 +200,7 @@ function getPolicyNodes(
       : undefined,
     preservationPolicyUrl
       ? {
-        '@type': 'DigitalDocument',
+        '@type': ['CreativeWork', 'DigitalDocument'],
         '@id': preservationPolicyUrl,
         name: 'Preservation policy',
         url: preservationPolicyUrl,
@@ -211,10 +208,18 @@ function getPolicyNodes(
       : undefined,
     curationPolicyUrl
       ? {
-        '@type': 'DigitalDocument',
+        '@type': ['CreativeWork', 'DigitalDocument'],
         '@id': curationPolicyUrl,
         name: 'Curation policy',
         url: curationPolicyUrl,
+      }
+      : undefined,
+    accessPolicyUrl
+      ? {
+        '@type': ['CreativeWork', 'DigitalDocument'],
+        '@id': accessPolicyUrl,
+        name: 'Access and file reuse',
+        url: accessPolicyUrl,
       }
       : undefined,
   ]);
@@ -241,6 +246,9 @@ export function buildRepositoryGraph(
     getEnabledClaimValue(repository.fairsharingId),
   ]);
   const countryCode = getEnabledClaimValue(publisher.countryCode);
+  const establishedYear = getEnabledClaimValue(repository.establishedYear);
+  const fundingStatement = getEnabledClaimValue(repository.fundingStatement);
+  const funderId = getEnabledClaimValue(repository.funderId);
 
   const catalog: Record<string, unknown> = {
     '@type': 'DataCatalog',
@@ -250,6 +258,9 @@ export function buildRepositoryGraph(
     url: `${ui}/`,
     landingPage: `${ui}/`,
     inLanguage: repository.languages,
+    dateCreated: /^\d{4}$/.test(establishedYear || '') ? establishedYear : undefined,
+    creditText: fundingStatement,
+    funder: funderId ? { '@id': funderId } : undefined,
     keywords: repository.subjects.length > 0 ? repository.subjects : undefined,
     publisher: { '@id': publisher.id },
     provider: { '@id': publisher.id },
@@ -271,10 +282,12 @@ export function buildRepositoryGraph(
       name: service.name,
       url: service.endpointUrl,
       endpointURL: service.endpointUrl,
+      endpointDescription: service.metadataUrl,
       conformsTo: service.conformsTo,
       encodingFormat: service.mediaType,
+      mediaType: service.mediaType,
     })),
-    policy: policies.length > 0 ? policies : undefined,
+    publishingPrinciples: policies.length > 0 ? policies : undefined,
   };
 
   const organization = {
@@ -291,8 +304,20 @@ export function buildRepositoryGraph(
   };
 
   return {
-    '@context': 'https://schema.org',
-    '@graph': [catalog, organization, ...policies],
+    '@context': [
+      'https://schema.org',
+      {
+        dcat: 'http://www.w3.org/ns/dcat#',
+        dct: 'http://purl.org/dc/terms/',
+        DataService: 'dcat:DataService',
+        service: { '@id': 'dcat:service', '@type': '@id' },
+        endpointURL: { '@id': 'dcat:endpointURL', '@type': '@id' },
+        endpointDescription: { '@id': 'dcat:endpointDescription', '@type': '@id' },
+        conformsTo: { '@id': 'dct:conformsTo', '@type': '@id' },
+        mediaType: 'dct:format',
+      },
+    ],
+    '@graph': [catalog, organization],
   };
 }
 
@@ -317,7 +342,9 @@ export function buildFairicatLinkset(
             'service-meta': [
               {
                 href: service.metadataUrl,
-                ...(service.mediaType ? { type: service.mediaType } : {}),
+                ...(service.metadataMediaType || service.mediaType
+                  ? { type: service.metadataMediaType || service.mediaType }
+                  : {}),
                 title: service.name,
               },
             ],

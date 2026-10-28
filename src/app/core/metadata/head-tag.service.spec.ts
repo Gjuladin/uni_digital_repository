@@ -514,6 +514,7 @@ describe('HeadTagService', () => {
       document.querySelector('script[data-uist-seo-jsonld]')?.textContent,
     );
     expect(jsonLd['@graph'][0]['@type']).toBe('DataCatalog');
+    expect(jsonLd['@context'][1].DataService).toBe('dcat:DataService');
     expect(jsonLd['@graph'][0].publisher['@id']).toBe(
       'https://uist.edu.mk/#organization',
     );
@@ -858,6 +859,23 @@ describe('HeadTagService', () => {
       });
       expect(item.license).toBe('https://creativecommons.org/licenses/by/4.0/');
       expect(item.copyrightNotice).toBe('2023 The Author(s)');
+    });
+
+    it('preserves prose from the URI field without inventing a license link', () => {
+      const notice = 'The source PDF and journal page give different reuse conditions.';
+      const item = renderItem({
+        'dc.rights.uri': [{ value: notice }] as MetadataValue[],
+        'dc.rights': [{ value: 'Copyright the authors.' }] as MetadataValue[],
+      });
+      expect(item.license).toBeUndefined();
+      expect(item.copyrightNotice).toBe(`Copyright the authors.\n${notice}`);
+    });
+
+    it('does not treat a URL followed by narrative as a valid license URI', () => {
+      const notice = 'https://creativecommons.org/licenses/by/4.0/ subject to verification';
+      const item = renderItem({ 'dc.rights.uri': [{ value: notice }] as MetadataValue[] });
+      expect(item.license).toBeUndefined();
+      expect(item.copyrightNotice).toBe(notice);
     });
 
     it('decodes encoded markup as text and keeps JSON-LD script-safe', () => {

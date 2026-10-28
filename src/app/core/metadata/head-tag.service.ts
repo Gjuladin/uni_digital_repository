@@ -75,6 +75,7 @@ import {
   getFirstSucceededRemoteDataPayload,
 } from '../shared/operators';
 import { URLCombiner } from '../url-combiner/url-combiner';
+import { getItemLicenseMetadata } from './item-license.util';
 import {
   AddMetaTagAction,
   ClearMetaTagAction,
@@ -442,7 +443,7 @@ export class HeadTagService {
         this.appConfig.rest.baseUrl,
       );
       this.addJsonLdTag({
-        '@context': 'https://schema.org',
+        '@context': repositoryGraph['@context'],
         '@graph': [
           ...((repositoryGraph['@graph'] as Array<Record<string, unknown>>) ||
             []),
@@ -463,7 +464,7 @@ export class HeadTagService {
         this.appConfig.rest.baseUrl,
       );
       this.addJsonLdTag({
-        '@context': 'https://schema.org',
+        '@context': repositoryGraph['@context'],
         '@graph': [
           this.getItemJsonLd(),
           ...((repositoryGraph['@graph'] as Array<Record<string, unknown>>) ||
@@ -1053,19 +1054,7 @@ export class HeadTagService {
             ),
         ),
       ],
-      // Keep an explicit URI as-is. If only a textual licence is available,
-      // preserve that source claim as schema.org Text instead of inventing a
-      // Creative Commons URL or silently dropping it.
-      license: this.isAbsoluteUrl(rightsUri)
-        ? rightsUri
-        : this.isAbsoluteUrl(licenseText)
-          ? licenseText
-          : this.isAbsoluteUrl(rightsText)
-            ? rightsText
-            : licenseText || undefined,
-      copyrightNotice: !this.isAbsoluteUrl(rightsText)
-        ? rightsText || undefined
-        : undefined,
+      ...getItemLicenseMetadata(rightsUri, licenseText, rightsText),
       conditionsOfAccess: this.getFirstMetaTagValue([
         'dcterms.accessRights',
         'dc.rights.accessRights',

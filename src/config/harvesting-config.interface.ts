@@ -19,6 +19,9 @@ export interface HarvestingRepositoryConfig {
   curationPolicyUrl?: HarvestingOptionalClaim;
   re3dataId?: HarvestingOptionalClaim;
   fairsharingId?: HarvestingOptionalClaim;
+  establishedYear?: HarvestingOptionalClaim;
+  fundingStatement?: HarvestingOptionalClaim;
+  funderId?: HarvestingOptionalClaim;
 }
 
 /** A governance or registry claim is published only when explicitly enabled and populated. */
